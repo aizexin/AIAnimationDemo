@@ -1,8 +1,24 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - MLTransition (2.1.2)
   - pop (1.0.9)
 
 DEPENDENCIES:
+  - AFNetworking (~> 3.0)
   - MLTransition (~> 2.1.2)
   - pop (from `https://github.com/facebook/pop.git`)
 
@@ -16,9 +32,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/facebook/pop.git
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   MLTransition: 26751adac088c07e4df48c9f605cfdd767bb8afa
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
 
-PODFILE CHECKSUM: 70d0b5f2f042e7517b21d75b4d129634632d66f5
+PODFILE CHECKSUM: 181fcb620a1e0fa878236cb438519a0414139d99
 
 COCOAPODS: 1.0.1
