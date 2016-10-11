@@ -31,6 +31,7 @@
 		45D43DF11DACC2570022F86A /* YXEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DEF1DACC2570022F86A /* YXEasing.m */; };
 		45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DF31DACC3090022F86A /* AIBaiduLoadHUDViewController.m */; };
 		45D43DF71DACC3440022F86A /* AIBaiduHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DF61DACC3440022F86A /* AIBaiduHUD.m */; };
+		45D43DFB1DACC8EE0022F86A /* AINetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DFA1DACC8EE0022F86A /* AINetWorkHelper.m */; };
 		CE844DCC7CDAC9A358C39F2F /* libPods-AIAnimationDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2094375E453D88DFC8C32A45 /* libPods-AIAnimationDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,8 @@
 		45D43DF31DACC3090022F86A /* AIBaiduLoadHUDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBaiduLoadHUDViewController.m; sourceTree = "<group>"; };
 		45D43DF51DACC3440022F86A /* AIBaiduHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBaiduHUD.h; sourceTree = "<group>"; };
 		45D43DF61DACC3440022F86A /* AIBaiduHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBaiduHUD.m; sourceTree = "<group>"; };
+		45D43DF91DACC8EE0022F86A /* AINetWorkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AINetWorkHelper.h; sourceTree = "<group>"; };
+		45D43DFA1DACC8EE0022F86A /* AINetWorkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AINetWorkHelper.m; sourceTree = "<group>"; };
 		48ED125D08E27BAFBE549DFC /* Pods-AIAnimationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.release.xcconfig"; sourceTree = "<group>"; };
 		7620388811825F2ABC3F5185 /* Pods-AIAnimationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +299,7 @@
 		455E28BF1D98C58100E3DA4D /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				45D43DF81DACC8900022F86A /* NetWorking */,
 				45D43DE81DACC2100022F86A /* Pop5 */,
 				4515A1B71D9CFED8000F4E24 /* Pop3 */,
 				4515A1BA1D9CFED8000F4E24 /* Pop4 */,
@@ -431,6 +435,15 @@
 				45D43DEF1DACC2570022F86A /* YXEasing.m */,
 			);
 			path = Easing;
+			sourceTree = "<group>";
+		};
+		45D43DF81DACC8900022F86A /* NetWorking */ = {
+			isa = PBXGroup;
+			children = (
+				45D43DF91DACC8EE0022F86A /* AINetWorkHelper.h */,
+				45D43DFA1DACC8EE0022F86A /* AINetWorkHelper.m */,
+			);
+			path = NetWorking;
 			sourceTree = "<group>";
 		};
 		4EB85B77591E8F52115C87C8 /* Pods */ = {
@@ -651,6 +664,7 @@
 				455E28CE1D98F55200E3DA4D /* AIPop1ViewController.m in Sources */,
 				45D43DF11DACC2570022F86A /* YXEasing.m in Sources */,
 				45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */,
+				45D43DFB1DACC8EE0022F86A /* AINetWorkHelper.m in Sources */,
 				458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */,
 				4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */,
 				45D43DF01DACC2570022F86A /* easing.c in Sources */,
