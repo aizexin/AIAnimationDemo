@@ -87,7 +87,7 @@
             [indexPaths addObject:[NSIndexPath indexPathForItem:i inSection:0]];
         }
         self.tableViewLoadData = YES;
-        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
     } afterDelaySecs:0.25f];
 }
 
