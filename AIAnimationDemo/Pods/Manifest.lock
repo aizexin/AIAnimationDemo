@@ -1,0 +1,24 @@
+PODS:
+  - MLTransition (2.1.2)
+  - pop (1.0.9)
+
+DEPENDENCIES:
+  - MLTransition (~> 2.1.2)
+  - pop (from `https://github.com/facebook/pop.git`)
+
+EXTERNAL SOURCES:
+  pop:
+    :git: https://github.com/facebook/pop.git
+
+CHECKOUT OPTIONS:
+  pop:
+    :commit: 92b2c5b7bcad64f7507da34f921492c71ff1d330
+    :git: https://github.com/facebook/pop.git
+
+SPEC CHECKSUMS:
+  MLTransition: 26751adac088c07e4df48c9f605cfdd767bb8afa
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+
+PODFILE CHECKSUM: 70d0b5f2f042e7517b21d75b4d129634632d66f5
+
+COCOAPODS: 1.0.1
