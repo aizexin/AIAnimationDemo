@@ -28,6 +28,7 @@
 		455E28D91D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28D81D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m */; };
 		4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4581319C1DAB7CB100B2E8D1 /* DrawMarqueeView.m */; };
 		458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 458131A31DAB97C300B2E8D1 /* AILayerButton.m */; };
+		45D43DE71DACB7170022F86A /* AISpringScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */; };
 		CE844DCC7CDAC9A358C39F2F /* libPods-AIAnimationDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2094375E453D88DFC8C32A45 /* libPods-AIAnimationDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,8 @@
 		4581319C1DAB7CB100B2E8D1 /* DrawMarqueeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawMarqueeView.m; sourceTree = "<group>"; };
 		458131A21DAB97C300B2E8D1 /* AILayerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILayerButton.h; sourceTree = "<group>"; };
 		458131A31DAB97C300B2E8D1 /* AILayerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILayerButton.m; sourceTree = "<group>"; };
+		45D43DE51DACB7170022F86A /* AISpringScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISpringScaleViewController.h; sourceTree = "<group>"; };
+		45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISpringScaleViewController.m; sourceTree = "<group>"; };
 		48ED125D08E27BAFBE549DFC /* Pods-AIAnimationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.release.xcconfig"; sourceTree = "<group>"; };
 		7620388811825F2ABC3F5185 /* Pods-AIAnimationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +179,8 @@
 		4515A1BB1D9CFED8000F4E24 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				45D43DE51DACB7170022F86A /* AISpringScaleViewController.h */,
+				45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -598,6 +603,7 @@
 				455E28D31D98F80600E3DA4D /* AIListModel.m in Sources */,
 				4515A1A81D9BC47A000F4E24 /* easing.c in Sources */,
 				455E28911D98C0D300E3DA4D /* AppDelegate.m in Sources */,
+				45D43DE71DACB7170022F86A /* AISpringScaleViewController.m in Sources */,
 				453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */,
 				455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */,
 				453DD8471DACA80500D1CDA9 /* GCDSemaphore.m in Sources */,

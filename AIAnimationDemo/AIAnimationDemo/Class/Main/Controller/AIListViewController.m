@@ -13,6 +13,7 @@
 #import "AIPopSpringAnimationViewController.h"
 #import "AIMarqueeViewController.h"
 #import "GCD.h"
+#import "AISpringScaleViewController.h"   //pop缩放动画
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -29,7 +30,7 @@
         NSArray *array = @[[AIListModel initWithTitle:@"衰减动画" andTargetVC:[AIPop1ViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"跑马灯效果" andTargetVC:[AIMarqueeViewController class]],
-                           [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
+                           [AIListModel initWithTitle:@"Pop缩放动画" andTargetVC:[AISpringScaleViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
