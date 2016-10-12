@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Canvas.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MLTransition.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0B938C32A123E7C0BE15852AB023A04A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>18963E48DC4192515DB631F1CBF5AFDD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>549947002DE91CF6A620D876792DFBA2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>560BF75A04A4785277AB459A92058006</key>
+		<key>7B70FF4727CE2B01771305C575F81AF8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>951BAA5FA8501628A76E1461A7BA9AA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

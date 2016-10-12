@@ -14,11 +14,13 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Canvas (0.1.2)
   - MLTransition (2.1.2)
   - pop (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - Canvas (~> 0.1.2)
   - MLTransition (~> 2.1.2)
   - pop (from `https://github.com/facebook/pop.git`)
 
@@ -33,9 +35,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
   MLTransition: 26751adac088c07e4df48c9f605cfdd767bb8afa
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
 
-PODFILE CHECKSUM: 181fcb620a1e0fa878236cb438519a0414139d99
+PODFILE CHECKSUM: 66f7598473a86e3259fa334610de96b3a5a0da12
 
 COCOAPODS: 1.0.1

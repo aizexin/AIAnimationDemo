@@ -32,6 +32,7 @@ singleton_m(AIBaiduHUD)
     self = [super initWithFrame:frame];
     if (self) {
         [self createHub];
+        self.backgroundColor = [UIColor orangeColor];
     }
     return self;
 }
@@ -40,6 +41,7 @@ singleton_m(AIBaiduHUD)
  */
 -(void)createHub{
     UIImageView *bgImageView = [[UIImageView alloc]init];
+    bgImageView.backgroundColor = [UIColor greenColor];
     bgImageView.userInteractionEnabled = YES;
     self.bgImageView         = bgImageView;
     bgImageView.image        = [UIImage imageNamed:@"search_map_btn"];
@@ -49,16 +51,16 @@ singleton_m(AIBaiduHUD)
     tipsLabel.textAlignment = NSTextAlignmentCenter;
     tipsLabel.text          = @"正在加载。。。";
     self.tipsLable          = tipsLabel;
-    [self.bgImageView addSubview:tipsLabel];
+    [self addSubview:tipsLabel];
     //动画view
     AILoadAnimationView *animationView = [[AILoadAnimationView alloc]init];
     self.animationView                 = animationView;
-    [self.bgImageView addSubview:animationView];
+    [self addSubview:animationView];
     //取消按钮
     UIButton *cancelButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
     self.cancelButton      = cancelButton;
     [cancelButton addTarget:self action:@selector(onClickCancelBtn:) forControlEvents:(UIControlEventTouchUpInside)];
-    [self.bgImageView addSubview:cancelButton];
+    [self addSubview:cancelButton];
     [cancelButton setImage:[UIImage imageNamed:@"dialog_cancel"] forState:(UIControlStateNormal)];
 }
 
@@ -98,6 +100,21 @@ singleton_m(AIBaiduHUD)
     [AIBaiduHUD dissmis];
 }
 
+#pragma mark ---出现动画
+- (void)scaleAnimation {
+    
+    POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+    
+    scaleAnimation.name               = @"scaleSmallAnimation";
+//    scaleAnimation.delegate           = self;
+    
+    scaleAnimation.duration           = 0.15f;
+    scaleAnimation.toValue            = [NSValue valueWithCGPoint:CGPointMake(2.25, 2.25)];\
+    
+//    [self pop_addAnimation:scaleAnimation forKey:nil];
+    
+}
+
 #pragma mark ---类方法
 +(void)show{
     AIBaiduHUD *hud            = [AIBaiduHUD sharedAIBaiduHUD];
@@ -106,7 +123,10 @@ singleton_m(AIBaiduHUD)
     UIApplication *application = [UIApplication sharedApplication];
     UIWindow *lastWindow       = [application.windows lastObject];
     hud.center                 = lastWindow.center;
-    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [hud scaleAnimation];
+    });
     [lastWindow addSubview:hud];
 }
 +(void)dissmis{
