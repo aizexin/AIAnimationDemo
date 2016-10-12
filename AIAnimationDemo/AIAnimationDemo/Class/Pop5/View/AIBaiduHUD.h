@@ -10,4 +10,8 @@
 
 @interface AIBaiduHUD : UIView
 
+
++(void)show;
++(void)dissmis;
+singleton_h(AIBaiduHUD)
 @end

@@ -64,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		2094375E453D88DFC8C32A45 /* libPods-AIAnimationDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AIAnimationDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		450FF8951DADEE5100E335C3 /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
 		4515A1AA1D9BC4A6000F4E24 /* UIFont+Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Fonts.h"; sourceTree = "<group>"; };
 		4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Fonts.m"; sourceTree = "<group>"; };
 		4515A1BD1D9CFF5A000F4E24 /* AIMarqueeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMarqueeViewController.h; sourceTree = "<group>"; };
@@ -167,6 +168,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		450FF8941DADEE3700E335C3 /* Single */ = {
+			isa = PBXGroup;
+			children = (
+				450FF8951DADEE5100E335C3 /* single.h */,
+			);
+			path = Single;
+			sourceTree = "<group>";
+		};
 		4515A1371D9BC356000F4E24 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +252,7 @@
 		453DD83A1DACA80500D1CDA9 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				450FF8941DADEE3700E335C3 /* Single */,
 				45D43DEB1DACC2570022F86A /* Easing */,
 				453DD83B1DACA80500D1CDA9 /* GCD */,
 			);

@@ -13,59 +13,82 @@
 @interface AILoadAnimationView ()
 
 @property (nonatomic, strong)  UIView  *messageView;
+/** 旋转的view*/
+@property(nonatomic,weak)InfiniteRotationView *rotateView;
+/** lineImage*/
+@property(nonatomic,weak)UIImageView *lineImageV;
+/** wordImage*/
+@property(nonatomic,weak)UIImageView *wordImageV;
 @end
 
 @implementation AILoadAnimationView
 
-
-- (void)show{
-    [self createMessageView];
-}
-
-- (void)createMessageView {
-    
-    // 创建信息窗体view
-    self.messageView                     = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    self.messageView.center              = self.center;
-    self.messageView.layer.cornerRadius  = self.frame.size.width / 2.f;
-    self.messageView.layer.masksToBounds = YES;
-    self.messageView.alpha               = 0.f;
-    [self addSubview:self.messageView];
-    
-    {
-        InfiniteRotationView *rotateView = [[InfiniteRotationView alloc] initWithFrame:self.messageView.bounds];
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // 创建信息窗体view
+        self.messageView                 = [[UIView alloc] init];
+        [self addSubview:self.messageView];
+        //旋转的view
+        InfiniteRotationView *rotateView = [[InfiniteRotationView alloc]init];
+        self.rotateView                  = rotateView;
         rotateView.speed                 = 0.95f;
         rotateView.clockWise             = YES;
-        [rotateView startRotateAnimation];
         [self.messageView addSubview:rotateView];
+        //lineImage
+        UIImageView *lineImageV          = [[UIImageView alloc]init];
+        lineImageV.image                 = [UIImage imageNamed:@"line"];
+        self.lineImageV                  = lineImageV;
+        [rotateView addSubview:lineImageV];
+        //wordImage
+        UIImageView *wordImageV          = [[UIImageView alloc]initWithImage:
+                                            [UIImage imageNamed:@"word"]];
+        wordImageV.scale                 = 0.3f;
+        self.wordImageV                  = wordImageV;
+        [self.messageView addSubview:wordImageV];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-        imageView.image        = [UIImage imageNamed:@"line"];
-        imageView.center       = rotateView.center;
-        [rotateView addSubview:imageView];
+//        [self startGlow];
     }
-    
-    UIImageView *inImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"word"]];
-    inImageView.scale        = 0.3f;
-    [self.messageView addSubview:inImageView];
-    inImageView.center = self.messageView.center;
-    
+    return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    //窗体
+    self.messageView.frame = self.bounds;
+    //旋转view
+    self.rotateView.frame  = self.messageView.bounds;
+    //lineImageV
+    self.lineImageV.frame  = CGRectMake(0, 0, 80, 80);
+    self.lineImageV.center = self.messageView.center;
+    //wordImageV
+    self.wordImageV.center = self.messageView.center;
+}
+
+/** 中间的图片辉光效果*/
+- (void)startGlow{
+    [self.rotateView startRotateAnimation];
     // Start glow.
-    inImageView.glowRadius            = @(2.f);
-    inImageView.glowOpacity           = @(1.f);
-    inImageView.glowColor             = [[UIColor colorWithRed:0.203  green:0.598  blue:0.859 alpha:1] colorWithAlphaComponent:0.95f];
-    inImageView.glowDuration          = @(1.f);
-    inImageView.hideDuration          = @(3.f);
-    inImageView.glowAnimationDuration = @(2.f);
-    [inImageView createGlowLayer];
-    [inImageView insertGlowLayer];
-    [inImageView startGlowLoop];
+    self.wordImageV .glowRadius            = @(2.f);
+    self.wordImageV .glowOpacity           = @(1.f);
+    self.wordImageV .glowColor             = [[UIColor colorWithRed:0.203  green:0.598  blue:0.859 alpha:1] colorWithAlphaComponent:0.95f];
+    self.wordImageV .glowDuration          = @(1.f);
+    self.wordImageV .hideDuration          = @(3.f);
+    self.wordImageV .glowAnimationDuration = @(2.f);
+    [self.wordImageV  createGlowLayer];
+    [self.wordImageV  insertGlowLayer];
+    [self.wordImageV  startGlowLoop];
     
     [UIView animateWithDuration:0.3f animations:^{
         
         self.messageView.alpha = 1.f;
         self.messageView.scale = 1.f;
     }];
+}
+- (void)resetGlow{
+    [self.rotateView reset];
+    [self.wordImageV removeGlowLayer];
 }
 
 @end

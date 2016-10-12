@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AILoadAnimationView : UIView
-
+/** 开始动画  转圈和辉光效果*/
+- (void)startGlow;
+/** 重置动画*/
+- (void)resetGlow;
 @end

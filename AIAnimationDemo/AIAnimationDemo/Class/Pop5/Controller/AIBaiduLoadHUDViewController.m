@@ -7,7 +7,7 @@
 //  模仿百度的加载控件
 
 #import "AIBaiduLoadHUDViewController.h"
-
+#import "AIBaiduHUD.h"
 @interface AIBaiduLoadHUDViewController ()
 
 @end
@@ -16,8 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [AIBaiduHUD show];
 }
+
 
 
 
