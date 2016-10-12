@@ -27,6 +27,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+//        self.backgroundColor             = [UIColor clearColor];
         // 创建信息窗体view
         self.messageView                 = [[UIView alloc] init];
         [self addSubview:self.messageView];

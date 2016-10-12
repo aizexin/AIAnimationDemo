@@ -17,6 +17,10 @@
 @property(nonatomic,weak)AILoadAnimationView *animationView;
 /** 取消按钮*/
 @property(nonatomic,weak)UIButton *cancelButton;
+/** 总体宽度*/
+@property(nonatomic,assign)CGFloat allWith;
+/** 背景图片*/
+@property(nonatomic,weak)UIImageView *bgImageView;
 @end
 @implementation AIBaiduHUD
 
@@ -35,26 +39,33 @@ singleton_m(AIBaiduHUD)
  创建
  */
 -(void)createHub{
-    
+    UIImageView *bgImageView = [[UIImageView alloc]init];
+    bgImageView.userInteractionEnabled = YES;
+    self.bgImageView         = bgImageView;
+    bgImageView.image        = [UIImage imageNamed:@"search_map_btn"];
+    [self addSubview:bgImageView];
     //提示label
-    UILabel *tipsLabel = [[UILabel alloc]init];
-    tipsLabel.text     = @"正在加载。。。";
-    self.tipsLable     = tipsLabel;
-    [self addSubview:tipsLabel];
+    UILabel *tipsLabel      = [[UILabel alloc]init];
+    tipsLabel.textAlignment = NSTextAlignmentCenter;
+    tipsLabel.text          = @"正在加载。。。";
+    self.tipsLable          = tipsLabel;
+    [self.bgImageView addSubview:tipsLabel];
     //动画view
     AILoadAnimationView *animationView = [[AILoadAnimationView alloc]init];
     self.animationView                 = animationView;
-    [self addSubview:animationView];
+    [self.bgImageView addSubview:animationView];
     //取消按钮
     UIButton *cancelButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
     self.cancelButton      = cancelButton;
     [cancelButton addTarget:self action:@selector(onClickCancelBtn:) forControlEvents:(UIControlEventTouchUpInside)];
-    [self addSubview:cancelButton];
+    [self.bgImageView addSubview:cancelButton];
     [cancelButton setImage:[UIImage imageNamed:@"dialog_cancel"] forState:(UIControlStateNormal)];
 }
 
 -(void)layoutSubviews{
     [super layoutSubviews];
+    //背景图
+    self.bgImageView.frame   = self.bounds;
     //动画view
     CGFloat animationViewW   = 100;
     CGFloat animationViewH   = 100;
@@ -68,7 +79,7 @@ singleton_m(AIBaiduHUD)
     CGFloat tipsLabelX       = CGRectGetMaxX(self.animationView.frame);
     CGFloat tipsLabelY       = 0;
     CGFloat tipsLabelW       = 100;
-    CGFloat tipsLabelH       = 100;
+    CGFloat tipsLabelH       = animationViewH;
     self.tipsLable.frame     = CGRectMake(tipsLabelX,
                                           tipsLabelY,
                                           tipsLabelW,
@@ -76,10 +87,11 @@ singleton_m(AIBaiduHUD)
     //取消按钮
     CGFloat cacelBtnX        = CGRectGetMaxX(self.tipsLable.frame);
     CGFloat cacelBtnY        = 0;
-    CGFloat cacelBtnW        = 37;
-    CGFloat cacelBtnH        = 100;
+    CGFloat cacelBtnW        = 50;
+    CGFloat cacelBtnH        = animationViewH;
     self.cancelButton.frame  = CGRectMake(cacelBtnX, cacelBtnY, cacelBtnW, cacelBtnH);
-
+    //总体宽度
+    self.allWith = animationViewW + tipsLabelW + cacelBtnW;
 }
 #pragma mark ---相应事件
 -(void)onClickCancelBtn:(UIButton *)btn{
@@ -90,7 +102,7 @@ singleton_m(AIBaiduHUD)
 +(void)show{
     AIBaiduHUD *hud            = [AIBaiduHUD sharedAIBaiduHUD];
     [hud.animationView startGlow];
-    hud.frame                  = CGRectMake(0, 0, 250, 100);
+    hud.frame                  = CGRectMake(0, 0, hud.allWith, 100);
     UIApplication *application = [UIApplication sharedApplication];
     UIWindow *lastWindow       = [application.windows lastObject];
     hud.center                 = lastWindow.center;

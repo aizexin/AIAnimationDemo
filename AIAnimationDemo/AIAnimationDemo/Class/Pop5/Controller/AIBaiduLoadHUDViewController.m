@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [AIBaiduHUD show];
+    self.view.backgroundColor = [UIColor grayColor];
 }
 
 
