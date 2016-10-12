@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4505FE901DAE8C1D00AE4FED /* AIAnimationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FE8F1DAE8C1D00AE4FED /* AIAnimationImageView.m */; };
 		4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */; };
 		4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */; };
 		453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD83E1DACA80500D1CDA9 /* GCDGroup.m */; };
@@ -64,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		2094375E453D88DFC8C32A45 /* libPods-AIAnimationDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AIAnimationDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4505FE8E1DAE8C1D00AE4FED /* AIAnimationImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAnimationImageView.h; sourceTree = "<group>"; };
+		4505FE8F1DAE8C1D00AE4FED /* AIAnimationImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAnimationImageView.m; sourceTree = "<group>"; };
 		450FF8951DADEE5100E335C3 /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
 		4515A1AA1D9BC4A6000F4E24 /* UIFont+Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Fonts.h"; sourceTree = "<group>"; };
 		4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Fonts.m"; sourceTree = "<group>"; };
@@ -466,6 +469,8 @@
 				45D43DF61DACC3440022F86A /* AIBaiduHUD.m */,
 				45D43DFC1DACD9460022F86A /* AILoadAnimationView.h */,
 				45D43DFD1DACD9460022F86A /* AILoadAnimationView.m */,
+				4505FE8E1DAE8C1D00AE4FED /* AIAnimationImageView.h */,
+				4505FE8F1DAE8C1D00AE4FED /* AIAnimationImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -749,6 +754,7 @@
 				45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */,
 				45D43DFB1DACC8EE0022F86A /* AINetWorkHelper.m in Sources */,
 				458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */,
+				4505FE901DAE8C1D00AE4FED /* AIAnimationImageView.m in Sources */,
 				45D43E141DACDD120022F86A /* UIView+ScreensShot.m in Sources */,
 				45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */,
 				4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */,
