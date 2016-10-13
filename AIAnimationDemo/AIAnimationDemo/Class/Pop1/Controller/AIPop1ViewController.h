@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AIPop1ViewController : UIViewController
+#import "AIBaseViewController.h"
+@interface AIPop1ViewController : AIBaseViewController
 
 @end

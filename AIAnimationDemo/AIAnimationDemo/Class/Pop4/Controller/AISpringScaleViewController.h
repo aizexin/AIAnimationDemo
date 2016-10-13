@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AISpringScaleViewController : UIViewController
+#import "AIBaseViewController.h"
+@interface AISpringScaleViewController : AIBaseViewController
 
 @end

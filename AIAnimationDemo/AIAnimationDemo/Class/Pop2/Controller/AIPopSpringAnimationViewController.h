@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AIPopSpringAnimationViewController : UIViewController
+#import "AIBaseViewController.h"
+@interface AIPopSpringAnimationViewController : AIBaseViewController
 
 @end

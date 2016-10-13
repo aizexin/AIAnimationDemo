@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AIBaiduLoadHUDViewController : UIViewController
+#import "AIBaseViewController.h"
+@interface AIBaiduLoadHUDViewController : AIBaseViewController
 
 @end

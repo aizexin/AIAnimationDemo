@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AIMarqueeViewController : UIViewController
+#import "AIBaseViewController.h"
+@interface AIMarqueeViewController : AIBaseViewController
 
 @end

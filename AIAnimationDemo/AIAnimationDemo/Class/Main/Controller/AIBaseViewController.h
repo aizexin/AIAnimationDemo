@@ -1,5 +1,5 @@
 //
-//  AIShimmerViewController.h
+//  AIBaseViewController.h
 //  AIAnimationDemo
 //
 //  Created by 艾泽鑫 on 2016/10/13.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AIBaseViewController.h"
-@interface AIShimmerViewController : AIBaseViewController
+
+@interface AIBaseViewController : UIViewController
 
 @end

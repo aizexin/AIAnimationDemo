@@ -13,6 +13,7 @@
 #import "AIPopSpringAnimationViewController.h"
 #import "AIMarqueeViewController.h"
 #import "GCD.h"
+#import "AIBaseViewController.h"          //父类
 #import "AISpringScaleViewController.h"   //pop缩放动画
 #import "AIBaiduLoadHUDViewController.h"  //防百度加载提示
 #import "AIShimmerViewController.h"       //facebook辉光动画
@@ -99,8 +100,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // 立即取消选中
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    AIListModel *model = self.dataSource[indexPath.row];
-    UIViewController *targetVC = [[model.targetVC alloc]init];
+    AIListModel *model             = self.dataSource[indexPath.row];
+    AIBaseViewController *targetVC = [[model.targetVC alloc]init];
+    targetVC.title                 = model.title;
     [self.navigationController pushViewController:targetVC  animated:YES];
 }
 
