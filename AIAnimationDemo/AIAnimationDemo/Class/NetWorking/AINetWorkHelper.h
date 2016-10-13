@@ -15,4 +15,5 @@ typedef void (^FailureBlock)(NSError * err);
 +(void)GET:(NSString *)url parameters:(id)param success:(SuccessBlock)success failure:(FailureBlock)failure;
 
 +(void)POST:(NSString *)url parameters:(id)param success:(SuccessBlock)success failure:(FailureBlock)failure;
+
 @end

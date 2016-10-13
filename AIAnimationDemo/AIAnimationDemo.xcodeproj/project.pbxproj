@@ -171,6 +171,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4505FE911DAF2AFC00AE4FED /* Pop6 */ = {
+			isa = PBXGroup;
+			children = (
+				4505FE921DAF2AFC00AE4FED /* Controller */,
+				4505FE931DAF2AFC00AE4FED /* View */,
+			);
+			path = Pop6;
+			sourceTree = "<group>";
+		};
+		4505FE921DAF2AFC00AE4FED /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4505FE931DAF2AFC00AE4FED /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		450FF8941DADEE3700E335C3 /* Single */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +367,7 @@
 		455E28BF1D98C58100E3DA4D /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				4505FE911DAF2AFC00AE4FED /* Pop6 */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				45D43DE81DACC2100022F86A /* Pop5 */,
 				4515A1B71D9CFED8000F4E24 /* Pop3 */,

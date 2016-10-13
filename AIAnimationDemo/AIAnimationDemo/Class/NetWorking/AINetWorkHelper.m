@@ -54,5 +54,10 @@
         }
     }];
 }
++(void)cancelNetWork{
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    //取消请求但不关闭sessoin
+    [manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+}
 
 @end
