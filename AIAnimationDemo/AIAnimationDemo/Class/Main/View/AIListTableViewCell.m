@@ -29,7 +29,7 @@
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self                 = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     self.titlelabel      = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 290, 25)];
     [self.contentView addSubview:self.titlelabel];
     
@@ -41,7 +41,16 @@
 }
 -(void)setModel:(AIListModel *)model{
     _model = model;
-    self.titlelabel.text = model.title;
+    self.titlelabel.attributedText = model.titleString;
+    self.subTitleLabel.text = [NSString stringWithFormat:@"%@",[model.targetVC class]];
+    if (self.indexPath.row % 2) {
+        
+        self.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.05f];
+        
+    } else {
+        
+        self.backgroundColor = [UIColor whiteColor];
+    }
 }
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
     

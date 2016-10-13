@@ -12,5 +12,6 @@
 
 /** 数据源*/
 @property(nonatomic,strong)AIListModel *model;
+@property(nonatomic,assign)NSIndexPath *indexPath;
 +(instancetype)createTableViewCellWithTableView:(UITableView *)tableView;
 @end

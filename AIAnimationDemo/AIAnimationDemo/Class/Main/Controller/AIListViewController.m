@@ -59,7 +59,14 @@
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]]
                            ];
-        _dataSource = [array copy];
+        
+        _dataSource = [NSMutableArray arrayWithCapacity:array.count];
+        for (int i = 0; i < array.count; i++) {
+            AIListModel *model = array[i];
+            model.index        = i+1;
+            [model createAttributedString];
+            [_dataSource addObject:model];
+        }
     }
     return _dataSource;
 }
@@ -113,7 +120,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AIListTableViewCell *cell = [AIListTableViewCell createTableViewCellWithTableView:tableView];
-    cell.model = self.dataSource[indexPath.row];
+    cell.indexPath            = indexPath;
+    cell.model                = self.dataSource[indexPath.row];
     return cell;
 }
 
