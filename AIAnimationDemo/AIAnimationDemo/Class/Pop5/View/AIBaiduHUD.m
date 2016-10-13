@@ -98,6 +98,10 @@ singleton_m(AIBaiduHUD)
 #pragma mark ---相应事件
 -(void)onClickCancelBtn:(UIButton *)btn{
     [AIBaiduHUD dissmis];
+    if (self.delegate &&
+        [self.delegate respondsToSelector:@selector(baiduHud:DidClickCancelButton:)]) {
+        [self.delegate baiduHud:self DidClickCancelButton:btn];
+    }
 }
 
 #pragma mark ---出现动画

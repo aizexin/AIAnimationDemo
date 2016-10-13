@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AIBaiduHUD;
 
+@protocol AIBaiduHudDelegate <NSObject>
+/** 点击取消按钮后*/
+- (void)baiduHud:(AIBaiduHUD*)baiduHud DidClickCancelButton:(UIButton*)cancelButton;
+
+@end
 @interface AIBaiduHUD : UIView
+
+/** 代理*/
+@property(nonatomic,weak)id<AIBaiduHudDelegate> delegate;
 
 /** 显示*/
 +(void)show;
