@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4505FE901DAE8C1D00AE4FED /* AIAnimationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FE8F1DAE8C1D00AE4FED /* AIAnimationImageView.m */; };
+		4505FE961DAF2D3B00AE4FED /* AIShimmerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FE951DAF2D3B00AE4FED /* AIShimmerViewController.m */; };
+		4505FE9D1DAF315E00AE4FED /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FE9A1DAF315E00AE4FED /* FBShimmeringLayer.m */; };
+		4505FE9E1DAF315E00AE4FED /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FE9C1DAF315E00AE4FED /* FBShimmeringView.m */; };
 		4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */; };
 		4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */; };
 		453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD83E1DACA80500D1CDA9 /* GCDGroup.m */; };
@@ -67,6 +70,13 @@
 		2094375E453D88DFC8C32A45 /* libPods-AIAnimationDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AIAnimationDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4505FE8E1DAE8C1D00AE4FED /* AIAnimationImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAnimationImageView.h; sourceTree = "<group>"; };
 		4505FE8F1DAE8C1D00AE4FED /* AIAnimationImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAnimationImageView.m; sourceTree = "<group>"; };
+		4505FE941DAF2D3B00AE4FED /* AIShimmerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIShimmerViewController.h; sourceTree = "<group>"; };
+		4505FE951DAF2D3B00AE4FED /* AIShimmerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIShimmerViewController.m; sourceTree = "<group>"; };
+		4505FE981DAF315E00AE4FED /* FBShimmering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmering.h; sourceTree = "<group>"; };
+		4505FE991DAF315E00AE4FED /* FBShimmeringLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringLayer.h; sourceTree = "<group>"; };
+		4505FE9A1DAF315E00AE4FED /* FBShimmeringLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringLayer.m; sourceTree = "<group>"; };
+		4505FE9B1DAF315E00AE4FED /* FBShimmeringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringView.h; sourceTree = "<group>"; };
+		4505FE9C1DAF315E00AE4FED /* FBShimmeringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringView.m; sourceTree = "<group>"; };
 		450FF8951DADEE5100E335C3 /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
 		4515A1AA1D9BC4A6000F4E24 /* UIFont+Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Fonts.h"; sourceTree = "<group>"; };
 		4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Fonts.m"; sourceTree = "<group>"; };
@@ -183,6 +193,8 @@
 		4505FE921DAF2AFC00AE4FED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4505FE941DAF2D3B00AE4FED /* AIShimmerViewController.h */,
+				4505FE951DAF2D3B00AE4FED /* AIShimmerViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -190,8 +202,21 @@
 		4505FE931DAF2AFC00AE4FED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4505FE971DAF315E00AE4FED /* FBShimmering */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4505FE971DAF315E00AE4FED /* FBShimmering */ = {
+			isa = PBXGroup;
+			children = (
+				4505FE981DAF315E00AE4FED /* FBShimmering.h */,
+				4505FE991DAF315E00AE4FED /* FBShimmeringLayer.h */,
+				4505FE9A1DAF315E00AE4FED /* FBShimmeringLayer.m */,
+				4505FE9B1DAF315E00AE4FED /* FBShimmeringView.h */,
+				4505FE9C1DAF315E00AE4FED /* FBShimmeringView.m */,
+			);
+			path = FBShimmering;
 			sourceTree = "<group>";
 		};
 		450FF8941DADEE3700E335C3 /* Single */ = {
@@ -756,6 +781,7 @@
 				455E28D91D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m in Sources */,
 				455E28C51D98CCF900E3DA4D /* AIListViewController.m in Sources */,
 				4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */,
+				4505FE9E1DAF315E00AE4FED /* FBShimmeringView.m in Sources */,
 				45D43DF71DACC3440022F86A /* AIBaiduHUD.m in Sources */,
 				45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */,
 				453DD8461DACA80500D1CDA9 /* GCDQueue.m in Sources */,
@@ -777,8 +803,10 @@
 				45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */,
 				45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */,
 				45D43DFB1DACC8EE0022F86A /* AINetWorkHelper.m in Sources */,
+				4505FE9D1DAF315E00AE4FED /* FBShimmeringLayer.m in Sources */,
 				458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */,
 				4505FE901DAE8C1D00AE4FED /* AIAnimationImageView.m in Sources */,
+				4505FE961DAF2D3B00AE4FED /* AIShimmerViewController.m in Sources */,
 				45D43E141DACDD120022F86A /* UIView+ScreensShot.m in Sources */,
 				45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */,
 				4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */,
