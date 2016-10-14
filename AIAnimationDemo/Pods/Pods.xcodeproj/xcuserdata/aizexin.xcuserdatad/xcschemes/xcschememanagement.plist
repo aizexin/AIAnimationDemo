@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KMCGeigerCounter.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MLTransition.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +37,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B938C32A123E7C0BE15852AB023A04A</key>
+		<key>0843346EE2C494B1BCACF210DBA8A92C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B70FF4727CE2B01771305C575F81AF8</key>
+		<key>3B105BF0E8E15182D07AE53F9A704A66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>60878556C279E65C100C9F47BC850E96</key>
 		<dict>
 			<key>primary</key>
 			<true/>

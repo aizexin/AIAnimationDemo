@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AIListViewController.h"
 #import <MLTransition.h>
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     //c侧滑返回
     [MLTransition validatePanBackWithMLTransitionGestureRecognizerType:(MLTransitionGestureRecognizerTypePan)];
     self.window = [[UIWindow alloc]init];

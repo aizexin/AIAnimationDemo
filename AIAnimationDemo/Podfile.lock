@@ -15,12 +15,14 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Canvas (0.1.2)
+  - KMCGeigerCounter (0.2.2)
   - MLTransition (2.1.2)
   - pop (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Canvas (~> 0.1.2)
+  - KMCGeigerCounter
   - MLTransition (~> 2.1.2)
   - pop (from `https://github.com/facebook/pop.git`)
 
@@ -36,9 +38,10 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
+  KMCGeigerCounter: f8cc3c4aa19fc6f8cec168fb03b364b84c118a7a
   MLTransition: 26751adac088c07e4df48c9f605cfdd767bb8afa
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
 
-PODFILE CHECKSUM: 66f7598473a86e3259fa334610de96b3a5a0da12
+PODFILE CHECKSUM: 0ed096a0a2bdaff37a47271ca65fe151b9c1da1f
 
 COCOAPODS: 1.0.1

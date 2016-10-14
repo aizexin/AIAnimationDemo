@@ -7,7 +7,7 @@
 //  最基础的viewcontroller
 
 #import "AIBaseViewController.h"
-
+#import <KMCGeigerCounter.h>
 @interface AIBaseViewController ()
 
 @end
@@ -16,7 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+//    //检测是否流畅
+//#if TARGET_IPHONE_SIMULATOR
+//    [KMCGeigerCounter sharedGeigerCounter].enabled = YES;
+//#endif
 }
 
 
