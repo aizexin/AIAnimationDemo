@@ -17,6 +17,7 @@
 		4505FEC91DAF537300AE4FED /* ForegroundColorAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FEC01DAF537300AE4FED /* ForegroundColorAttribute.m */; };
 		4505FECA1DAF537300AE4FED /* NSMutableAttributedString+StringAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FEC31DAF537300AE4FED /* NSMutableAttributedString+StringAttribute.m */; };
 		4505FECB1DAF537300AE4FED /* NSString+StringAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FEC51DAF537300AE4FED /* NSString+StringAttribute.m */; };
+		4505FED11DAF629A00AE4FED /* AICAGradientLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FED01DAF629A00AE4FED /* AICAGradientLayerViewController.m */; };
 		4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */; };
 		4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */; };
 		453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD83E1DACA80500D1CDA9 /* GCDGroup.m */; };
@@ -52,6 +53,8 @@
 		45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E0D1DACDD120022F86A /* UIView+Shake.m */; };
 		45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E0F1DACDD120022F86A /* UIView+UserInteraction.m */; };
 		45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */; };
+		45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */; };
+		45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE2B1DB09A9200DC574A /* CAGradientView.m */; };
 		CE844DCC7CDAC9A358C39F2F /* libPods-AIAnimationDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2094375E453D88DFC8C32A45 /* libPods-AIAnimationDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +100,8 @@
 		4505FEC41DAF537300AE4FED /* NSString+StringAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringAttribute.h"; sourceTree = "<group>"; };
 		4505FEC51DAF537300AE4FED /* NSString+StringAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringAttribute.m"; sourceTree = "<group>"; };
 		4505FEC61DAF537300AE4FED /* StringAttributeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringAttributeHelper.h; sourceTree = "<group>"; };
+		4505FECF1DAF629A00AE4FED /* AICAGradientLayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICAGradientLayerViewController.h; sourceTree = "<group>"; };
+		4505FED01DAF629A00AE4FED /* AICAGradientLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICAGradientLayerViewController.m; sourceTree = "<group>"; };
 		450FF8951DADEE5100E335C3 /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
 		4515A1AA1D9BC4A6000F4E24 /* UIFont+Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Fonts.h"; sourceTree = "<group>"; };
 		4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Fonts.m"; sourceTree = "<group>"; };
@@ -171,6 +176,10 @@
 		45D43E0F1DACDD120022F86A /* UIView+UserInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UserInteraction.m"; sourceTree = "<group>"; };
 		45D43E191DACE21B0022F86A /* InfiniteRotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteRotationView.h; sourceTree = "<group>"; };
 		45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteRotationView.m; sourceTree = "<group>"; };
+		45F6DE271DB07EA700DC574A /* CAGradientMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientMaskView.h; sourceTree = "<group>"; };
+		45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientMaskView.m; sourceTree = "<group>"; };
+		45F6DE2A1DB09A9200DC574A /* CAGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientView.h; sourceTree = "<group>"; };
+		45F6DE2B1DB09A9200DC574A /* CAGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientView.m; sourceTree = "<group>"; };
 		48ED125D08E27BAFBE549DFC /* Pods-AIAnimationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.release.xcconfig"; sourceTree = "<group>"; };
 		7620388811825F2ABC3F5185 /* Pods-AIAnimationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,6 +289,35 @@
 				4505FEC51DAF537300AE4FED /* NSString+StringAttribute.m */,
 			);
 			path = "StringAttribute+Category";
+			sourceTree = "<group>";
+		};
+		4505FECC1DAF626200AE4FED /* Pop7 */ = {
+			isa = PBXGroup;
+			children = (
+				4505FECD1DAF626200AE4FED /* Controller */,
+				4505FECE1DAF626200AE4FED /* View */,
+			);
+			path = Pop7;
+			sourceTree = "<group>";
+		};
+		4505FECD1DAF626200AE4FED /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4505FECF1DAF629A00AE4FED /* AICAGradientLayerViewController.h */,
+				4505FED01DAF629A00AE4FED /* AICAGradientLayerViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4505FECE1DAF626200AE4FED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45F6DE271DB07EA700DC574A /* CAGradientMaskView.h */,
+				45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */,
+				45F6DE2A1DB09A9200DC574A /* CAGradientView.h */,
+				45F6DE2B1DB09A9200DC574A /* CAGradientView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		450FF8941DADEE3700E335C3 /* Single */ = {
@@ -456,6 +494,7 @@
 		455E28BF1D98C58100E3DA4D /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				4505FECC1DAF626200AE4FED /* Pop7 */,
 				455E28C61D98F4E800E3DA4D /* Pop1 */,
 				455E28C91D98F53A00E3DA4D /* Pop2 */,
 				4505FE911DAF2AFC00AE4FED /* Pop6 */,
@@ -863,6 +902,7 @@
 				453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */,
 				45D43E151DACDD120022F86A /* UIView+SetRect.m in Sources */,
 				45D43DFE1DACD9460022F86A /* AILoadAnimationView.m in Sources */,
+				45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */,
 				4505FEA11DAF441800AE4FED /* AIBaseViewController.m in Sources */,
 				455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */,
 				453DD8471DACA80500D1CDA9 /* GCDSemaphore.m in Sources */,
@@ -874,6 +914,7 @@
 				45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */,
 				45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */,
 				45D43DFB1DACC8EE0022F86A /* AINetWorkHelper.m in Sources */,
+				4505FED11DAF629A00AE4FED /* AICAGradientLayerViewController.m in Sources */,
 				4505FEC71DAF537300AE4FED /* StringAttribute.m in Sources */,
 				4505FE9D1DAF315E00AE4FED /* FBShimmeringLayer.m in Sources */,
 				458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */,
@@ -882,6 +923,7 @@
 				45D43E141DACDD120022F86A /* UIView+ScreensShot.m in Sources */,
 				45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */,
 				4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */,
+				45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */,
 				45D43DF01DACC2570022F86A /* easing.c in Sources */,
 				45D43E111DACDD120022F86A /* UIView+AnimationProperty.m in Sources */,
 				455E288E1D98C0D300E3DA4D /* main.m in Sources */,
