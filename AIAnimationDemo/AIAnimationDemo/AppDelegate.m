@@ -21,10 +21,10 @@
 
     //c侧滑返回
     [MLTransition validatePanBackWithMLTransitionGestureRecognizerType:(MLTransitionGestureRecognizerTypePan)];
-    self.window = [[UIWindow alloc]init];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window                  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor  = [UIColor whiteColor];
     AIListViewController *mainVC = [[AIListViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainVC];
+    UINavigationController *nav  = [[UINavigationController alloc]initWithRootViewController:mainVC];
     self.window.rootViewController = nav;
 //    nav.navigationBarHidden = YES;
     [self.window makeKeyAndVisible];
