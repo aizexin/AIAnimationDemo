@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 //    //检测是否流畅
 //#if TARGET_IPHONE_SIMULATOR
 //    [KMCGeigerCounter sharedGeigerCounter].enabled = YES;
