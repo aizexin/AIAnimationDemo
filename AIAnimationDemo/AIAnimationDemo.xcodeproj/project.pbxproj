@@ -18,6 +18,8 @@
 		4505FECA1DAF537300AE4FED /* NSMutableAttributedString+StringAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FEC31DAF537300AE4FED /* NSMutableAttributedString+StringAttribute.m */; };
 		4505FECB1DAF537300AE4FED /* NSString+StringAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FEC51DAF537300AE4FED /* NSString+StringAttribute.m */; };
 		4505FED11DAF629A00AE4FED /* AICAGradientLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FED01DAF629A00AE4FED /* AICAGradientLayerViewController.m */; };
+		450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD41DB5F1C800CE7CC4 /* AICircleLayer.m */; };
+		450B9AD81DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */; };
 		4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */; };
 		4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */; };
 		453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD83E1DACA80500D1CDA9 /* GCDGroup.m */; };
@@ -27,6 +29,7 @@
 		455DF5C11DB46D8600D3E84A /* AIScrollImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455DF5C01DB46D8600D3E84A /* AIScrollImageViewController.m */; };
 		455DF5C41DB46E2000D3E84A /* MoreInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 455DF5C31DB46E2000D3E84A /* MoreInfoView.m */; };
 		455DF5C81DB46E6900D3E84A /* Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 455DF5C71DB46E6900D3E84A /* Math.m */; };
+		455DF5CE1DB4940C00D3E84A /* AIWellComeLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455DF5CD1DB4940C00D3E84A /* AIWellComeLoadViewController.m */; };
 		455E288E1D98C0D300E3DA4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E288D1D98C0D300E3DA4D /* main.m */; };
 		455E28911D98C0D300E3DA4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28901D98C0D300E3DA4D /* AppDelegate.m */; };
 		455E28991D98C0D300E3DA4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455E28981D98C0D300E3DA4D /* Assets.xcassets */; };
@@ -105,6 +108,10 @@
 		4505FEC61DAF537300AE4FED /* StringAttributeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringAttributeHelper.h; sourceTree = "<group>"; };
 		4505FECF1DAF629A00AE4FED /* AICAGradientLayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICAGradientLayerViewController.h; sourceTree = "<group>"; };
 		4505FED01DAF629A00AE4FED /* AICAGradientLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICAGradientLayerViewController.m; sourceTree = "<group>"; };
+		450B9AD31DB5F1C800CE7CC4 /* AICircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICircleLayer.h; sourceTree = "<group>"; };
+		450B9AD41DB5F1C800CE7CC4 /* AICircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICircleLayer.m; sourceTree = "<group>"; };
+		450B9AD61DB5FF8E00CE7CC4 /* AIWellComeAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWellComeAnimationView.h; sourceTree = "<group>"; };
+		450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWellComeAnimationView.m; sourceTree = "<group>"; };
 		450FF8951DADEE5100E335C3 /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
 		4515A1AA1D9BC4A6000F4E24 /* UIFont+Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Fonts.h"; sourceTree = "<group>"; };
 		4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Fonts.m"; sourceTree = "<group>"; };
@@ -125,6 +132,8 @@
 		455DF5C31DB46E2000D3E84A /* MoreInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInfoView.m; sourceTree = "<group>"; };
 		455DF5C61DB46E6900D3E84A /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
 		455DF5C71DB46E6900D3E84A /* Math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Math.m; sourceTree = "<group>"; };
+		455DF5CC1DB4940C00D3E84A /* AIWellComeLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWellComeLoadViewController.h; sourceTree = "<group>"; };
+		455DF5CD1DB4940C00D3E84A /* AIWellComeLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWellComeLoadViewController.m; sourceTree = "<group>"; };
 		455E28891D98C0D300E3DA4D /* AIAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		455E288D1D98C0D300E3DA4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		455E288F1D98C0D300E3DA4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -474,6 +483,35 @@
 			path = Math;
 			sourceTree = "<group>";
 		};
+		455DF5C91DB4934C00D3E84A /* Pop9 */ = {
+			isa = PBXGroup;
+			children = (
+				455DF5CA1DB4934C00D3E84A /* Controller */,
+				455DF5CB1DB4934C00D3E84A /* View */,
+			);
+			path = Pop9;
+			sourceTree = "<group>";
+		};
+		455DF5CA1DB4934C00D3E84A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				455DF5CC1DB4940C00D3E84A /* AIWellComeLoadViewController.h */,
+				455DF5CD1DB4940C00D3E84A /* AIWellComeLoadViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		455DF5CB1DB4934C00D3E84A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				450B9AD31DB5F1C800CE7CC4 /* AICircleLayer.h */,
+				450B9AD41DB5F1C800CE7CC4 /* AICircleLayer.m */,
+				450B9AD61DB5FF8E00CE7CC4 /* AIWellComeAnimationView.h */,
+				450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		455E28801D98C0D300E3DA4D = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +586,7 @@
 				4505FE911DAF2AFC00AE4FED /* Pop6 */,
 				4505FECC1DAF626200AE4FED /* Pop7 */,
 				455DF5BC1DB46D4E00D3E84A /* Pop8 */,
+				455DF5C91DB4934C00D3E84A /* Pop9 */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -941,6 +980,7 @@
 				4505FEC81DAF537300AE4FED /* FontAttribute.m in Sources */,
 				4505FEC91DAF537300AE4FED /* ForegroundColorAttribute.m in Sources */,
 				4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */,
+				450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */,
 				45D43E131DACDD120022F86A /* UIView+GlowView.m in Sources */,
 				453DD8481DACA80500D1CDA9 /* GCDTimer.m in Sources */,
 				455E28D31D98F80600E3DA4D /* AIListModel.m in Sources */,
@@ -976,7 +1016,9 @@
 				45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */,
 				45D43DF01DACC2570022F86A /* easing.c in Sources */,
 				45D43E111DACDD120022F86A /* UIView+AnimationProperty.m in Sources */,
+				455DF5CE1DB4940C00D3E84A /* AIWellComeLoadViewController.m in Sources */,
 				455E288E1D98C0D300E3DA4D /* main.m in Sources */,
+				450B9AD81DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
