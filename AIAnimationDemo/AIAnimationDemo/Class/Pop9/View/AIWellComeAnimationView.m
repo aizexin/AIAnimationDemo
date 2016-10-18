@@ -29,13 +29,18 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self.layer addSublayer:self.circleLayer];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            [self.circleLayer changeBig];
-        });
+        //圆圈动画
+        [self addCirCleLayer];
     }
     return self;
+}
+//添加圆圈动画
+-(void)addCirCleLayer{
+    [self.layer addSublayer:self.circleLayer];
+    //变大动画
+    [self.circleLayer changeBig];
+    //摇晃动画
+    [self.circleLayer wobbleAnimation];
 }
 
 @end

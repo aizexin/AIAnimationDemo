@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+
+
 @interface AICircleLayer : CAShapeLayer
+
+@property(nonatomic,assign,readonly)NSTimeInterval KAnimationDuration;
+
 /** 放大*/
 -(void)changeBig;
+/** 摇晃动画*/
+- (void)wobbleAnimation;
 @end
