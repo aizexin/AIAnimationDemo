@@ -8,11 +8,13 @@
 
 #import "AIWellComeAnimationView.h"
 #import "AICircleLayer.h"
-
+#import "AITriangleLayer.h"
 @interface AIWellComeAnimationView ()
 
 /** 圆*/
 @property(nonatomic,strong)AICircleLayer *circleLayer;
+/** 三角形*/
+@property(nonatomic,strong)AITriangleLayer *triangleLayer;
 @end
 
 @implementation AIWellComeAnimationView
@@ -24,13 +26,21 @@
     }
     return _circleLayer;
 }
+-(AITriangleLayer *)triangleLayer{
+    if (!_triangleLayer) {
+        _triangleLayer = [[AITriangleLayer alloc]init];
+    }
+    return _triangleLayer;
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         //圆圈动画
-        [self addCirCleLayer];
+//        [self addCirCleLayer];
+         [self.layer addSublayer:self.triangleLayer ];
     }
     return self;
 }
