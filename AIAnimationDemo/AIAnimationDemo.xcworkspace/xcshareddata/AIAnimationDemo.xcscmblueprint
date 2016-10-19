@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "10DDD5A6F342809D6E19255A904695F47F11D1EA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "10DDD5A6F342809D6E19255A904695F47F11D1EA" : 9223372036854775807,
+    "B167BA6CF24275BDCB5F16F1895C44E9C4DDAE36" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5AB56E3C-501F-4411-85D0-EC3D38C1B1D2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "10DDD5A6F342809D6E19255A904695F47F11D1EA" : "AIAnimationDemo\/",
+    "B167BA6CF24275BDCB5F16F1895C44E9C4DDAE36" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AIAnimationDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AIAnimationDemo\/AIAnimationDemo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aizexin\/AIAnimationDemo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "10DDD5A6F342809D6E19255A904695F47F11D1EA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aizexin\/AIposition.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B167BA6CF24275BDCB5F16F1895C44E9C4DDAE36"
+    }
+  ]
+}

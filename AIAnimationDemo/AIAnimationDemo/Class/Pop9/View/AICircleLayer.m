@@ -76,6 +76,7 @@ static const NSTimeInterval KAnimationDuration = 0.5;
     return _circleHorizontalSquishPath;
 }
 
+#pragma mark  ----public
 - (void)wobbleAnimation {
     //    1
     CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@"path"];
@@ -122,5 +123,10 @@ static const NSTimeInterval KAnimationDuration = 0.5;
     [self addAnimation:expandAnimation forKey:nil];
     
 }
+-(NSTimeInterval)allAnimationDuration{
+    return 9 * KAnimationDuration;
+}
+
+
 
 @end

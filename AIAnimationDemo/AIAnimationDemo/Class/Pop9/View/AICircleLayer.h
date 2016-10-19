@@ -12,7 +12,7 @@
 
 @interface AICircleLayer : CAShapeLayer
 
-@property(nonatomic,assign,readonly)NSTimeInterval KAnimationDuration;
+@property(nonatomic,assign,readonly)NSTimeInterval allAnimationDuration;
 
 /** 放大*/
 -(void)changeBig;

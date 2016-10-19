@@ -9,5 +9,5 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface AITriangleLayer : CAShapeLayer
-
+-(void)triangleAnimate;
 @end
