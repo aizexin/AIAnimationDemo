@@ -9,5 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface AITriangleLayer : CAShapeLayer
+/** 所有动画时间*/
+@property (assign,nonatomic,readonly)NSTimeInterval allInterval;
 -(void)triangleAnimate;
 @end

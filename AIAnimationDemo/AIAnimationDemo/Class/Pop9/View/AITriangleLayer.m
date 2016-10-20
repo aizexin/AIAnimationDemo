@@ -14,6 +14,8 @@
 @property (strong, nonatomic) UIBezierPath *leftTrianglePath;
 @property (strong, nonatomic) UIBezierPath *rightTrianglePath;
 @property (strong, nonatomic) UIBezierPath *topTrianglePath;
+/** 所有动画时间*/
+@property (assign,nonatomic)NSTimeInterval allInterval;
 @end
 
 static UIColor* _color = nil;
@@ -122,6 +124,8 @@ static const CGFloat paddingSpace = 30.0;
     animationGroup.fillMode          = kCAFillModeForwards;
     animationGroup.removedOnCompletion = NO;
     [self addAnimation:animationGroup forKey:nil];
+    
+    self.allInterval = animationGroup.duration;
 }
 
 @end
