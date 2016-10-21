@@ -12,5 +12,8 @@
 
 /** 波浪颜色*/
 @property(nonatomic,strong)UIColor *waveColor;
+/** 动画时间*/
+@property(nonatomic,assign,readonly)NSTimeInterval allAnimationDuration;
 - (void)waveAnimate;
+
 @end

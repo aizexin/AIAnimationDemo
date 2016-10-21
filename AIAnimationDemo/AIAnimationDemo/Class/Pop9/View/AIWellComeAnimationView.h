@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AIWellComeAnimationView;
+@protocol AIWellComeAnimationDelegate <NSObject>
 
-@interface AIWellComeAnimationView : UIView
+-(void)wellComeAnimationCompeleted:(AIWellComeAnimationView*)wellComeAnimationView;
 
 @end
+@interface AIWellComeAnimationView : UIView
+/** 父视图的frame*/
+@property (assign, nonatomic) CGRect parentFrame;
+/** 水波颜色*/
+@property(nonatomic,strong,readonly)UIColor *animationColor;
+
+/** 代理*/
+@property(nonatomic,weak)id<AIWellComeAnimationDelegate> delegate;
+@end
+
+

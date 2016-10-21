@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UIBezierPath *wavePathMid;
 @property (strong, nonatomic) UIBezierPath *wavePathHigh;
 @property (strong, nonatomic) UIBezierPath *wavePathComplete;
+@property(nonatomic,assign)NSTimeInterval allAnimationDuration;
 @end
 @implementation AIWaveLayer
 
@@ -141,16 +142,19 @@ static const NSTimeInterval KAnimationDuration = 0.18;
     waveAnimationComplete.beginTime = waveAnimationHigh.beginTime + waveAnimationHigh.duration;
     waveAnimationComplete.duration = KAnimationDuration;
     //    6
-    CAAnimationGroup *animationGroup = [[CAAnimationGroup alloc] init];
-        animationGroup.animations = @[waveAnimationPre, waveAnimationLow, waveAnimationMid, waveAnimationHigh, waveAnimationComplete];
-//    animationGroup.animations = @[waveAnimationComplete];
-    animationGroup.duration = waveAnimationComplete.beginTime + waveAnimationComplete.duration;
-    animationGroup.fillMode = kCAFillModeForwards;
-    animationGroup.removedOnCompletion = NO;
+    CAAnimationGroup *animationGroup      = [[CAAnimationGroup alloc] init];
+    animationGroup.animations             = \
+  @[waveAnimationPre, waveAnimationLow, waveAnimationMid, waveAnimationHigh, waveAnimationComplete];
+    animationGroup.duration               = waveAnimationComplete.beginTime + waveAnimationComplete.duration;
+    animationGroup.fillMode               = kCAFillModeForwards;
+    animationGroup.removedOnCompletion    = NO;
     [self addAnimation:animationGroup forKey:nil];
+    
+    self.allAnimationDuration             = animationGroup.duration;
 }
 -(void)setWaveColor:(UIColor *)waveColor{
     _waveColor = waveColor;
     self.fillColor = self.waveColor.CGColor;
 }
+
 @end

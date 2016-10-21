@@ -129,6 +129,21 @@
 -(void)addWaveLayer{
     [self.layer addSublayer:self.waveLayer];
     [self.waveLayer waveAnimate];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.waveLayer.allAnimationDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self expandView];
+    });
 }
-
+/** 最后放大*/
+- (void)expandView {
+    self.backgroundColor = _animationColor;
+    self.layer.sublayers = nil;
+    //放大
+    [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.frame = self.parentFrame;
+    } completion:^(BOOL finished) {
+        if (_delegate && [_delegate respondsToSelector:@selector(wellComeAnimationCompeleted:)]) {
+            [_delegate wellComeAnimationCompeleted:self];
+        }
+    }];
+}
 @end
