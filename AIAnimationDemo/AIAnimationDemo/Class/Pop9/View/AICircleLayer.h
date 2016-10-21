@@ -16,6 +16,8 @@
 
 /** 放大*/
 -(void)changeBig;
+/** 变小*/
+- (void)changeSmall;
 /** 摇晃动画*/
 - (void)wobbleAnimation;
 @end

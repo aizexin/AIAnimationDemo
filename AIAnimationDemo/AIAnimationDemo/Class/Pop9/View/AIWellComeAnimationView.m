@@ -10,6 +10,8 @@
 #import "AICircleLayer.h"
 #import "AITriangleLayer.h"
 #import "InfiniteRotationView.h"
+#import "AIRectangleLayer.h"
+#import "AIWaveLayer.h"
 @interface AIWellComeAnimationView ()
 
 
@@ -19,6 +21,12 @@
 @property(nonatomic,strong)AITriangleLayer *triangleLayer;
 /** 旋转的view*/
 @property(nonatomic,strong)InfiniteRotationView *infiniteView;
+/** 矩形*/
+@property(nonatomic,strong)AIRectangleLayer *rectangLayer;
+/** 波浪*/
+@property(nonatomic,strong)AIWaveLayer *waveLayer;
+/** 水波颜色*/
+@property(nonatomic,strong)UIColor *animationColor;
 @end
 
 @implementation AIWellComeAnimationView
@@ -39,15 +47,29 @@
 -(InfiniteRotationView *)infiniteView{
     if (!_infiniteView) {
         _infiniteView = [[InfiniteRotationView alloc]init];
+        _infiniteView.layer.anchorPoint = CGPointMake(0.5, 0.65);
     }
     return _infiniteView;
 }
-
+-(AIRectangleLayer *)rectangLayer{
+    if (!_rectangLayer) {
+        _rectangLayer = [[AIRectangleLayer alloc]init];
+    }
+    return _rectangLayer;
+}
+-(AIWaveLayer *)waveLayer{
+    if (!_waveLayer) {
+        _waveLayer = [[AIWaveLayer alloc]init];
+        _waveLayer.waveColor = self.animationColor;
+    }
+    return _waveLayer;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.animationColor = [UIColor colorWithRed:74/255. green:223/255. blue:177/255. alpha:1.];
         //添加旋转view
         [self addSubview:self.infiniteView];
         //圆圈动画
@@ -79,16 +101,34 @@
     //进行旋转动画
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.triangleLayer.allInterval * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self rotationAnimation];
+        [self.circleLayer changeSmall];
     });
 }
 
 /** 旋转动画*/
 -(void)rotationAnimation{
-    self.infiniteView.speed = 0.6;
+    self.infiniteView.speed = 0.3;
     [self.infiniteView startRotateAnimation];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.infiniteView reset];
+        //添加矩形动画
+        [self addRectangLayer];
+        
     });
+}
+/** 添加矩形*/
+-(void)addRectangLayer{
+    [self.layer addSublayer:self.rectangLayer];
+    [self.rectangLayer strokeChangeWithColor:self.animationColor];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.rectangLayer.allAnimationDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //波浪动画
+        [self addWaveLayer];
+    });
+}
+/** 波浪动画*/
+-(void)addWaveLayer{
+    [self.layer addSublayer:self.waveLayer];
+    [self.waveLayer waveAnimate];
 }
 
 @end

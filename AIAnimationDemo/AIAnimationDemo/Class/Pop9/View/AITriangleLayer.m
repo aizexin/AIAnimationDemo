@@ -53,46 +53,45 @@ static const CGFloat paddingSpace = 30.0;
     return self;
 }
 
--(UIBezierPath *)smallTrianglePath{
+- (UIBezierPath *)smallTrianglePath {
     if (!_smallTrianglePath) {
-        _smallTrianglePath = [UIBezierPath bezierPath];
-        [_smallTrianglePath moveToPoint: CGPointMake(47.5, 20)];
-        [_smallTrianglePath addLineToPoint: CGPointMake(20.5, 74.5)];
-        [_smallTrianglePath addLineToPoint: CGPointMake(76.5, 74.5)];
-        [_smallTrianglePath addLineToPoint: CGPointMake(47.5, 20)];
+        _smallTrianglePath = [[UIBezierPath alloc] init];
+        [_smallTrianglePath moveToPoint:CGPointMake(5.0 + paddingSpace, 95.0)];
+        [_smallTrianglePath addLineToPoint:CGPointMake(50.0, 12.5 + paddingSpace)];
+        [_smallTrianglePath addLineToPoint:CGPointMake(95.0 - paddingSpace, 95.0)];
         [_smallTrianglePath closePath];
     }
     return _smallTrianglePath;
 }
--(UIBezierPath *)leftTrianglePath{
+
+- (UIBezierPath *)leftTrianglePath {
     if (!_leftTrianglePath) {
-        _leftTrianglePath = [UIBezierPath bezierPath];
-        [_leftTrianglePath moveToPoint: CGPointMake(47.5 , 20)];
-        [_leftTrianglePath addLineToPoint: CGPointMake(20.5 - paddingSpace, 74.5)];
-        [_leftTrianglePath addLineToPoint: CGPointMake(76.5, 74.5)];
-        [_leftTrianglePath addLineToPoint: CGPointMake(47.5 , 20)];
+        _leftTrianglePath = [[UIBezierPath alloc] init];
+        [_leftTrianglePath moveToPoint:CGPointMake(5.0, 95.0)];
+        [_leftTrianglePath addLineToPoint:CGPointMake(50.0, 12.5 + paddingSpace)];
+        [_leftTrianglePath addLineToPoint:CGPointMake(95.0 - paddingSpace, 95.0)];
         [_leftTrianglePath closePath];
     }
     return _leftTrianglePath;
 }
--(UIBezierPath *)rightTrianglePath{
+
+- (UIBezierPath *)rightTrianglePath {
     if (!_rightTrianglePath) {
-        _rightTrianglePath = [UIBezierPath bezierPath];
-        [_rightTrianglePath moveToPoint: CGPointMake(47.5 , 20)];
-        [_rightTrianglePath addLineToPoint: CGPointMake(20.5 - paddingSpace, 74.5)];
-        [_rightTrianglePath addLineToPoint: CGPointMake(76.5 + paddingSpace, 74.5)];
-        [_rightTrianglePath addLineToPoint: CGPointMake(47.5 , 20)];
+        _rightTrianglePath = [[UIBezierPath alloc] init];
+        [_rightTrianglePath moveToPoint:CGPointMake(5.0, 95.0)];
+        [_rightTrianglePath addLineToPoint:CGPointMake(50.0, 12.5 + paddingSpace)];
+        [_rightTrianglePath addLineToPoint:CGPointMake(95.0, 95.0)];
         [_rightTrianglePath closePath];
     }
     return _rightTrianglePath;
 }
--(UIBezierPath *)topTrianglePath{
+
+- (UIBezierPath *)topTrianglePath {
     if (!_topTrianglePath) {
-        _topTrianglePath = [UIBezierPath bezierPath];
-        [_topTrianglePath moveToPoint: CGPointMake(47.5 , 20 - paddingSpace)];
-        [_topTrianglePath addLineToPoint: CGPointMake(20.5 - paddingSpace, 74.5)];
-        [_topTrianglePath addLineToPoint: CGPointMake(76.5 + paddingSpace, 74.5)];
-        [_topTrianglePath addLineToPoint: CGPointMake(47.5 , 20 - paddingSpace)];
+        _topTrianglePath = [[UIBezierPath alloc] init];
+        [_topTrianglePath moveToPoint:CGPointMake(5.0, 95.0)];
+        [_topTrianglePath addLineToPoint:CGPointMake(50.0, 12.5)];
+        [_topTrianglePath addLineToPoint:CGPointMake(95.0, 95.0)];
         [_topTrianglePath closePath];
     }
     return _topTrianglePath;
