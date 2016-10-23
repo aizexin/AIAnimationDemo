@@ -25,6 +25,10 @@
 		451D28151DBCDCB40070BFCA /* AIButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28121DBCDCB40070BFCA /* AIButtonsView.m */; };
 		451D28161DBCDCB40070BFCA /* OCKCareCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28141DBCDCB40070BFCA /* OCKCareCardButton.m */; };
 		451D28191DBCDCE50070BFCA /* AIButtonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28181DBCDCE50070BFCA /* AIButtonsViewController.m */; };
+		451D281F1DBCECB50070BFCA /* AIPictureViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D281E1DBCECB50070BFCA /* AIPictureViewerViewController.m */; };
+		451D28221DBCED090070BFCA /* AIPictureViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28211DBCED090070BFCA /* AIPictureViewer.m */; };
+		451D28261DBCEEF70070BFCA /* AIPictureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28241DBCEEF70070BFCA /* AIPictureCollectionViewCell.m */; };
+		451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451D28251DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib */; };
 		453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD83E1DACA80500D1CDA9 /* GCDGroup.m */; };
 		453DD8461DACA80500D1CDA9 /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8401DACA80500D1CDA9 /* GCDQueue.m */; };
 		453DD8471DACA80500D1CDA9 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8421DACA80500D1CDA9 /* GCDSemaphore.m */; };
@@ -129,6 +133,13 @@
 		451D28141DBCDCB40070BFCA /* OCKCareCardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCKCareCardButton.m; sourceTree = "<group>"; };
 		451D28171DBCDCE50070BFCA /* AIButtonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIButtonsViewController.h; sourceTree = "<group>"; };
 		451D28181DBCDCE50070BFCA /* AIButtonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIButtonsViewController.m; sourceTree = "<group>"; };
+		451D281D1DBCECB50070BFCA /* AIPictureViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPictureViewerViewController.h; sourceTree = "<group>"; };
+		451D281E1DBCECB50070BFCA /* AIPictureViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPictureViewerViewController.m; sourceTree = "<group>"; };
+		451D28201DBCED090070BFCA /* AIPictureViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPictureViewer.h; sourceTree = "<group>"; };
+		451D28211DBCED090070BFCA /* AIPictureViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPictureViewer.m; sourceTree = "<group>"; };
+		451D28231DBCEEF70070BFCA /* AIPictureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPictureCollectionViewCell.h; sourceTree = "<group>"; };
+		451D28241DBCEEF70070BFCA /* AIPictureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPictureCollectionViewCell.m; sourceTree = "<group>"; };
+		451D28251DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIPictureCollectionViewCell.xib; sourceTree = "<group>"; };
 		453DD83C1DACA80500D1CDA9 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		453DD83D1DACA80500D1CDA9 /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		453DD83E1DACA80500D1CDA9 /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -474,6 +485,36 @@
 			path = AIButtonsView;
 			sourceTree = "<group>";
 		};
+		451D281A1DBCE0820070BFCA /* Pop11 */ = {
+			isa = PBXGroup;
+			children = (
+				451D281B1DBCE0820070BFCA /* Controller */,
+				451D281C1DBCE0820070BFCA /* View */,
+			);
+			path = Pop11;
+			sourceTree = "<group>";
+		};
+		451D281B1DBCE0820070BFCA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				451D281D1DBCECB50070BFCA /* AIPictureViewerViewController.h */,
+				451D281E1DBCECB50070BFCA /* AIPictureViewerViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		451D281C1DBCE0820070BFCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				451D28201DBCED090070BFCA /* AIPictureViewer.h */,
+				451D28211DBCED090070BFCA /* AIPictureViewer.m */,
+				451D28231DBCEEF70070BFCA /* AIPictureCollectionViewCell.h */,
+				451D28241DBCEEF70070BFCA /* AIPictureCollectionViewCell.m */,
+				451D28251DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		453DD83A1DACA80500D1CDA9 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,6 +690,7 @@
 				455DF5BC1DB46D4E00D3E84A /* Pop8 */,
 				455DF5C91DB4934C00D3E84A /* Pop9 */,
 				451D280D1DBCDCA50070BFCA /* Pop10 */,
+				451D281A1DBCE0820070BFCA /* Pop11 */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -957,6 +999,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */,
 				455E289C1D98C0D300E3DA4D /* LaunchScreen.storyboard in Resources */,
 				455E28991D98C0D300E3DA4D /* Assets.xcassets in Resources */,
 			);
@@ -1037,6 +1080,7 @@
 				4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */,
 				4505FE9E1DAF315E00AE4FED /* FBShimmeringView.m in Sources */,
 				45D43DF71DACC3440022F86A /* AIBaiduHUD.m in Sources */,
+				451D28221DBCED090070BFCA /* AIPictureViewer.m in Sources */,
 				45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */,
 				453DD8461DACA80500D1CDA9 /* GCDQueue.m in Sources */,
 				4505FEC81DAF537300AE4FED /* FontAttribute.m in Sources */,
@@ -1045,6 +1089,7 @@
 				4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */,
 				450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */,
 				45D43E131DACDD120022F86A /* UIView+GlowView.m in Sources */,
+				451D281F1DBCECB50070BFCA /* AIPictureViewerViewController.m in Sources */,
 				453DD8481DACA80500D1CDA9 /* GCDTimer.m in Sources */,
 				455E28D31D98F80600E3DA4D /* AIListModel.m in Sources */,
 				455E28911D98C0D300E3DA4D /* AppDelegate.m in Sources */,
@@ -1081,6 +1126,7 @@
 				45D43E141DACDD120022F86A /* UIView+ScreensShot.m in Sources */,
 				45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */,
 				4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */,
+				451D28261DBCEEF70070BFCA /* AIPictureCollectionViewCell.m in Sources */,
 				45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */,
 				45D43DF01DACC2570022F86A /* easing.c in Sources */,
 				45D43E111DACDD120022F86A /* UIView+AnimationProperty.m in Sources */,
