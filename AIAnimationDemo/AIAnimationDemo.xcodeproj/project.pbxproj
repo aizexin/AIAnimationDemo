@@ -22,6 +22,9 @@
 		450B9AD81DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */; };
 		4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */; };
 		4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */; };
+		451D28151DBCDCB40070BFCA /* AIButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28121DBCDCB40070BFCA /* AIButtonsView.m */; };
+		451D28161DBCDCB40070BFCA /* OCKCareCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28141DBCDCB40070BFCA /* OCKCareCardButton.m */; };
+		451D28191DBCDCE50070BFCA /* AIButtonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28181DBCDCE50070BFCA /* AIButtonsViewController.m */; };
 		453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD83E1DACA80500D1CDA9 /* GCDGroup.m */; };
 		453DD8461DACA80500D1CDA9 /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8401DACA80500D1CDA9 /* GCDQueue.m */; };
 		453DD8471DACA80500D1CDA9 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8421DACA80500D1CDA9 /* GCDSemaphore.m */; };
@@ -120,6 +123,12 @@
 		4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Fonts.m"; sourceTree = "<group>"; };
 		4515A1BD1D9CFF5A000F4E24 /* AIMarqueeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMarqueeViewController.h; sourceTree = "<group>"; };
 		4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMarqueeViewController.m; sourceTree = "<group>"; };
+		451D28111DBCDCB40070BFCA /* AIButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIButtonsView.h; sourceTree = "<group>"; };
+		451D28121DBCDCB40070BFCA /* AIButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIButtonsView.m; sourceTree = "<group>"; };
+		451D28131DBCDCB40070BFCA /* OCKCareCardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCKCareCardButton.h; sourceTree = "<group>"; };
+		451D28141DBCDCB40070BFCA /* OCKCareCardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCKCareCardButton.m; sourceTree = "<group>"; };
+		451D28171DBCDCE50070BFCA /* AIButtonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIButtonsViewController.h; sourceTree = "<group>"; };
+		451D28181DBCDCE50070BFCA /* AIButtonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIButtonsViewController.m; sourceTree = "<group>"; };
 		453DD83C1DACA80500D1CDA9 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		453DD83D1DACA80500D1CDA9 /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		453DD83E1DACA80500D1CDA9 /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -428,6 +437,43 @@
 			path = Libs;
 			sourceTree = "<group>";
 		};
+		451D280D1DBCDCA50070BFCA /* Pop10 */ = {
+			isa = PBXGroup;
+			children = (
+				451D280E1DBCDCA60070BFCA /* Controller */,
+				451D280F1DBCDCA60070BFCA /* View */,
+			);
+			path = Pop10;
+			sourceTree = "<group>";
+		};
+		451D280E1DBCDCA60070BFCA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				451D28171DBCDCE50070BFCA /* AIButtonsViewController.h */,
+				451D28181DBCDCE50070BFCA /* AIButtonsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		451D280F1DBCDCA60070BFCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				451D28101DBCDCB40070BFCA /* AIButtonsView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		451D28101DBCDCB40070BFCA /* AIButtonsView */ = {
+			isa = PBXGroup;
+			children = (
+				451D28111DBCDCB40070BFCA /* AIButtonsView.h */,
+				451D28121DBCDCB40070BFCA /* AIButtonsView.m */,
+				451D28131DBCDCB40070BFCA /* OCKCareCardButton.h */,
+				451D28141DBCDCB40070BFCA /* OCKCareCardButton.m */,
+			);
+			path = AIButtonsView;
+			sourceTree = "<group>";
+		};
 		453DD83A1DACA80500D1CDA9 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +648,7 @@
 				4505FECC1DAF626200AE4FED /* Pop7 */,
 				455DF5BC1DB46D4E00D3E84A /* Pop8 */,
 				455DF5C91DB4934C00D3E84A /* Pop9 */,
+				451D280D1DBCDCA50070BFCA /* Pop10 */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -994,6 +1041,7 @@
 				453DD8461DACA80500D1CDA9 /* GCDQueue.m in Sources */,
 				4505FEC81DAF537300AE4FED /* FontAttribute.m in Sources */,
 				4505FEC91DAF537300AE4FED /* ForegroundColorAttribute.m in Sources */,
+				451D28151DBCDCB40070BFCA /* AIButtonsView.m in Sources */,
 				4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */,
 				450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */,
 				45D43E131DACDD120022F86A /* UIView+GlowView.m in Sources */,
@@ -1009,6 +1057,7 @@
 				45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */,
 				4505FEA11DAF441800AE4FED /* AIBaseViewController.m in Sources */,
 				455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */,
+				451D28161DBCDCB40070BFCA /* OCKCareCardButton.m in Sources */,
 				455440AA1DBA15B10025DCA4 /* AIWaveLayer.m in Sources */,
 				453DD8471DACA80500D1CDA9 /* GCDSemaphore.m in Sources */,
 				4505FECA1DAF537300AE4FED /* NSMutableAttributedString+StringAttribute.m in Sources */,
@@ -1018,6 +1067,7 @@
 				45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */,
 				45D43DF11DACC2570022F86A /* YXEasing.m in Sources */,
 				4505FECB1DAF537300AE4FED /* NSString+StringAttribute.m in Sources */,
+				451D28191DBCDCE50070BFCA /* AIButtonsViewController.m in Sources */,
 				455DF5C41DB46E2000D3E84A /* MoreInfoView.m in Sources */,
 				45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */,
 				45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */,
