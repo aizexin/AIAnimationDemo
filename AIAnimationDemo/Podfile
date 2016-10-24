@@ -4,4 +4,5 @@ target ‘AIAnimationDemo’ do
     pod 'AFNetworking', '~> 3.0'  #网络请求
     pod 'Canvas', '~> 0.1.2'      #动画
     pod 'KMCGeigerCounter'        #检测app fps是否流畅 左边值越大越不流畅
+    pod 'ResearchKit', '~> 1.3.1'
 end

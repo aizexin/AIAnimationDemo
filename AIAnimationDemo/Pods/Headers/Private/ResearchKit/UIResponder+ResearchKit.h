@@ -1,0 +1,1 @@
+../../../ResearchKit/ResearchKit/Common/UIResponder+ResearchKit.h

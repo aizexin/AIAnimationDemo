@@ -1,0 +1,1 @@
+../../../ResearchKit/ResearchKit/Consent/ORKConsentSignatureFormatter.h

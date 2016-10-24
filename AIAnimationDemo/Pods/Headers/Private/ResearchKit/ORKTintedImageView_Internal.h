@@ -1,0 +1,1 @@
+../../../ResearchKit/ResearchKit/Common/ORKTintedImageView_Internal.h

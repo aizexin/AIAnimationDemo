@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ResearchKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>123513AE16E8D78140DDD2AD5DE9DD1E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>18963E48DC4192515DB631F1CBF5AFDD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3B105BF0E8E15182D07AE53F9A704A66</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>60878556C279E65C100C9F47BC850E96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +63,16 @@
 			<true/>
 		</dict>
 		<key>951BAA5FA8501628A76E1461A7BA9AA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9C67765329F339732784A98F00CDAED0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA469465E719C6D26E65A5C9143D5251</key>
 		<dict>
 			<key>primary</key>
 			<true/>

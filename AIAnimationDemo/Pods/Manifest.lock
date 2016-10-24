@@ -18,6 +18,7 @@ PODS:
   - KMCGeigerCounter (0.2.2)
   - MLTransition (2.1.2)
   - pop (1.0.9)
+  - ResearchKit (1.3.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - KMCGeigerCounter
   - MLTransition (~> 2.1.2)
   - pop (from `https://github.com/facebook/pop.git`)
+  - ResearchKit (~> 1.3.1)
 
 EXTERNAL SOURCES:
   pop:
@@ -41,7 +43,8 @@ SPEC CHECKSUMS:
   KMCGeigerCounter: f8cc3c4aa19fc6f8cec168fb03b364b84c118a7a
   MLTransition: 26751adac088c07e4df48c9f605cfdd767bb8afa
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  ResearchKit: badba0340dd71d1cbab4789a0bf01b26022b8f94
 
-PODFILE CHECKSUM: 0ed096a0a2bdaff37a47271ca65fe151b9c1da1f
+PODFILE CHECKSUM: 1351dda44423e69108a4cff95b6ff034b5c6c368
 
 COCOAPODS: 1.0.1
