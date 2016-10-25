@@ -29,6 +29,9 @@
 		451D28221DBCED090070BFCA /* AIPictureViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28211DBCED090070BFCA /* AIPictureViewer.m */; };
 		451D28261DBCEEF70070BFCA /* AIPictureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28241DBCEEF70070BFCA /* AIPictureCollectionViewCell.m */; };
 		451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451D28251DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib */; };
+		452445E31DBE51B100A9D2B9 /* AIResearchLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452445E21DBE51B100A9D2B9 /* AIResearchLineChartViewController.m */; };
+		452445E61DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 452445E51DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m */; };
+		452445E91DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 452445E81DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m */; };
 		453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD83E1DACA80500D1CDA9 /* GCDGroup.m */; };
 		453DD8461DACA80500D1CDA9 /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8401DACA80500D1CDA9 /* GCDQueue.m */; };
 		453DD8471DACA80500D1CDA9 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8421DACA80500D1CDA9 /* GCDSemaphore.m */; };
@@ -140,6 +143,12 @@
 		451D28231DBCEEF70070BFCA /* AIPictureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPictureCollectionViewCell.h; sourceTree = "<group>"; };
 		451D28241DBCEEF70070BFCA /* AIPictureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPictureCollectionViewCell.m; sourceTree = "<group>"; };
 		451D28251DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIPictureCollectionViewCell.xib; sourceTree = "<group>"; };
+		452445E11DBE51B100A9D2B9 /* AIResearchLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIResearchLineChartViewController.h; sourceTree = "<group>"; };
+		452445E21DBE51B100A9D2B9 /* AIResearchLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIResearchLineChartViewController.m; sourceTree = "<group>"; };
+		452445E41DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBaseFloatRangeGraphChartDataSource.h; sourceTree = "<group>"; };
+		452445E51DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBaseFloatRangeGraphChartDataSource.m; sourceTree = "<group>"; };
+		452445E71DBE5B1300A9D2B9 /* AILineGraphChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILineGraphChartDataSource.h; sourceTree = "<group>"; };
+		452445E81DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILineGraphChartDataSource.m; sourceTree = "<group>"; };
 		453DD83C1DACA80500D1CDA9 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		453DD83D1DACA80500D1CDA9 /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		453DD83E1DACA80500D1CDA9 /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -515,6 +524,35 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		452445DE1DBE517D00A9D2B9 /* Pop12 */ = {
+			isa = PBXGroup;
+			children = (
+				452445DF1DBE517D00A9D2B9 /* Controller */,
+				452445E01DBE517D00A9D2B9 /* View */,
+			);
+			path = Pop12;
+			sourceTree = "<group>";
+		};
+		452445DF1DBE517D00A9D2B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				452445E11DBE51B100A9D2B9 /* AIResearchLineChartViewController.h */,
+				452445E21DBE51B100A9D2B9 /* AIResearchLineChartViewController.m */,
+				452445E41DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.h */,
+				452445E51DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m */,
+				452445E71DBE5B1300A9D2B9 /* AILineGraphChartDataSource.h */,
+				452445E81DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		452445E01DBE517D00A9D2B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		453DD83A1DACA80500D1CDA9 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,6 +729,7 @@
 				455DF5C91DB4934C00D3E84A /* Pop9 */,
 				451D280D1DBCDCA50070BFCA /* Pop10 */,
 				451D281A1DBCE0820070BFCA /* Pop11 */,
+				452445DE1DBE517D00A9D2B9 /* Pop12 */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1100,6 +1139,7 @@
 				45D43E151DACDD120022F86A /* UIView+SetRect.m in Sources */,
 				45D43DFE1DACD9460022F86A /* AILoadAnimationView.m in Sources */,
 				45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */,
+				452445E31DBE51B100A9D2B9 /* AIResearchLineChartViewController.m in Sources */,
 				4505FEA11DAF441800AE4FED /* AIBaseViewController.m in Sources */,
 				455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */,
 				451D28161DBCDCB40070BFCA /* OCKCareCardButton.m in Sources */,
@@ -1113,6 +1153,7 @@
 				45D43DF11DACC2570022F86A /* YXEasing.m in Sources */,
 				4505FECB1DAF537300AE4FED /* NSString+StringAttribute.m in Sources */,
 				451D28191DBCDCE50070BFCA /* AIButtonsViewController.m in Sources */,
+				452445E91DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m in Sources */,
 				455DF5C41DB46E2000D3E84A /* MoreInfoView.m in Sources */,
 				45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */,
 				45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */,
@@ -1128,6 +1169,7 @@
 				4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */,
 				451D28261DBCEEF70070BFCA /* AIPictureCollectionViewCell.m in Sources */,
 				45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */,
+				452445E61DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m in Sources */,
 				45D43DF01DACC2570022F86A /* easing.c in Sources */,
 				45D43E111DACDD120022F86A /* UIView+AnimationProperty.m in Sources */,
 				455DF5CE1DB4940C00D3E84A /* AIWellComeLoadViewController.m in Sources */,

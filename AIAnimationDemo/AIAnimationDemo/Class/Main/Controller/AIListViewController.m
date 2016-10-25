@@ -21,6 +21,7 @@
 #import "AIScrollImageViewController.h"   //scrollViews视差效果
 #import "AIWellComeLoadViewController.h"  //wellCome加载动画
 #import "AIButtonsViewController.h"       //多个按钮按照微博九宫格排布
+#import "AIResearchLineChartViewController.h"    //researchKit的lineChart
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -45,7 +46,7 @@
                            [AIListModel initWithTitle:@"wellCome加载动画" andTargetVC:[AIWellComeLoadViewController class]],
                            [AIListModel initWithTitle:@"多个按钮按照微博九宫格排布" andTargetVC:[AIButtonsViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
-                           [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
+                           [AIListModel initWithTitle:@"researchKit的lineChart" andTargetVC:[AIResearchLineChartViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
