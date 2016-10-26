@@ -13,7 +13,7 @@
 @end
 @implementation AIBaseFloatRangeGraphChartDataSource
 
-
+/** 返回有几条线*/
 -(NSInteger)numberOfPlotsInGraphChartView:(ORKGraphChartView *)graphChartView{
     return 2;//self.plotPoints.count;
 }
@@ -34,6 +34,7 @@
 }
 
 /**
+ 每个点的类型相当于tableView的cell
  Asks the data source for the range point to be plotted at the specified point index for the
  specified plot.
  
