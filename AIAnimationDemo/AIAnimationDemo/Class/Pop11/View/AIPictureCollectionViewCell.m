@@ -10,7 +10,8 @@
 
 
 @interface AIPictureCollectionViewCell ()
-
+/** 是否在运动*/
+@property(assign,nonatomic,getter=isOnWindow)BOOL onWindow;
 @end
 
 @implementation AIPictureCollectionViewCell
@@ -41,20 +42,20 @@
 #pragma mark ---Action
 -(void)handGesture:(UIPanGestureRecognizer*)recognizer{
     UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
-    //添加到最外面的window上
-    [lastWindow addSubview:recognizer.view];
-    
-//    [recognizer.view bringSubviewToFront:lastWindow];
     //手势移动了多远
     CGPoint translation       = [recognizer translationInView:self.contentView];
     CGPoint cellCenterPoint   = CGPointMake(recognizer.view.center.x,
                                             translation.y + recognizer.view.center.y);
+    //转回原来的坐标   不是第一次的时候
+    if (self.isOnWindow) {
+        cellCenterPoint         = [self.contentView convertPoint:cellCenterPoint fromView:lastWindow];
+    }
+    [lastWindow addSubview:recognizer.view];
     //转换为世界坐标
-    
-//    CGPoint worldCenterPoint  = [self.contentView convertPoint:cellCenterPoint toView:lastWindow];
-    CGPoint endCenterPoint    = CGPointMake(cellCenterPoint.x, MainSize.height - 200 +translation.y);
-    recognizer.view.center    = endCenterPoint;
-//    [recognizer setTranslation:CGPointMake(0, 0) inView:self];
+    CGPoint worldCenterPoint = [self.contentView convertPoint:cellCenterPoint toView:lastWindow];
+    recognizer.view.center    = worldCenterPoint;
+    [recognizer setTranslation:CGPointMake(0, 0) inView:self.contentView];
+    self.onWindow = YES;
     if (recognizer.state == UIGestureRecognizerStateEnded) {//松手的时候执行
         //获得加速度
         CGPoint velocity = [recognizer velocityInView:self];
@@ -63,6 +64,8 @@
         decayAnimation.velocity = [NSValue valueWithCGPoint:velocity];
         [recognizer.view.layer pop_addAnimation:decayAnimation forKey:nil];
     }
+    
+    
 }
 
 
