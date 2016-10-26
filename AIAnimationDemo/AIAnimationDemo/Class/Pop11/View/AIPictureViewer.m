@@ -7,14 +7,17 @@
 //
 
 #import "AIPictureViewer.h"
+#import "AIPictureCollectionViewCell.h"
+@interface AIPictureViewer ()<UICollectionViewDataSource>
 
-@interface AIPictureViewer ()
-
-@property(nonatomic,strong)UICollectionView *colloectionView;
+@property(nonatomic,strong)UICollectionView *collectionView;
 /** 固定的frame*/
 @property(nonatomic,assign)CGRect fixedRect;
+
 @end
 static const CGFloat pictureHeight = 200.;
+static const NSString *identifier  = @"CellIdentifier";
+static const CGFloat padding       = 4.;
 @implementation AIPictureViewer
 
 
@@ -23,12 +26,26 @@ static const CGFloat pictureHeight = 200.;
     _fixedRect = CGRectMake(0, MainSize.height - pictureHeight, MainSize.width, pictureHeight);
     return _fixedRect;
 }
--(UICollectionView *)colloectionView{
-    if (!_colloectionView) {
+-(UICollectionView *)collectionView{
+    if (!_collectionView) {
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-        _colloectionView = [[UICollectionView alloc]initWithFrame:self.fixedRect collectionViewLayout:flowLayout];
+        flowLayout.scrollDirection             = UICollectionViewScrollDirectionHorizontal;
+        flowLayout.itemSize                    = CGSizeMake((MainSize.width - 3*padding)/3, pictureHeight);
+        _collectionView                        =\
+        [[UICollectionView alloc]initWithFrame:self.fixedRect collectionViewLayout:flowLayout];
+        _collectionView.backgroundColor         = [UIColor lightGrayColor];
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.dataSource             = self;
+        _collectionView.contentSize            = CGSizeMake(flowLayout.itemSize.width * self.imageArrayM.count, pictureHeight);
+        [_collectionView registerClass:[AIPictureCollectionViewCell class] forCellWithReuseIdentifier:identifier];
     }
-    return _colloectionView;
+    return _collectionView;
+}
+-(NSMutableArray *)imageArrayM{
+    if (!_imageArrayM) {
+        _imageArrayM = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5", nil];
+    }
+    return _imageArrayM;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -38,9 +55,52 @@ static const CGFloat pictureHeight = 200.;
         //固定大小
         self.frame            = self.fixedRect;
         //collectionView
-        
+        [self addSubview:self.collectionView];
     }
     return self;
 }
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.collectionView.frame = self.bounds;
+}
+
+#pragma mark --UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.imageArrayM.count;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    AIPictureCollectionViewCell *cell = \
+    [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    cell.imageV.image                 = [UIImage imageNamed:self.imageArrayM[indexPath.item]];
+    return cell;
+}
+
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

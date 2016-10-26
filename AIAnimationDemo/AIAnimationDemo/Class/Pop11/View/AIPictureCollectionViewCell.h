@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AIPictureCollectionViewCell : UICollectionViewCell
-
+/** 图片*/
+@property(nonatomic,strong)UIImageView *imageV;
 @end

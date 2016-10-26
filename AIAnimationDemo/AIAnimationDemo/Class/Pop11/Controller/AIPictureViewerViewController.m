@@ -7,7 +7,7 @@
 //  防QQ图片浏览
 
 #import "AIPictureViewerViewController.h"
-
+#import "AIPictureViewer.h"
 @interface AIPictureViewerViewController ()
 
 @end
@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    AIPictureViewer *pictureV = [[AIPictureViewer alloc]init];
+    [self.view addSubview:pictureV];
 }
 
 
