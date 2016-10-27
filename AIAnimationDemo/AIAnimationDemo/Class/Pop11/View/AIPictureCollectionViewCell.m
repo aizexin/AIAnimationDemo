@@ -44,6 +44,7 @@
     self.imageV.frame = self.bounds;
 }
 
+
 #pragma mark ---Action
 -(void)handGesture:(UIPanGestureRecognizer*)recognizer{
     UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
@@ -74,15 +75,22 @@
         //判断距离
         if (endPoint.y < 0) {//发送出去
             AILog(@"发出去");
+            UIImageView *imageV = (UIImageView*)recognizer.view;
+            if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:didGestureSelectedImage:)]) {
+                [self.delegate pictureCollection:self didGestureSelectedImage:imageV.image];
+            }
+            //TODO这个时候一样要返回到cell上但是动画不同
+            [self.contentView addSubview:recognizer.view];
+            recognizer.view.frame =  self.bounds;
+            
         }else{//返回cell上
-            //一开始要记下frame，动画在window上做，完成后再加到contentView上
+            //DOTO一开始要记下frame，动画在window上做，完成后再加到contentView上
             
             AILog(@"返回");
             [self.contentView addSubview:recognizer.view];
             recognizer.view.frame =  self.bounds;
-            self.onWindow = NO;
         }
-        //返回或者，发送出去
+        self.onWindow = NO;
     }
     
     

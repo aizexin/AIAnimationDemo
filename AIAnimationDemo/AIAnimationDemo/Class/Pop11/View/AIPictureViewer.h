@@ -18,4 +18,6 @@
 
 /** 图片数组*/
 @property(nonatomic,strong)NSMutableArray *imageArrayM;
+/** 代理*/
+@property(nonatomic,weak)id<AIPictureViewerDelegate> delegate;
 @end

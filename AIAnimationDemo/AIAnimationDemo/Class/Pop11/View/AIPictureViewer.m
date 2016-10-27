@@ -74,13 +74,16 @@ static const CGFloat padding       = 4.;
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     AIPictureCollectionViewCell *cell = \
     [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    cell.delegate                     = self;
     cell.imageV.image                 = [UIImage imageNamed:self.imageArrayM[indexPath.item]];
     return cell;
 }
 
 #pragma mark --AIPictureCollectionCellDelegate
 -(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didGestureSelectedImage:(UIImage *)image{
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pictureViewer:didGestureSelectedImage:)]) {
+        [self.delegate pictureViewer:self didGestureSelectedImage:image];
+    }
 }
 
 @end
