@@ -76,6 +76,7 @@
             AILog(@"发出去");
         }else{//返回cell上
             //一开始要记下frame，动画在window上做，完成后再加到contentView上
+            
             AILog(@"返回");
             [self.contentView addSubview:recognizer.view];
             recognizer.view.frame =  self.bounds;

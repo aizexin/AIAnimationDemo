@@ -8,7 +8,9 @@
 
 #import "AIPictureViewer.h"
 #import "AIPictureCollectionViewCell.h"
-@interface AIPictureViewer ()<UICollectionViewDataSource>
+
+#define identifier @"identifier"
+@interface AIPictureViewer ()<UICollectionViewDataSource,AIPictureCollectionCellDelegate>
 
 @property(nonatomic,strong)UICollectionView *collectionView;
 /** 固定的frame*/
@@ -16,7 +18,6 @@
 
 @end
 static const CGFloat pictureHeight = 200.;
-static const NSString *identifier  = @"CellIdentifier";
 static const CGFloat padding       = 4.;
 @implementation AIPictureViewer
 
@@ -77,6 +78,10 @@ static const CGFloat padding       = 4.;
     return cell;
 }
 
+#pragma mark --AIPictureCollectionCellDelegate
+-(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didGestureSelectedImage:(UIImage *)image{
+    
+}
 
 @end
 

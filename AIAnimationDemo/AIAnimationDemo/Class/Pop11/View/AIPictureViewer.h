@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AIPictureViewer;
+@protocol AIPictureViewerDelegate <NSObject>
+
+-(void)pictureViewer:(AIPictureViewer*)pictureViewer didGestureSelectedImage:(UIImage*)image;
+
+@end
 
 @interface AIPictureViewer : UIView
 
