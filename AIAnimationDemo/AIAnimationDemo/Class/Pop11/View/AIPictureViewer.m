@@ -86,6 +86,14 @@ static const CGFloat padding       = 4.;
     }
 }
 
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+
+   return  [super hitTest:point withEvent:event];
+}
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    //    NSLog(@"pointInside----%@", [self class]);
+    return [super pointInside:point withEvent:event];
+}
 @end
 
 

@@ -14,6 +14,10 @@
 @property(assign,nonatomic,getter=isOnWindow)BOOL onWindow;
 
 /**
+ 是否是水平
+ */
+@property(assign,nonatomic,getter=isHorizonting)BOOL horizonting;
+/**
  一半距离
  */
 @property(assign,nonatomic)CGFloat halfHight;
@@ -50,30 +54,42 @@
     UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
     //手势移动了多远
     CGPoint translation       = [recognizer translationInView:self.contentView];
-    CGPoint cellCenterPoint   = CGPointMake(recognizer.view.center.x,
-                                            translation.y + recognizer.view.center.y);
-    //转回原来的坐标   不是第一次的时候
-    if (self.isOnWindow) {
-        cellCenterPoint         = [self.contentView convertPoint:cellCenterPoint fromView:lastWindow];
+    if (translation.x<translation.y) {
+        AILog(@"横向移动");
+        self.horizonting = YES;
+        //将响应事件传到下一个
+//        [self.nextResponder becomeFirstResponder];
+        [self.superview hitTest:CGPointZero withEvent:nil];
+    }else{
+        self.horizonting = NO;
+        AILog(@"竖直移动");
+        CGPoint cellCenterPoint   = CGPointMake(recognizer.view.center.x,
+                                                translation.y + recognizer.view.center.y);
+        //转回原来的坐标   不是第一次的时候
+        if (self.isOnWindow) {
+            cellCenterPoint         = [self.contentView convertPoint:cellCenterPoint fromView:lastWindow];
+        }
+        [lastWindow addSubview:recognizer.view];
+        //转换为世界坐标
+        CGPoint worldCenterPoint = [self.contentView convertPoint:cellCenterPoint toView:lastWindow];
+        recognizer.view.center    = worldCenterPoint;
+        [recognizer setTranslation:CGPointMake(0, 0) inView:self.contentView];
+        self.onWindow = YES;
     }
-    [lastWindow addSubview:recognizer.view];
-    //转换为世界坐标
-    CGPoint worldCenterPoint = [self.contentView convertPoint:cellCenterPoint toView:lastWindow];
-    recognizer.view.center    = worldCenterPoint;
-    [recognizer setTranslation:CGPointMake(0, 0) inView:self.contentView];
-    self.onWindow = YES;
+    
     if (recognizer.state == UIGestureRecognizerStateEnded) {//松手的时候执行
+        self.imageV.userInteractionEnabled    = YES;
         
-        //获得加速度
-        CGPoint velocity = [recognizer velocityInView:self];
-        //添加pop动画
-        POPDecayAnimation *decayAnimation = [POPDecayAnimation animationWithPropertyNamed:kPOPLayerPositionY];
-        decayAnimation.velocity = [NSValue valueWithCGPoint:velocity];
-        [recognizer.view.layer pop_addAnimation:decayAnimation forKey:nil];
         //返回最后的本地viewCenter的坐标
         CGPoint endPoint =  [self.contentView convertPoint:recognizer.view.center fromView:lastWindow];
         //判断距离
         if (endPoint.y < 0) {//发送出去
+            //获得加速度
+            CGPoint velocity = [recognizer velocityInView:self];
+            //添加pop动画
+            POPDecayAnimation *decayAnimation = [POPDecayAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+            decayAnimation.velocity = [NSValue valueWithCGPoint:velocity];
+            [recognizer.view.layer pop_addAnimation:decayAnimation forKey:@"PopDecay"];
             AILog(@"发出去");
             UIImageView *imageV = (UIImageView*)recognizer.view;
             if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:didGestureSelectedImage:)]) {
@@ -81,9 +97,11 @@
             }
             //TODO这个时候一样要返回到cell上但是动画不同
             [self.contentView addSubview:recognizer.view];
+            [recognizer.view.layer pop_removeAnimationForKey:@"PopDecay"];
             recognizer.view.frame =  self.bounds;
             
         }else{//返回cell上
+            [recognizer.view.layer pop_removeAnimationForKey:@"PopDecay"];
             //DOTO一开始要记下frame，动画在window上做，完成后再加到contentView上
             
             AILog(@"返回");
@@ -92,8 +110,6 @@
         }
         self.onWindow = NO;
     }
-    
-    
 }
 
 
