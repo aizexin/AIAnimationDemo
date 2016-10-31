@@ -56,8 +56,20 @@
 }
 
 #pragma mark -AIPictureViewerDelegate
--(void)pictureViewer:(AIPictureViewer *)pictureViewer didGestureSelectedImage:(UIImage *)image{
-    self.imageV.image = image;
+-(void)pictureViewer:(AIPictureViewer *)pictureViewer didGestureSelectedImage:(UIImage *)image andImageWorldRect:(CGRect)imageWorldRect{
+    UIImageView *imageView                = [[UIImageView alloc]initWithImage:image];
+    imageView.frame                       = imageWorldRect;
+    [self.view addSubview:imageView];
+    POPBasicAnimation *popAnimation       =   [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPosition];
+    popAnimation.toValue                  =   [NSValue valueWithCGPoint:self.imageV.center];
+    popAnimation.duration                 =   0.5;
+    popAnimation.timingFunction           =   [CAMediaTimingFunction functionWithName:kCAAnimationLinear];
+    [imageView.layer pop_addAnimation:popAnimation forKey:nil];
+    //动画完成后赋值
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(popAnimation.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [imageView removeFromSuperview];
+        self.imageV.image = image;
+    });
 }
 
 

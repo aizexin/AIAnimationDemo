@@ -80,9 +80,9 @@ static const CGFloat padding       = 4.;
 }
 
 #pragma mark --AIPictureCollectionCellDelegate
--(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didGestureSelectedImage:(UIImage *)image{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(pictureViewer:didGestureSelectedImage:)]) {
-        [self.delegate pictureViewer:self didGestureSelectedImage:image];
+-(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didGestureSelectedImage:(UIImage *)image andImageWorldRect:(CGRect)imageWorldRect{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pictureViewer:didGestureSelectedImage:andImageWorldRect:)]) {
+        [self.delegate pictureViewer:self didGestureSelectedImage:image andImageWorldRect:imageWorldRect];
     }
 }
 

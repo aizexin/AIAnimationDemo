@@ -93,8 +93,8 @@
            
             AILog(@"发出去");
             UIImageView *imageV = (UIImageView*)recognizer.view;
-            if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:didGestureSelectedImage:)]) {
-                [self.delegate pictureCollection:self didGestureSelectedImage:imageV.image];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:didGestureSelectedImage:andImageWorldRect:)]) {
+                [self.delegate pictureCollection:self didGestureSelectedImage:imageV.image andImageWorldRect:recognizer.view.frame];
             }
             //TODO这个时候一样要返回到cell上但是动画不同
             [self.contentView addSubview:recognizer.view];
@@ -104,7 +104,7 @@
             AILog(@"返回");
             //添加动画
             CGRect worldOrginalRect              = [self.contentView convertRect:self.bounds toView:lastWindow];
-//            DOTO一开始要记下frame，动画在window上做，完成后再加到contentView上
+//            一开始要记下frame，动画在window上做，完成后再加到contentView上
             [UIView animateWithDuration:.5 animations:^{
                 recognizer.view.frame = worldOrginalRect;
             } completion:^(BOOL finished) {

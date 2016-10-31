@@ -10,7 +10,7 @@
 @class AIPictureViewer;
 @protocol AIPictureViewerDelegate <NSObject>
 
--(void)pictureViewer:(AIPictureViewer*)pictureViewer didGestureSelectedImage:(UIImage*)image;
+-(void)pictureViewer:(AIPictureViewer*)pictureViewer didGestureSelectedImage:(UIImage*)image andImageWorldRect:(CGRect)imageWorldRect;
 
 @end
 

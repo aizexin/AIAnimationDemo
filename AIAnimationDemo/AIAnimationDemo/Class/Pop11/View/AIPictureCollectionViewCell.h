@@ -15,9 +15,17 @@
 
  @param pictureCollectionCell 当前cell
  @param image             被拉出的那张图片
+ @param imageWorldRect   选中的图片的世界坐标rect
  */
--(void)pictureCollection:(AIPictureCollectionViewCell*)pictureCollectionCell didGestureSelectedImage:(UIImage*)image;
+-(void)pictureCollection:(AIPictureCollectionViewCell*)pictureCollectionCell didGestureSelectedImage:(UIImage*)image andImageWorldRect:(CGRect)imageWorldRect;
 
+
+/**
+ 在图片横向滑动的时候调用
+
+ @param pictureCollectionCell 当前cell
+ @param translationPoint      手势移动的距离
+ */
 -(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didTranslationPoint:(CGPoint)translationPoint;
 
 @end
