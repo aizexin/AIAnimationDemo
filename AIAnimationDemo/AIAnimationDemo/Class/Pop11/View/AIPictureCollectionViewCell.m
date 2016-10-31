@@ -98,7 +98,11 @@
             }
             //TODO这个时候一样要返回到cell上但是动画不同
             [self.contentView addSubview:recognizer.view];
-            recognizer.view.frame =  self.bounds;
+            [UIView animateWithDuration:.3 animations:^{
+                recognizer.view.frame = self.bounds;
+            } completion:^(BOOL finished) {
+                
+            }];
             
         }else{//返回cell上
             AILog(@"返回");
