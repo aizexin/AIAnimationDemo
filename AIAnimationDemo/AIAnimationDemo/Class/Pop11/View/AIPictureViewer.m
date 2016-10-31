@@ -54,9 +54,9 @@ static const CGFloat padding       = 4.;
     self = [super initWithFrame:frame];
     if (self) {
         //固定大小
-        self.frame            = self.fixedRect;
-        //collectionView
-        [self addSubview:self.collectionView];
+//        self.frame            = self.fixedRect;
+//        //collectionView
+//        [self addSubview:self.collectionView];
     }
     return self;
 }

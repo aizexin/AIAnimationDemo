@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ReactiveObjC.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ResearchKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,12 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>123513AE16E8D78140DDD2AD5DE9DD1E</key>
+		<key>18963E48DC4192515DB631F1CBF5AFDD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>18963E48DC4192515DB631F1CBF5AFDD</key>
+		<key>8EE362154BFA884A17586865FE648B4D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9270006313806C21E3F932863C6C51AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C67765329F339732784A98F00CDAED0</key>
+		<key>A0BA4090955B4F5A1C61B2C0B79D79B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA469465E719C6D26E65A5C9143D5251</key>
+		<key>CC147CAA4A30ADCD747D8986554070AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
