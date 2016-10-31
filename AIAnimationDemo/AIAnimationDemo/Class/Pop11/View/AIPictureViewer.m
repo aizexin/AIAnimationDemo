@@ -15,7 +15,7 @@
 @property(nonatomic,strong)UICollectionView *collectionView;
 /** 固定的frame*/
 @property(nonatomic,assign)CGRect fixedRect;
-
+@property(nonatomic,assign)CGPoint translationPoint;
 @end
 static const CGFloat pictureHeight = 200.;
 static const CGFloat padding       = 4.;
@@ -87,8 +87,17 @@ static const CGFloat padding       = 4.;
 }
 
 -(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didTranslationPoint:(CGPoint)translationPoint{
-    
-    self.collectionView.contentOffset = CGPointMake(-translationPoint.x, 0);
+    CGPoint oldOffset                 = self.collectionView.contentOffset;
+    AILog(@"translationPoint--%@\noldOffset--%@",NSStringFromCGPoint(translationPoint),NSStringFromCGPoint(oldOffset));
+    self.collectionView.contentOffset = CGPointMake(oldOffset.x- translationPoint.x, oldOffset.y);
+
+}
+
+#pragma mark --UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    CGPoint oldOffset                 = self.collectionView.contentOffset;
+//    AILog(@"translationPoint--%@\noldOffset--%@",NSStringFromCGPoint(_translationPoint),NSStringFromCGPoint(oldOffset));
+//    self.collectionView.contentOffset = CGPointMake(oldOffset.x-self.translationPoint.x, oldOffset.y);
 }
 
 

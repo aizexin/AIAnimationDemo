@@ -59,17 +59,17 @@
     CGPoint worldCenterPoint  = CGPointZero;
     //手势移动了多远
     CGPoint translation       = [recognizer translationInView:self.contentView];
-     AILog(@"--translation--%@",NSStringFromCGPoint(translation));
+     
     self.horizonting          = fabs(translation.x) > fabs(translation.y);
-    if ( !self.isOnWindow && self.isHorizonting) {
-        AILog(@"横向移动");
+    if ( self.isHorizonting) {
+//        AILog(@"横向移动");
         self.horizonting  = YES;
         //将响应事件传到下一个
         if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:didTranslationPoint:)]) {
             [self.delegate pictureCollection:self didTranslationPoint:translation];
         }
     }else {
-        AILog(@"竖直移动");
+//        AILog(@"竖直移动");
         cellCenterPoint   = CGPointMake(recognizer.view.center.x,
                                                 translation.y + recognizer.view.center.y);
         //转回原来的坐标   不是第一次的时候
@@ -80,14 +80,14 @@
         //转换为世界坐标
         worldCenterPoint            = [self.contentView convertPoint:cellCenterPoint toView:lastWindow];
         recognizer.view.center      = worldCenterPoint;
-        [recognizer setTranslation:CGPointMake(0, 0) inView:self.contentView];
         self.onWindow               = YES;
     }
+    [recognizer setTranslation:CGPointMake(0, 0) inView:self.contentView];
     
     if (recognizer.state == UIGestureRecognizerStateEnded) {//松手的时候执行
         //返回最后的本地viewCenter的坐标
         CGPoint endPoint =  [self.contentView convertPoint:recognizer.view.center fromView:lastWindow];
-        AILog(@"--endpoint--%@",NSStringFromCGPoint(endPoint));
+//        AILog(@"--endpoint--%@",NSStringFromCGPoint(endPoint));
         //判断距离
         if (endPoint.y < 0) {//发送出去
            
