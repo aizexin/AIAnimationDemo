@@ -56,6 +56,7 @@
 -(void)handGesture:(UIPanGestureRecognizer*)recognizer{
     UIWindow *lastWindow      = [[UIApplication sharedApplication].windows lastObject];
     CGPoint cellCenterPoint   = CGPointZero;
+    CGPoint worldCenterPoint  = CGPointZero;
     //手势移动了多远
     CGPoint translation       = [recognizer translationInView:self.contentView];
      AILog(@"--translation--%@",NSStringFromCGPoint(translation));
@@ -77,7 +78,7 @@
         }
         [lastWindow addSubview:recognizer.view];
         //转换为世界坐标
-        CGPoint worldCenterPoint    = [self.contentView convertPoint:cellCenterPoint toView:lastWindow];
+        worldCenterPoint            = [self.contentView convertPoint:cellCenterPoint toView:lastWindow];
         recognizer.view.center      = worldCenterPoint;
         [recognizer setTranslation:CGPointMake(0, 0) inView:self.contentView];
         self.onWindow               = YES;
@@ -89,13 +90,7 @@
         AILog(@"--endpoint--%@",NSStringFromCGPoint(endPoint));
         //判断距离
         if (endPoint.y < 0) {//发送出去
-
-            //获得加速度
-            CGPoint velocity = [recognizer velocityInView:self];
-            //添加pop动画
-            POPDecayAnimation *decayAnimation = [POPDecayAnimation animationWithPropertyNamed:kPOPLayerPositionY];
-            decayAnimation.velocity = [NSValue valueWithCGPoint:velocity];
-            [recognizer.view.layer pop_addAnimation:decayAnimation forKey:@"PopDecay"];
+           
             AILog(@"发出去");
             UIImageView *imageV = (UIImageView*)recognizer.view;
             if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:didGestureSelectedImage:)]) {
@@ -103,16 +98,19 @@
             }
             //TODO这个时候一样要返回到cell上但是动画不同
             [self.contentView addSubview:recognizer.view];
-            [recognizer.view.layer pop_removeAnimationForKey:@"PopDecay"];
             recognizer.view.frame =  self.bounds;
             
         }else{//返回cell上
-            [recognizer.view.layer pop_removeAnimationForKey:@"PopDecay"];
-            //DOTO一开始要记下frame，动画在window上做，完成后再加到contentView上
-            
             AILog(@"返回");
-            [self.contentView addSubview:recognizer.view];
-            recognizer.view.frame =  self.bounds;
+            //添加动画
+            CGRect worldOrginalRect              = [self.contentView convertRect:self.bounds toView:lastWindow];
+//            DOTO一开始要记下frame，动画在window上做，完成后再加到contentView上
+            [UIView animateWithDuration:.5 animations:^{
+                recognizer.view.frame = worldOrginalRect;
+            } completion:^(BOOL finished) {
+                [self.contentView addSubview:recognizer.view];
+                recognizer.view.frame =  self.bounds;
+            }];
         }
         self.onWindow = NO;
     }
