@@ -38,6 +38,9 @@
         self.imageV.userInteractionEnabled    = YES;
         //添加手势
         UIPanGestureRecognizer *panGest       =  [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handGesture:)];
+//        [[panGest rac_gestureSignal]subscribeNext:^(id  _Nullable x) {
+//            [self handGesture:x];
+//        }];
         [self.imageV addGestureRecognizer:panGest];
         [self.contentView  addSubview:self.imageV];
     }
@@ -51,19 +54,22 @@
 
 #pragma mark ---Action
 -(void)handGesture:(UIPanGestureRecognizer*)recognizer{
-    UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
+    UIWindow *lastWindow      = [[UIApplication sharedApplication].windows lastObject];
+    CGPoint cellCenterPoint   = CGPointZero;
     //手势移动了多远
     CGPoint translation       = [recognizer translationInView:self.contentView];
-    if (translation.x<translation.y) {
+     AILog(@"--translation--%@",NSStringFromCGPoint(translation));
+    self.horizonting          = fabs(translation.x) > fabs(translation.y);
+    if ( !self.isOnWindow && self.isHorizonting) {
         AILog(@"横向移动");
-        self.horizonting = YES;
+        self.horizonting  = YES;
         //将响应事件传到下一个
-//        [self.nextResponder becomeFirstResponder];
-        [self.superview hitTest:CGPointZero withEvent:nil];
-    }else{
-        self.horizonting = NO;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:didTranslationPoint:)]) {
+            [self.delegate pictureCollection:self didTranslationPoint:translation];
+        }
+    }else {
         AILog(@"竖直移动");
-        CGPoint cellCenterPoint   = CGPointMake(recognizer.view.center.x,
+        cellCenterPoint   = CGPointMake(recognizer.view.center.x,
                                                 translation.y + recognizer.view.center.y);
         //转回原来的坐标   不是第一次的时候
         if (self.isOnWindow) {
@@ -71,19 +77,19 @@
         }
         [lastWindow addSubview:recognizer.view];
         //转换为世界坐标
-        CGPoint worldCenterPoint = [self.contentView convertPoint:cellCenterPoint toView:lastWindow];
-        recognizer.view.center    = worldCenterPoint;
+        CGPoint worldCenterPoint    = [self.contentView convertPoint:cellCenterPoint toView:lastWindow];
+        recognizer.view.center      = worldCenterPoint;
         [recognizer setTranslation:CGPointMake(0, 0) inView:self.contentView];
-        self.onWindow = YES;
+        self.onWindow               = YES;
     }
     
     if (recognizer.state == UIGestureRecognizerStateEnded) {//松手的时候执行
-        self.imageV.userInteractionEnabled    = YES;
-        
         //返回最后的本地viewCenter的坐标
         CGPoint endPoint =  [self.contentView convertPoint:recognizer.view.center fromView:lastWindow];
+        AILog(@"--endpoint--%@",NSStringFromCGPoint(endPoint));
         //判断距离
         if (endPoint.y < 0) {//发送出去
+
             //获得加速度
             CGPoint velocity = [recognizer velocityInView:self];
             //添加pop动画

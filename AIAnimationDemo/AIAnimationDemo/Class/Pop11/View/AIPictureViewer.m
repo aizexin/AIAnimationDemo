@@ -10,7 +10,7 @@
 #import "AIPictureCollectionViewCell.h"
 
 #define identifier @"identifier"
-@interface AIPictureViewer ()<UICollectionViewDataSource,AIPictureCollectionCellDelegate>
+@interface AIPictureViewer ()<UICollectionViewDataSource,AIPictureCollectionCellDelegate,UIScrollViewDelegate>
 
 @property(nonatomic,strong)UICollectionView *collectionView;
 /** 固定的frame*/
@@ -54,9 +54,9 @@ static const CGFloat padding       = 4.;
     self = [super initWithFrame:frame];
     if (self) {
         //固定大小
-//        self.frame            = self.fixedRect;
-//        //collectionView
-//        [self addSubview:self.collectionView];
+        self.frame            = self.fixedRect;
+        //collectionView
+        [self addSubview:self.collectionView];
     }
     return self;
 }
@@ -86,14 +86,12 @@ static const CGFloat padding       = 4.;
     }
 }
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+-(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didTranslationPoint:(CGPoint)translationPoint{
+    
+    self.collectionView.contentOffset = CGPointMake(-translationPoint.x, 0);
+}
 
-   return  [super hitTest:point withEvent:event];
-}
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    //    NSLog(@"pointInside----%@", [self class]);
-    return [super pointInside:point withEvent:event];
-}
+
 @end
 
 

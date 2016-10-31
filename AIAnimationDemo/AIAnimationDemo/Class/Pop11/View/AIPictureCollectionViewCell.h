@@ -18,6 +18,8 @@
  */
 -(void)pictureCollection:(AIPictureCollectionViewCell*)pictureCollectionCell didGestureSelectedImage:(UIImage*)image;
 
+-(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didTranslationPoint:(CGPoint)translationPoint;
+
 @end
 
 @interface AIPictureCollectionViewCell : UICollectionViewCell

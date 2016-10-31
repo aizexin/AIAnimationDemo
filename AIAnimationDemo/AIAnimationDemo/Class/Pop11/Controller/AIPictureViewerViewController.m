@@ -8,7 +8,7 @@
 
 #import "AIPictureViewerViewController.h"
 #import "AIPictureViewer.h"
-#import <ReactiveObjC.h>
+
 @interface AIPictureViewerViewController ()<AIPictureViewerDelegate>
 /** uiimageview*/
 @property(nonatomic,strong)UIImageView *imageV;
@@ -18,11 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.imageV = [[UIImageView alloc]initWithFrame:CGRectMake(100, 100, 150, 200)];
-//    [self.view addSubview:self.imageV];
-//    AIPictureViewer *pictureV = [[AIPictureViewer alloc]init];
-//    pictureV.delegate         = self;
-//    [self.view addSubview:pictureV];
+    self.imageV = [[UIImageView alloc]initWithFrame:CGRectMake(100, 100, 150, 200)];
+    [self.view addSubview:self.imageV];
+    AIPictureViewer *pictureV = [[AIPictureViewer alloc]init];
+    pictureV.delegate         = self;
+    [self.view addSubview:pictureV];
+    /*
     UIButton *view1             = [[UIButton alloc]init];
 //    [view1 addTarget:self action:@selector(onClickView1) forControlEvents:(UIControlEventTouchDown)];
     view1.userInteractionEnabled = YES;
@@ -51,7 +52,7 @@
     //任意一个信号触发都可以
     [[tapSignal merge:signalView1]subscribeNext:^(id  _Nullable x) {
         AILog(@"一起");
-    }];
+    }];*/
 }
 
 #pragma mark -AIPictureViewerDelegate
@@ -67,6 +68,7 @@
     AILog(@"点击view222222");
 
 }
+
 //- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
 //    //    NSLog(@"pointInside----%@", [self class]);
 //    return [super pointInside:point withEvent:event];
