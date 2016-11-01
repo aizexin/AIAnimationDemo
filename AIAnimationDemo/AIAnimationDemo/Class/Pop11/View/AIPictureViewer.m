@@ -37,7 +37,8 @@ static const CGFloat padding       = 4.;
         _collectionView.backgroundColor         = [UIColor lightGrayColor];
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.dataSource             = self;
-        _collectionView.contentSize            = CGSizeMake(flowLayout.itemSize.width * self.imageArrayM.count, pictureHeight);
+        _collectionView.contentSize            = CGSizeMake(flowLayout.itemSize.width+padding * self.imageArrayM.count, pictureHeight);
+        _collectionView.directionalLockEnabled = YES;
         [_collectionView registerClass:[AIPictureCollectionViewCell class] forCellWithReuseIdentifier:identifier];
     }
     return _collectionView;
@@ -87,17 +88,22 @@ static const CGFloat padding       = 4.;
 }
 
 -(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didTranslationPoint:(CGPoint)translationPoint{
-    CGPoint oldOffset                 = self.collectionView.contentOffset;
-    AILog(@"translationPoint--%@\noldOffset--%@",NSStringFromCGPoint(translationPoint),NSStringFromCGPoint(oldOffset));
-    self.collectionView.contentOffset = CGPointMake(oldOffset.x- translationPoint.x, oldOffset.y);
-
+    
+    self.translationPoint = translationPoint;
+    [self scrollViewDidScroll:self.collectionView];
 }
 
 #pragma mark --UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    CGPoint oldOffset                 = self.collectionView.contentOffset;
+
+    CGPoint oldOffset                 = self.collectionView.contentOffset;
+    CGPoint newOffset                 =  CGPointMake(oldOffset.x-self.translationPoint.x, oldOffset.y);
+    
 //    AILog(@"translationPoint--%@\noldOffset--%@",NSStringFromCGPoint(_translationPoint),NSStringFromCGPoint(oldOffset));
-//    self.collectionView.contentOffset = CGPointMake(oldOffset.x-self.translationPoint.x, oldOffset.y);
+    if (self.collectionView.bounds.origin.x >= 0 && self.collectionView.bounds.origin.x <= self.collectionView.frame.size.width) {
+        
+        [self.collectionView setContentOffset:newOffset];;
+    }
 }
 
 
