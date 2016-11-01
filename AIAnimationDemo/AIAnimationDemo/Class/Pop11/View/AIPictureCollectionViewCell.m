@@ -13,14 +13,7 @@
 /** 是否在运动*/
 @property(assign,nonatomic,getter=isOnWindow)BOOL onWindow;
 
-/**
- 是否是水平
- */
-@property(assign,nonatomic,getter=isHorizonting)BOOL horizonting;
-/**
- 一半距离
- */
-@property(assign,nonatomic)CGFloat halfHight;
+
 /** 手势*/
 @property(nonatomic,strong)UIPanGestureRecognizer *panGest;
 /** 滑动手势*/
@@ -63,13 +56,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        [self.imageV addGestureRecognizer:self.panGest];
         [self.contentView  addSubview:self.imageV];
+        [self.imageV addGestureRecognizer:self.panGest];
         [self.imageV addGestureRecognizer:self.swipeGest];
-        
-//        [[self.panGest rac_gestureSignal]subscribeNext:^(UIPanGestureRecognizer *recognizer) {
-//            [self handGesture:recognizer];
-//        }];
+        self.panGest.enabled = NO;
+        [[self.panGest rac_gestureSignal]subscribeNext:^(UIPanGestureRecognizer *recognizer) {
+            [self handGesture:recognizer];
+        }];
     }
     return self;
 }
@@ -104,14 +97,9 @@
 
 -(void)swipeGest:(UISwipeGestureRecognizer*)swipe{
     AILog(@"竖直滑动");
-    //再添加拖拽手势
-    [self.imageV addGestureRecognizer:self.panGest];
-//    拖拽手势失败再执行滑动手势
-//    [self.swipeGest requireGestureRecognizerToFail:self.panGest];
-    [[self.panGest rac_gestureSignal]subscribeNext:^(id  _Nullable x) {
-        //竖直滑动
-        [self handGesture:x];
-    }];
+    self.swipeGest.enabled = NO;
+    self.panGest.enabled   = YES;
+ 
 }
 
 
@@ -159,8 +147,9 @@
         imageV.frame = weakSelf.bounds;
     } completion:^(BOOL finished) {
         //移除拖拽手势
-        [weakSelf.imageV removeGestureRecognizer:weakSelf.panGest];
-        self.panGest = nil;
+        self.panGest.enabled   = NO;
+        self.swipeGest.enabled = YES;
+
     }];
 }
 
@@ -171,7 +160,6 @@
  */
 -(void)backImageRecognizer:(UIPanGestureRecognizer*)recognizer{
     AILog(@"返回");
-    AILog(@"--%@",NSStringFromCGRect(recognizer.view.frame));
     __weak typeof(self) weakSelf = self;
     UIWindow *lastWindow      = [[UIApplication sharedApplication].windows lastObject];
     //添加动画
@@ -183,8 +171,8 @@
         [weakSelf.contentView addSubview:recognizer.view];
         recognizer.view.frame =  self.bounds;
         //移除拖拽手势
-        [weakSelf.imageV removeGestureRecognizer:self.panGest];
-        self.panGest = nil;
+        self.panGest.enabled   = NO;
+        self.swipeGest.enabled = YES;
     }];
 }
 
