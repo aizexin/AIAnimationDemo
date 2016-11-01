@@ -23,6 +23,8 @@
 @property(assign,nonatomic)CGFloat halfHight;
 /** 手势*/
 @property(nonatomic,strong)UIPanGestureRecognizer *panGest;
+/** 滑动手势*/
+@property(nonatomic,strong)UISwipeGestureRecognizer *swipeGest;
 @end
 
 @implementation AIPictureCollectionViewCell
@@ -32,11 +34,16 @@
     if (!_panGest) {
         //添加手势
         _panGest                              =  [[UIPanGestureRecognizer alloc]init];//[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handGesture:)];
-        self.panGest                          = _panGest;
-        
-        
     }
     return _panGest;
+}
+-(UISwipeGestureRecognizer *)swipeGest{
+    if (!_swipeGest) {
+        _swipeGest                  = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeGest:)];
+        _swipeGest.direction        = UISwipeGestureRecognizerDirectionUp;
+        _swipeGest.numberOfTouchesRequired  = 1;
+    }
+    return _swipeGest;
 }
 -(UIImageView *)imageV{
     if (!_imageV) {
@@ -56,11 +63,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self.imageV addGestureRecognizer:self.panGest];
+//        [self.imageV addGestureRecognizer:self.panGest];
         [self.contentView  addSubview:self.imageV];
-        [[self.panGest rac_gestureSignal]subscribeNext:^(UIPanGestureRecognizer *recognizer) {
-            [self handGesture:recognizer];
-        }];
+        [self.imageV addGestureRecognizer:self.swipeGest];
+        
+//        [[self.panGest rac_gestureSignal]subscribeNext:^(UIPanGestureRecognizer *recognizer) {
+//            [self handGesture:recognizer];
+//        }];
     }
     return self;
 }
@@ -72,51 +81,39 @@
 
 #pragma mark ---Action
 -(void)handGesture:(UIPanGestureRecognizer*)recognizer{
-    AILog(@"--handGesture--");
     
     UIWindow *lastWindow      = [[UIApplication sharedApplication].windows lastObject];
-    //手势移动了多远
-    CGPoint translation       = [recognizer translationInView:self.contentView];
-     
-    self.horizonting          = fabs(translation.x) > fabs(translation.y);
-    if (!self.isOnWindow && self.isHorizonting) {
-        //横向滑动
-        [self horizontingActionWithRecognizer:recognizer];
-    }else if(fabs(translation.y)>5){
-        //竖直滑动
-        [self verticalActionWithRecognizer:recognizer];
-    }
-    [recognizer setTranslation:CGPointMake(0, 0) inView:self.contentView];
     
-    if (recognizer.state == UIGestureRecognizerStateEnded) {//松手的时候执行
+    //竖直滑动
+    [self verticalActionWithRecognizer:recognizer];
+    
+    if (recognizer.state == UIGestureRecognizerStateEnded ) {//松手的时候执行
         //返回最后的本地viewCenter的坐标
         CGPoint endPoint =  [self.contentView convertPoint:recognizer.view.center fromView:lastWindow];
         //判断距离
-        if (endPoint.y < 0) {//发送出去
+        if (endPoint.y < 0 && self.isOnWindow) {//发送出去
            
             [self sendImageRecognizer:recognizer];
             
-        }else{//返回cell上
+        }else {//返回cell上
             [self backImageRecognizer:recognizer];
         }
         self.onWindow = NO;
     }
 }
 
-/**
- 横向滑动
-
- @param recognizer 手势
- */
--(void)horizontingActionWithRecognizer:(UIPanGestureRecognizer*)recognizer{
-    self.horizonting  = YES;
-    //手势移动了多远
-    CGPoint translation       = [recognizer translationInView:self.contentView];
-    //将响应事件传到下一个
-    if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:didTranslationPoint:)]) {
-        [self.delegate pictureCollection:self didTranslationPoint:translation];
-    }
+-(void)swipeGest:(UISwipeGestureRecognizer*)swipe{
+    AILog(@"竖直滑动");
+    //再添加拖拽手势
+    [self.imageV addGestureRecognizer:self.panGest];
+//    拖拽手势失败再执行滑动手势
+//    [self.swipeGest requireGestureRecognizerToFail:self.panGest];
+    [[self.panGest rac_gestureSignal]subscribeNext:^(id  _Nullable x) {
+        //竖直滑动
+        [self handGesture:x];
+    }];
 }
+
 
 /**
  竖直滑动
@@ -141,6 +138,7 @@
     worldCenterPoint            = [self.contentView convertPoint:cellCenterPoint toView:lastWindow];
     recognizer.view.center      = worldCenterPoint;
     self.onWindow               = YES;
+    [recognizer setTranslation:CGPointMake(0, 0) inView:self.contentView];
 }
 
 /**
@@ -151,15 +149,18 @@
 -(void)sendImageRecognizer:(UIPanGestureRecognizer*)recognizer{
     AILog(@"发出去");
     UIImageView *imageV = (UIImageView*)recognizer.view;
+    __weak typeof(self) weakSelf = self;
     if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:didGestureSelectedImage:andImageWorldRect:)]) {
         [self.delegate pictureCollection:self didGestureSelectedImage:imageV.image andImageWorldRect:recognizer.view.frame];
     }
     //TODO这个时候一样要返回到cell上但是动画不同
-    [self.contentView addSubview:recognizer.view];
+    [self.contentView addSubview:imageV];
     [UIView animateWithDuration:.3 animations:^{
-        recognizer.view.frame = self.bounds;
+        imageV.frame = weakSelf.bounds;
     } completion:^(BOOL finished) {
-        
+        //移除拖拽手势
+        [weakSelf.imageV removeGestureRecognizer:weakSelf.panGest];
+        self.panGest = nil;
     }];
 }
 
@@ -170,6 +171,8 @@
  */
 -(void)backImageRecognizer:(UIPanGestureRecognizer*)recognizer{
     AILog(@"返回");
+    AILog(@"--%@",NSStringFromCGRect(recognizer.view.frame));
+    __weak typeof(self) weakSelf = self;
     UIWindow *lastWindow      = [[UIApplication sharedApplication].windows lastObject];
     //添加动画
     CGRect worldOrginalRect              = [self.contentView convertRect:self.bounds toView:lastWindow];
@@ -177,47 +180,13 @@
     [UIView animateWithDuration:.5 animations:^{
         recognizer.view.frame = worldOrginalRect;
     } completion:^(BOOL finished) {
-        [self.contentView addSubview:recognizer.view];
+        [weakSelf.contentView addSubview:recognizer.view];
         recognizer.view.frame =  self.bounds;
+        //移除拖拽手势
+        [weakSelf.imageV removeGestureRecognizer:self.panGest];
+        self.panGest = nil;
     }];
 }
-
-//-(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-//    __block UIView *returnView = [super hitTest:point withEvent:event];
-//    [[self.panGest rac_gestureSignal]subscribeNext:^(UIPanGestureRecognizer *recognizer) {
-//        UIWindow *lastWindow      = [[UIApplication sharedApplication].windows lastObject];
-//        //手势移动了多远
-//        CGPoint translation       = [recognizer translationInView:self.contentView];
-//        
-//        self.horizonting          = fabs(translation.x) > fabs(translation.y);
-//        if (!self.isOnWindow && self.isHorizonting) {
-//            //横向滑动
-//            returnView  = self.superview;
-////            [self horizontingActionWithRecognizer:recognizer];
-//        }else if(fabs(translation.y)>5){
-//            //竖直滑动
-//            returnView = [super hitTest:point withEvent:event];
-//            [self verticalActionWithRecognizer:recognizer];
-//        }
-//        [recognizer setTranslation:CGPointMake(0, 0) inView:self.contentView];
-//        
-//        if (recognizer.state == UIGestureRecognizerStateEnded) {//松手的时候执行
-//            //返回最后的本地viewCenter的坐标
-//            CGPoint endPoint =  [self.contentView convertPoint:recognizer.view.center fromView:lastWindow];
-//            //判断距离
-//            if (endPoint.y < 0) {//发送出去
-//                
-//                [self sendImageRecognizer:recognizer];
-//                
-//            }else{//返回cell上
-//                [self backImageRecognizer:recognizer];
-//            }
-//            self.onWindow = NO;
-//        }
-//    }];
-//    return returnView;
-//
-//}
 
 
 @end

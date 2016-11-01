@@ -87,24 +87,6 @@ static const CGFloat padding       = 4.;
     }
 }
 
--(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didTranslationPoint:(CGPoint)translationPoint{
-    
-    self.translationPoint = translationPoint;
-    [self scrollViewDidScroll:self.collectionView];
-}
-
-#pragma mark --UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-
-    CGPoint oldOffset                 = self.collectionView.contentOffset;
-    CGPoint newOffset                 =  CGPointMake(oldOffset.x-self.translationPoint.x, oldOffset.y);
-    
-//    AILog(@"translationPoint--%@\noldOffset--%@",NSStringFromCGPoint(_translationPoint),NSStringFromCGPoint(oldOffset));
-    if (self.collectionView.bounds.origin.x >= 0 && self.collectionView.bounds.origin.x <= self.collectionView.frame.size.width) {
-        
-        [self.collectionView setContentOffset:newOffset];;
-    }
-}
 
 
 @end

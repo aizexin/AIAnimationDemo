@@ -19,15 +19,6 @@
  */
 -(void)pictureCollection:(AIPictureCollectionViewCell*)pictureCollectionCell didGestureSelectedImage:(UIImage*)image andImageWorldRect:(CGRect)imageWorldRect;
 
-
-/**
- 在图片横向滑动的时候调用
-
- @param pictureCollectionCell 当前cell
- @param translationPoint      手势移动的距离
- */
--(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell didTranslationPoint:(CGPoint)translationPoint;
-
 @end
 
 @interface AIPictureCollectionViewCell : UICollectionViewCell
