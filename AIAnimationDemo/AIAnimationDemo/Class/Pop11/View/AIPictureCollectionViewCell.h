@@ -19,6 +19,14 @@
  */
 -(void)pictureCollection:(AIPictureCollectionViewCell*)pictureCollectionCell didGestureSelectedImage:(UIImage*)image andImageWorldRect:(CGRect)imageWorldRect;
 
+/**
+ 通过图片是否在window上来控制Scollview是否可以滑动
+
+ @param pictureCollectionCell 当前cell
+ @param isOnWindow            相片是否在window上
+ */
+-(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell lockScollViewWithOnWindow:(BOOL)isOnWindow;
+
 @end
 
 @interface AIPictureCollectionViewCell : UICollectionViewCell

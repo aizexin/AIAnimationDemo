@@ -16,12 +16,12 @@ typedef enum :NSInteger {
     kPictureMoveDirectionRight,
     kPictureMoveDirectionLeft
 } PictureMoveDirection;
+
 @interface AIPictureCollectionViewCell ()<UIGestureRecognizerDelegate>
 /** 是否在运动*/
 @property(assign,nonatomic,getter=isOnWindow)BOOL onWindow;
 /** 用来判断pan手势的方向*/
 @property(assign,nonatomic)PictureMoveDirection direction;
-
 /** 手势*/
 @property(nonatomic,strong)UIPanGestureRecognizer *panGest;
 
@@ -79,14 +79,20 @@ typedef enum :NSInteger {
         
     }else if (recognizer.state == UIGestureRecognizerStateChanged && self.direction == kPictureMoveDirectionNone){
         self.direction = [self determinePictureDirectionIfNeeded:translation];
-
+       
     }
     //---end
     if (self.direction == kPictureMoveDirectionUp||
         self.direction == kPictureMoveDirectionDown) {
         //竖直滑动
         [self verticalActionWithRecognizer:recognizer];
+        //锁定在竖直
+        if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:lockScollViewWithOnWindow:)]) {
+            
+            [self.delegate pictureCollection:self lockScollViewWithOnWindow:self.isOnWindow];
+        }
     }
+    
     
     if (recognizer.state == UIGestureRecognizerStateEnded ) {//松手的时候执行
         if (self.direction == kPictureMoveDirectionUp ||
@@ -103,6 +109,11 @@ typedef enum :NSInteger {
             }
         }
         self.onWindow = NO;
+        //解锁scolliew
+        if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:lockScollViewWithOnWindow:)]) {
+            
+            [self.delegate pictureCollection:self lockScollViewWithOnWindow:self.isOnWindow];
+        }
     }
 }
 
@@ -227,8 +238,7 @@ typedef enum :NSInteger {
 /*指定一个手势需要另一个手势执行失败才会执行，同时触发多个手势使用其中一个手势的解决办法
 有时手势是相关联的，如单机和双击，点击和长按，点下去瞬间可能只会识别到单击无法识别其他，该方法可以指定某一个 手势，即便自己已经满足条件了，也不会立刻触发，会等到该指定的手势确定失败之后才触发*/
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
-        
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] ) {
         return YES;
     }
     return NO;

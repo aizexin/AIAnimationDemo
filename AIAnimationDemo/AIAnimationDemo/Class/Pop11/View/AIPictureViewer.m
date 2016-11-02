@@ -87,6 +87,10 @@ static const CGFloat padding       = 4.;
     }
 }
 
+-(void)pictureCollection:(AIPictureCollectionViewCell *)pictureCollectionCell lockScollViewWithOnWindow:(BOOL)isOnWindow{
+    self.collectionView.scrollEnabled = !isOnWindow;
+}
+
 
 
 @end
