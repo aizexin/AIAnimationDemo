@@ -19,6 +19,7 @@ typedef enum :NSInteger {
 @interface AIPictureCollectionViewCell ()<UIGestureRecognizerDelegate>
 /** 是否在运动*/
 @property(assign,nonatomic,getter=isOnWindow)BOOL onWindow;
+/** 用来判断pan手势的方向*/
 @property(assign,nonatomic)PictureMoveDirection direction;
 
 /** 手势*/
@@ -37,7 +38,6 @@ typedef enum :NSInteger {
     }
     return _panGest;
 }
-
 -(UIImageView *)imageV{
     if (!_imageV) {
         _imageV                           = [[UIImageView alloc]init];
@@ -46,9 +46,8 @@ typedef enum :NSInteger {
     return _imageV;
 }
 
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
+#pragma mark -- life
+- (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
         [self.contentView  addSubview:self.imageV];
@@ -59,13 +58,16 @@ typedef enum :NSInteger {
     }
     return self;
 }
-
 -(void)layoutSubviews{
     self.imageV.frame = self.bounds;
 }
 
+#pragma mark ---手势响应
+/**
+ 拖拽手势相应函数
 
-#pragma mark ---Action
+ @param recognizer 手势
+ */
 -(void)handGesture:(UIPanGestureRecognizer*)recognizer{
     
     UIWindow *lastWindow               = [[UIApplication sharedApplication].windows lastObject];
@@ -102,6 +104,54 @@ typedef enum :NSInteger {
         }
         self.onWindow = NO;
     }
+}
+
+// This method will determine whether the direction of the user's swipe
+
+/**
+ 判断pan手势的方向
+ 
+ @param translation 移动的距离
+ 
+ @return 方向
+ */
+- (PictureMoveDirection)determinePictureDirectionIfNeeded:(CGPoint)translation
+{
+    if (self.direction != kPictureMoveDirectionNone)
+        return self.direction;
+    // determine if horizontal swipe only if you meet some minimum velocity
+    if (fabs(translation.x) > gestureMinimumTranslation)
+    {
+        BOOL gestureHorizontal = NO;
+        if (translation.y ==0.0)
+            gestureHorizontal = YES;
+        else
+            gestureHorizontal = (fabs(translation.x / translation.y) >5.0);
+        if (gestureHorizontal)
+        {
+            if (translation.x >0.0)
+                return kPictureMoveDirectionRight;
+            else
+                return kPictureMoveDirectionLeft;
+        }
+    }
+    // determine if vertical swipe only if you meet some minimum velocity
+    else if (fabs(translation.y) > gestureMinimumTranslation)
+    {
+        BOOL gestureVertical = NO;
+        if (translation.x ==0.0)
+            gestureVertical = YES;
+        else
+            gestureVertical = (fabs(translation.y / translation.x) >5.0);
+        if (gestureVertical)
+        {
+            if (translation.y >0.0)
+                return kPictureMoveDirectionDown;
+            else
+                return kPictureMoveDirectionUp;
+        }
+    }
+    return self.direction;
 }
 
 /**
@@ -176,59 +226,12 @@ typedef enum :NSInteger {
 /*指定一个手势需要另一个手势执行失败才会执行，同时触发多个手势使用其中一个手势的解决办法
 有时手势是相关联的，如单机和双击，点击和长按，点下去瞬间可能只会识别到单击无法识别其他，该方法可以指定某一个 手势，即便自己已经满足条件了，也不会立刻触发，会等到该指定的手势确定失败之后才触发*/
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-
-    return YES;
-}
-
-// This method will determine whether the direction of the user's swipe
-
-/**
- 判断pan手势的方向
-
- @param translation 移动的距离
-
- @return 方向
- */
-- (PictureMoveDirection)determinePictureDirectionIfNeeded:(CGPoint)translation
-{
-    if (self.direction != kPictureMoveDirectionNone)
-        return self.direction;
-    // determine if horizontal swipe only if you meet some minimum velocity
-    if (fabs(translation.x) > gestureMinimumTranslation)
-    {
-        BOOL gestureHorizontal = NO;
-        if (translation.y ==0.0)
-            gestureHorizontal = YES;
-        else
-            gestureHorizontal = (fabs(translation.x / translation.y) >5.0);
-        if (gestureHorizontal)
-        {
-            if (translation.x >0.0)
-                return kPictureMoveDirectionRight;
-            else
-                return kPictureMoveDirectionLeft;
-        }
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+        
+        return YES;
     }
-    // determine if vertical swipe only if you meet some minimum velocity
-    else if (fabs(translation.y) > gestureMinimumTranslation)
-    {
-        BOOL gestureVertical = NO;
-        if (translation.x ==0.0)
-            gestureVertical = YES;
-        else
-            gestureVertical = (fabs(translation.y / translation.x) >5.0);
-        if (gestureVertical)
-        {
-            if (translation.y >0.0)
-                return kPictureMoveDirectionDown;
-            else
-                return kPictureMoveDirectionUp;
-        }
-    }
-    return self.direction;
+    return NO;
 }
-
-
 
 @end
 
