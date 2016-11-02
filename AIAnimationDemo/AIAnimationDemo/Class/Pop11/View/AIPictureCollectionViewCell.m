@@ -235,8 +235,8 @@ typedef enum :NSInteger {
 }
 
 #pragma mark --UIGestureRecognizerDelegate
-/*指定一个手势需要另一个手势执行失败才会执行，同时触发多个手势使用其中一个手势的解决办法
-有时手势是相关联的，如单机和双击，点击和长按，点下去瞬间可能只会识别到单击无法识别其他，该方法可以指定某一个 手势，即便自己已经满足条件了，也不会立刻触发，会等到该指定的手势确定失败之后才触发*/
+/*是否支持多手势触发，返回YES，则可以多个手势一起触发方法，返回NO则为互斥
+ 是否允许多个手势识别器共同识别，一个控件的手势识别后是否阻断手势识别继续向下传播，默认返回NO；如果为YES，响应者链上层对象触发手势识别后，如果下层对象也添加了手势并成功识别也会继续执行，否则上层对象识别后则不再继续传播*/
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] ) {
         return YES;
