@@ -192,7 +192,8 @@ typedef enum :NSInteger {
     if (self.delegate && [self.delegate respondsToSelector:@selector(pictureCollection:didGestureSelectedImage:andImageWorldRect:)]) {
         [self.delegate pictureCollection:self didGestureSelectedImage:imageV.image andImageWorldRect:recognizer.view.frame];
     }
-    //TODO这个时候一样要返回到cell上但是动画不同
+    //设置动画初始frame
+    imageV.frame  = CGRectMake(self.frame.size.width * 0.5, self.frame.size.height * 0.5, 0, 0);
     [self.contentView addSubview:imageV];
     [UIView animateWithDuration:.3 animations:^{
         imageV.frame = weakSelf.bounds;
