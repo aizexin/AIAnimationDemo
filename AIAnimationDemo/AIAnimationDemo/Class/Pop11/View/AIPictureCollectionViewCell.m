@@ -7,17 +7,26 @@
 //
 
 #import "AIPictureCollectionViewCell.h"
+CGFloat const gestureMinimumTranslation = 20.0;
 
-
-@interface AIPictureCollectionViewCell ()
+typedef enum :NSInteger {
+    kPictureMoveDirectionNone,
+    kPictureMoveDirectionUp,
+    kPictureMoveDirectionDown,
+    kPictureMoveDirectionRight,
+    kPictureMoveDirectionLeft
+} PictureMoveDirection;
+@interface AIPictureCollectionViewCell ()<UIGestureRecognizerDelegate>
 /** 是否在运动*/
 @property(assign,nonatomic,getter=isOnWindow)BOOL onWindow;
-
+@property(assign,nonatomic)PictureMoveDirection direction;
 
 /** 手势*/
 @property(nonatomic,strong)UIPanGestureRecognizer *panGest;
 /** 滑动手势*/
 @property(nonatomic,strong)UISwipeGestureRecognizer *swipeGest;
+/** 手势*/
+@property(nonatomic,strong)UIGestureRecognizer *recognizer;
 @end
 
 @implementation AIPictureCollectionViewCell
@@ -27,6 +36,7 @@
     if (!_panGest) {
         //添加手势
         _panGest                              =  [[UIPanGestureRecognizer alloc]init];//[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handGesture:)];
+        _panGest.delegate                     = self;
     }
     return _panGest;
 }
@@ -35,8 +45,16 @@
         _swipeGest                  = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeGest:)];
         _swipeGest.direction        = UISwipeGestureRecognizerDirectionUp;
         _swipeGest.numberOfTouchesRequired  = 1;
+        _swipeGest.delegate         = self;
     }
     return _swipeGest;
+}
+-(UIGestureRecognizer *)recognizer{
+    if (!_recognizer) {
+        _recognizer                 = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(recognizerAction)];
+        _recognizer.delegate        = self;
+    }
+    return _recognizer;
 }
 -(UIImageView *)imageV{
     if (!_imageV) {
@@ -57,9 +75,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self.contentView  addSubview:self.imageV];
+        [self.imageV addGestureRecognizer:self.recognizer];
         [self.imageV addGestureRecognizer:self.panGest];
-        [self.imageV addGestureRecognizer:self.swipeGest];
-        self.panGest.enabled = NO;
+//        [self.imageV addGestureRecognizer:self.swipeGest];
+//        self.panGest.enabled = NO;
         [[self.panGest rac_gestureSignal]subscribeNext:^(UIPanGestureRecognizer *recognizer) {
             [self handGesture:recognizer];
         }];
@@ -76,20 +95,60 @@
 -(void)handGesture:(UIPanGestureRecognizer*)recognizer{
     
     UIWindow *lastWindow      = [[UIApplication sharedApplication].windows lastObject];
+    //--判断方向
+    //到了拖拽手势
+    CGPoint translation                = [recognizer translationInView:self.contentView];
+    if (recognizer.state ==UIGestureRecognizerStateBegan)
+    {
+        self.direction = kPictureMoveDirectionNone;
+    }
+    else if (recognizer.state == UIGestureRecognizerStateChanged && self.direction == kPictureMoveDirectionNone)
+    {
+        self.direction = [self determinePictureDirectionIfNeeded:translation];
+
+        // ok, now initiate movement in the direction indicated by the user's gesture
+        switch (self.direction) {
+            case kPictureMoveDirectionDown:
+//                NSLog(@"Start moving down");
+            case kPictureMoveDirectionUp:
+//                NSLog(@"Start moving up");
+               
+                break;
+            case kPictureMoveDirectionRight:
+                NSLog(@"Start moving right");
+                break;
+            case kPictureMoveDirectionLeft:
+                NSLog(@"Start moving left");
+                break;
+            default:
+                break;
+        }
+    }
+    if (self.direction == kPictureMoveDirectionUp||
+        self.direction == kPictureMoveDirectionDown) {
+        //竖直滑动
+        [self verticalActionWithRecognizer:recognizer];
+    }
+
     
-    //竖直滑动
-    [self verticalActionWithRecognizer:recognizer];
+    
+    //---end
+    
+    
     
     if (recognizer.state == UIGestureRecognizerStateEnded ) {//松手的时候执行
-        //返回最后的本地viewCenter的坐标
-        CGPoint endPoint =  [self.contentView convertPoint:recognizer.view.center fromView:lastWindow];
-        //判断距离
-        if (endPoint.y < 0 && self.isOnWindow) {//发送出去
-           
-            [self sendImageRecognizer:recognizer];
-            
-        }else {//返回cell上
-            [self backImageRecognizer:recognizer];
+        if (self.direction == kPictureMoveDirectionUp ||
+            self.direction == kPictureMoveDirectionDown) {
+            //返回最后的本地viewCenter的坐标
+            CGPoint endPoint =  [self.contentView convertPoint:recognizer.view.center fromView:lastWindow];
+            //判断距离
+            if (endPoint.y < 0 && self.isOnWindow) {//发送出去
+                
+                [self sendImageRecognizer:recognizer];
+                
+            }else {//返回cell上
+                [self backImageRecognizer:recognizer];
+            }
         }
         self.onWindow = NO;
     }
@@ -97,9 +156,11 @@
 
 -(void)swipeGest:(UISwipeGestureRecognizer*)swipe{
     AILog(@"竖直滑动");
-    self.swipeGest.enabled = NO;
-    self.panGest.enabled   = YES;
- 
+//    self.swipeGest.enabled = NO;
+//    self.panGest.enabled   = YES;
+}
+-(void)recognizerAction{
+    
 }
 
 
@@ -147,8 +208,8 @@
         imageV.frame = weakSelf.bounds;
     } completion:^(BOOL finished) {
         //移除拖拽手势
-        self.panGest.enabled   = NO;
-        self.swipeGest.enabled = YES;
+//        self.panGest.enabled   = NO;
+//        self.swipeGest.enabled = YES;
 
     }];
 }
@@ -171,10 +232,68 @@
         [weakSelf.contentView addSubview:recognizer.view];
         recognizer.view.frame =  self.bounds;
         //移除拖拽手势
-        self.panGest.enabled   = NO;
-        self.swipeGest.enabled = YES;
+//        self.panGest.enabled   = NO;
+//        self.swipeGest.enabled = YES;
     }];
 }
+
+#pragma mark --UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+//    AILog(@"1----：%@",[gestureRecognizer class]);
+//    AILog(@"2----：%@",[otherGestureRecognizer class]);
+//    UIScrollViewPanGestureRecognizer *pan;
+    return YES;
+}
+
+// This method will determine whether the direction of the user's swipe
+
+/**
+ 判断pan手势的方向
+
+ @param translation 移动的距离
+
+ @return 方向
+ */
+- (PictureMoveDirection)determinePictureDirectionIfNeeded:(CGPoint)translation
+{
+    if (self.direction != kPictureMoveDirectionNone)
+        return self.direction;
+    // determine if horizontal swipe only if you meet some minimum velocity
+    if (fabs(translation.x) > gestureMinimumTranslation)
+    {
+        BOOL gestureHorizontal = NO;
+        if (translation.y ==0.0)
+            gestureHorizontal = YES;
+        else
+            gestureHorizontal = (fabs(translation.x / translation.y) >5.0);
+        if (gestureHorizontal)
+        {
+            if (translation.x >0.0)
+                return kPictureMoveDirectionRight;
+            else
+                return kPictureMoveDirectionLeft;
+        }
+    }
+    // determine if vertical swipe only if you meet some minimum velocity
+    else if (fabs(translation.y) > gestureMinimumTranslation)
+    {
+        BOOL gestureVertical = NO;
+        if (translation.x ==0.0)
+            gestureVertical = YES;
+        else
+            gestureVertical = (fabs(translation.y / translation.x) >5.0);
+        if (gestureVertical)
+        {
+            if (translation.y >0.0)
+                return kPictureMoveDirectionDown;
+            else
+                return kPictureMoveDirectionUp;
+        }
+    }
+    return self.direction;
+}
+
 
 
 @end
