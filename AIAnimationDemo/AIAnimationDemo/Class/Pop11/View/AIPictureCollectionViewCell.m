@@ -23,10 +23,7 @@ typedef enum :NSInteger {
 
 /** 手势*/
 @property(nonatomic,strong)UIPanGestureRecognizer *panGest;
-/** 滑动手势*/
-@property(nonatomic,strong)UISwipeGestureRecognizer *swipeGest;
-/** 手势*/
-@property(nonatomic,strong)UIGestureRecognizer *recognizer;
+
 @end
 
 @implementation AIPictureCollectionViewCell
@@ -40,22 +37,7 @@ typedef enum :NSInteger {
     }
     return _panGest;
 }
--(UISwipeGestureRecognizer *)swipeGest{
-    if (!_swipeGest) {
-        _swipeGest                  = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeGest:)];
-        _swipeGest.direction        = UISwipeGestureRecognizerDirectionUp;
-        _swipeGest.numberOfTouchesRequired  = 1;
-        _swipeGest.delegate         = self;
-    }
-    return _swipeGest;
-}
--(UIGestureRecognizer *)recognizer{
-    if (!_recognizer) {
-        _recognizer                 = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(recognizerAction)];
-        _recognizer.delegate        = self;
-    }
-    return _recognizer;
-}
+
 -(UIImageView *)imageV{
     if (!_imageV) {
         _imageV                           = [[UIImageView alloc]init];
@@ -65,20 +47,12 @@ typedef enum :NSInteger {
 }
 
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         [self.contentView  addSubview:self.imageV];
-        [self.imageV addGestureRecognizer:self.recognizer];
         [self.imageV addGestureRecognizer:self.panGest];
-//        [self.imageV addGestureRecognizer:self.swipeGest];
-//        self.panGest.enabled = NO;
         [[self.panGest rac_gestureSignal]subscribeNext:^(UIPanGestureRecognizer *recognizer) {
             [self handGesture:recognizer];
         }];
@@ -94,47 +68,23 @@ typedef enum :NSInteger {
 #pragma mark ---Action
 -(void)handGesture:(UIPanGestureRecognizer*)recognizer{
     
-    UIWindow *lastWindow      = [[UIApplication sharedApplication].windows lastObject];
+    UIWindow *lastWindow               = [[UIApplication sharedApplication].windows lastObject];
     //--判断方向
     //到了拖拽手势
     CGPoint translation                = [recognizer translationInView:self.contentView];
-    if (recognizer.state ==UIGestureRecognizerStateBegan)
-    {
+    if (recognizer.state ==UIGestureRecognizerStateBegan){
         self.direction = kPictureMoveDirectionNone;
-    }
-    else if (recognizer.state == UIGestureRecognizerStateChanged && self.direction == kPictureMoveDirectionNone)
-    {
+        
+    }else if (recognizer.state == UIGestureRecognizerStateChanged && self.direction == kPictureMoveDirectionNone){
         self.direction = [self determinePictureDirectionIfNeeded:translation];
 
-        // ok, now initiate movement in the direction indicated by the user's gesture
-        switch (self.direction) {
-            case kPictureMoveDirectionDown:
-//                NSLog(@"Start moving down");
-            case kPictureMoveDirectionUp:
-//                NSLog(@"Start moving up");
-               
-                break;
-            case kPictureMoveDirectionRight:
-                NSLog(@"Start moving right");
-                break;
-            case kPictureMoveDirectionLeft:
-                NSLog(@"Start moving left");
-                break;
-            default:
-                break;
-        }
     }
+    //---end
     if (self.direction == kPictureMoveDirectionUp||
         self.direction == kPictureMoveDirectionDown) {
         //竖直滑动
         [self verticalActionWithRecognizer:recognizer];
     }
-
-    
-    
-    //---end
-    
-    
     
     if (recognizer.state == UIGestureRecognizerStateEnded ) {//松手的时候执行
         if (self.direction == kPictureMoveDirectionUp ||
@@ -153,16 +103,6 @@ typedef enum :NSInteger {
         self.onWindow = NO;
     }
 }
-
--(void)swipeGest:(UISwipeGestureRecognizer*)swipe{
-    AILog(@"竖直滑动");
-//    self.swipeGest.enabled = NO;
-//    self.panGest.enabled   = YES;
-}
--(void)recognizerAction{
-    
-}
-
 
 /**
  竖直滑动
@@ -207,9 +147,6 @@ typedef enum :NSInteger {
     [UIView animateWithDuration:.3 animations:^{
         imageV.frame = weakSelf.bounds;
     } completion:^(BOOL finished) {
-        //移除拖拽手势
-//        self.panGest.enabled   = NO;
-//        self.swipeGest.enabled = YES;
 
     }];
 }
@@ -231,18 +168,15 @@ typedef enum :NSInteger {
     } completion:^(BOOL finished) {
         [weakSelf.contentView addSubview:recognizer.view];
         recognizer.view.frame =  self.bounds;
-        //移除拖拽手势
-//        self.panGest.enabled   = NO;
-//        self.swipeGest.enabled = YES;
+
     }];
 }
 
 #pragma mark --UIGestureRecognizerDelegate
-
+/*指定一个手势需要另一个手势执行失败才会执行，同时触发多个手势使用其中一个手势的解决办法
+有时手势是相关联的，如单机和双击，点击和长按，点下去瞬间可能只会识别到单击无法识别其他，该方法可以指定某一个 手势，即便自己已经满足条件了，也不会立刻触发，会等到该指定的手势确定失败之后才触发*/
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-//    AILog(@"1----：%@",[gestureRecognizer class]);
-//    AILog(@"2----：%@",[otherGestureRecognizer class]);
-//    UIScrollViewPanGestureRecognizer *pan;
+
     return YES;
 }
 
