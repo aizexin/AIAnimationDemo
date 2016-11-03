@@ -5,6 +5,7 @@
 //  Created by 艾泽鑫 on 2016/10/23.
 //  Copyright © 2016年 艾泽鑫. All rights reserved.
 //  防QQ图片浏览
+/*          简书   :http://www.jianshu.com/p/349a257eaba9       */
 
 #import "AIPictureViewerViewController.h"
 #import "AIPictureViewer.h"

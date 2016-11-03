@@ -19,6 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    /***************************************************************/
+    /*          github:https://github.com/aizexin/AIAnimationDemo  */
+    /*          email :443792431@qq.com                            */
+    /*                                                             */
+    /***************************************************************/
     //c侧滑返回
     [MLTransition validatePanBackWithMLTransitionGestureRecognizerType:(MLTransitionGestureRecognizerTypePan)];
     self.window                  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
