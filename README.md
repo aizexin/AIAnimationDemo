@@ -14,7 +14,7 @@
 
 + researchKit的lineChart
 
-![researchKit的lineChart.gif](http://upload-images.jianshu.io/upload_images/1389261-73118b3239464842.gif?imageMogr2/auto-orient/strip)
+![researchKit的lineChart.gif](http://upload-images.jianshu.io/upload_images/1389261-f68e9e9f336b3dd5.gif?imageMogr2/auto-orient/strip)
 
 + 多个按钮按照微博九宫格排布
 
