@@ -10,4 +10,8 @@
 
 @interface AICAGradientLayerViewController : AIBaseViewController
 
+
+/** 最后的截屏*/
+@property(nonatomic,strong)UIImage *lastScreenImage;
+
 @end

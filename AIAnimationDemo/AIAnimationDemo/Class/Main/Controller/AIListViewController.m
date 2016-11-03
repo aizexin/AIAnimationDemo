@@ -42,7 +42,7 @@
                            [AIListModel initWithTitle:@"Pop缩放动画" andTargetVC:[AISpringScaleViewController class]],
                            [AIListModel initWithTitle:@"防百度加载提示" andTargetVC:[AIBaiduLoadHUDViewController class]],
                            [AIListModel initWithTitle:@"facebook辉光动画" andTargetVC:[AIShimmerViewController class]],
-                           [AIListModel initWithTitle:@"Gradinent动画" andTargetVC:[AICAGradientLayerViewController class]],
+                           [AIListModel initWithTitle:@"Gradinent转场动画" andTargetVC:[AICAGradientLayerViewController class]],
                            [AIListModel initWithTitle:@"scrollViews视差效果" andTargetVC:[AIScrollImageViewController class]],
                            [AIListModel initWithTitle:@"wellCome加载动画" andTargetVC:[AIWellComeLoadViewController class]],
                            [AIListModel initWithTitle:@"多个按钮按照微博九宫格排布" andTargetVC:[AIButtonsViewController class]],
