@@ -1,16 +1,19 @@
-# AIAnimationDemo
+#AIAnimationDemo
 
-实现效果
 + 仿百度loading
+
 ![仿百度loading.gif](http://upload-images.jianshu.io/upload_images/1389261-02b39f56c5e297d8.gif?imageMogr2/auto-orient/strip)
 
 + wellCome动画
+
 ![wellCome动画.gif](http://upload-images.jianshu.io/upload_images/1389261-15c61e1b8971b4fb.gif?imageMogr2/auto-orient/strip)
 
 + 仿qq图片浏览器(http://www.jianshu.com/p/551ae8b86d27)
+
 ![qq相册效果.gif](http://upload-images.jianshu.io/upload_images/1389261-f6d26dc0b440d838.gif?imageMogr2/auto-orient/strip)
 
 + researchKit的lineChart
+
 ![researchKit的lineChart.gif](http://upload-images.jianshu.io/upload_images/1389261-73118b3239464842.gif?imageMogr2/auto-orient/strip)
 
 + 多个按钮按照微博九宫格排布
