@@ -41,6 +41,7 @@
     chartView.scrubberThumbColor            = [UIColor greenColor];
     
 //    chartView
+    [chartView animateWithDuration:2.];
 }
 
 
