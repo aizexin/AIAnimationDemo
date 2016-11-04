@@ -31,4 +31,8 @@
 #define AIColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 // 随机色
 #define AIRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+//----------------------Bugly------------------
+#define AIBuglyAppID @"e34658fb95"
+#define AIBuglyAPPKey @"16fe690d-55ee-4388-aa27-7fcd8ae5bc91"
 #endif

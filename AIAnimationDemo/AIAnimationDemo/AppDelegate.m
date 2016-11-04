@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "AIListViewController.h"
 #import <MLTransition.h>
-
+#import <Bugly/Bugly.h>
 @interface AppDelegate ()
 
 @end
@@ -24,6 +24,8 @@
     /*          email :443792431@qq.com                            */
     /*                                                             */
     /***************************************************************/
+    //Bugly
+    [Bugly startWithAppId:AIBuglyAppID];
     //c侧滑返回
     [MLTransition validatePanBackWithMLTransitionGestureRecognizerType:(MLTransitionGestureRecognizerTypePan)];
     self.window                  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
