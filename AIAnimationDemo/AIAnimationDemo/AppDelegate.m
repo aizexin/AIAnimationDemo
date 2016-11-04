@@ -28,6 +28,7 @@
     [Bugly startWithAppId:AIBuglyAppID];
     //c侧滑返回
     [MLTransition validatePanBackWithMLTransitionGestureRecognizerType:(MLTransitionGestureRecognizerTypePan)];
+    
     self.window                  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor  = [UIColor whiteColor];
     AIListViewController *mainVC = [[AIListViewController alloc]init];
