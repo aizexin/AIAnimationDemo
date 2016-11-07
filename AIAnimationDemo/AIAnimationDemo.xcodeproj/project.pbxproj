@@ -37,6 +37,7 @@
 		453DD8471DACA80500D1CDA9 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8421DACA80500D1CDA9 /* GCDSemaphore.m */; };
 		453DD8481DACA80500D1CDA9 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8441DACA80500D1CDA9 /* GCDTimer.m */; };
 		4541BC5F1DCB082300907182 /* AIPush2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541BC5E1DCB082200907182 /* AIPush2ViewController.m */; };
+		4541BC6E1DD021F600907182 /* AIBezierPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */; };
 		455440A41DB9DF3A0025DCA4 /* AIRectangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 455440A31DB9DF3A0025DCA4 /* AIRectangleLayer.m */; };
 		455440AA1DBA15B10025DCA4 /* AIWaveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 455440A91DBA15B10025DCA4 /* AIWaveLayer.m */; };
 		455DF5C11DB46D8600D3E84A /* AIScrollImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455DF5C01DB46D8600D3E84A /* AIScrollImageViewController.m */; };
@@ -163,6 +164,8 @@
 		453DD8441DACA80500D1CDA9 /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
 		4541BC5D1DCB082200907182 /* AIPush2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPush2ViewController.h; sourceTree = "<group>"; };
 		4541BC5E1DCB082200907182 /* AIPush2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPush2ViewController.m; sourceTree = "<group>"; };
+		4541BC6C1DD021F600907182 /* AIBezierPathViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBezierPathViewController.h; sourceTree = "<group>"; };
+		4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBezierPathViewController.m; sourceTree = "<group>"; };
 		455440A21DB9DF3A0025DCA4 /* AIRectangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRectangleLayer.h; sourceTree = "<group>"; };
 		455440A31DB9DF3A0025DCA4 /* AIRectangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRectangleLayer.m; sourceTree = "<group>"; };
 		455440A81DBA15B10025DCA4 /* AIWaveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWaveLayer.h; sourceTree = "<group>"; };
@@ -596,6 +599,31 @@
 			path = GCD;
 			sourceTree = "<group>";
 		};
+		4541BC691DD021AA00907182 /* Pop14 */ = {
+			isa = PBXGroup;
+			children = (
+				4541BC6A1DD021AA00907182 /* Controller */,
+				4541BC6B1DD021AA00907182 /* View */,
+			);
+			path = Pop14;
+			sourceTree = "<group>";
+		};
+		4541BC6A1DD021AA00907182 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4541BC6C1DD021F600907182 /* AIBezierPathViewController.h */,
+				4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4541BC6B1DD021AA00907182 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		455DF5BC1DB46D4E00D3E84A /* Pop8 */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,6 +774,7 @@
 				451D281A1DBCE0820070BFCA /* Pop11 */,
 				452445DE1DBE517D00A9D2B9 /* Pop12 */,
 				456DFD5D1DCB015800011AD7 /* Pop13 */,
+				4541BC691DD021AA00907182 /* Pop14 */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1188,6 +1217,7 @@
 				45D43E121DACDD120022F86A /* UIView+ConvenientMethod.m in Sources */,
 				455440A41DB9DF3A0025DCA4 /* AIRectangleLayer.m in Sources */,
 				45D43DE71DACB7170022F86A /* AISpringScaleViewController.m in Sources */,
+				4541BC6E1DD021F600907182 /* AIBezierPathViewController.m in Sources */,
 				453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */,
 				45D43E151DACDD120022F86A /* UIView+SetRect.m in Sources */,
 				4541BC5F1DCB082300907182 /* AIPush2ViewController.m in Sources */,
