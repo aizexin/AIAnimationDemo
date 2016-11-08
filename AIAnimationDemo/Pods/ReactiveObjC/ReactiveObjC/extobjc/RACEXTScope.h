@@ -7,7 +7,7 @@
 //  Released under the MIT license.
 //
 
-#import "metamacros.h"
+#import "RACmetamacros.h"
 
 /**
  * \@onExit defines some code to be executed when the current scope exits. The

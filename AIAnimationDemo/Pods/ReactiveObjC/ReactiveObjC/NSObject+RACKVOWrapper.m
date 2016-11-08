@@ -7,8 +7,8 @@
 //
 
 #import "NSObject+RACKVOWrapper.h"
-#import <ReactiveObjC/EXTRuntimeExtensions.h>
-#import <ReactiveObjC/EXTScope.h>
+#import <ReactiveObjC/RACEXTRuntimeExtensions.h>
+#import <ReactiveObjC/RACEXTScope.h>
 #import "NSObject+RACDeallocating.h"
 #import "NSString+RACKeyPathUtilities.h"
 #import "RACCompoundDisposable.h"

@@ -1,4 +1,5 @@
 target ‘AIAnimationDemo’ do
+    inhibit_all_warnings!         #禁止所有警告
     pod 'pop', :git => 'https://github.com/facebook/pop.git'
     pod 'MLTransition', '~> 2.1.2'#滑动返回
     pod 'AFNetworking', '~> 3.0'  #网络请求

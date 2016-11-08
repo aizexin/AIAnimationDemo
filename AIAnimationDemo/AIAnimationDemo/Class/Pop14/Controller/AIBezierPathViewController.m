@@ -67,7 +67,7 @@
         group.duration          = 4.f;
         group.repeatCount       = CGFLOAT_MAX;
         group.autoreverses      = YES;
-        group.animations        = @[aniStart];
+        group.animations        = @[aniEnd, aniStart];
         
         [shapeLayer addAnimation:group forKey:nil];
     }

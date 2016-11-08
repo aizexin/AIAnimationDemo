@@ -7,7 +7,7 @@
 //
 
 #import "UIGestureRecognizer+RACSignalSupport.h"
-#import <ReactiveObjC/EXTScope.h>
+#import <ReactiveObjC/RACEXTScope.h>
 #import "NSObject+RACDeallocating.h"
 #import "NSObject+RACDescription.h"
 #import "RACCompoundDisposable.h"
