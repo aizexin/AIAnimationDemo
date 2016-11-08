@@ -24,6 +24,7 @@
 #import "AIPictureViewerViewController.h"          //模仿qq图片浏览
 #import "AIResearchLineChartViewController.h"    //researchKit的lineChart
 #import "AIBezierPathViewController.h"     //心电图
+#import "AITableViewTapAnimationController.h" //Cell点击动画
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -50,7 +51,7 @@
                            [AIListModel initWithTitle:@"模仿qq图片浏览" andTargetVC:[AIPictureViewerViewController class]],
                            [AIListModel initWithTitle:@"researchKit的lineChart" andTargetVC:[AIResearchLineChartViewController class]],
                            [AIListModel initWithTitle:@"心电图" andTargetVC:[AIBezierPathViewController class]],
-                           [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
+                           [AIListModel initWithTitle:@"Cell点击动画" andTargetVC:[AITableViewTapAnimationController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
