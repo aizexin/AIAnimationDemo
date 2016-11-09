@@ -8,7 +8,7 @@
 
 #import "AITableViewTapAnimationController.h"
 #import "AITapTableViewCell.h"
-@interface AITableViewTapAnimationController ()<UITableViewDataSource>
+@interface AITableViewTapAnimationController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView                        *tableView;
 /** 数据源*/
 @property(nonatomic, strong)NSMutableArray *dataSource;
@@ -20,8 +20,8 @@
 -(NSMutableArray *)dataSource{
     if (!_dataSource) {
         NSArray *array = @[[AITapModel initWithTitle:@"11111" andIsSelected:YES],
-                           [AITapModel initWithTitle:@"22222" andIsSelected:YES],
-                           [AITapModel initWithTitle:@"33333" andIsSelected:YES]
+                           [AITapModel initWithTitle:@"22222" andIsSelected:NO],
+                           [AITapModel initWithTitle:@"33333" andIsSelected:NO]
                            ];
         _dataSource = [NSMutableArray arrayWithArray:array];
     }
@@ -54,7 +54,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AITapTableViewCell *cell = [AITapTableViewCell createCellWithTabelView:tableView];
+    cell.tapModel            = self.dataSource[indexPath.row];
     return cell;
+}
+
+#pragma mark --UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
 }
 
 @end

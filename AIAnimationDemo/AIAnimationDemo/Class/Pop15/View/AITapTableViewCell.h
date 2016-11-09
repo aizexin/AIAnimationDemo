@@ -10,5 +10,8 @@
 #import "AITapModel.h"
 @interface AITapTableViewCell : UITableViewCell
 
+/** 接收数据*/
+@property(nonatomic,strong)AITapModel *tapModel;
+
 +(instancetype)createCellWithTabelView:(UITableView*)tableView;
 @end

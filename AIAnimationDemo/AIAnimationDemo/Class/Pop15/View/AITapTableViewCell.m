@@ -28,7 +28,7 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+//    [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
@@ -66,17 +66,26 @@
     CGFloat titleH = 50;
     self.titleLabel.frame        = CGRectMake(titleX, titleY, titleW, titleH);
     
-    CGFloat viewX  = MainSize.width - 10;
     CGFloat viewY  = titleY;
     CGFloat viewW  = 35;
     CGFloat viewH  = 35;
+    CGFloat viewX  = MainSize.width - 30 - viewW;
     self.view.frame              = CGRectMake(viewX, viewY, viewW, viewH);
     
     self.iconImageView.frame     = CGRectMake(viewX, viewY, viewW+5, viewH+5);
+    self.iconImageView.center    = _view.center;
     
     self.lineView.frame          = CGRectMake(titleX, self.frame.size.height - 1, titleW, 1);
     
 }
+
+#pragma mark --public func
+-(void)setTapModel:(AITapModel *)tapModel{
+    _tapModel                = tapModel;
+    self.titleLabel.text     = tapModel.title;
+    self.iconImageView.alpha = tapModel.isSelected ? 1.:0;
+}
+
 
 +(instancetype)createCellWithTabelView:(UITableView*)tableView{
     NSString *identifier     = @"TapCell";
