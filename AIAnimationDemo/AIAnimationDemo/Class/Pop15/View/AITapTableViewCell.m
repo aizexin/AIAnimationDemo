@@ -140,11 +140,35 @@ typedef enum : NSUInteger {
 }
 
 -(void)selecrEvent{
+    [self showSelectedAnimation];
     if (self.tapModel.isSelected) {
         [self changeToState:kNormalState animated:YES];
     }else{
         [self changeToState:kSelectedState animated:YES];
     }
+}
+- (void)showSelectedAnimation {
+    
+    UIView *tmpView         = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MainSize.width, self.frame.size.height)];
+    tmpView.backgroundColor = [[UIColor cyanColor] colorWithAlphaComponent:0.20];
+    tmpView.alpha           = 0.f;
+    [self addSubview:tmpView];
+    
+    [UIView animateWithDuration:0.20 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
+        tmpView.alpha = 0.8f;
+        
+    } completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:0.20 delay:0.1 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            
+            tmpView.alpha = 0.f;
+            
+        } completion:^(BOOL finished) {
+            
+            [tmpView removeFromSuperview];
+        }];
+    }];
 }
 
 
