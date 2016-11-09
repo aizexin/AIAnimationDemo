@@ -38,6 +38,7 @@
     self.tableView                    = \
     [[UITableView alloc]initWithFrame:CGRectMake(0, AINavgationBarH, MainSize.width, MainSize.height - AINavgationBarH) style:(UITableViewStylePlain)];
     self.tableView.dataSource         = self;
+    self.tableView.delegate           = self;
     self.tableView.separatorStyle     = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
 }
@@ -60,7 +61,12 @@
 
 #pragma mark --UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    AITapModel *tempModel       = self.dataSource[indexPath.row];
+    tempModel.selected          = !tempModel.isSelected;
     
+    [self.dataSource replaceObjectAtIndex:indexPath.row withObject:tempModel];
+    AITapTableViewCell *cell    = (AITapTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [cell selecrEvent];
 }
 
 @end

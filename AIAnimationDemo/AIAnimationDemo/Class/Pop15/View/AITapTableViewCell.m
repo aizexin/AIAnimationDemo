@@ -8,7 +8,12 @@
 
 #import "AITapTableViewCell.h"
 
-
+typedef enum : NSUInteger {
+    
+    kNormalState,
+    kSelectedState,
+    
+} ETableViewTapAnimationCellState;
 @interface AITapTableViewCell ()
 
 @property(nonatomic,strong)UILabel *titleLabel;
@@ -54,19 +59,20 @@
     //下划线
     self.lineView                    = [[UIView alloc]init];
     self.lineView.backgroundColor    = [UIColor redColor];
+    self.lineView.alpha              = 1.f;
     [self.contentView addSubview:self.lineView];
     return self;
 }
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    CGFloat titleX = 30;
-    CGFloat titleY = 8;
-    CGFloat titleW = 100;
-    CGFloat titleH = 50;
-    self.titleLabel.frame        = CGRectMake(titleX, titleY, titleW, titleH);
-    
-    CGFloat viewY  = titleY;
+//    CGFloat titleX = 30;
+//    CGFloat titleY = 8;
+//    CGFloat titleW = 100;
+//    CGFloat titleH = self.frame.size.height - 2 - titleY;
+//    self.titleLabel.frame        = CGRectMake(titleX, titleY, titleW, titleH);
+//    
+    CGFloat viewY  = 8;
     CGFloat viewW  = 35;
     CGFloat viewH  = 35;
     CGFloat viewX  = MainSize.width - 30 - viewW;
@@ -74,16 +80,71 @@
     
     self.iconImageView.frame     = CGRectMake(viewX, viewY, viewW+5, viewH+5);
     self.iconImageView.center    = _view.center;
+//
+//    self.lineView.frame          = CGRectMake(titleX, self.frame.size.height - 2, 0, 2);
     
-    self.lineView.frame          = CGRectMake(titleX, self.frame.size.height - 1, titleW, 1);
+}
+
+- (void)changeToState:(ETableViewTapAnimationCellState)state animated:(BOOL)animated {
     
+    if (state == kNormalState) {
+        
+        [UIView animateWithDuration:animated ? 0.5 : 0 delay:0 usingSpringWithDamping:7 initialSpringVelocity:4
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             
+                             animated ? [_iconImageView setTransform:CGAffineTransformMake(0.5, 0, 0, 0.5, 0, 0)] : 0;
+                             _iconImageView.alpha     = 0.f;
+                             _lineView.alpha          = 0.f;
+                             _titleLabel.frame        = CGRectMake(30, 10, 300, 30);
+                             _lineView.frame          = CGRectMake(30, CGRectGetMaxY(_titleLabel.frame) + 2, 0, 2);
+                             
+                             _view.layer.borderColor  = [UIColor grayColor].CGColor;
+                             _view.transform          = CGAffineTransformMake(1, 0, 0, 1, 0, 0);
+                             _view.layer.cornerRadius = 0;
+                             
+                         } completion:nil];
+        
+    } else if (state == kSelectedState) {
+        
+        animated ? [_iconImageView setTransform:CGAffineTransformMake(2, 0, 0, 2, 0, 0)] : 0;
+        
+        [UIView animateWithDuration:animated ? 0.5 : 0 delay:0 usingSpringWithDamping:7 initialSpringVelocity:4
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             
+                             _iconImageView.transform = CGAffineTransformMake(1, 0, 0, 1, 0, 0);
+                             _iconImageView.alpha     = 1.f;
+                             _lineView.alpha          = 1.f;
+                             _titleLabel.frame        = CGRectMake(30 + 50, 10, 300, 30);
+                             _lineView.frame          = CGRectMake(30, CGRectGetMaxY(_titleLabel.frame) + 2, 200, 2);
+                             
+                             _view.layer.borderColor  = [UIColor redColor].CGColor;
+                             _view.transform          = CGAffineTransformMake(0.8, 0, 0, 0.8, 0, 0);
+                             _view.layer.cornerRadius = 4.f;
+                             
+                         } completion:nil];
+    }
 }
 
 #pragma mark --public func
 -(void)setTapModel:(AITapModel *)tapModel{
     _tapModel                = tapModel;
     self.titleLabel.text     = tapModel.title;
-    self.iconImageView.alpha = tapModel.isSelected ? 1.:0;
+//    self.iconImageView.alpha = tapModel.isSelected ? 1 : 0;
+    if (tapModel.isSelected) {
+        [self changeToState:kSelectedState animated:YES];
+    }else{
+        [self changeToState:kNormalState animated:YES];
+    }
+}
+
+-(void)selecrEvent{
+    if (self.tapModel.isSelected) {
+        [self changeToState:kNormalState animated:YES];
+    }else{
+        [self changeToState:kSelectedState animated:YES];
+    }
 }
 
 
