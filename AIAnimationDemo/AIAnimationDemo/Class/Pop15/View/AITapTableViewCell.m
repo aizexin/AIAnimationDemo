@@ -10,10 +10,10 @@
 
 typedef enum : NSUInteger {
     
-    kNormalState,
-    kSelectedState,
+    AITapAnimationCellState_Normal,
+    AITapAnimationCellState_Selected,
     
-} ETableViewTapAnimationCellState;
+} AITapAnimationCellState;
 @interface AITapTableViewCell ()
 
 @property(nonatomic,strong)UILabel *titleLabel;
@@ -27,15 +27,9 @@ typedef enum : NSUInteger {
 
 @implementation AITapTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
+//清空系统的高亮方法
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-//    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier {
@@ -66,12 +60,7 @@ typedef enum : NSUInteger {
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-//    CGFloat titleX = 30;
-//    CGFloat titleY = 8;
-//    CGFloat titleW = 100;
-//    CGFloat titleH = self.frame.size.height - 2 - titleY;
-//    self.titleLabel.frame        = CGRectMake(titleX, titleY, titleW, titleH);
-//    
+
     CGFloat viewY  = 8;
     CGFloat viewW  = 35;
     CGFloat viewH  = 35;
@@ -80,14 +69,19 @@ typedef enum : NSUInteger {
     
     self.iconImageView.frame     = CGRectMake(viewX, viewY, viewW+5, viewH+5);
     self.iconImageView.center    = _view.center;
-//
-//    self.lineView.frame          = CGRectMake(titleX, self.frame.size.height - 2, 0, 2);
     
+    //由于lineView和title都是在设置状态的时候设置frame所以这里不设置
 }
 
-- (void)changeToState:(ETableViewTapAnimationCellState)state animated:(BOOL)animated {
+/**
+ 状态改变方法
+
+ @param state    状态
+ @param animated 是否有动画
+ */
+- (void)changeToState:(AITapAnimationCellState)state animated:(BOOL)animated {
     
-    if (state == kNormalState) {
+    if (state == AITapAnimationCellState_Normal) {
         
         [UIView animateWithDuration:animated ? 0.5 : 0 delay:0 usingSpringWithDamping:7 initialSpringVelocity:4
                             options:UIViewAnimationOptionCurveEaseInOut
@@ -105,7 +99,7 @@ typedef enum : NSUInteger {
                              
                          } completion:nil];
         
-    } else if (state == kSelectedState) {
+    } else if (state == AITapAnimationCellState_Selected) {
         
         animated ? [_iconImageView setTransform:CGAffineTransformMake(2, 0, 0, 2, 0, 0)] : 0;
         
@@ -126,27 +120,9 @@ typedef enum : NSUInteger {
                          } completion:nil];
     }
 }
-
-#pragma mark --public func
--(void)setTapModel:(AITapModel *)tapModel{
-    _tapModel                = tapModel;
-    self.titleLabel.text     = tapModel.title;
-//    self.iconImageView.alpha = tapModel.isSelected ? 1 : 0;
-    if (tapModel.isSelected) {
-        [self changeToState:kSelectedState animated:YES];
-    }else{
-        [self changeToState:kNormalState animated:YES];
-    }
-}
-
--(void)selecrEvent{
-    [self showSelectedAnimation];
-    if (self.tapModel.isSelected) {
-        [self changeToState:kNormalState animated:YES];
-    }else{
-        [self changeToState:kSelectedState animated:YES];
-    }
-}
+/**
+ 背景动画
+ */
 - (void)showSelectedAnimation {
     
     UIView *tmpView         = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MainSize.width, self.frame.size.height)];
@@ -171,6 +147,26 @@ typedef enum : NSUInteger {
     }];
 }
 
+#pragma mark --public func
+
+-(void)setTapModel:(AITapModel *)tapModel{
+    _tapModel                = tapModel;
+    self.titleLabel.text     = tapModel.title;
+    if (tapModel.isSelected) {
+        [self changeToState:AITapAnimationCellState_Selected animated:YES];
+    }else{
+        [self changeToState:AITapAnimationCellState_Normal animated:YES];
+    }
+}
+
+-(void)selecrEvent{
+    [self showSelectedAnimation];
+    if (self.tapModel.isSelected) {
+        [self changeToState:AITapAnimationCellState_Normal animated:YES];
+    }else{
+        [self changeToState:AITapAnimationCellState_Selected animated:YES];
+    }
+}
 
 +(instancetype)createCellWithTabelView:(UITableView*)tableView{
     NSString *identifier     = @"TapCell";
