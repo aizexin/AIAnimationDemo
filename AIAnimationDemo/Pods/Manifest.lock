@@ -17,6 +17,7 @@ PODS:
   - Bugly (2.4.2)
   - Canvas (0.1.2)
   - KMCGeigerCounter (0.2.2)
+  - Masonry (1.0.2)
   - MJExtension (3.0.13)
   - MLTransition (2.1.2)
   - pop (1.0.9)
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - Bugly
   - Canvas (~> 0.1.2)
   - KMCGeigerCounter
+  - Masonry
   - MJExtension
   - MLTransition (~> 2.1.2)
   - pop (from `https://github.com/facebook/pop.git`)
@@ -48,12 +50,13 @@ SPEC CHECKSUMS:
   Bugly: b09cd3c7e54048a0e079be88a7a99610f14eab8f
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
   KMCGeigerCounter: f8cc3c4aa19fc6f8cec168fb03b364b84c118a7a
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MLTransition: 26751adac088c07e4df48c9f605cfdd767bb8afa
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   ReactiveObjC: 58e8dd8d5ccea31d11106c46a4755d9ce9c51aac
   ResearchKit: badba0340dd71d1cbab4789a0bf01b26022b8f94
 
-PODFILE CHECKSUM: 06bf3e46626d70a5f3dd5a7f9560c60886651a1a
+PODFILE CHECKSUM: 5fc44e800b16927636c3e5719d752c6f17a759c9
 
 COCOAPODS: 1.0.1

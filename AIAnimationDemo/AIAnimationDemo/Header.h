@@ -22,6 +22,7 @@
 #endif
 #import <POP.h>
 #import <ReactiveObjC.h>
+#import <Masonry.h>
 #import "single.h"
 #define MainSize [UIScreen mainScreen].bounds.size
 //导航栏高度

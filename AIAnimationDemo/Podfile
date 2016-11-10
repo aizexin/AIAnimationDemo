@@ -9,4 +9,5 @@ target ‘AIAnimationDemo’ do
     pod 'ReactiveObjC', '~> 1.0.1'#链式编程
     pod 'Bugly'                   #腾讯bug管理系统
     pod 'MJExtension'             #MJ的字典模型互转
+    pod 'Masonry'                 #自动适配
 end
