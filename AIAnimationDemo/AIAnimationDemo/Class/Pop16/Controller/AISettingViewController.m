@@ -80,4 +80,12 @@
     return indexPath.section == 0 ? 50:46;
 }
 
+#pragma mark --UITableViewDelegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    AISettingCellAdapter *cellAdapter = self.dataSource[indexPath.section][indexPath.row];
+    if (cellAdapter.destVC) {//如果有目标控制器
+        [self.navigationController pushViewController:[[cellAdapter.destVC alloc]init] animated:YES];
+    }
+}
+
 @end

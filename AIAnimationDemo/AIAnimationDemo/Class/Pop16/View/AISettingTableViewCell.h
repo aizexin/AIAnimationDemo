@@ -14,5 +14,12 @@
 @property(nonatomic,strong)id<AISettingCellAdapterProtocol> data;
 
 
+/**
+ 创建cell
+
+ @param tableView 通过哪个tableView
+
+ @return 实例
+ */
 +(instancetype)createTableViewCellWithTableView:(UITableView *)tableView;
 @end

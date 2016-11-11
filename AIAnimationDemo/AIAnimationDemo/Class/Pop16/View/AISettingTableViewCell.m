@@ -25,7 +25,7 @@
 /** 目标控制器*/
 @property(nonatomic,strong)Class destVC;
 /** 辅助视图*/
-@property(nonatomic,strong)UIView *ai_accessibilityView;
+//@property(nonatomic,strong)UIView *ai_accessibilityView;
 
 @end
 
@@ -42,12 +42,12 @@
 }
 
 #pragma mark --lazy
--(UIView *)ai_accessibilityView{
-    if (!_ai_accessibilityView) {
-        _ai_accessibilityView = [[UIView alloc]init];
-    }
-    return _ai_accessibilityView;
-}
+//-(UIView *)ai_accessibilityView{
+//    if (!_ai_accessibilityView) {
+//        _ai_accessibilityView = [[UIView alloc]init];
+//    }
+//    return _ai_accessibilityView;
+//}
 
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -68,7 +68,7 @@
     self.lineView            = lineView;
     [self.contentView addSubview:lineView];
     //辅助视图
-    [self.contentView addSubview:self.ai_accessibilityView];
+//    [self.contentView addSubview:self.ai_accessibilityView];
     
     [self fitUI];
     return self;
@@ -85,21 +85,16 @@
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.contentView);
         make.left.mas_equalTo(self.iconImageView.mas_right).offset = 6;
-//        make.right.mas_equalTo(@0);
+        make.right.mas_equalTo(-2);
     }];
     //lineView
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.iconImageView.mas_right).offset        = 8;
-        make.right.mas_equalTo(self.ai_accessibilityView.mas_left).offset = -8;
+        make.left.mas_equalTo(self.iconImageView.mas_right).offset  = 8;
+        make.right.mas_equalTo(@-8);
         make.height.mas_equalTo(@1);
         make.bottom.mas_equalTo(@0);
     }];
-    //辅助视图
-    [self.ai_accessibilityView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(@-8);
-        make.top.bottom.mas_equalTo(@2);
-        make.width.mas_equalTo(@50);
-    }];
+
 }
 
 #pragma mark --public func
@@ -108,12 +103,9 @@
     _data = data;
     self.iconImageView.image        = [UIImage imageNamed:[data iconNameString]];
     self.tipsLabel.text             = [data titleString];
-    UIView *accessibilityView       = [data accessibilityView];
-    [self.ai_accessibilityView addSubview:accessibilityView];
-    [accessibilityView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(0);
-    }];
+    self.accessoryView              = [data accessibilityView]?[data accessibilityView]:nil;
 }
+
 
 +(instancetype)createTableViewCellWithTableView:(UITableView *)tableView{
     static NSString *identifier  = @"systemSetCell";
