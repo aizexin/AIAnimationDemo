@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AISettingCellAdapterProtocol.h"
 @interface AISettingTableViewCell : UITableViewCell
-/** 图标 */
-@property (weak,nonatomic)UIImageView *iconImageView;
-/** 标签label */
-@property (weak,nonatomic)UILabel *tipsLabel;
+
+/** 实现了AISettingCellAdapterProtocol 协议的数据*/
+@property(nonatomic,strong)id<AISettingCellAdapterProtocol> data;
+
 
 +(instancetype)createTableViewCellWithTableView:(UITableView *)tableView;
 @end
