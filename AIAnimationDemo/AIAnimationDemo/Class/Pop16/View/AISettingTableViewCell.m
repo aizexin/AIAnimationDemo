@@ -42,13 +42,6 @@
 }
 
 #pragma mark --lazy
-//-(UIView *)ai_accessibilityView{
-//    if (!_ai_accessibilityView) {
-//        _ai_accessibilityView = [[UIView alloc]init];
-//    }
-//    return _ai_accessibilityView;
-//}
-
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self                   = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -64,11 +57,10 @@
     [self.contentView addSubview:label];
     //分割线
     UIView *lineView         = [[UIView alloc]init];
-    lineView.backgroundColor = [UIColor blackColor];//[UIColor colorWithHexString:@"#f2f2f2"];
+    lineView.backgroundColor = [UIColor colorWithHexString:@"#f2f2f2"];
     self.lineView            = lineView;
     [self.contentView addSubview:lineView];
-    //辅助视图
-//    [self.contentView addSubview:self.ai_accessibilityView];
+    
     
     [self fitUI];
     return self;

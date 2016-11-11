@@ -10,13 +10,14 @@
 #import "AISettingTableViewCell.h"
 #import "AISettingModelAdapter.h"
 #import "AISettingModel.h"
-
+#import "PPNumberButton.h"
 #import "AIDestOneViewController.h"
 @interface AISettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
 @property (strong,nonatomic)UITableView *tableView;
 /** 数据源 */
 @property (strong,nonatomic)NSMutableArray<NSMutableArray<AISettingCellAdapter*> *> *dataSource;
+
 @end
 
 @implementation AISettingViewController
@@ -35,10 +36,30 @@
         [group1 addObject:adapter1];
         //第二组
         NSMutableArray *group2 = [NSMutableArray array];
-        AISettingCellAdapter *adapter2 = [[AISettingModelAdapter alloc]init];
+        UISwitch *switchBtn    = [[UISwitch alloc]init];
+        [switchBtn addTarget:self action:@selector(onClickSwitch) forControlEvents:(UIControlEventTouchUpInside)];
+        AISettingModel *model2 = [[AISettingModel alloc]initWithIcon:@"changjing" title:@"场景" destClass:nil andAccessibilityView:switchBtn];
+        AISettingCellAdapter *adapter2 = [[AISettingModelAdapter alloc]initWithData:model2];
         [group2 addObject:adapter2];
         
+        AISettingModel *model3 = [[AISettingModel alloc]initWithIcon:@"guanyu" title:@"关于" destClass:nil andAccessibilityView:nil];
+        [model3 setBlock:^{
+            AILog(@"点击关于");
+        }];
+        AISettingCellAdapter *adapter3 = [[AISettingModelAdapter alloc]initWithData:model3];
+        [group2 addObject:adapter3];
+        //第三组
+        NSMutableArray *group3          = [NSMutableArray array];
+        PPNumberButton *number          = [[PPNumberButton alloc]init];
+        AISettingModel *model31         =\
+        [[AISettingModel alloc]initWithIcon:@"wangguan" title:@"网关" destClass:nil andAccessibilityView:number];
+        
+        AISettingCellAdapter *adapter31 = [[AISettingModelAdapter alloc]initWithData:model31];
+        [group3 addObject:adapter31];
+        
         [_dataSource addObject:group1];
+        [_dataSource addObject:group2];
+        [_dataSource addObject:group3];
     }
     return _dataSource;
 }
@@ -85,7 +106,14 @@
     AISettingCellAdapter *cellAdapter = self.dataSource[indexPath.section][indexPath.row];
     if (cellAdapter.destVC) {//如果有目标控制器
         [self.navigationController pushViewController:[[cellAdapter.destVC alloc]init] animated:YES];
+    }else if(cellAdapter.optionBlock){
+        cellAdapter.optionBlock();
     }
+}
+
+#pragma mark --Action
+-(void)onClickSwitch{
+    AILog(@"点击switch");
 }
 
 @end
