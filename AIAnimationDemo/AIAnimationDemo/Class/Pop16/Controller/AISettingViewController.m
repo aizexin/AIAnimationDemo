@@ -27,7 +27,7 @@
 }
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:(UITableViewStylePlain)];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, AINavgationBarH, MainSize.width, MainSize.height - AINavgationBarH) style:(UITableViewStylePlain)];
         [_tableView setSeparatorStyle:(UITableViewCellSeparatorStyleNone)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -43,16 +43,16 @@
 
 #pragma mark -UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.dataSource.count;
+    return 2;//self.dataSource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AISettingTableViewCell *cell  = [AISettingTableViewCell createTableViewCellWithTableView:tableView];
-    cell.tipsLabel.text                = self.dataSource[indexPath.row];
+    cell.tipsLabel.text           = self.dataSource[indexPath.row];
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;//self.dataSource[section].count;
+    return self.dataSource.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 8;
