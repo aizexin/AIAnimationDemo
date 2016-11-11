@@ -49,7 +49,6 @@
 		455DF5CE1DB4940C00D3E84A /* AIWellComeLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455DF5CD1DB4940C00D3E84A /* AIWellComeLoadViewController.m */; };
 		455E288E1D98C0D300E3DA4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E288D1D98C0D300E3DA4D /* main.m */; };
 		455E28911D98C0D300E3DA4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28901D98C0D300E3DA4D /* AppDelegate.m */; };
-		455E28991D98C0D300E3DA4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455E28981D98C0D300E3DA4D /* Assets.xcassets */; };
 		455E289C1D98C0D300E3DA4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455E289A1D98C0D300E3DA4D /* LaunchScreen.storyboard */; };
 		455E28A71D98C0D300E3DA4D /* AIAnimationDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28A61D98C0D300E3DA4D /* AIAnimationDemoTests.m */; };
 		455E28B21D98C0D300E3DA4D /* AIAnimationDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28B11D98C0D300E3DA4D /* AIAnimationDemoUITests.m */; };
@@ -72,6 +71,7 @@
 		45C9EAC41DD58085007B6418 /* AISettingModelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAC31DD58085007B6418 /* AISettingModelAdapter.m */; };
 		45C9EAC81DD58D64007B6418 /* AIDestOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAC71DD58D64007B6418 /* AIDestOneViewController.m */; };
 		45C9EACE1DD5AF16007B6418 /* PPNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EACD1DD5AF16007B6418 /* PPNumberButton.m */; };
+		45C9EAD01DD5BA3B007B6418 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45C9EACF1DD5BA3B007B6418 /* Assets.xcassets */; };
 		45D43DE71DACB7170022F86A /* AISpringScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */; };
 		45D43DF01DACC2570022F86A /* easing.c in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DEC1DACC2570022F86A /* easing.c */; };
 		45D43DF11DACC2570022F86A /* YXEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DEF1DACC2570022F86A /* YXEasing.m */; };
@@ -200,7 +200,6 @@
 		455E288D1D98C0D300E3DA4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		455E288F1D98C0D300E3DA4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		455E28901D98C0D300E3DA4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		455E28981D98C0D300E3DA4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		455E289B1D98C0D300E3DA4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		455E289D1D98C0D300E3DA4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		455E28A21D98C0D300E3DA4D /* AIAnimationDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIAnimationDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +248,7 @@
 		45C9EAC71DD58D64007B6418 /* AIDestOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDestOneViewController.m; sourceTree = "<group>"; };
 		45C9EACC1DD5AF16007B6418 /* PPNumberButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNumberButton.h; sourceTree = "<group>"; };
 		45C9EACD1DD5AF16007B6418 /* PPNumberButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNumberButton.m; sourceTree = "<group>"; };
+		45C9EACF1DD5BA3B007B6418 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45D43DE51DACB7170022F86A /* AISpringScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISpringScaleViewController.h; sourceTree = "<group>"; };
 		45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISpringScaleViewController.m; sourceTree = "<group>"; };
 		45D43DEC1DACC2570022F86A /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
@@ -807,7 +807,7 @@
 		455E288C1D98C0D300E3DA4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				455E28981D98C0D300E3DA4D /* Assets.xcassets */,
+				45C9EACF1DD5BA3B007B6418 /* Assets.xcassets */,
 				455E289A1D98C0D300E3DA4D /* LaunchScreen.storyboard */,
 				455E289D1D98C0D300E3DA4D /* Info.plist */,
 				455E288D1D98C0D300E3DA4D /* main.m */,
@@ -1250,8 +1250,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */,
+				45C9EAD01DD5BA3B007B6418 /* Assets.xcassets in Resources */,
 				455E289C1D98C0D300E3DA4D /* LaunchScreen.storyboard in Resources */,
-				455E28991D98C0D300E3DA4D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
