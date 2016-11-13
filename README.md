@@ -24,5 +24,9 @@
 
 ![转场动画.gif](http://upload-images.jianshu.io/upload_images/1389261-5e47afd2d6999f56.gif?imageMogr2/auto-orient/strip)
 
++ 适配器模式解决-设置页面
+
+![适配器模式解决-设置页面](http://upload-images.jianshu.io/upload_images/1389261-95832670a2f35f77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
+
 
 还有部分效果是学习[YouXianMing](https://github.com/YouXianMing)动画
