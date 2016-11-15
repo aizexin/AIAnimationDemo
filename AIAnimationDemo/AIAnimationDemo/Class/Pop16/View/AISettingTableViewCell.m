@@ -106,7 +106,6 @@
         cell                     = \
         [[AISettingTableViewCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:identifier];
     }
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
