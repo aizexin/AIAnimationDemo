@@ -23,6 +23,7 @@
 #import "AIButtonsViewController.h"       //多个按钮按照微博九宫格排布
 #import "AIPictureViewerViewController.h"          //模仿qq图片浏览
 #import "AIResearchLineChartViewController.h"    //researchKit的lineChart
+#import "AIPresentCustomTransition.h"            //自定义模态转场动画
 #import "AIBezierPathViewController.h"     //心电图
 #import "AITableViewTapAnimationController.h" //Cell点击动画
 #import "AISettingViewController.h"         //设置页面
@@ -51,7 +52,7 @@
                            [AIListModel initWithTitle:@"多个按钮按照微博九宫格排布" andTargetVC:[AIButtonsViewController class]],
                            [AIListModel initWithTitle:@"模仿qq图片浏览" andTargetVC:[AIPictureViewerViewController class]],
                            [AIListModel initWithTitle:@"researchKit的lineChart" andTargetVC:[AIResearchLineChartViewController class]],
-                           [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
+                           [AIListModel initWithTitle:@"自定义模态转场动画" andTargetVC:[AIPresentCustomTransition class]],
                            [AIListModel initWithTitle:@"心电图" andTargetVC:[AIBezierPathViewController class]],
                            [AIListModel initWithTitle:@"Cell点击动画" andTargetVC:[AITableViewTapAnimationController class]],
                            [AIListModel initWithTitle:@"设置页面" andTargetVC:[AISettingViewController class]],

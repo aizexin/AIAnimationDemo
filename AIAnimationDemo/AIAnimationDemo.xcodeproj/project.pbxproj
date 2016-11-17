@@ -90,6 +90,8 @@
 		45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */; };
 		45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */; };
 		45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE2B1DB09A9200DC574A /* CAGradientView.m */; };
+		45FF8FC61DDDED0C00FC7584 /* AIPresentCustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FC51DDDED0C00FC7584 /* AIPresentCustomTransition.m */; };
+		45FF8FC91DDDEE8500FC7584 /* AIPresentDestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FC81DDDEE8500FC7584 /* AIPresentDestViewController.m */; };
 		CE844DCC7CDAC9A358C39F2F /* libPods-AIAnimationDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2094375E453D88DFC8C32A45 /* libPods-AIAnimationDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -285,6 +287,10 @@
 		45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientMaskView.m; sourceTree = "<group>"; };
 		45F6DE2A1DB09A9200DC574A /* CAGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientView.h; sourceTree = "<group>"; };
 		45F6DE2B1DB09A9200DC574A /* CAGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientView.m; sourceTree = "<group>"; };
+		45FF8FC41DDDED0C00FC7584 /* AIPresentCustomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPresentCustomTransition.h; sourceTree = "<group>"; };
+		45FF8FC51DDDED0C00FC7584 /* AIPresentCustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPresentCustomTransition.m; sourceTree = "<group>"; };
+		45FF8FC71DDDEE8500FC7584 /* AIPresentDestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPresentDestViewController.h; sourceTree = "<group>"; };
+		45FF8FC81DDDEE8500FC7584 /* AIPresentDestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPresentDestViewController.m; sourceTree = "<group>"; };
 		48ED125D08E27BAFBE549DFC /* Pods-AIAnimationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.release.xcconfig"; sourceTree = "<group>"; };
 		7620388811825F2ABC3F5185 /* Pods-AIAnimationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -952,17 +958,10 @@
 		456DFD5D1DCB015800011AD7 /* Pop13 */ = {
 			isa = PBXGroup;
 			children = (
-				456DFD5E1DCB015800011AD7 /* Controller */,
+				45FF8FC31DDDECBF00FC7584 /* Controller */,
 				456DFD5F1DCB015800011AD7 /* View */,
 			);
 			path = Pop13;
-			sourceTree = "<group>";
-		};
-		456DFD5E1DCB015800011AD7 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		456DFD5F1DCB015800011AD7 /* View */ = {
@@ -1118,6 +1117,17 @@
 				45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */,
 			);
 			path = InfiniteRotationView;
+			sourceTree = "<group>";
+		};
+		45FF8FC31DDDECBF00FC7584 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45FF8FC41DDDED0C00FC7584 /* AIPresentCustomTransition.h */,
+				45FF8FC51DDDED0C00FC7584 /* AIPresentCustomTransition.m */,
+				45FF8FC71DDDEE8500FC7584 /* AIPresentDestViewController.h */,
+				45FF8FC81DDDEE8500FC7584 /* AIPresentDestViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4EB85B77591E8F52115C87C8 /* Pods */ = {
@@ -1346,6 +1356,7 @@
 				45D43DF71DACC3440022F86A /* AIBaiduHUD.m in Sources */,
 				451D28221DBCED090070BFCA /* AIPictureViewer.m in Sources */,
 				45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */,
+				45FF8FC61DDDED0C00FC7584 /* AIPresentCustomTransition.m in Sources */,
 				453DD8461DACA80500D1CDA9 /* GCDQueue.m in Sources */,
 				4505FEC81DAF537300AE4FED /* FontAttribute.m in Sources */,
 				4505FEC91DAF537300AE4FED /* ForegroundColorAttribute.m in Sources */,
@@ -1354,6 +1365,7 @@
 				45C9EAC11DD57166007B6418 /* AISettingCellAdapter.m in Sources */,
 				450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */,
 				45D43E131DACDD120022F86A /* UIView+GlowView.m in Sources */,
+				45FF8FC91DDDEE8500FC7584 /* AIPresentDestViewController.m in Sources */,
 				451D281F1DBCECB50070BFCA /* AIPictureViewerViewController.m in Sources */,
 				453DD8481DACA80500D1CDA9 /* GCDTimer.m in Sources */,
 				455E28D31D98F80600E3DA4D /* AIListModel.m in Sources */,
