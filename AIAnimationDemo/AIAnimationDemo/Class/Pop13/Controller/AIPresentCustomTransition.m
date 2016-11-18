@@ -8,7 +8,9 @@
 
 #import "AIPresentCustomTransition.h"
 #import "AIPresentDestViewController.h"
-@interface AIPresentCustomTransition ()
+#import "AIPresentAnimation.h"
+#import "AIDismissAnimation.h"
+@interface AIPresentCustomTransition ()<UIViewControllerTransitioningDelegate>
 
 @end
 
@@ -20,8 +22,23 @@
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     AIPresentDestViewController *destVC = [[AIPresentDestViewController alloc]init];
+    destVC.transitioningDelegate = self;
+    destVC.modalPresentationStyle = UIModalPresentationCustom;
     [self presentViewController:destVC animated:YES completion:nil];
 }
 
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source
+{
+    return [AIPresentAnimation new];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [AIDismissAnimation new];
+}
 
 @end
