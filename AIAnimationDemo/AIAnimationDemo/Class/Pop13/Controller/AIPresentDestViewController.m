@@ -15,11 +15,12 @@
 
 @implementation AIPresentDestViewController
 
+#pragma mark --life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.layer.cornerRadius = 8.f;
-    self.view.backgroundColor    = [UIColor redColor];//[UIColor colorWithRed:52 green:152 blue:219 alpha:1];
+    self.view.backgroundColor    = [UIColor redColor];
     UIButton *btn  = [UIButton buttonWithType:UIButtonTypeSystem];
     self.btn       = btn;
     
@@ -29,17 +30,18 @@
     
 }
 
--(void)onClickBtn{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-}
-
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     self.btn.frame      = self.view.bounds;
 }
+
+#pragma Mark - Action
+
+-(void)onClickBtn{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
 
 @end

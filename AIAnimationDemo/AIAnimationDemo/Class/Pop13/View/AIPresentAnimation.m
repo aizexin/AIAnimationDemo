@@ -26,7 +26,7 @@
     fromView.userInteractionEnabled = NO;
     
     UIView *dimmingView = [[UIView alloc] initWithFrame:fromView.bounds];
-    dimmingView.backgroundColor = [UIColor colorWithRed:84 green:84 blue:84 alpha:1];
+    dimmingView.backgroundColor = [UIColor colorWithRed:84/255 green:84/255 blue:84/255 alpha:1];
     dimmingView.layer.opacity = 0.0;
     
     UIView *toView = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view;
@@ -57,14 +57,7 @@
     [toView.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
     [dimmingView.layer pop_addAnimation:opacityAnimation forKey:@"opacityAnimation"];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
-//        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-//    });
 }
-//
-//-(void)animationEnded:(BOOL)transitionCompleted{
-//    [self.transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view.layer.mask = nil;
-//}
+
 
 @end
