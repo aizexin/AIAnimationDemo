@@ -11,6 +11,7 @@
 #import "AISettingModel.h"
 #import "PPNumberButton.h"
 #import "AIDestOneViewController.h"
+#import "AIDestTwoViewController.h"
 @interface AISettingViewController ()
 
 @end
@@ -39,7 +40,7 @@
         [group2 addObject:adapter2];
         
         AISettingModel *model3          =\
-        [[AISettingModel alloc]initWithIcon:@"guanyu" title:@"关于" destClass:nil andAccessibilityView:nil];
+        [[AISettingModel alloc]initWithIcon:@"guanyu" title:@"关于" destClass:[AIDestTwoViewController class] andAccessibilityView:nil];
         [model3 setBlock:^{
             AILog(@"点击关于");
         }];
@@ -59,5 +60,10 @@
         [dataSource addObject:group2];
         [dataSource addObject:group3];
     return dataSource;
+}
+
+#pragma mark --Action
+-(void)onClickSwitch{
+    
 }
 @end
