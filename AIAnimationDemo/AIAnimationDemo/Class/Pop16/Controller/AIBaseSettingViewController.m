@@ -43,6 +43,10 @@
         _tableView.dataSource      = self;
         _tableView.rowHeight       = 46;
         _tableView.backgroundColor = [UIColor colorWithRed:0.9412 green:0.9412 blue:0.9412 alpha:1.0];
+        //添加收键盘手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+        tap.cancelsTouchesInView =NO;
+        [_tableView addGestureRecognizer:tap];
     }
     return _tableView;
 }
@@ -85,6 +89,9 @@
 #pragma mark --Action
 -(void)onClickSwitch{
     AILog(@"点击switch");
+}
+- (void)tap:(UITapGestureRecognizer*)tap{
+    [self.view endEditing:YES];
 }
 
 @end

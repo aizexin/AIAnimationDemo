@@ -55,16 +55,30 @@
     AISettingCellAdapter *adapter31 = [[AISettingModelAdapter alloc]initWithData:model31];
     [group3 addObject:adapter31];
     
+    UITextField   *textField        = [[UITextField alloc]init];
+    textField.layer.borderColor     = [UIColor blueColor].CGColor;
+    textField.layer.borderWidth     = 2.;
+    textField.frame                 = CGRectMake(0, 0, 200, 30);
+    AISettingModel *model32         = [[AISettingModel alloc]initWithIcon:@"wangguan" title:@"填空" destClass:nil andAccessibilityView:textField];
+    AISettingCellAdapter *adapter32 = [[AISettingModelAdapter alloc]initWithData:model32];
+    [group3 addObject:adapter32];
+    
     [dataSource addObject:group2];
     [dataSource addObject:group1];
     [dataSource addObject:group3];
     return dataSource;
 }
 
+#pragma mark -- lifecycle
+-(void)viewDidLoad{
+    [super viewDidLoad];
+}
+
 #pragma mark --Action
 -(void)onClickSwitch{
     
 }
+
 
 
 @end
