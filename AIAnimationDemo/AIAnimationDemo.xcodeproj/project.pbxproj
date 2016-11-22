@@ -88,6 +88,7 @@
 		45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E0D1DACDD120022F86A /* UIView+Shake.m */; };
 		45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E0F1DACDD120022F86A /* UIView+UserInteraction.m */; };
 		45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */; };
+		45E44A331DE4314A009B50BC /* AILoginAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */; };
 		45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */; };
 		45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE2B1DB09A9200DC574A /* CAGradientView.m */; };
 		45FF8FC61DDDED0C00FC7584 /* AIPresentCustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FC51DDDED0C00FC7584 /* AIPresentCustomTransition.m */; };
@@ -287,6 +288,8 @@
 		45D43E0F1DACDD120022F86A /* UIView+UserInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UserInteraction.m"; sourceTree = "<group>"; };
 		45D43E191DACE21B0022F86A /* InfiniteRotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteRotationView.h; sourceTree = "<group>"; };
 		45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteRotationView.m; sourceTree = "<group>"; };
+		45E44A311DE4314A009B50BC /* AILoginAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILoginAnimationViewController.h; sourceTree = "<group>"; };
+		45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILoginAnimationViewController.m; sourceTree = "<group>"; };
 		45F6DE271DB07EA700DC574A /* CAGradientMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientMaskView.h; sourceTree = "<group>"; };
 		45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientMaskView.m; sourceTree = "<group>"; };
 		45F6DE2A1DB09A9200DC574A /* CAGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientView.h; sourceTree = "<group>"; };
@@ -870,6 +873,7 @@
 				4541BC691DD021AA00907182 /* Pop14 */,
 				4546AD2C1DD1B548006F230C /* Pop15 */,
 				45C9EAAB1DD31A49007B6418 /* Pop16 */,
+				45E44A2E1DE4310D009B50BC /* Pop17 */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1137,6 +1141,31 @@
 				45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */,
 			);
 			path = InfiniteRotationView;
+			sourceTree = "<group>";
+		};
+		45E44A2E1DE4310D009B50BC /* Pop17 */ = {
+			isa = PBXGroup;
+			children = (
+				45E44A2F1DE4310D009B50BC /* Controller */,
+				45E44A301DE4310D009B50BC /* View */,
+			);
+			path = Pop17;
+			sourceTree = "<group>";
+		};
+		45E44A2F1DE4310D009B50BC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45E44A311DE4314A009B50BC /* AILoginAnimationViewController.h */,
+				45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45E44A301DE4310D009B50BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		45FF8FC31DDDECBF00FC7584 /* Controller */ = {
@@ -1445,6 +1474,7 @@
 				4546AD341DD1B89A006F230C /* AITapTableViewCell.m in Sources */,
 				45D43DF01DACC2570022F86A /* easing.c in Sources */,
 				45C9EAC81DD58D64007B6418 /* AIDestOneViewController.m in Sources */,
+				45E44A331DE4314A009B50BC /* AILoginAnimationViewController.m in Sources */,
 				45D43E111DACDD120022F86A /* UIView+AnimationProperty.m in Sources */,
 				455DF5CE1DB4940C00D3E84A /* AIWellComeLoadViewController.m in Sources */,
 				456DFD651DCB066400011AD7 /* AIGradientTransitionAnimation.m in Sources */,

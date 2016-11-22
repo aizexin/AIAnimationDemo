@@ -27,6 +27,7 @@
 #import "AIBezierPathViewController.h"     //心电图
 #import "AITableViewTapAnimationController.h" //Cell点击动画
 #import "AISettingViewController.h"         //设置页面
+#import "AILoginAnimationViewController.h"  //登录页面
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -56,7 +57,7 @@
                            [AIListModel initWithTitle:@"心电图" andTargetVC:[AIBezierPathViewController class]],
                            [AIListModel initWithTitle:@"Cell点击动画" andTargetVC:[AITableViewTapAnimationController class]],
                            [AIListModel initWithTitle:@"设置页面" andTargetVC:[AISettingViewController class]],
-                           [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
+                           [AIListModel initWithTitle:@"登录页面" andTargetVC:[AILoginAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
