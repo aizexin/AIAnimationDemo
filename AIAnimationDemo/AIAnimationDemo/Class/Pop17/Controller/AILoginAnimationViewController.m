@@ -7,6 +7,7 @@
 //
 
 #import "AILoginAnimationViewController.h"
+#import "UIView+SetRect.h"
 
 @interface AILoginAnimationViewController ()
 
@@ -40,6 +41,16 @@
     [self setUpUI];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+}
+
 #pragma mark --UI
 - (void)setUpUI{
     UIImageView *bgImageView       = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg-sunny"]];
@@ -66,6 +77,49 @@
     self.cloud4ImageV              = cloud4ImageV;
     self.cloud4ImageV.frame        = CGRectMake(20, 397.5, 115, 50);
     [self.view addSubview:cloud4ImageV];
+    
+    //前景
+    UILabel *headingLabel          = [[UILabel alloc]init];
+    headingLabel.text              = @"Bahama Login";
+    headingLabel.textColor         = [UIColor whiteColor];
+    headingLabel.font              = [UIFont fontWithName:@"Helvetica Neue" size:30.0];
+    headingLabel.textAlignment     = NSTextAlignmentCenter;
+    headingLabel.frame             = CGRectMake(80.5, 87.5, 214.5, 34);
+    headingLabel.centerX           = self.view.centerX;
+    [self.view addSubview:headingLabel];
+    self.HeadingLabel              = headingLabel;
+    
+    UITextField *userNameTextField = [[UITextField alloc]init];
+    userNameTextField.layer.cornerRadius = 8;
+    userNameTextField.backgroundColor    = [UIColor whiteColor];
+    userNameTextField.frame        = CGRectMake(0, 149, 280, 30);
+    userNameTextField.centerX      = self.view.centerX;
+    userNameTextField.placeholder  = @"Username";
+    [self.view addSubview:userNameTextField];
+    self.userNameTextField         = userNameTextField;
+    
+    UITextField *passWordTextField = [[UITextField alloc]init];
+    passWordTextField.layer.cornerRadius = 8;
+    passWordTextField.backgroundColor    = [UIColor whiteColor];
+    passWordTextField.frame        = CGRectMake(0, 194, 280, 30);
+    passWordTextField.centerX      = self.view.centerX;
+    passWordTextField.placeholder  = @"passWord";
+    [self.view addSubview:passWordTextField];
+    self.passWordTextField         = passWordTextField;
+    
+    UIButton *loginBtn             = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    self.loginBtn                  = loginBtn;
+    loginBtn.layer.cornerRadius    = 8;
+    loginBtn.backgroundColor       = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
+    [loginBtn setTitle:@"Log In" forState:(UIControlStateNormal)];
+    loginBtn.frame                 = CGRectMake(0, 250, 234, 52);
+    loginBtn.centerX               = self.view.centerX;
+    [self.view addSubview:loginBtn];
+
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 @end
