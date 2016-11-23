@@ -16,7 +16,7 @@
  */
 @property(nonatomic,weak)UIImageView *bgImageView;
 /** 头label*/
-@property(nonatomic,weak)UILabel     *HeadingLabel;
+@property(nonatomic,weak)UILabel     *headingLabel;
 /** 用户名*/
 @property(nonatomic,weak)UITextField *userNameTextField;
 /** 密码*/
@@ -36,6 +36,8 @@
 
 @implementation AILoginAnimationViewController
 
+
+#pragma mark - lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpUI];
@@ -44,6 +46,22 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    
+    self.headingLabel.centerX       -= MainSize.width;
+    self.userNameTextField.centerX  -= MainSize.width;
+    self.passWordTextField.centerX  -= MainSize.width;
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [UIView animateWithDuration:.5 animations:^{
+        self.headingLabel.centerX   += MainSize.width;
+    }];
+    [UIView animateWithDuration:.5 delay:.3 options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.userNameTextField.centerX   += MainSize.width;
+    } completion:nil];
+    [UIView animateWithDuration:.5 delay:.4 options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.passWordTextField.centerX   += MainSize.width;
+    } completion:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -87,7 +105,7 @@
     headingLabel.frame             = CGRectMake(80.5, 87.5, 214.5, 34);
     headingLabel.centerX           = self.view.centerX;
     [self.view addSubview:headingLabel];
-    self.HeadingLabel              = headingLabel;
+    self.headingLabel              = headingLabel;
     
     UITextField *userNameTextField = [[UITextField alloc]init];
     userNameTextField.layer.cornerRadius = 8;
