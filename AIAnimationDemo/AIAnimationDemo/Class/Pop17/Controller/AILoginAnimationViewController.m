@@ -35,10 +35,23 @@
 
 /** 菊花*/
 @property(nonatomic,weak)UIActivityIndicatorView *spinner;
+/** 状态*/
+@property(nonatomic,weak)UIImageView *statusImageV;
+/** 状态描述*/
+@property(nonatomic,weak)UILabel *label;
+/** 状态信息*/
+@property(nonatomic,strong)NSArray *messages;
+@property(nonatomic,assign)CGPoint statusPoint;
 @end
 
 @implementation AILoginAnimationViewController
 
+-(NSArray *)messages {
+    if (!_messages) {
+        _messages      = @[@"Connecting ...", @"Authorizing ...", @"Sending credentials ...", @"Failed"];
+    }
+    return _messages;
+}
 
 #pragma mark - lifecycle
 - (void)viewDidLoad {
@@ -170,7 +183,22 @@
     [spinner startAnimating];
     spinner.frame                    = CGRectMake(-20, 6, 20, 20);
     [self.loginBtn addSubview:spinner];
-
+    
+    UIImageView *statusImageV        = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"banner"]];
+    self.statusImageV                = statusImageV;
+    statusImageV.center              = loginBtn.center;
+    self.statusImageV.hidden         = YES;
+    [self.view addSubview:statusImageV];
+    
+    UILabel *label                   = [[UILabel alloc]init];
+    self.label                       = label;
+    label.textColor                  = [UIColor colorWithRed:0.89 green:0.38 blue:0. alpha:1];
+    label.textAlignment              = NSTextAlignmentCenter;
+    label.font                       = [UIFont fontWithName:@"HelveticaNeue" size:18];
+    label.viewSize                   = self.statusImageV.viewSize;
+    [self.statusImageV addSubview:label];
+    
+    self.statusPoint                 = statusImageV.center;
 }
 
 #pragma mark --Action
@@ -181,7 +209,9 @@
         CGRect loginBounds                = self.loginBtn.bounds;
         loginBounds.size.width           += 80;
         self.loginBtn.bounds              = loginBounds;
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        [self showMessageWithIndex:0];
+    }];
     
     [UIView animateWithDuration:.33 delay:0 usingSpringWithDamping:.7 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
         self.loginBtn.centerY         += 60;
@@ -190,6 +220,27 @@
         self.spinner.alpha             = 1;
         self.spinner.centerY           = self.loginBtn.middleY;
     } completion:nil];
+}
+
+- (void)showMessageWithIndex:(NSInteger)index {
+    self.label.text  = self.messages[index];
+    [UIView transitionWithView:self.statusImageV duration:.33 options:(UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionTransitionCurlDown) animations:^{
+        self.statusImageV.hidden = NO;
+    } completion:^(BOOL finished) {
+        if (index < (self.messages.count - 1)) {
+            [self removeMessageWithIndex:index];
+        }
+    }];
+}
+
+- (void)removeMessageWithIndex:(NSInteger)index {
+    [UIView animateWithDuration:.33 animations:^{
+        self.statusImageV.centerX    += MainSize.width;
+    } completion:^(BOOL finished) {
+        self.statusImageV.hidden      = YES;
+        self.statusImageV.center      = self.statusPoint;
+        [self showMessageWithIndex:index+1];
+    }];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
