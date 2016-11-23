@@ -50,6 +50,11 @@
     self.headingLabel.centerX       -= MainSize.width;
     self.userNameTextField.centerX  -= MainSize.width;
     self.passWordTextField.centerX  -= MainSize.width;
+    //cloud
+    self.cloud1ImageV.alpha          = 0.;
+    self.cloud2ImageV.alpha          = 0.;
+    self.cloud3ImageV.alpha          = 0.;
+    self.cloud4ImageV.alpha          = 0.;
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -61,6 +66,19 @@
     } completion:nil];
     [UIView animateWithDuration:.5 delay:.4 options:(UIViewAnimationOptionCurveLinear) animations:^{
         self.passWordTextField.centerX   += MainSize.width;
+    } completion:nil];
+    //cloud
+    [UIView animateWithDuration:.5 delay:.5 options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.cloud1ImageV.alpha = 1.;
+    } completion:nil];
+    [UIView animateWithDuration:.5 delay:.7 options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.cloud2ImageV.alpha = 1.;
+    } completion:nil];
+    [UIView animateWithDuration:.5 delay:.9 options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.cloud3ImageV.alpha = 1.;
+    } completion:nil];
+    [UIView animateWithDuration:.5 delay:1.1 options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.cloud4ImageV.alpha = 1.;
     } completion:nil];
 }
 
