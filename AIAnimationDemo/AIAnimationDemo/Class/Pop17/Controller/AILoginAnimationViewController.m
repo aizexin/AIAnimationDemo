@@ -175,6 +175,8 @@
 
 #pragma mark --Action
 - (void)onClickLogin:(UIButton*)loginBtn {
+    [self.view endEditing:YES];
+    loginBtn.enabled = NO;
     [UIView animateWithDuration:1.5 delay:0. usingSpringWithDamping:.2 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
         CGRect loginBounds                = self.loginBtn.bounds;
         loginBounds.size.width           += 80;
