@@ -32,6 +32,9 @@
 @property(nonatomic,weak)UIImageView *cloud3ImageV;
 /** 云4*/
 @property(nonatomic,weak)UIImageView *cloud4ImageV;
+
+/** 菊花*/
+@property(nonatomic,weak)UIActivityIndicatorView *spinner;
 @end
 
 @implementation AILoginAnimationViewController
@@ -55,6 +58,9 @@
     self.cloud2ImageV.alpha          = 0.;
     self.cloud3ImageV.alpha          = 0.;
     self.cloud4ImageV.alpha          = 0.;
+    //loginBtn
+    self.loginBtn.centerY           += 30;
+    self.loginBtn.alpha              = 0;
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -79,6 +85,11 @@
     } completion:nil];
     [UIView animateWithDuration:.5 delay:1.1 options:(UIViewAnimationOptionCurveLinear) animations:^{
         self.cloud4ImageV.alpha = 1.;
+    } completion:nil];
+    //loginBtn
+    [UIView animateWithDuration:.5 delay:.5 usingSpringWithDamping:.5 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.loginBtn.centerY  -= 30;
+        self.loginBtn.alpha     = 1.;
     } completion:nil];
 }
 
@@ -150,8 +161,33 @@
     [loginBtn setTitle:@"Log In" forState:(UIControlStateNormal)];
     loginBtn.frame                 = CGRectMake(0, 250, 234, 52);
     loginBtn.centerX               = self.view.centerX;
+    [loginBtn addTarget:self action:@selector(onClickLogin:)forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:loginBtn];
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:(UIActivityIndicatorViewStyleWhiteLarge)];
+    self.spinner                     = spinner;
+    spinner.alpha                    = 0.;
+    [spinner startAnimating];
+    spinner.frame                    = CGRectMake(-20, 6, 20, 20);
+    [self.loginBtn addSubview:spinner];
 
+}
+
+#pragma mark --Action
+- (void)onClickLogin:(UIButton*)loginBtn {
+    [UIView animateWithDuration:1.5 delay:0. usingSpringWithDamping:.2 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
+        CGRect loginBounds                = self.loginBtn.bounds;
+        loginBounds.size.width           += 80;
+        self.loginBtn.bounds              = loginBounds;
+    } completion:nil];
+    
+    [UIView animateWithDuration:.33 delay:0 usingSpringWithDamping:.7 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.loginBtn.centerY         += 60;
+        self.loginBtn.backgroundColor  = [UIColor colorWithRed:0.85 green:0.83 blue:0.45 alpha:1];
+        self.spinner.x                 = 40;
+        self.spinner.alpha             = 1;
+        self.spinner.centerY           = self.loginBtn.middleY;
+    } completion:nil];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
