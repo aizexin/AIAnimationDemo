@@ -32,6 +32,7 @@
 		452445E31DBE51B100A9D2B9 /* AIResearchLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452445E21DBE51B100A9D2B9 /* AIResearchLineChartViewController.m */; };
 		452445E61DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 452445E51DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m */; };
 		452445E91DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 452445E81DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m */; };
+		453665B51DE6CCEE00875A2C /* AITextFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = 453665B41DE6CCEE00875A2C /* AITextFiled.m */; };
 		453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD83E1DACA80500D1CDA9 /* GCDGroup.m */; };
 		453DD8461DACA80500D1CDA9 /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8401DACA80500D1CDA9 /* GCDQueue.m */; };
 		453DD8471DACA80500D1CDA9 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8421DACA80500D1CDA9 /* GCDSemaphore.m */; };
@@ -173,6 +174,8 @@
 		452445E51DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBaseFloatRangeGraphChartDataSource.m; sourceTree = "<group>"; };
 		452445E71DBE5B1300A9D2B9 /* AILineGraphChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILineGraphChartDataSource.h; sourceTree = "<group>"; };
 		452445E81DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILineGraphChartDataSource.m; sourceTree = "<group>"; };
+		453665B31DE6CCEE00875A2C /* AITextFiled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITextFiled.h; sourceTree = "<group>"; };
+		453665B41DE6CCEE00875A2C /* AITextFiled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITextFiled.m; sourceTree = "<group>"; };
 		453DD83C1DACA80500D1CDA9 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		453DD83D1DACA80500D1CDA9 /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
 		453DD83E1DACA80500D1CDA9 /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
@@ -1169,6 +1172,8 @@
 		45E44A301DE4310D009B50BC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				453665B31DE6CCEE00875A2C /* AITextFiled.h */,
+				453665B41DE6CCEE00875A2C /* AITextFiled.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1476,6 +1481,7 @@
 				45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */,
 				452445E61DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m in Sources */,
 				45C9EACE1DD5AF16007B6418 /* PPNumberButton.m in Sources */,
+				453665B51DE6CCEE00875A2C /* AITextFiled.m in Sources */,
 				4546AD381DD1B8C2006F230C /* AITapModel.m in Sources */,
 				4546AD341DD1B89A006F230C /* AITapTableViewCell.m in Sources */,
 				45D43DF01DACC2570022F86A /* easing.c in Sources */,

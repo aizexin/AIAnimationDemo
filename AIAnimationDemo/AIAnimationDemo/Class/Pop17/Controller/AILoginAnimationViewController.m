@@ -8,7 +8,7 @@
 
 #import "AILoginAnimationViewController.h"
 #import "UIView+AISetRect.h"
-
+#import "AITextFiled.h"
 @interface AILoginAnimationViewController ()
 
 /**
@@ -18,9 +18,9 @@
 /** 头label*/
 @property(nonatomic,weak)UILabel     *headingLabel;
 /** 用户名*/
-@property(nonatomic,weak)UITextField *userNameTextField;
+@property(nonatomic,weak)AITextFiled *userNameTextField;
 /** 密码*/
-@property(nonatomic,weak)UITextField *passWordTextField;
+@property(nonatomic,weak)AITextFiled *passWordTextField;
 /** 登录按钮*/
 @property(nonatomic,weak)UIButton    *loginBtn;
 
@@ -166,18 +166,14 @@
     [self.view addSubview:headingLabel];
     self.headingLabel              = headingLabel;
     
-    UITextField *userNameTextField = [[UITextField alloc]init];
-    userNameTextField.layer.cornerRadius = 8;
-    userNameTextField.backgroundColor    = [UIColor whiteColor];
+    AITextFiled *userNameTextField = [[AITextFiled alloc]init];
     userNameTextField.frame        = CGRectMake(0, 149, 280, 30);
-    userNameTextField.ai_centerX      = self.view.ai_centerX;
+    userNameTextField.ai_centerX   = self.view.ai_centerX;
     userNameTextField.placeholder  = @"Username";
     [self.view addSubview:userNameTextField];
     self.userNameTextField         = userNameTextField;
     
-    UITextField *passWordTextField = [[UITextField alloc]init];
-    passWordTextField.layer.cornerRadius = 8;
-    passWordTextField.backgroundColor    = [UIColor whiteColor];
+    AITextFiled *passWordTextField = [[AITextFiled alloc]init];
     passWordTextField.frame        = CGRectMake(0, 194, 280, 30);
     passWordTextField.ai_centerX   = self.view.ai_centerX;
     passWordTextField.placeholder  = @"passWord";
@@ -252,12 +248,16 @@
  */
 - (void)showMessageWithIndex:(NSInteger)index {
     self.label.text  = self.messages[index];
-    [UIView transitionWithView:self.statusImageV duration:.33 options:(UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionTransitionCurlDown) animations:^{
+    [UIView transitionWithView:self.statusImageV duration:.33 options:(UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionTransitionFlipFromBottom) animations:^{
         self.statusImageV.hidden = NO;
     } completion:^(BOOL finished) {
-        if (index < (self.messages.count - 1)) {
-            [self removeMessageWithIndex:index];
-        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (index < (self.messages.count - 1)) {
+                [self removeMessageWithIndex:index];
+            }else{
+                [self resetFrom];
+            }
+        });
     }];
 }
 
@@ -288,6 +288,27 @@
     } completion:^(BOOL finished) {
         cloudImageV.ai_x = -cloudImageV.ai_width;
         [self animationCloud:cloudImageV];
+    }];
+}
+
+/**
+ 重置状态
+ */
+- (void)resetFrom{
+    [UIView transitionWithView:self.statusImageV duration:.2 options:(UIViewAnimationOptionTransitionFlipFromTop) animations:^{
+        self.statusImageV.hidden = YES;
+        self.statusImageV.center = self.statusPoint;
+    } completion:nil];
+    
+    [UIView animateWithDuration:.2 animations:^{
+        self.spinner.center = CGPointMake(-20, 16);
+        self.spinner.alpha  = 0.;
+        self.loginBtn.backgroundColor  = [UIColor colorWithRed:0.63 green:.84 blue:.35 alpha:1];
+        CGRect loginBounds             = self.loginBtn.bounds;
+        loginBounds.size.width        -= 80;
+        self.loginBtn.bounds           = loginBounds;
+        self.loginBtn.ai_centerY      -= 60;
+        self.loginBtn.enabled          = YES;
     }];
 }
 
