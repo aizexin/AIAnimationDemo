@@ -38,6 +38,7 @@
 		453DD8481DACA80500D1CDA9 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8441DACA80500D1CDA9 /* GCDTimer.m */; };
 		4541BC5F1DCB082300907182 /* AIPush2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541BC5E1DCB082200907182 /* AIPush2ViewController.m */; };
 		4541BC6E1DD021F600907182 /* AIBezierPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */; };
+		45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 45427DE61DE6949500472959 /* UIView+AISetRect.m */; };
 		4546AD311DD1B771006F230C /* AITableViewTapAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD301DD1B771006F230C /* AITableViewTapAnimationController.m */; };
 		4546AD341DD1B89A006F230C /* AITapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD331DD1B89A006F230C /* AITapTableViewCell.m */; };
 		4546AD381DD1B8C2006F230C /* AITapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD371DD1B8C2006F230C /* AITapModel.m */; };
@@ -185,6 +186,8 @@
 		4541BC5E1DCB082200907182 /* AIPush2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPush2ViewController.m; sourceTree = "<group>"; };
 		4541BC6C1DD021F600907182 /* AIBezierPathViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBezierPathViewController.h; sourceTree = "<group>"; };
 		4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBezierPathViewController.m; sourceTree = "<group>"; };
+		45427DE51DE6949500472959 /* UIView+AISetRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AISetRect.h"; sourceTree = "<group>"; };
+		45427DE61DE6949500472959 /* UIView+AISetRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AISetRect.m"; sourceTree = "<group>"; };
 		4546AD2F1DD1B771006F230C /* AITableViewTapAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableViewTapAnimationController.h; sourceTree = "<group>"; };
 		4546AD301DD1B771006F230C /* AITableViewTapAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableViewTapAnimationController.m; sourceTree = "<group>"; };
 		4546AD321DD1B89A006F230C /* AITapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITapTableViewCell.h; sourceTree = "<group>"; };
@@ -1126,6 +1129,8 @@
 				45D43E091DACDD120022F86A /* UIView+ScreensShot.m */,
 				45D43E0A1DACDD120022F86A /* UIView+SetRect.h */,
 				45D43E0B1DACDD120022F86A /* UIView+SetRect.m */,
+				45427DE51DE6949500472959 /* UIView+AISetRect.h */,
+				45427DE61DE6949500472959 /* UIView+AISetRect.m */,
 				45D43E0C1DACDD120022F86A /* UIView+Shake.h */,
 				45D43E0D1DACDD120022F86A /* UIView+Shake.m */,
 				45D43E0E1DACDD120022F86A /* UIView+UserInteraction.h */,
@@ -1433,6 +1438,7 @@
 				45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */,
 				452445E31DBE51B100A9D2B9 /* AIResearchLineChartViewController.m in Sources */,
 				45C9EAB01DD4494F007B6418 /* AIBaseSettingViewController.m in Sources */,
+				45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */,
 				45C9EAB51DD44EAA007B6418 /* AISettingTableViewCell.m in Sources */,
 				4505FEA11DAF441800AE4FED /* AIBaseViewController.m in Sources */,
 				455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */,

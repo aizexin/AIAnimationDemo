@@ -7,7 +7,7 @@
 //
 
 #import "AILoginAnimationViewController.h"
-#import "UIView+SetRect.h"
+#import "UIView+AISetRect.h"
 
 @interface AILoginAnimationViewController ()
 
@@ -70,28 +70,28 @@
 //    flyRightAnimation.duration           = .5;
 //    [self.view.layer addAnimation:flyRightAnimation forKey:nil];
     
-    self.headingLabel.centerX       -= MainSize.width;
-    self.userNameTextField.centerX  -= MainSize.width;
-    self.passWordTextField.centerX  -= MainSize.width;
+    self.headingLabel.ai_centerX       -= MainSize.width;
+    self.userNameTextField.ai_centerX  -= MainSize.width;
+    self.passWordTextField.ai_centerX  -= MainSize.width;
     //cloud
     self.cloud1ImageV.alpha          = 0.;
     self.cloud2ImageV.alpha          = 0.;
     self.cloud3ImageV.alpha          = 0.;
     self.cloud4ImageV.alpha          = 0.;
     //loginBtn
-    self.loginBtn.centerY           += 30;
+    self.loginBtn.ai_centerY        += 30;
     self.loginBtn.alpha              = 0;
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [UIView animateWithDuration:.5 animations:^{
-        self.headingLabel.centerX   += MainSize.width;
+        self.headingLabel.ai_centerX   += MainSize.width;
     }];
     [UIView animateWithDuration:.5 delay:.3 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.userNameTextField.centerX   += MainSize.width;
+        self.userNameTextField.ai_centerX   += MainSize.width;
     } completion:nil];
     [UIView animateWithDuration:.5 delay:.4 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.passWordTextField.centerX   += MainSize.width;
+        self.passWordTextField.ai_centerX   += MainSize.width;
     } completion:nil];
     //cloud
     [UIView animateWithDuration:.5 delay:.5 options:(UIViewAnimationOptionCurveLinear) animations:^{
@@ -108,8 +108,8 @@
     } completion:nil];
     //loginBtn
     [UIView animateWithDuration:.5 delay:.5 usingSpringWithDamping:.5 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.loginBtn.centerY  -= 30;
-        self.loginBtn.alpha     = 1.;
+        self.loginBtn.ai_centerY  -= 30;
+        self.loginBtn.alpha        = 1.;
     } completion:nil];
     
     //云动画
@@ -162,7 +162,7 @@
     headingLabel.font              = [UIFont fontWithName:@"Helvetica Neue" size:30.0];
     headingLabel.textAlignment     = NSTextAlignmentCenter;
     headingLabel.frame             = CGRectMake(80.5, 87.5, 214.5, 34);
-    headingLabel.centerX           = self.view.centerX;
+    headingLabel.ai_centerX        = self.view.ai_centerX;
     [self.view addSubview:headingLabel];
     self.headingLabel              = headingLabel;
     
@@ -170,7 +170,7 @@
     userNameTextField.layer.cornerRadius = 8;
     userNameTextField.backgroundColor    = [UIColor whiteColor];
     userNameTextField.frame        = CGRectMake(0, 149, 280, 30);
-    userNameTextField.centerX      = self.view.centerX;
+    userNameTextField.ai_centerX      = self.view.ai_centerX;
     userNameTextField.placeholder  = @"Username";
     [self.view addSubview:userNameTextField];
     self.userNameTextField         = userNameTextField;
@@ -179,7 +179,7 @@
     passWordTextField.layer.cornerRadius = 8;
     passWordTextField.backgroundColor    = [UIColor whiteColor];
     passWordTextField.frame        = CGRectMake(0, 194, 280, 30);
-    passWordTextField.centerX      = self.view.centerX;
+    passWordTextField.ai_centerX   = self.view.ai_centerX;
     passWordTextField.placeholder  = @"passWord";
     [self.view addSubview:passWordTextField];
     self.passWordTextField         = passWordTextField;
@@ -190,7 +190,7 @@
     loginBtn.backgroundColor       = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
     [loginBtn setTitle:@"Log In" forState:(UIControlStateNormal)];
     loginBtn.frame                 = CGRectMake(0, 250, 234, 52);
-    loginBtn.centerX               = self.view.centerX;
+    loginBtn.ai_centerX            = self.view.ai_centerX;
     [loginBtn addTarget:self action:@selector(onClickLogin:)forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:loginBtn];
     
@@ -212,7 +212,7 @@
     label.textColor                  = [UIColor colorWithRed:0.89 green:0.38 blue:0. alpha:1];
     label.textAlignment              = NSTextAlignmentCenter;
     label.font                       = [UIFont fontWithName:@"HelveticaNeue" size:18];
-    label.viewSize                   = self.statusImageV.viewSize;
+    label.ai_viewSize                   = self.statusImageV.ai_viewSize;
     [self.statusImageV addSubview:label];
     
     self.statusPoint                 = statusImageV.center;
@@ -237,11 +237,11 @@
     }];
     
     [UIView animateWithDuration:.33 delay:0 usingSpringWithDamping:.7 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.loginBtn.centerY         += 60;
-        self.loginBtn.backgroundColor  = [UIColor colorWithRed:0.85 green:0.83 blue:0.45 alpha:1];
-        self.spinner.x                 = 40;
-        self.spinner.alpha             = 1;
-        self.spinner.centerY           = self.loginBtn.middleY;
+        self.loginBtn.ai_centerY         += 60;
+        self.loginBtn.backgroundColor     = [UIColor colorWithRed:0.85 green:0.83 blue:0.45 alpha:1];
+        self.spinner.ai_x                 = 40;
+        self.spinner.alpha                = 1;
+        self.spinner.ai_centerY           = self.loginBtn.ai_middleY;
     } completion:nil];
 }
 
@@ -269,7 +269,7 @@
  */
 - (void)removeMessageWithIndex:(NSInteger)index {
     [UIView animateWithDuration:.33 animations:^{
-        self.statusImageV.centerX    += MainSize.width;
+        self.statusImageV.ai_centerX += MainSize.width;
     } completion:^(BOOL finished) {
         self.statusImageV.hidden      = YES;
         self.statusImageV.center      = self.statusPoint;
@@ -282,11 +282,11 @@
  */
 - (void)animationCloud:(UIImageView*)cloudImageV {
     CGFloat cloudSpeed       = 60/MainSize.width;
-    NSTimeInterval duration  = (MainSize.width - cloudImageV.x) * cloudSpeed;
+    NSTimeInterval duration  = (MainSize.width - cloudImageV.ai_x) * cloudSpeed;
     [UIView animateWithDuration:duration animations:^{
-        cloudImageV.x = MainSize.width;
+        cloudImageV.ai_x = MainSize.width;
     } completion:^(BOOL finished) {
-        cloudImageV.x = -cloudImageV.width;
+        cloudImageV.ai_x = -cloudImageV.ai_width;
         [self animationCloud:cloudImageV];
     }];
 }
