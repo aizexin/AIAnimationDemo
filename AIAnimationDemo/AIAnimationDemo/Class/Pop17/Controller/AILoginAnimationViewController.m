@@ -46,6 +46,7 @@
 
 @implementation AILoginAnimationViewController
 
+#pragma mark --Lazy
 -(NSArray *)messages {
     if (!_messages) {
         _messages      = @[@"Connecting ...", @"Authorizing ...", @"Sending credentials ...", @"Failed"];
@@ -62,6 +63,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    
+//    CABasicAnimation *flyRightAnimation  = [CABasicAnimation animationWithKeyPath:@"position.x"];
+//    flyRightAnimation.toValue            = [NSValue valueWithCGPoint: CGPointMake(MainSize.width * 0.5, 0)];
+//    flyRightAnimation.fromValue          = [NSValue valueWithCGPoint: CGPointMake(-MainSize.width * 0.5, 0)];//-@(MainSize.width * 0.5);
+//    flyRightAnimation.duration           = .5;
+//    [self.view.layer addAnimation:flyRightAnimation forKey:nil];
     
     self.headingLabel.centerX       -= MainSize.width;
     self.userNameTextField.centerX  -= MainSize.width;
@@ -104,6 +111,12 @@
         self.loginBtn.centerY  -= 30;
         self.loginBtn.alpha     = 1.;
     } completion:nil];
+    
+    //云动画
+    [self animationCloud:_cloud1ImageV];
+    [self animationCloud:_cloud2ImageV];
+    [self animationCloud:_cloud3ImageV];
+    [self animationCloud:_cloud4ImageV];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -112,6 +125,10 @@
 }
 
 #pragma mark --UI
+
+/**
+ 创建UI
+ */
 - (void)setUpUI{
     UIImageView *bgImageView       = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg-sunny"]];
     self.bgImageView               = bgImageView;
@@ -202,6 +219,12 @@
 }
 
 #pragma mark --Action
+
+/**
+ 点击登录按钮
+
+ @param loginBtn 登录按钮
+ */
 - (void)onClickLogin:(UIButton*)loginBtn {
     [self.view endEditing:YES];
     loginBtn.enabled = NO;
@@ -222,6 +245,11 @@
     } completion:nil];
 }
 
+/**
+ 显示一条信息
+
+ @param index 第几条
+ */
 - (void)showMessageWithIndex:(NSInteger)index {
     self.label.text  = self.messages[index];
     [UIView transitionWithView:self.statusImageV duration:.33 options:(UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionTransitionCurlDown) animations:^{
@@ -233,6 +261,12 @@
     }];
 }
 
+
+/**
+ 提出一条信息
+
+ @param index 第几条
+ */
 - (void)removeMessageWithIndex:(NSInteger)index {
     [UIView animateWithDuration:.33 animations:^{
         self.statusImageV.centerX    += MainSize.width;
@@ -240,6 +274,20 @@
         self.statusImageV.hidden      = YES;
         self.statusImageV.center      = self.statusPoint;
         [self showMessageWithIndex:index+1];
+    }];
+}
+
+/**
+ 云动画
+ */
+- (void)animationCloud:(UIImageView*)cloudImageV {
+    CGFloat cloudSpeed       = 60/MainSize.width;
+    NSTimeInterval duration  = (MainSize.width - cloudImageV.x) * cloudSpeed;
+    [UIView animateWithDuration:duration animations:^{
+        cloudImageV.x = MainSize.width;
+    } completion:^(BOOL finished) {
+        cloudImageV.x = -cloudImageV.width;
+        [self animationCloud:cloudImageV];
     }];
 }
 
