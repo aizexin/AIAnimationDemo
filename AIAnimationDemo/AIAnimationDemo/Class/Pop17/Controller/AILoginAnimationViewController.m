@@ -64,15 +64,17 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     
-//    CABasicAnimation *flyRightAnimation  = [CABasicAnimation animationWithKeyPath:@"position.x"];
-//    flyRightAnimation.toValue            = [NSValue valueWithCGPoint: CGPointMake(MainSize.width * 0.5, 0)];
-//    flyRightAnimation.fromValue          = [NSValue valueWithCGPoint: CGPointMake(-MainSize.width * 0.5, 0)];//-@(MainSize.width * 0.5);
-//    flyRightAnimation.duration           = .5;
-//    [self.view.layer addAnimation:flyRightAnimation forKey:nil];
+    CABasicAnimation *flyRightAnimation  = [CABasicAnimation animationWithKeyPath:@"position.x"];
+    flyRightAnimation.toValue            = [NSValue valueWithCGPoint: CGPointMake(MainSize.width * 0.5, 0)];
+    flyRightAnimation.fromValue          = [NSValue valueWithCGPoint: CGPointMake(-MainSize.width * 0.5, 0)];//-@(MainSize.width * 0.5);
+    flyRightAnimation.duration           = .5;
+    flyRightAnimation.fillMode           = kCAFillModeBoth;
+    [self.headingLabel.layer addAnimation:flyRightAnimation forKey:nil];
+    flyRightAnimation.beginTime          = CACurrentMediaTime() + 0.3;
+    [self.userNameTextField.layer addAnimation:flyRightAnimation forKey:nil];
+    flyRightAnimation.beginTime          = CACurrentMediaTime() + 0.4;
+    [self.passWordTextField.layer addAnimation:flyRightAnimation forKey:nil];
     
-    self.headingLabel.ai_centerX       -= MainSize.width;
-    self.userNameTextField.ai_centerX  -= MainSize.width;
-    self.passWordTextField.ai_centerX  -= MainSize.width;
     //cloud
     self.cloud1ImageV.alpha          = 0.;
     self.cloud2ImageV.alpha          = 0.;
@@ -84,15 +86,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [UIView animateWithDuration:.5 animations:^{
-        self.headingLabel.ai_centerX   += MainSize.width;
-    }];
-    [UIView animateWithDuration:.5 delay:.3 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.userNameTextField.ai_centerX   += MainSize.width;
-    } completion:nil];
-    [UIView animateWithDuration:.5 delay:.4 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.passWordTextField.ai_centerX   += MainSize.width;
-    } completion:nil];
+
     //cloud
     [UIView animateWithDuration:.5 delay:.5 options:(UIViewAnimationOptionCurveLinear) animations:^{
         self.cloud1ImageV.alpha = 1.;
