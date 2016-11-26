@@ -76,10 +76,23 @@
     [self.passWordTextField.layer addAnimation:flyRightAnimation forKey:nil];
     
     //cloud
-    self.cloud1ImageV.alpha          = 0.;
-    self.cloud2ImageV.alpha          = 0.;
-    self.cloud3ImageV.alpha          = 0.;
-    self.cloud4ImageV.alpha          = 0.;
+//    CABasicAnimation *fadeAnimation      = [CABasicAnimation animationWithKeyPath:@"opacity"];
+//    fadeAnimation.fromValue              = @0.;
+//    fadeAnimation.toValue                = @1.;
+//    fadeAnimation.duration               = .5;
+//    fadeAnimation.fillMode               = kCAFillModeBackwards;
+//    fadeAnimation.beginTime              = CACurrentMediaTime() + .5;
+//    [self.cloud1ImageV.layer addAnimation:fadeAnimation forKey:nil];
+//    fadeAnimation.beginTime              = CACurrentMediaTime() + .7;
+//    [self.cloud2ImageV.layer addAnimation:fadeAnimation forKey:nil];
+//    fadeAnimation.beginTime              = CACurrentMediaTime() + .9;
+//    [self.cloud3ImageV.layer addAnimation:fadeAnimation forKey:nil];
+//    fadeAnimation.beginTime              = CACurrentMediaTime() + 1.1;
+//    [self.cloud4ImageV.layer addAnimation:fadeAnimation forKey:nil];
+//    self.cloud1ImageV.alpha          = 0.;
+//    self.cloud2ImageV.alpha          = 0.;
+//    self.cloud3ImageV.alpha          = 0.;
+//    self.cloud4ImageV.alpha          = 0.;
     //loginBtn
     self.loginBtn.ai_centerY        += 30;
     self.loginBtn.alpha              = 0;
@@ -88,18 +101,18 @@
     [super viewDidAppear:animated];
 
     //cloud
-    [UIView animateWithDuration:.5 delay:.5 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.cloud1ImageV.alpha = 1.;
-    } completion:nil];
-    [UIView animateWithDuration:.5 delay:.7 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.cloud2ImageV.alpha = 1.;
-    } completion:nil];
-    [UIView animateWithDuration:.5 delay:.9 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.cloud3ImageV.alpha = 1.;
-    } completion:nil];
-    [UIView animateWithDuration:.5 delay:1.1 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.cloud4ImageV.alpha = 1.;
-    } completion:nil];
+//    [UIView animateWithDuration:.5 delay:.5 options:(UIViewAnimationOptionCurveLinear) animations:^{
+//        self.cloud1ImageV.alpha = 1.;
+//    } completion:nil];
+//    [UIView animateWithDuration:.5 delay:.7 options:(UIViewAnimationOptionCurveLinear) animations:^{
+//        self.cloud2ImageV.alpha = 1.;
+//    } completion:nil];
+//    [UIView animateWithDuration:.5 delay:.9 options:(UIViewAnimationOptionCurveLinear) animations:^{
+//        self.cloud3ImageV.alpha = 1.;
+//    } completion:nil];
+//    [UIView animateWithDuration:.5 delay:1.1 options:(UIViewAnimationOptionCurveLinear) animations:^{
+//        self.cloud4ImageV.alpha = 1.;
+//    } completion:nil];
     //loginBtn
     [UIView animateWithDuration:.5 delay:.5 usingSpringWithDamping:.5 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
         self.loginBtn.ai_centerY  -= 30;
