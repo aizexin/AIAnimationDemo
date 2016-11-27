@@ -174,7 +174,7 @@
     UIButton *loginBtn             = [UIButton buttonWithType:(UIButtonTypeCustom)];
     self.loginBtn                  = loginBtn;
     loginBtn.layer.cornerRadius    = 8;
-//    loginBtn.backgroundColor       = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
+    loginBtn.backgroundColor       = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
     
     [loginBtn setTitle:@"Log In" forState:(UIControlStateNormal)];
     loginBtn.frame                 = CGRectMake(0, 250, 234, 52);
@@ -216,24 +216,28 @@
 - (void)onClickLogin:(UIButton*)loginBtn {
     [self.view endEditing:YES];
     loginBtn.enabled = NO;
+    //弹簧动画变宽
     [UIView animateWithDuration:1.5 delay:0. usingSpringWithDamping:.2 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
         CGRect loginBounds                = self.loginBtn.bounds;
         loginBounds.size.width           += 80;
         self.loginBtn.bounds              = loginBounds;
     } completion:^(BOOL finished) {
         [self showMessageWithIndex:0];
-        //改变颜色
-        UIColor             *toColor  = [UIColor colorWithRed:0.63 green:.84 blue:.35 alpha:1];
-        [self tintBackgroundColorWithCALayer:self.loginBtn.layer toColor:toColor];
+        
     }];
     
     [UIView animateWithDuration:.33 delay:0 usingSpringWithDamping:.7 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
         self.loginBtn.ai_centerY         += 60;
-        self.loginBtn.backgroundColor     = [UIColor colorWithRed:0.85 green:0.83 blue:0.45 alpha:1];
         self.spinner.ai_x                 = 40;
         self.spinner.alpha                = 1;
         self.spinner.ai_centerY           = self.loginBtn.ai_middleY;
     } completion:nil];
+    
+    //改变颜色
+    UIColor             *toColor          = [UIColor colorWithRed:0.85 green:0.83 blue:0.45 alpha:1];
+    [self tintBackgroundColorWithCALayer:self.loginBtn.layer toColor:toColor];
+    //改变圆角
+    [self roundCornersWithCALayer:self.loginBtn.layer toRadius:25];
 }
 
 /**
@@ -290,6 +294,7 @@
  重置状态
  */
 - (void)resetFrom{
+    //提示图片消失动画
     [UIView transitionWithView:self.statusImageV duration:.2 options:(UIViewAnimationOptionTransitionFlipFromTop) animations:^{
         self.statusImageV.hidden = YES;
         self.statusImageV.center = self.statusPoint;
@@ -298,20 +303,25 @@
     [UIView animateWithDuration:.2 animations:^{
         self.spinner.center = CGPointMake(-20, 16);
         self.spinner.alpha  = 0.;
-        //改变颜色
-        UIColor             *toColor  = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
-        [self tintBackgroundColorWithCALayer:self.loginBtn.layer toColor:toColor];
         CGRect loginBounds             = self.loginBtn.bounds;
         loginBounds.size.width        -= 80;
         self.loginBtn.bounds           = loginBounds;
         self.loginBtn.ai_centerY      -= 60;
         self.loginBtn.enabled          = YES;
+    } completion:^(BOOL finished) {
+        
+        //改变颜色
+        UIColor             *toColor  = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
+        [self tintBackgroundColorWithCALayer:self.loginBtn.layer toColor:toColor];
+        //改变圆角
+        [self roundCornersWithCALayer:self.loginBtn.layer toRadius:8];
     }];
 }
 
 
 /**
  动画来改变layer的背景颜色
+ 
  @param layer   改变的layer
  @param toColor 改变的颜色
  */
@@ -324,8 +334,26 @@
     layer.backgroundColor              = toColor.CGColor;
 }
 
+/**
+ 设置圆角动画
+
+ @param layer  动画的layer
+ @param radius 圆角半径
+ */
+- (void)roundCornersWithCALayer:(CALayer*)layer toRadius:(CGFloat)radius {
+    CABasicAnimation *radiusAnimation     = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    radiusAnimation.fromValue             = @(layer.cornerRadius);
+    radiusAnimation.toValue               = @(radius);
+    radiusAnimation.duration              = .5;
+    [layer addAnimation:radiusAnimation forKey:nil];
+    layer.cornerRadius                    = radius;
+}
+
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
+
+
 
 @end
