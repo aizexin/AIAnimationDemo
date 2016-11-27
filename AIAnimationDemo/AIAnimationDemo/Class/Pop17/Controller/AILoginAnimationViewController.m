@@ -76,23 +76,20 @@
     [self.passWordTextField.layer addAnimation:flyRightAnimation forKey:nil];
     
     //cloud
-//    CABasicAnimation *fadeAnimation      = [CABasicAnimation animationWithKeyPath:@"opacity"];
-//    fadeAnimation.fromValue              = @0.;
-//    fadeAnimation.toValue                = @1.;
-//    fadeAnimation.duration               = .5;
-//    fadeAnimation.fillMode               = kCAFillModeBackwards;
-//    fadeAnimation.beginTime              = CACurrentMediaTime() + .5;
-//    [self.cloud1ImageV.layer addAnimation:fadeAnimation forKey:nil];
-//    fadeAnimation.beginTime              = CACurrentMediaTime() + .7;
-//    [self.cloud2ImageV.layer addAnimation:fadeAnimation forKey:nil];
-//    fadeAnimation.beginTime              = CACurrentMediaTime() + .9;
-//    [self.cloud3ImageV.layer addAnimation:fadeAnimation forKey:nil];
-//    fadeAnimation.beginTime              = CACurrentMediaTime() + 1.1;
-//    [self.cloud4ImageV.layer addAnimation:fadeAnimation forKey:nil];
-//    self.cloud1ImageV.alpha          = 0.;
-//    self.cloud2ImageV.alpha          = 0.;
-//    self.cloud3ImageV.alpha          = 0.;
-//    self.cloud4ImageV.alpha          = 0.;
+    CABasicAnimation *fadeAnimation      = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fadeAnimation.fromValue              = @0.;
+    fadeAnimation.toValue                = @1.;
+    fadeAnimation.duration               = .5;
+    fadeAnimation.fillMode               = kCAFillModeBackwards;
+    fadeAnimation.beginTime              = CACurrentMediaTime() + .5;
+    [self.cloud1ImageV.layer addAnimation:fadeAnimation forKey:nil];
+    fadeAnimation.beginTime              = CACurrentMediaTime() + .7;
+    [self.cloud2ImageV.layer addAnimation:fadeAnimation forKey:nil];
+    fadeAnimation.beginTime              = CACurrentMediaTime() + .9;
+    [self.cloud3ImageV.layer addAnimation:fadeAnimation forKey:nil];
+    fadeAnimation.beginTime              = CACurrentMediaTime() + 1.1;
+    [self.cloud4ImageV.layer addAnimation:fadeAnimation forKey:nil];
+
     //loginBtn
     self.loginBtn.ai_centerY        += 30;
     self.loginBtn.alpha              = 0;
@@ -100,19 +97,6 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 
-    //cloud
-//    [UIView animateWithDuration:.5 delay:.5 options:(UIViewAnimationOptionCurveLinear) animations:^{
-//        self.cloud1ImageV.alpha = 1.;
-//    } completion:nil];
-//    [UIView animateWithDuration:.5 delay:.7 options:(UIViewAnimationOptionCurveLinear) animations:^{
-//        self.cloud2ImageV.alpha = 1.;
-//    } completion:nil];
-//    [UIView animateWithDuration:.5 delay:.9 options:(UIViewAnimationOptionCurveLinear) animations:^{
-//        self.cloud3ImageV.alpha = 1.;
-//    } completion:nil];
-//    [UIView animateWithDuration:.5 delay:1.1 options:(UIViewAnimationOptionCurveLinear) animations:^{
-//        self.cloud4ImageV.alpha = 1.;
-//    } completion:nil];
     //loginBtn
     [UIView animateWithDuration:.5 delay:.5 usingSpringWithDamping:.5 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
         self.loginBtn.ai_centerY  -= 30;
@@ -190,7 +174,8 @@
     UIButton *loginBtn             = [UIButton buttonWithType:(UIButtonTypeCustom)];
     self.loginBtn                  = loginBtn;
     loginBtn.layer.cornerRadius    = 8;
-    loginBtn.backgroundColor       = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
+//    loginBtn.backgroundColor       = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
+    
     [loginBtn setTitle:@"Log In" forState:(UIControlStateNormal)];
     loginBtn.frame                 = CGRectMake(0, 250, 234, 52);
     loginBtn.ai_centerX            = self.view.ai_centerX;
@@ -237,6 +222,9 @@
         self.loginBtn.bounds              = loginBounds;
     } completion:^(BOOL finished) {
         [self showMessageWithIndex:0];
+        //改变颜色
+        UIColor             *toColor  = [UIColor colorWithRed:0.63 green:.84 blue:.35 alpha:1];
+        [self tintBackgroundColorWithCALayer:self.loginBtn.layer toColor:toColor];
     }];
     
     [UIView animateWithDuration:.33 delay:0 usingSpringWithDamping:.7 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
@@ -310,13 +298,30 @@
     [UIView animateWithDuration:.2 animations:^{
         self.spinner.center = CGPointMake(-20, 16);
         self.spinner.alpha  = 0.;
-        self.loginBtn.backgroundColor  = [UIColor colorWithRed:0.63 green:.84 blue:.35 alpha:1];
+        //改变颜色
+        UIColor             *toColor  = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
+        [self tintBackgroundColorWithCALayer:self.loginBtn.layer toColor:toColor];
         CGRect loginBounds             = self.loginBtn.bounds;
         loginBounds.size.width        -= 80;
         self.loginBtn.bounds           = loginBounds;
         self.loginBtn.ai_centerY      -= 60;
         self.loginBtn.enabled          = YES;
     }];
+}
+
+
+/**
+ 动画来改变layer的背景颜色
+ @param layer   改变的layer
+ @param toColor 改变的颜色
+ */
+- (void)tintBackgroundColorWithCALayer:(CALayer*)layer toColor:(UIColor*)toColor{
+    CABasicAnimation *tintAnimation    = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+    tintAnimation.fromValue            = (__bridge id _Nullable)(layer.backgroundColor);
+    tintAnimation.toValue              = (__bridge id _Nullable)(toColor.CGColor);
+    tintAnimation.duration             = .5;
+    [layer addAnimation:tintAnimation forKey:nil];
+    layer.backgroundColor              = toColor.CGColor;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
