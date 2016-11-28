@@ -9,7 +9,7 @@
 #import "AILoginAnimationViewController.h"
 #import "UIView+AISetRect.h"
 #import "AITextFiled.h"
-@interface AILoginAnimationViewController ()
+@interface AILoginAnimationViewController ()<CAAnimationDelegate>
 
 /**
  背景图片
@@ -65,14 +65,19 @@
     self.navigationController.navigationBar.hidden = YES;
     
     CABasicAnimation *flyRightAnimation  = [CABasicAnimation animationWithKeyPath:@"position.x"];
+    flyRightAnimation.delegate           = self;
+    [flyRightAnimation setValue:@"form" forKey:@"name"];
+    [flyRightAnimation setValue:self.headingLabel.layer forKey:@"layer"];
     flyRightAnimation.toValue            = [NSValue valueWithCGPoint: CGPointMake(MainSize.width * 0.5, 0)];
     flyRightAnimation.fromValue          = [NSValue valueWithCGPoint: CGPointMake(-MainSize.width * 0.5, 0)];//-@(MainSize.width * 0.5);
     flyRightAnimation.duration           = .5;
     flyRightAnimation.fillMode           = kCAFillModeBoth;
     [self.headingLabel.layer addAnimation:flyRightAnimation forKey:nil];
     flyRightAnimation.beginTime          = CACurrentMediaTime() + 0.3;
+    [flyRightAnimation setValue:self.userNameTextField.layer forKey:@"layer"];
     [self.userNameTextField.layer addAnimation:flyRightAnimation forKey:nil];
     flyRightAnimation.beginTime          = CACurrentMediaTime() + 0.4;
+    [flyRightAnimation setValue:self.passWordTextField.layer forKey:@"layer"];
     [self.passWordTextField.layer addAnimation:flyRightAnimation forKey:nil];
     
     //cloud
@@ -354,6 +359,20 @@
     [self.view endEditing:YES];
 }
 
+#pragma mark ---CAAnimationDelegate
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    NSString *name                         = [anim valueForKey:@"name"];
+    if (name) {
+        CALayer *layer                     = [anim valueForKey:@"layer"];
+        [anim setValue:nil forKey:@"layer"];
+        //脉冲动画
+        CABasicAnimation *pulseAnimation   = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        pulseAnimation.fromValue           = @(1.);
+        pulseAnimation.toValue             = @(1.25);
+        pulseAnimation.duration            = .25;
+        [layer addAnimation:pulseAnimation forKey:nil];
+    }
+}
 
 
 @end

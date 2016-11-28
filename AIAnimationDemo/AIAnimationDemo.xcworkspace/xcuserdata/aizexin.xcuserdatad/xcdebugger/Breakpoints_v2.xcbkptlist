@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AIAnimationDemo/Class/Pop17/Controller/AILoginAnimationViewController.m"
-            timestampString = "501955431.971479"
+            timestampString = "501996747.599675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
+            startingLineNumber = "302"
+            endingLineNumber = "302"
             landmarkName = "-resetFrom"
             landmarkType = "7">
             <Locations>
