@@ -13,53 +13,5 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AIAnimationDemo/Class/Pop17/Controller/AILoginAnimationViewController.m"
-            timestampString = "501996747.599675"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "-resetFrom"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AILoginAnimationViewController resetFrom]"
-                  moduleName = "AIAnimationDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aizexin/Documents/workspace/%E8%89%BE%E6%B3%BD%E9%91%AB/AIAnimationDemo/AIAnimationDemo/AIAnimationDemo/Class/Pop17/Controller/AILoginAnimationViewController.m"
-                  timestampString = "501954608.554049"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "297"
-                  endingLineNumber = "297"
-                  offsetFromSymbolStart = "23">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[AILoginAnimationViewController resetFrom]_block_invoke"
-                  moduleName = "AIAnimationDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aizexin/Documents/workspace/%E8%89%BE%E6%B3%BD%E9%91%AB/AIAnimationDemo/AIAnimationDemo/AIAnimationDemo/Class/Pop17/Controller/AILoginAnimationViewController.m"
-                  timestampString = "501954608.555668"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "297"
-                  endingLineNumber = "297"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

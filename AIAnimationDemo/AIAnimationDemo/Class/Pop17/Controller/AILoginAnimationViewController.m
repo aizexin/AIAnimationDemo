@@ -64,6 +64,8 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     
+  
+    
     CABasicAnimation *flyRightAnimation  = [CABasicAnimation animationWithKeyPath:@"position.x"];
     flyRightAnimation.delegate           = self;
     [flyRightAnimation setValue:@"form" forKey:@"name"];
@@ -107,12 +109,12 @@
         self.loginBtn.ai_centerY  -= 30;
         self.loginBtn.alpha        = 1.;
     } completion:nil];
-    
     //云动画
-    [self animationCloud:_cloud1ImageV];
-    [self animationCloud:_cloud2ImageV];
-    [self animationCloud:_cloud3ImageV];
-    [self animationCloud:_cloud4ImageV];
+    [self animationCloud:_cloud1ImageV.layer];
+    [self animationCloud:_cloud2ImageV.layer];
+    [self animationCloud:_cloud3ImageV.layer];
+    [self animationCloud:_cloud4ImageV.layer];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -284,16 +286,33 @@
 /**
  云动画
  */
-- (void)animationCloud:(UIImageView*)cloudImageV {
+//- (void)animationCloud:(UIImageView*)cloudImageV {
+//    CGFloat cloudSpeed       = 60/MainSize.width;
+//    NSTimeInterval duration  = (MainSize.width - cloudImageV.ai_x) * cloudSpeed;
+//    [UIView animateWithDuration:duration animations:^{
+//        cloudImageV.ai_x = MainSize.width;
+//    } completion:^(BOOL finished) {
+//        cloudImageV.ai_x = -cloudImageV.ai_width;
+//        [self animationCloud:cloudImageV];
+//    }];
+//}
+- (void)animationCloud:(CALayer*)layer {
+    //1
     CGFloat cloudSpeed       = 60/MainSize.width;
-    NSTimeInterval duration  = (MainSize.width - cloudImageV.ai_x) * cloudSpeed;
-    [UIView animateWithDuration:duration animations:^{
-        cloudImageV.ai_x = MainSize.width;
-    } completion:^(BOOL finished) {
-        cloudImageV.ai_x = -cloudImageV.ai_width;
-        [self animationCloud:cloudImageV];
-    }];
+    NSTimeInterval duration  = (MainSize.width - layer.frame.origin.x) * cloudSpeed;
+    //2
+    CABasicAnimation *moveAnimation   = [CABasicAnimation animationWithKeyPath:@"position.x"];
+    [moveAnimation setValue:@"cloud" forKey:@"name"];
+    [moveAnimation setValue:layer forKey:@"layer"];
+    moveAnimation.delegate            = self;
+    moveAnimation.duration            = duration;
+    moveAnimation.fillMode            = kCAFillModeForwards;
+    moveAnimation.fromValue           = @(layer.position.x);
+    moveAnimation.toValue             = @(self.view.ai_width + layer.bounds.size.width * 0.5);
+    [layer addAnimation:moveAnimation forKey:nil];
+    layer.position                     = CGPointMake(-layer.bounds.size.width/2, layer.position.y);
 }
+
 
 /**
  重置状态
@@ -362,7 +381,7 @@
 #pragma mark ---CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSString *name                         = [anim valueForKey:@"name"];
-    if (name) {
+    if ([name isEqualToString:@"form"]) {
         CALayer *layer                     = [anim valueForKey:@"layer"];
         [anim setValue:nil forKey:@"layer"];
         //脉冲动画
@@ -371,6 +390,11 @@
         pulseAnimation.toValue             = @(1.25);
         pulseAnimation.duration            = .25;
         [layer addAnimation:pulseAnimation forKey:nil];
+    }
+    if ([name isEqualToString:@"cloud"]) {
+        CALayer *layer                     = [anim valueForKey:@"layer"];
+        layer.position                     = CGPointMake(-layer.bounds.size.width/2, layer.position.y);
+        [self animationCloud:layer];
     }
 }
 
