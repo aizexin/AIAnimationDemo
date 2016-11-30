@@ -98,17 +98,38 @@
     [self.cloud4ImageV.layer addAnimation:fadeAnimation forKey:nil];
 
     //loginBtn
-    self.loginBtn.ai_centerY        += 30;
+//    self.loginBtn.ai_centerY        += 30;
     self.loginBtn.alpha              = 0;
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 
     //loginBtn
-    [UIView animateWithDuration:.5 delay:.5 usingSpringWithDamping:.5 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.loginBtn.ai_centerY  -= 30;
-        self.loginBtn.alpha        = 1.;
-    } completion:nil];
+    CAAnimationGroup *groupAnimation   = [[CAAnimationGroup alloc]init];
+    groupAnimation.beginTime           = CACurrentMediaTime() + .5;
+    groupAnimation.duration            = .5;
+    groupAnimation.fillMode            = kCAFillModeBackwards;
+    groupAnimation.timingFunction      = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *scaleDownAnimation   = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleDownAnimation.fromValue           = @3.5;
+    scaleDownAnimation.toValue             = @1.;
+    
+    CABasicAnimation *rotateAnimation      = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotateAnimation.fromValue              = @M_PI_4;
+    rotateAnimation.toValue                = @0;
+    
+    CABasicAnimation *fadeAnimation        = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fadeAnimation.fromValue                = @0.;
+    fadeAnimation.toValue                  = @1.;
+    
+    groupAnimation.animations              = @[fadeAnimation,scaleDownAnimation,rotateAnimation];
+    [self.loginBtn.layer addAnimation:groupAnimation forKey:nil];
+     self.loginBtn.alpha                   = 1;
+//    [UIView animateWithDuration:.5 delay:.5 usingSpringWithDamping:.5 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
+//        self.loginBtn.ai_centerY  -= 30;
+//        self.loginBtn.alpha        = 1.;
+//    } completion:nil];
     //云动画
     [self animationCloud:_cloud1ImageV.layer];
     [self animationCloud:_cloud2ImageV.layer];
@@ -286,16 +307,6 @@
 /**
  云动画
  */
-//- (void)animationCloud:(UIImageView*)cloudImageV {
-//    CGFloat cloudSpeed       = 60/MainSize.width;
-//    NSTimeInterval duration  = (MainSize.width - cloudImageV.ai_x) * cloudSpeed;
-//    [UIView animateWithDuration:duration animations:^{
-//        cloudImageV.ai_x = MainSize.width;
-//    } completion:^(BOOL finished) {
-//        cloudImageV.ai_x = -cloudImageV.ai_width;
-//        [self animationCloud:cloudImageV];
-//    }];
-//}
 - (void)animationCloud:(CALayer*)layer {
     //1
     CGFloat cloudSpeed       = 60/MainSize.width;
