@@ -396,10 +396,11 @@
         CALayer *layer                     = [anim valueForKey:@"layer"];
         [anim setValue:nil forKey:@"layer"];
         //脉冲动画
-        CABasicAnimation *pulseAnimation   = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-        pulseAnimation.fromValue           = @(1.);
-        pulseAnimation.toValue             = @(1.25);
-        pulseAnimation.duration            = .25;
+        CASpringAnimation *pulseAnimation   = [CASpringAnimation animationWithKeyPath:@"transform.scale"];
+        pulseAnimation.damping             = 7.5;
+        pulseAnimation.fromValue           = @(1.25);
+        pulseAnimation.toValue             = @(1.);
+        pulseAnimation.duration            = pulseAnimation.settlingDuration;
         [layer addAnimation:pulseAnimation forKey:nil];
     }
     if ([name isEqualToString:@"cloud"]) {
