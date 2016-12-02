@@ -9,7 +9,7 @@
 #import "AILoginAnimationViewController.h"
 #import "UIView+AISetRect.h"
 #import "AITextFiled.h"
-@interface AILoginAnimationViewController ()<CAAnimationDelegate>
+@interface AILoginAnimationViewController ()<CAAnimationDelegate,UITextFieldDelegate>
 
 /**
  背景图片
@@ -186,6 +186,7 @@
     self.headingLabel              = headingLabel;
     
     AITextFiled *userNameTextField = [[AITextFiled alloc]init];
+    userNameTextField.delegate     = self;
     userNameTextField.frame        = CGRectMake(0, 149, 280, 30);
     userNameTextField.ai_centerX   = self.view.ai_centerX;
     userNameTextField.placeholder  = @"Username";
@@ -193,6 +194,7 @@
     self.userNameTextField         = userNameTextField;
     
     AITextFiled *passWordTextField = [[AITextFiled alloc]init];
+    passWordTextField.delegate     = self;
     passWordTextField.frame        = CGRectMake(0, 194, 280, 30);
     passWordTextField.ai_centerX   = self.view.ai_centerX;
     passWordTextField.placeholder  = @"passWord";
@@ -407,6 +409,22 @@
         CALayer *layer                     = [anim valueForKey:@"layer"];
         layer.position                     = CGPointMake(-layer.bounds.size.width/2, layer.position.y);
         [self animationCloud:layer];
+    }
+}
+
+#pragma mark --UITextFieldDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSString *text = textField.text;
+    if (text.length < 5) {
+        CASpringAnimation *jumpAnimation   = [CASpringAnimation animationWithKeyPath:@"position.y"];
+        jumpAnimation.fromValue            = @(textField.layer.position.y+1);
+        jumpAnimation.toValue              = @(textField.layer.position.y);
+        jumpAnimation.duration             = jumpAnimation.settlingDuration;
+        jumpAnimation.initialVelocity      = 100.;
+        jumpAnimation.mass                 = 10.;
+        jumpAnimation.stiffness            = 1500.;
+        jumpAnimation.damping              = 50.;
+        [textField.layer addAnimation:jumpAnimation forKey:nil];
     }
 }
 
