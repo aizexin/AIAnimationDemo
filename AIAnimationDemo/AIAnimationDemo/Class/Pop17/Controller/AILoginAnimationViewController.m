@@ -425,6 +425,18 @@
         jumpAnimation.stiffness            = 1500.;
         jumpAnimation.damping              = 50.;
         [textField.layer addAnimation:jumpAnimation forKey:nil];
+        
+        
+        textField.layer.borderWidth        = 3.;
+        textField.layer.borderColor        = [UIColor clearColor].CGColor;
+        CASpringAnimation *flashAniamtion  = [CASpringAnimation animationWithKeyPath:@"borderColor"];
+        flashAniamtion.damping             = 7.;
+        flashAniamtion.stiffness           = 200.;
+        flashAniamtion.fromValue           = (__bridge id _Nullable)([UIColor colorWithRed:1. green:0.27 blue:0 alpha:1.].CGColor);
+        flashAniamtion.toValue             = (__bridge id _Nullable)([UIColor whiteColor].CGColor);
+        flashAniamtion.duration            = flashAniamtion.settlingDuration;
+        [textField.layer addAnimation:flashAniamtion forKey:nil];
+        
     }
 }
 
