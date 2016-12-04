@@ -363,10 +363,12 @@
  @param toColor 改变的颜色
  */
 - (void)tintBackgroundColorWithCALayer:(CALayer*)layer toColor:(UIColor*)toColor{
-    CABasicAnimation *tintAnimation    = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+    CASpringAnimation *tintAnimation    = [CASpringAnimation animationWithKeyPath:@"backgroundColor"];
     tintAnimation.fromValue            = (__bridge id _Nullable)(layer.backgroundColor);
     tintAnimation.toValue              = (__bridge id _Nullable)(toColor.CGColor);
-    tintAnimation.duration             = .5;
+    tintAnimation.duration             = tintAnimation.settlingDuration;
+    tintAnimation.damping              = 7.;
+    tintAnimation.mass                 = 10.;
     [layer addAnimation:tintAnimation forKey:nil];
     layer.backgroundColor              = toColor.CGColor;
 }
@@ -378,10 +380,11 @@
  @param radius 圆角半径
  */
 - (void)roundCornersWithCALayer:(CALayer*)layer toRadius:(CGFloat)radius {
-    CABasicAnimation *radiusAnimation     = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    CASpringAnimation *radiusAnimation     = [CASpringAnimation animationWithKeyPath:@"cornerRadius"];
     radiusAnimation.fromValue             = @(layer.cornerRadius);
     radiusAnimation.toValue               = @(radius);
-    radiusAnimation.duration              = .5;
+    radiusAnimation.duration              = radiusAnimation.settlingDuration;
+    radiusAnimation.damping               = 17.;
     [layer addAnimation:radiusAnimation forKey:nil];
     layer.cornerRadius                    = radius;
 }
