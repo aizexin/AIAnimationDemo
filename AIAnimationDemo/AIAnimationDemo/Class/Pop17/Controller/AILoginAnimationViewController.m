@@ -346,7 +346,12 @@
         self.loginBtn.ai_centerY      -= 60;
         self.loginBtn.enabled          = YES;
     } completion:^(BOOL finished) {
-        
+        CAKeyframeAnimation *wobbleAniamtion  = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation"];
+        wobbleAniamtion.duration              = 0.25;
+        wobbleAniamtion.repeatCount           = 4;
+        wobbleAniamtion.values                = @[@0.0, @(-M_PI_4), @0.0, @M_PI_4, @0.0];
+        wobbleAniamtion.keyTimes              = @[@0.0, @0.25, @0.5, @0.75, @1.0];
+        [self.headingLabel.layer addAnimation:wobbleAniamtion forKey:nil];
         //改变颜色
         UIColor             *toColor  = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
         [self tintBackgroundColorWithCALayer:self.loginBtn.layer toColor:toColor];
