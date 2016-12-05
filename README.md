@@ -1,5 +1,9 @@
 #AIAnimationDemo
 
++ 登录动画
+
+![登录动画.gif](http://upload-images.jianshu.io/upload_images/1389261-2215d780e7fdcc3f.gif?imageMogr2/auto-orient/strip)
+
 + 仿百度loading
 
 ![仿百度loading.gif](http://upload-images.jianshu.io/upload_images/1389261-02b39f56c5e297d8.gif?imageMogr2/auto-orient/strip)
@@ -27,6 +31,7 @@
 + 适配器模式解决-设置页面
 
 ![适配器模式解决-设置页面](http://upload-images.jianshu.io/upload_images/1389261-95832670a2f35f77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
+
 
 
 还有部分效果是学习[YouXianMing](https://github.com/YouXianMing)动画
