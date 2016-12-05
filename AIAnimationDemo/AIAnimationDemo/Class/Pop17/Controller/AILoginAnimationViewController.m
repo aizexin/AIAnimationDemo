@@ -314,6 +314,21 @@
     CGFloat cloudSpeed       = 60/MainSize.width;
     NSTimeInterval duration  = (MainSize.width - layer.frame.origin.x) * cloudSpeed;
     //2
+    CALayer *balloonLayer    = [[CALayer alloc]init];
+    balloonLayer.contents    = (__bridge id _Nullable)([UIImage imageNamed:@"balloon"].CGImage);
+    balloonLayer.frame       = CGRectMake(-50, 0, 50, 65);
+    [self.view.layer insertSublayer:balloonLayer below:_userNameTextField.layer];
+    CAKeyframeAnimation *flightAnimation   = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    flightAnimation.duration               = 12.;
+    flightAnimation.values                 = @[
+                                               [NSValue valueWithCGPoint:CGPointMake(-50, 0.)],
+                                               [NSValue valueWithCGPoint:CGPointMake(KWidth+50 , 160)],
+                                               [NSValue valueWithCGPoint:CGPointMake(-50, self.loginBtn.center.y)]
+                                               ] ;
+    flightAnimation.keyTimes               = @[@0.0, @0.5, @1.0];
+    [balloonLayer addAnimation:flightAnimation forKey:nil];
+    balloonLayer.position    = CGPointMake(-50, self.loginBtn.center.y);
+    
     CABasicAnimation *moveAnimation   = [CABasicAnimation animationWithKeyPath:@"position.x"];
     [moveAnimation setValue:@"cloud" forKey:@"name"];
     [moveAnimation setValue:layer forKey:@"layer"];
