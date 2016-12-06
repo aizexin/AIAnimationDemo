@@ -61,6 +61,7 @@
 		455E28D91D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28D81D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m */; };
 		456DFD621DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 456DFD611DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m */; };
 		456DFD651DCB066400011AD7 /* AIGradientTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 456DFD641DCB066400011AD7 /* AIGradientTransitionAnimation.m */; };
+		457E55F91DF5D1CB00692DF7 /* AITmallLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55F81DF5D1CB00692DF7 /* AITmallLoadingViewController.m */; };
 		4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4581319C1DAB7CB100B2E8D1 /* DrawMarqueeView.m */; };
 		458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 458131A31DAB97C300B2E8D1 /* AILayerButton.m */; };
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
@@ -236,6 +237,8 @@
 		456DFD611DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIGradientLayerNavgationDelegate.m; sourceTree = "<group>"; };
 		456DFD631DCB066400011AD7 /* AIGradientTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIGradientTransitionAnimation.h; sourceTree = "<group>"; };
 		456DFD641DCB066400011AD7 /* AIGradientTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIGradientTransitionAnimation.m; sourceTree = "<group>"; };
+		457E55F71DF5D1CB00692DF7 /* AITmallLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITmallLoadingViewController.h; sourceTree = "<group>"; };
+		457E55F81DF5D1CB00692DF7 /* AITmallLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITmallLoadingViewController.m; sourceTree = "<group>"; };
 		4581319B1DAB7CB100B2E8D1 /* DrawMarqueeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawMarqueeView.h; sourceTree = "<group>"; };
 		4581319C1DAB7CB100B2E8D1 /* DrawMarqueeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawMarqueeView.m; sourceTree = "<group>"; };
 		458131A21DAB97C300B2E8D1 /* AILayerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILayerButton.h; sourceTree = "<group>"; };
@@ -880,6 +883,7 @@
 				4546AD2C1DD1B548006F230C /* Pop15 */,
 				45C9EAAB1DD31A49007B6418 /* Pop16 */,
 				45E44A2E1DE4310D009B50BC /* Pop17 */,
+				457E55F41DF5D1AA00692DF7 /* TmallLoading */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -993,6 +997,31 @@
 				45FF8FCB1DDEAD0000FC7584 /* AIPresentAnimation.m */,
 				45FF8FCD1DDEC53C00FC7584 /* AIDismissAnimation.h */,
 				45FF8FCE1DDEC53C00FC7584 /* AIDismissAnimation.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		457E55F41DF5D1AA00692DF7 /* TmallLoading */ = {
+			isa = PBXGroup;
+			children = (
+				457E55F51DF5D1AA00692DF7 /* Controller */,
+				457E55F61DF5D1AA00692DF7 /* View */,
+			);
+			path = TmallLoading;
+			sourceTree = "<group>";
+		};
+		457E55F51DF5D1AA00692DF7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				457E55F71DF5D1CB00692DF7 /* AITmallLoadingViewController.h */,
+				457E55F81DF5D1CB00692DF7 /* AITmallLoadingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		457E55F61DF5D1AA00692DF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1456,6 +1485,7 @@
 				455DF5C81DB46E6900D3E84A /* Math.m in Sources */,
 				455E28CE1D98F55200E3DA4D /* AIPop1ViewController.m in Sources */,
 				45D43E101DACDD120022F86A /* UIView+AnimationPracticalMethod.m in Sources */,
+				457E55F91DF5D1CB00692DF7 /* AITmallLoadingViewController.m in Sources */,
 				45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */,
 				45D43DF11DACC2570022F86A /* YXEasing.m in Sources */,
 				4505FECB1DAF537300AE4FED /* NSString+StringAttribute.m in Sources */,

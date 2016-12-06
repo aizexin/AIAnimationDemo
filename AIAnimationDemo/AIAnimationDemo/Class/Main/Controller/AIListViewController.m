@@ -28,6 +28,7 @@
 #import "AITableViewTapAnimationController.h" //Cell点击动画
 #import "AISettingViewController.h"         //设置页面
 #import "AILoginAnimationViewController.h"  //登录页面
+#import "AITmallLoadingViewController.h"     //天猫loading
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -58,7 +59,7 @@
                            [AIListModel initWithTitle:@"Cell点击动画" andTargetVC:[AITableViewTapAnimationController class]],
                            [AIListModel initWithTitle:@"设置页面" andTargetVC:[AISettingViewController class]],
                            [AIListModel initWithTitle:@"登录页面" andTargetVC:[AILoginAnimationViewController class]],
-                           [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
+                           [AIListModel initWithTitle:@"天猫Loading" andTargetVC:[AITmallLoadingViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
