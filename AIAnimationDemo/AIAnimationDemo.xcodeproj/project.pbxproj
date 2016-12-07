@@ -64,6 +64,7 @@
 		457E55F91DF5D1CB00692DF7 /* AITmallLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55F81DF5D1CB00692DF7 /* AITmallLoadingViewController.m */; };
 		4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4581319C1DAB7CB100B2E8D1 /* DrawMarqueeView.m */; };
 		458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 458131A31DAB97C300B2E8D1 /* AILayerButton.m */; };
+		4592CACC1DF7075D00B76A27 /* AITmallLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4592CACB1DF7075D00B76A27 /* AITmallLoadingView.m */; };
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
 		45C9EAAA1DD317F9007B6418 /* AIAFN3ModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAA91DD317F9007B6418 /* AIAFN3ModelTool.m */; };
 		45C9EAB01DD4494F007B6418 /* AIBaseSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAAF1DD4494F007B6418 /* AIBaseSettingViewController.m */; };
@@ -243,6 +244,8 @@
 		4581319C1DAB7CB100B2E8D1 /* DrawMarqueeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawMarqueeView.m; sourceTree = "<group>"; };
 		458131A21DAB97C300B2E8D1 /* AILayerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILayerButton.h; sourceTree = "<group>"; };
 		458131A31DAB97C300B2E8D1 /* AILayerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILayerButton.m; sourceTree = "<group>"; };
+		4592CACA1DF7075D00B76A27 /* AITmallLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITmallLoadingView.h; sourceTree = "<group>"; };
+		4592CACB1DF7075D00B76A27 /* AITmallLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITmallLoadingView.m; sourceTree = "<group>"; };
 		45ACB6991DB7087F001C48B2 /* AITriangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITriangleLayer.h; sourceTree = "<group>"; };
 		45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITriangleLayer.m; sourceTree = "<group>"; };
 		45C9EAA81DD317F9007B6418 /* AIAFN3ModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAFN3ModelTool.h; sourceTree = "<group>"; };
@@ -1022,6 +1025,8 @@
 		457E55F61DF5D1AA00692DF7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4592CACA1DF7075D00B76A27 /* AITmallLoadingView.h */,
+				4592CACB1DF7075D00B76A27 /* AITmallLoadingView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1516,6 +1521,7 @@
 				4546AD341DD1B89A006F230C /* AITapTableViewCell.m in Sources */,
 				45D43DF01DACC2570022F86A /* easing.c in Sources */,
 				45C9EAC81DD58D64007B6418 /* AIDestOneViewController.m in Sources */,
+				4592CACC1DF7075D00B76A27 /* AITmallLoadingView.m in Sources */,
 				45E44A331DE4314A009B50BC /* AILoginAnimationViewController.m in Sources */,
 				45D43E111DACDD120022F86A /* UIView+AnimationProperty.m in Sources */,
 				455DF5CE1DB4940C00D3E84A /* AIWellComeLoadViewController.m in Sources */,
