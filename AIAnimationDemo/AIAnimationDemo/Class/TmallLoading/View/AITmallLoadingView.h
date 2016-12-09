@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    AITmallTypeLight,
+    AITmallTypeBlack,
+} AITmallType;
 @interface AITmallLoadingView : UIView
 
 /**
  开始动画
  */
 - (void)startAnimation;
+/** 类型*/
+@property(nonatomic,assign)AITmallType type;
+
 @end

@@ -8,12 +8,14 @@
 
 #import "AITmallLoadingView.h"
 
-@interface AITmallLoadingView ()<CAAnimationDelegate>
+@interface AITmallLoadingView ()
 
 /**
  圆
  */
 @property(nonatomic,weak)UIView *ovalView;
+/** 背景路径*/
+@property(nonatomic,weak)CAShapeLayer *shapeLayer;
 @end
 @implementation AITmallLoadingView
 
@@ -21,6 +23,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _type = AITmallTypeBlack;
         // Used as background.
         {
             CAShapeLayer *shapeLayer = [CAShapeLayer layer];
@@ -28,7 +31,7 @@
             
             shapeLayer.fillColor   = [UIColor clearColor].CGColor;
             shapeLayer.strokeColor = [UIColor grayColor].CGColor;
-            
+            self.shapeLayer        =  shapeLayer;
             
             [self.layer addSublayer:shapeLayer];
         }
@@ -46,12 +49,32 @@
 - (void)animationWithLayer:(CALayer*)layer path:(UIBezierPath *)path {
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     [keyAnimation setValue:layer forKey:@"layer"];
-    keyAnimation.delegate             = self;
     keyAnimation.path                 = path.CGPath;
+    keyAnimation.repeatCount          = MAXFLOAT;
     keyAnimation.duration             = 5.;
     keyAnimation.removedOnCompletion  = NO;
     keyAnimation.fillMode             = kCAFillModeForwards;
     [layer addAnimation:keyAnimation forKey:nil];
+}
+- (void)animationStrokeWithLayer:(CALayer*)layer path:(UIBezierPath *)path {
+    CGFloat MAX = 0.1f;
+    CGFloat GAP = 0.9;
+    
+    CABasicAnimation *aniStart = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+    aniStart.fromValue         = [NSNumber numberWithFloat:0.f];
+    aniStart.toValue           = [NSNumber numberWithFloat:MAX];
+    
+    CABasicAnimation *aniEnd   = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    aniEnd.fromValue           = [NSNumber numberWithFloat:0.f + GAP];
+    aniEnd.toValue             = [NSNumber numberWithFloat:MAX + GAP];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.duration          = 10.f;
+    group.repeatCount       = CGFLOAT_MAX;
+    group.fillMode          = kCAFillModeForwards;
+//    group.autoreverses      = YES;
+    group.animations        = @[aniEnd];
+    [self.shapeLayer addAnimation:group forKey:nil];
 }
 
 - (UIBezierPath *)path {
@@ -76,13 +99,33 @@
     
     return bezierPath;
 }
-#pragma mark --CAAnimationDelegate
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    CALayer *layer = [anim valueForKey:@"layer"];
-    [self animationWithLayer:layer path:[self path]];
-}
+
 #pragma mark --public
 - (void)startAnimation {
-    [self animationWithLayer:_ovalView.layer path:[self path]];
+    switch (_type) {
+        case AITmallTypeBlack:
+            [self animationWithLayer:_ovalView.layer path:[self path]];
+            break;
+        case AITmallTypeLight:
+            [self animationStrokeWithLayer:_ovalView.layer path:[self path]];
+            break;
+        default:
+            break;
+    }
+}
+-(void)setType:(AITmallType)type {
+    _type = type;
+    switch (type) {
+        case AITmallTypeBlack:
+            self.shapeLayer.strokeColor = [UIColor grayColor].CGColor;
+            self.ovalView.hidden        = NO;
+            break;
+        case AITmallTypeLight:
+            self.shapeLayer.strokeColor = [UIColor lightGrayColor].CGColor;
+            self.ovalView.hidden        = YES;
+            break;
+        default:
+            break;
+    }
 }
 @end
