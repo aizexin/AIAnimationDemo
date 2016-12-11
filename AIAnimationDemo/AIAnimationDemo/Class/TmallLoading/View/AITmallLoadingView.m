@@ -23,6 +23,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         _type = AITmallTypeBlack;
         // Used as background.
         {
@@ -57,23 +58,23 @@
     [layer addAnimation:keyAnimation forKey:nil];
 }
 - (void)animationStrokeWithLayer:(CALayer*)layer path:(UIBezierPath *)path {
-    CGFloat MAX = 0.1f;
-    CGFloat GAP = 0.9;
+    CGFloat MAX = 0.05f;
+    CGFloat GAP = 0.95;
     
     CABasicAnimation *aniStart = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
     aniStart.fromValue         = [NSNumber numberWithFloat:0.f];
-    aniStart.toValue           = [NSNumber numberWithFloat:MAX];
+    aniStart.toValue           = [NSNumber numberWithFloat:GAP];
     
     CABasicAnimation *aniEnd   = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     aniEnd.fromValue           = [NSNumber numberWithFloat:0.f + GAP];
-    aniEnd.toValue             = [NSNumber numberWithFloat:MAX + GAP];
+    aniEnd.toValue             = [NSNumber numberWithFloat:2];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    group.duration          = 10.f;
+    group.duration          = 5.f;
     group.repeatCount       = CGFLOAT_MAX;
     group.fillMode          = kCAFillModeForwards;
 //    group.autoreverses      = YES;
-    group.animations        = @[aniEnd];
+    group.animations        = @[aniEnd,aniStart];
     [self.shapeLayer addAnimation:group forKey:nil];
 }
 
@@ -107,7 +108,7 @@
             [self animationWithLayer:_ovalView.layer path:[self path]];
             break;
         case AITmallTypeLight:
-            [self animationStrokeWithLayer:_ovalView.layer path:[self path]];
+            [self animationWithLayer:_ovalView.layer path:[self path]];
             break;
         default:
             break;
@@ -118,11 +119,12 @@
     switch (type) {
         case AITmallTypeBlack:
             self.shapeLayer.strokeColor = [UIColor grayColor].CGColor;
-            self.ovalView.hidden        = NO;
+//            self.ovalView.hidden        = NO;
             break;
         case AITmallTypeLight:
-            self.shapeLayer.strokeColor = [UIColor lightGrayColor].CGColor;
-            self.ovalView.hidden        = YES;
+            self.shapeLayer.strokeColor   = [UIColor lightGrayColor].CGColor;
+            self.ovalView.backgroundColor = self.backgroundColor;
+//            self.ovalView.hidden        = YES;
             break;
         default:
             break;

@@ -17,10 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     AITmallLoadingView *loadingView = [[AITmallLoadingView alloc]init];
-//    loadingView.type                = AITmallTypeLight;
+    loadingView.type                = AITmallTypeLight;
     [self.view addSubview:loadingView];
     loadingView.center              = self.view.center;
-    loadingView.ai_viewSize         = CGSizeMake(KWidth, 300);
+    loadingView.ai_viewSize         = CGSizeMake(300, 300);
     [loadingView startAnimation];
 }
 
