@@ -20,7 +20,7 @@
     loadingView.type                = AITmallTypeLight;
     [self.view addSubview:loadingView];
     loadingView.center              = self.view.center;
-    loadingView.ai_viewSize         = CGSizeMake(300, 300);
+    loadingView.ai_viewSize         = CGSizeMake(54, 27);
     [loadingView startAnimation];
 }
 
