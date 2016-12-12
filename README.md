@@ -1,5 +1,9 @@
 #AIAnimationDemo
 
++ 天猫Loading
+
+![天猫Loading.gif](http://upload-images.jianshu.io/upload_images/1389261-0e921079215f2186.gif?imageMogr2/auto-orient/strip)
+
 + 登录动画
 
 ![登录动画.gif](http://upload-images.jianshu.io/upload_images/1389261-2215d780e7fdcc3f.gif?imageMogr2/auto-orient/strip)
