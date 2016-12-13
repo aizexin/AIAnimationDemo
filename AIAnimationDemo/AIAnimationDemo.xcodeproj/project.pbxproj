@@ -65,6 +65,7 @@
 		4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4581319C1DAB7CB100B2E8D1 /* DrawMarqueeView.m */; };
 		458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 458131A31DAB97C300B2E8D1 /* AILayerButton.m */; };
 		4592CACC1DF7075D00B76A27 /* AITmallLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4592CACB1DF7075D00B76A27 /* AITmallLoadingView.m */; };
+		45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */ = {isa = PBXBuildFile; fileRef = 45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */; };
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
 		45C9EAAA1DD317F9007B6418 /* AIAFN3ModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAA91DD317F9007B6418 /* AIAFN3ModelTool.m */; };
 		45C9EAB01DD4494F007B6418 /* AIBaseSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAAF1DD4494F007B6418 /* AIBaseSettingViewController.m */; };
@@ -246,6 +247,7 @@
 		458131A31DAB97C300B2E8D1 /* AILayerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILayerButton.m; sourceTree = "<group>"; };
 		4592CACA1DF7075D00B76A27 /* AITmallLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITmallLoadingView.h; sourceTree = "<group>"; };
 		4592CACB1DF7075D00B76A27 /* AITmallLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITmallLoadingView.m; sourceTree = "<group>"; };
+		45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天猫-01.eps"; sourceTree = "<group>"; };
 		45ACB6991DB7087F001C48B2 /* AITriangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITriangleLayer.h; sourceTree = "<group>"; };
 		45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITriangleLayer.m; sourceTree = "<group>"; };
 		45C9EAA81DD317F9007B6418 /* AIAFN3ModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAFN3ModelTool.h; sourceTree = "<group>"; };
@@ -840,6 +842,7 @@
 		455E288C1D98C0D300E3DA4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */,
 				45C9EACF1DD5BA3B007B6418 /* Assets.xcassets */,
 				455E289A1D98C0D300E3DA4D /* LaunchScreen.storyboard */,
 				455E289D1D98C0D300E3DA4D /* Info.plist */,
@@ -1353,6 +1356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */,
+				45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */,
 				45C9EAD01DD5BA3B007B6418 /* Assets.xcassets in Resources */,
 				455E289C1D98C0D300E3DA4D /* LaunchScreen.storyboard in Resources */,
 			);
