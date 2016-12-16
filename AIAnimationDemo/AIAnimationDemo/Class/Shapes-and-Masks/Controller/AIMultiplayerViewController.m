@@ -49,10 +49,12 @@
     //me
     AIAvatarView *myAvatarView  = [[AIAvatarView alloc]init];
     myAvatarView.frame          = CGRectMake(261, 202.5, 90, 90);
+    myAvatarView.image          = [UIImage imageNamed:@"avatar-1"];
     [self.view addSubview:myAvatarView];
     //对手
     AIAvatarView *opponentAvatarView    = [[AIAvatarView alloc]init];
     opponentAvatarView.frame            = CGRectMake(23, 202.5, 90, 90);
+//    opponentAvatarView.image            = [UIImage imageNamed:@"empty"];
     [self.view addSubview:opponentAvatarView];
     //搜索按钮
     UIButton *searchAgainBtn            = [UIButton buttonWithType:(UIButtonTypeCustom)];

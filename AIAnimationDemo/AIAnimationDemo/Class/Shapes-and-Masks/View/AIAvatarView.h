@@ -10,4 +10,7 @@
 
 @interface AIAvatarView : UIView
 
+/** image*/
+@property(nonatomic,strong)UIImage *image;
+
 @end
