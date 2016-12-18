@@ -81,4 +81,21 @@ const CGFloat animationDuration = 1.;
     self.photoLayer.contents  = (__bridge id _Nullable)(image.CGImage);
 }
 
+- (void)bounceOffPoint:(CGPoint)point morphSize:(CGSize)morphSize{
+    CGPoint originalCenter    = self.center;
+    
+    [UIView animateWithDuration:animationDuration delay:0. usingSpringWithDamping:.7 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.center  = point;
+    } completion:nil];
+    
+    [UIView animateWithDuration:animationDuration delay:animationDuration usingSpringWithDamping:.7 initialSpringVelocity:1. options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.center  = originalCenter;
+    } completion:^(BOOL finished) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self bounceOffPoint:point morphSize:morphSize];
+        });
+    }];
+    
+}
+
 @end

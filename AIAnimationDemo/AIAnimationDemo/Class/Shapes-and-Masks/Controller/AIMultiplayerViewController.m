@@ -10,6 +10,12 @@
 #import "AIAvatarView.h"
 @interface AIMultiplayerViewController ()
 
+/**
+ 我的头像
+ */
+@property(nonatomic,weak)AIAvatarView *myAvatarView;
+/** 对手头像*/
+@property(nonatomic,weak)AIAvatarView *opponentAvatarView;
 @end
 
 @implementation AIMultiplayerViewController
@@ -18,8 +24,8 @@
 #pragma mark --lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setUI];
+    [self searchForOpponent];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -28,6 +34,20 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
+}
+
+/**
+ 搜索对手
+ */
+- (void)searchForOpponent {
+    CGSize avatarSize      = self.myAvatarView.frame.size;
+    CGFloat bounceXOffset  = avatarSize.width/1.9;
+    CGSize morphSize       = CGSizeMake(avatarSize.width * 0.5, avatarSize.height *1.1);
+    
+    CGPoint rightBouncePoint  = CGPointMake(KWidth * .5 + bounceXOffset, self.myAvatarView.center.y);
+    CGPoint leftBouncePoint   = CGPointMake(KWidth * .5 - bounceXOffset, self.myAvatarView.center.y);
+    [self.myAvatarView bounceOffPoint:rightBouncePoint morphSize:morphSize];
+    [self.opponentAvatarView bounceOffPoint:leftBouncePoint morphSize:morphSize];
 }
 
 /**
@@ -48,11 +68,13 @@
     [self.view addSubview:statusLabel];
     //me
     AIAvatarView *myAvatarView  = [[AIAvatarView alloc]init];
+    self.myAvatarView           = myAvatarView;
     myAvatarView.frame          = CGRectMake(261, 202.5, 90, 90);
     myAvatarView.image          = [UIImage imageNamed:@"avatar-1"];
     [self.view addSubview:myAvatarView];
     //对手
     AIAvatarView *opponentAvatarView    = [[AIAvatarView alloc]init];
+    self.opponentAvatarView             = opponentAvatarView;
     opponentAvatarView.frame            = CGRectMake(23, 202.5, 90, 90);
 //    opponentAvatarView.image            = [UIImage imageNamed:@"empty"];
     [self.view addSubview:opponentAvatarView];

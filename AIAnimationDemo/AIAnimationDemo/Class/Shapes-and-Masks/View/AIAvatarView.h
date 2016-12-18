@@ -13,4 +13,5 @@
 /** image*/
 @property(nonatomic,strong)UIImage *image;
 
+- (void)bounceOffPoint:(CGPoint)point morphSize:(CGSize)morphSize;
 @end
