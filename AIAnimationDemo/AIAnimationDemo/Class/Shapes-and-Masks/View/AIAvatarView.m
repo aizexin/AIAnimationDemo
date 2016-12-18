@@ -17,8 +17,7 @@
 @property(nonatomic,strong)CAShapeLayer *maskLayer;
 /** label*/
 @property(nonatomic,weak)UILabel *label;
-/** 是否应该过度到完成*/
-@property(nonatomic, assign)BOOL shouldTransitionToFinishedState;
+
 @end
 
 const CGFloat lineWidth = 6.0;
@@ -80,6 +79,10 @@ const CGFloat animationDuration = 1.;
     _image = image;
     self.photoLayer.contents  = (__bridge id _Nullable)(image.CGImage);
 }
+-(void)setName:(NSString *)name {
+    _name = name;
+    self.label.text = name;
+}
 
 - (void)bounceOffPoint:(CGPoint)point morphSize:(CGSize)morphSize{
     CGPoint originalCenter    = self.center;
@@ -93,19 +96,7 @@ const CGFloat animationDuration = 1.;
                                            self.bounds.size.height - morphSize.height ,
                                            morphSize.width, morphSize.height);
     }
-    
-    [UIView animateWithDuration:animationDuration delay:0. usingSpringWithDamping:.7 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.center  = point;
-    } completion:nil];
-    
-    [UIView animateWithDuration:animationDuration delay:animationDuration usingSpringWithDamping:.7 initialSpringVelocity:1. options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.center  = originalCenter;
-    } completion:^(BOOL finished) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self bounceOffPoint:point morphSize:morphSize];
-        });
-    }];
-    
+    //变形
     CABasicAnimation *morphAnimation      = [CABasicAnimation animationWithKeyPath:@"path"];
     morphAnimation.duration               = animationDuration;
     morphAnimation.toValue                = (__bridge id _Nullable)([UIBezierPath bezierPathWithOvalInRect:morphedFrame].CGPath);
@@ -113,6 +104,41 @@ const CGFloat animationDuration = 1.;
     [self.circleLayer addAnimation:morphAnimation forKey:nil];
     [self.maskLayer addAnimation:morphAnimation forKey:nil];
     
+    //移动位置
+    [UIView animateWithDuration:animationDuration delay:0. usingSpringWithDamping:.7 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.center  = point;
+    } completion:nil];
+    
+    [UIView animateWithDuration:animationDuration delay:animationDuration usingSpringWithDamping:.7 initialSpringVelocity:1. options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.center  = originalCenter;
+    } completion:^(BOOL finished) {
+        if (!self.shouldTransitionToFinishedState) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self bounceOffPoint:point morphSize:morphSize];
+            });
+        }else {
+            [self.layer removeAllAnimations];
+            [self animateToSquare];
+        }
+    }];
+}
+
+- (void)animateToSquare {
+    CABasicAnimation *squareAnimation      = [CABasicAnimation animationWithKeyPath:@"path"];
+    squareAnimation.duration               = animationDuration;
+    squareAnimation.toValue                = (__bridge id _Nullable)([UIBezierPath bezierPathWithRect:self.bounds].CGPath);
+    squareAnimation.timingFunction         = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    squareAnimation.removedOnCompletion    = NO;
+    squareAnimation.fillMode               = kCAFillModeForwards;
+    [self.circleLayer addAnimation:squareAnimation forKey:nil];
+    [self.maskLayer addAnimation:squareAnimation forKey:nil];
+}
+- (void)reset {
+    _shouldTransitionToFinishedState = NO;
+    self.image                       = [UIImage imageNamed:@"empty"];
+    self.name                        = @"";
+    [self.circleLayer removeAllAnimations];
+    [self.maskLayer removeAllAnimations];
 }
 
 @end

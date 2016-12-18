@@ -16,6 +16,12 @@
 @property(nonatomic,weak)AIAvatarView *myAvatarView;
 /** 对手头像*/
 @property(nonatomic,weak)AIAvatarView *opponentAvatarView;
+/** 状态*/
+@property(nonatomic,weak)UILabel *statusLabel;
+/** VS*/
+@property(nonatomic,weak)UILabel *vsLabel;
+/** 搜索*/
+@property(nonatomic,weak)UIButton *searchAgainBtn;
 @end
 
 @implementation AIMultiplayerViewController
@@ -48,6 +54,44 @@
     CGPoint leftBouncePoint   = CGPointMake(KWidth * .5 - bounceXOffset, self.myAvatarView.center.y);
     [self.myAvatarView bounceOffPoint:rightBouncePoint morphSize:morphSize];
     [self.opponentAvatarView bounceOffPoint:leftBouncePoint morphSize:morphSize];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self foundOpponent];
+    });
+}
+
+/**
+ 找到对手
+ */
+- (void)foundOpponent {
+    self.statusLabel.text           = @"Connecting...";
+    self.opponentAvatarView.image   = [UIImage imageNamed:@"avatar-2"];
+    self.opponentAvatarView.name    = @"Ray";
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self connectedToOpponent];
+    });
+}
+
+/**
+ 链接完成
+ */
+- (void)connectedToOpponent {
+    self.myAvatarView.shouldTransitionToFinishedState        = YES;
+    self.opponentAvatarView.shouldTransitionToFinishedState  = YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self completed];
+    });
+}
+
+/**
+ 完成
+ */
+- (void)completed {
+    self.statusLabel.text           = @"Ready to play";
+    [UIView animateWithDuration:.2 animations:^{
+        self.vsLabel.alpha          = 1.;
+        self.searchAgainBtn.alpha   = 1.;
+    }];
+    
 }
 
 /**
@@ -60,6 +104,7 @@
     [self.view addSubview:bgImageView];
     //状态文字
     UILabel *statusLabel      = [[UILabel alloc]init];
+    self.statusLabel          = statusLabel;
     statusLabel.numberOfLines = 2;
     statusLabel.font          = [UIFont fontWithName:@"ArialRoundedMTBold" size:29];
     statusLabel.textColor     = [UIColor whiteColor];
@@ -68,6 +113,7 @@
     [self.view addSubview:statusLabel];
     //me
     AIAvatarView *myAvatarView  = [[AIAvatarView alloc]init];
+    myAvatarView.name           = @"Me";
     self.myAvatarView           = myAvatarView;
     myAvatarView.frame          = CGRectMake(261, 202.5, 90, 90);
     myAvatarView.image          = [UIImage imageNamed:@"avatar-1"];
@@ -76,10 +122,12 @@
     AIAvatarView *opponentAvatarView    = [[AIAvatarView alloc]init];
     self.opponentAvatarView             = opponentAvatarView;
     opponentAvatarView.frame            = CGRectMake(23, 202.5, 90, 90);
-//    opponentAvatarView.image            = [UIImage imageNamed:@"empty"];
     [self.view addSubview:opponentAvatarView];
     //搜索按钮
     UIButton *searchAgainBtn            = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    [searchAgainBtn addTarget:self action:@selector(onClickAgainBtn:) forControlEvents:(UIControlEventTouchUpInside)];
+    self.searchAgainBtn                 = searchAgainBtn;
+    searchAgainBtn.alpha                = 0.;
     [searchAgainBtn setTitle:@"search Again" forState:(UIControlStateNormal)];
     searchAgainBtn.frame                = CGRectMake(27.5, 577, 320, 55);
     searchAgainBtn.titleLabel.font      = [UIFont fontWithName:@"ArialRoundedMTBold" size:31];
@@ -87,12 +135,29 @@
     [self.view addSubview:searchAgainBtn];
     //vs
     UILabel *vsLabel          = [[UILabel alloc]init];
-    vsLabel.hidden            = YES;
+    self.vsLabel              = vsLabel;
+    vsLabel.alpha             = 0;
     vsLabel.textColor         = [UIColor whiteColor];
     vsLabel.frame             = CGRectMake(159.5, 227, 58, 43);
     vsLabel.text              = @"vs.";
     vsLabel.font              = [UIFont fontWithName:@"ArialRoundedMTBold" size:36];
     [self.view addSubview:vsLabel];
+}
+
+//Mark: Action
+- (void)onClickAgainBtn:(UIButton*)btn {
+    [UIView animateWithDuration:.2 animations:^{
+        self.vsLabel.alpha          = 0.;
+        self.searchAgainBtn.alpha   = 0.;
+    }];
+    [self.myAvatarView reset];
+    [self.opponentAvatarView reset];
+    self.myAvatarView.image         = [UIImage imageNamed:@"avatar-1"];
+    self.myAvatarView.name          = @"Me";
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self searchForOpponent];
+    });
 }
 
 @end
