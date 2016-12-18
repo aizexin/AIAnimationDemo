@@ -42,7 +42,7 @@
 - (void)searchForOpponent {
     CGSize avatarSize      = self.myAvatarView.frame.size;
     CGFloat bounceXOffset  = avatarSize.width/1.9;
-    CGSize morphSize       = CGSizeMake(avatarSize.width * 0.5, avatarSize.height *1.1);
+    CGSize morphSize       = CGSizeMake(avatarSize.width * 0.85, avatarSize.height *1.1);
     
     CGPoint rightBouncePoint  = CGPointMake(KWidth * .5 + bounceXOffset, self.myAvatarView.center.y);
     CGPoint leftBouncePoint   = CGPointMake(KWidth * .5 - bounceXOffset, self.myAvatarView.center.y);
@@ -87,6 +87,7 @@
     [self.view addSubview:searchAgainBtn];
     //vs
     UILabel *vsLabel          = [[UILabel alloc]init];
+    vsLabel.hidden            = YES;
     vsLabel.textColor         = [UIColor whiteColor];
     vsLabel.frame             = CGRectMake(159.5, 227, 58, 43);
     vsLabel.text              = @"vs.";

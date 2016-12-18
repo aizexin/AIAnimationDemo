@@ -84,6 +84,16 @@ const CGFloat animationDuration = 1.;
 - (void)bounceOffPoint:(CGPoint)point morphSize:(CGSize)morphSize{
     CGPoint originalCenter    = self.center;
     
+    CGRect morphedFrame;
+    if (originalCenter.x > point.x) {
+        morphedFrame          = CGRectMake(0, self.bounds.size.height - morphSize.height,
+                                           morphSize.width, morphSize.height);
+    } else {
+        morphedFrame          = CGRectMake(self.bounds.size.width - morphSize.width,
+                                           self.bounds.size.height - morphSize.height ,
+                                           morphSize.width, morphSize.height);
+    }
+    
     [UIView animateWithDuration:animationDuration delay:0. usingSpringWithDamping:.7 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
         self.center  = point;
     } completion:nil];
@@ -95,6 +105,13 @@ const CGFloat animationDuration = 1.;
             [self bounceOffPoint:point morphSize:morphSize];
         });
     }];
+    
+    CABasicAnimation *morphAnimation      = [CABasicAnimation animationWithKeyPath:@"path"];
+    morphAnimation.duration               = animationDuration;
+    morphAnimation.toValue                = (__bridge id _Nullable)([UIBezierPath bezierPathWithOvalInRect:morphedFrame].CGPath);
+    morphAnimation.timingFunction         = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    [self.circleLayer addAnimation:morphAnimation forKey:nil];
+    [self.maskLayer addAnimation:morphAnimation forKey:nil];
     
 }
 
