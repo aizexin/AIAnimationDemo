@@ -1,5 +1,10 @@
 #AIAnimationDemo
 
++ 多人游戏
+
+![多人游戏.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/多人游戏.gif)
+
+
 + 天猫Loading
 
 ![天猫Loading.gif](http://upload-images.jianshu.io/upload_images/1389261-0e921079215f2186.gif?imageMogr2/auto-orient/strip)
