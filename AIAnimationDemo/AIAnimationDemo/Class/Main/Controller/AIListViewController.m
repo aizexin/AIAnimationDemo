@@ -30,6 +30,7 @@
 #import "AILoginAnimationViewController.h"  //登录页面
 #import "AITmallLoadingViewController.h"     //天猫loading
 #import "AIMultiplayerViewController.h"      //多人游戏
+#import "AIIrregularityViewController.h"    //不规则图形
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -62,7 +63,7 @@
                            [AIListModel initWithTitle:@"登录页面" andTargetVC:[AILoginAnimationViewController class]],
                            [AIListModel initWithTitle:@"天猫Loading" andTargetVC:[AITmallLoadingViewController class]],
                            [AIListModel initWithTitle:@"多人游戏" andTargetVC:[AIMultiplayerViewController class]],
-                           [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
+                           [AIListModel initWithTitle:@"不规则按钮" andTargetVC:[AIIrregularityViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],

@@ -59,6 +59,9 @@
 		455E28D31D98F80600E3DA4D /* AIListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28D21D98F80600E3DA4D /* AIListModel.m */; };
 		455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28D51D98F87600E3DA4D /* AIListTableViewCell.m */; };
 		455E28D91D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28D81D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m */; };
+		456BA6611E07B24700805F7C /* AIIrregularityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BA6601E07B24700805F7C /* AIIrregularityViewController.m */; };
+		456BA6641E07B2FF00805F7C /* AIIrregularityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BA6631E07B2FF00805F7C /* AIIrregularityTableViewCell.m */; };
+		456BA6661E07BDF500805F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456BA6651E07BDF500805F7C /* Assets.xcassets */; };
 		456DFD621DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 456DFD611DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m */; };
 		456DFD651DCB066400011AD7 /* AIGradientTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 456DFD641DCB066400011AD7 /* AIGradientTransitionAnimation.m */; };
 		457E55F91DF5D1CB00692DF7 /* AITmallLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55F81DF5D1CB00692DF7 /* AITmallLoadingViewController.m */; };
@@ -76,7 +79,6 @@
 		45C9EAC41DD58085007B6418 /* AISettingModelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAC31DD58085007B6418 /* AISettingModelAdapter.m */; };
 		45C9EAC81DD58D64007B6418 /* AIDestOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAC71DD58D64007B6418 /* AIDestOneViewController.m */; };
 		45C9EACE1DD5AF16007B6418 /* PPNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EACD1DD5AF16007B6418 /* PPNumberButton.m */; };
-		45C9EAD01DD5BA3B007B6418 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45C9EACF1DD5BA3B007B6418 /* Assets.xcassets */; };
 		45D43DE71DACB7170022F86A /* AISpringScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */; };
 		45D43DF01DACC2570022F86A /* easing.c in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DEC1DACC2570022F86A /* easing.c */; };
 		45D43DF11DACC2570022F86A /* YXEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DEF1DACC2570022F86A /* YXEasing.m */; };
@@ -237,6 +239,11 @@
 		455E28D51D98F87600E3DA4D /* AIListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIListTableViewCell.m; sourceTree = "<group>"; };
 		455E28D71D990C6C00E3DA4D /* AIPopSpringAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPopSpringAnimationViewController.h; sourceTree = "<group>"; };
 		455E28D81D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPopSpringAnimationViewController.m; sourceTree = "<group>"; };
+		456BA65F1E07B24700805F7C /* AIIrregularityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityViewController.h; sourceTree = "<group>"; };
+		456BA6601E07B24700805F7C /* AIIrregularityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityViewController.m; sourceTree = "<group>"; };
+		456BA6621E07B2FF00805F7C /* AIIrregularityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityTableViewCell.h; sourceTree = "<group>"; };
+		456BA6631E07B2FF00805F7C /* AIIrregularityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityTableViewCell.m; sourceTree = "<group>"; };
+		456BA6651E07BDF500805F7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		456DFD601DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIGradientLayerNavgationDelegate.h; sourceTree = "<group>"; };
 		456DFD611DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIGradientLayerNavgationDelegate.m; sourceTree = "<group>"; };
 		456DFD631DCB066400011AD7 /* AIGradientTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIGradientTransitionAnimation.h; sourceTree = "<group>"; };
@@ -271,7 +278,6 @@
 		45C9EAC71DD58D64007B6418 /* AIDestOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDestOneViewController.m; sourceTree = "<group>"; };
 		45C9EACC1DD5AF16007B6418 /* PPNumberButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNumberButton.h; sourceTree = "<group>"; };
 		45C9EACD1DD5AF16007B6418 /* PPNumberButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNumberButton.m; sourceTree = "<group>"; };
-		45C9EACF1DD5BA3B007B6418 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45D43DE51DACB7170022F86A /* AISpringScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISpringScaleViewController.h; sourceTree = "<group>"; };
 		45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISpringScaleViewController.m; sourceTree = "<group>"; };
 		45D43DEC1DACC2570022F86A /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
@@ -849,9 +855,9 @@
 		455E288C1D98C0D300E3DA4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				456BA6651E07BDF500805F7C /* Assets.xcassets */,
 				45EA3F4A1E01873900F7B8C2 /* Arial Rounded Bold.ttf */,
 				45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */,
-				45C9EACF1DD5BA3B007B6418 /* Assets.xcassets */,
 				455E289A1D98C0D300E3DA4D /* LaunchScreen.storyboard */,
 				455E289D1D98C0D300E3DA4D /* Info.plist */,
 				455E288D1D98C0D300E3DA4D /* main.m */,
@@ -899,6 +905,7 @@
 				45E44A2E1DE4310D009B50BC /* Pop17 */,
 				457E55F41DF5D1AA00692DF7 /* TmallLoading */,
 				45EA3F401E01777F00F7B8C2 /* Shapes-and-Masks */,
+				456BA65B1E07B22A00805F7C /* IrregularityButton */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -992,6 +999,41 @@
 			children = (
 				455E28D41D98F87600E3DA4D /* AIListTableViewCell.h */,
 				455E28D51D98F87600E3DA4D /* AIListTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		456BA65B1E07B22A00805F7C /* IrregularityButton */ = {
+			isa = PBXGroup;
+			children = (
+				456BA65C1E07B22A00805F7C /* Controller */,
+				456BA65D1E07B22A00805F7C /* Model */,
+				456BA65E1E07B22A00805F7C /* View */,
+			);
+			path = IrregularityButton;
+			sourceTree = "<group>";
+		};
+		456BA65C1E07B22A00805F7C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				456BA65F1E07B24700805F7C /* AIIrregularityViewController.h */,
+				456BA6601E07B24700805F7C /* AIIrregularityViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		456BA65D1E07B22A00805F7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		456BA65E1E07B22A00805F7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				456BA6621E07B2FF00805F7C /* AIIrregularityTableViewCell.h */,
+				456BA6631E07B2FF00805F7C /* AIIrregularityTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1393,7 +1435,7 @@
 			files = (
 				451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */,
 				45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */,
-				45C9EAD01DD5BA3B007B6418 /* Assets.xcassets in Resources */,
+				456BA6661E07BDF500805F7C /* Assets.xcassets in Resources */,
 				455E289C1D98C0D300E3DA4D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1538,9 +1580,11 @@
 				451D28191DBCDCE50070BFCA /* AIButtonsViewController.m in Sources */,
 				452445E91DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m in Sources */,
 				455DF5C41DB46E2000D3E84A /* MoreInfoView.m in Sources */,
+				456BA6641E07B2FF00805F7C /* AIIrregularityTableViewCell.m in Sources */,
 				45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */,
 				45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */,
 				45D43DFB1DACC8EE0022F86A /* AINetWorkHelper.m in Sources */,
+				456BA6611E07B24700805F7C /* AIIrregularityViewController.m in Sources */,
 				4505FED11DAF629A00AE4FED /* AICAGradientLayerViewController.m in Sources */,
 				456DFD621DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m in Sources */,
 				4505FEC71DAF537300AE4FED /* StringAttribute.m in Sources */,
