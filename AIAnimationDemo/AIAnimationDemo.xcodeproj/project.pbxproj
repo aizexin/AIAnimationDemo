@@ -40,6 +40,9 @@
 		4541BC5F1DCB082300907182 /* AIPush2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541BC5E1DCB082200907182 /* AIPush2ViewController.m */; };
 		4541BC6E1DD021F600907182 /* AIBezierPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */; };
 		45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 45427DE61DE6949500472959 /* UIView+AISetRect.m */; };
+		454516081E0A815900F3BCF9 /* AIAutoTextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454516071E0A815900F3BCF9 /* AIAutoTextViewViewController.m */; };
+		4545160C1E0A81CE00F3BCF9 /* AITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4545160B1E0A81CE00F3BCF9 /* AITextView.m */; };
+		454516101E0A83A600F3BCF9 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4545160F1E0A83A600F3BCF9 /* NSString+Extension.m */; };
 		4546AD311DD1B771006F230C /* AITableViewTapAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD301DD1B771006F230C /* AITableViewTapAnimationController.m */; };
 		4546AD341DD1B89A006F230C /* AITapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD331DD1B89A006F230C /* AITapTableViewCell.m */; };
 		4546AD381DD1B8C2006F230C /* AITapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD371DD1B8C2006F230C /* AITapModel.m */; };
@@ -198,6 +201,12 @@
 		4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBezierPathViewController.m; sourceTree = "<group>"; };
 		45427DE51DE6949500472959 /* UIView+AISetRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AISetRect.h"; sourceTree = "<group>"; };
 		45427DE61DE6949500472959 /* UIView+AISetRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AISetRect.m"; sourceTree = "<group>"; };
+		454516061E0A815900F3BCF9 /* AIAutoTextViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAutoTextViewViewController.h; sourceTree = "<group>"; };
+		454516071E0A815900F3BCF9 /* AIAutoTextViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAutoTextViewViewController.m; sourceTree = "<group>"; };
+		4545160A1E0A81CE00F3BCF9 /* AITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITextView.h; sourceTree = "<group>"; };
+		4545160B1E0A81CE00F3BCF9 /* AITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITextView.m; sourceTree = "<group>"; };
+		4545160E1E0A83A600F3BCF9 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		4545160F1E0A83A600F3BCF9 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		4546AD2F1DD1B771006F230C /* AITableViewTapAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableViewTapAnimationController.h; sourceTree = "<group>"; };
 		4546AD301DD1B771006F230C /* AITableViewTapAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableViewTapAnimationController.m; sourceTree = "<group>"; };
 		4546AD321DD1B89A006F230C /* AITapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITapTableViewCell.h; sourceTree = "<group>"; };
@@ -490,6 +499,7 @@
 		4515A1371D9BC356000F4E24 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4545160D1E0A83A000F3BCF9 /* NSString+Extension */,
 				45C9EAB61DD44F58007B6418 /* UIColor */,
 				45D43E181DACE21B0022F86A /* InfiniteRotationView */,
 				45D43DFF1DACDD120022F86A /* UIView+Category */,
@@ -710,6 +720,58 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		454516021E0A813100F3BCF9 /* AutoTextView */ = {
+			isa = PBXGroup;
+			children = (
+				454516031E0A813100F3BCF9 /* Controller */,
+				454516041E0A813100F3BCF9 /* Model */,
+				454516051E0A813100F3BCF9 /* View */,
+			);
+			path = AutoTextView;
+			sourceTree = "<group>";
+		};
+		454516031E0A813100F3BCF9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				454516061E0A815900F3BCF9 /* AIAutoTextViewViewController.h */,
+				454516071E0A815900F3BCF9 /* AIAutoTextViewViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		454516041E0A813100F3BCF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		454516051E0A813100F3BCF9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				454516091E0A81C700F3BCF9 /* AITextView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		454516091E0A81C700F3BCF9 /* AITextView */ = {
+			isa = PBXGroup;
+			children = (
+				4545160A1E0A81CE00F3BCF9 /* AITextView.h */,
+				4545160B1E0A81CE00F3BCF9 /* AITextView.m */,
+			);
+			path = AITextView;
+			sourceTree = "<group>";
+		};
+		4545160D1E0A83A000F3BCF9 /* NSString+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4545160E1E0A83A600F3BCF9 /* NSString+Extension.h */,
+				4545160F1E0A83A600F3BCF9 /* NSString+Extension.m */,
+			);
+			path = "NSString+Extension";
+			sourceTree = "<group>";
+		};
 		4546AD2C1DD1B548006F230C /* Pop15 */ = {
 			isa = PBXGroup;
 			children = (
@@ -906,6 +968,7 @@
 				457E55F41DF5D1AA00692DF7 /* TmallLoading */,
 				45EA3F401E01777F00F7B8C2 /* Shapes-and-Masks */,
 				456BA65B1E07B22A00805F7C /* IrregularityButton */,
+				454516021E0A813100F3BCF9 /* AutoTextView */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1560,6 +1623,7 @@
 				45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */,
 				452445E31DBE51B100A9D2B9 /* AIResearchLineChartViewController.m in Sources */,
 				45C9EAB01DD4494F007B6418 /* AIBaseSettingViewController.m in Sources */,
+				4545160C1E0A81CE00F3BCF9 /* AITextView.m in Sources */,
 				45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */,
 				45C9EAB51DD44EAA007B6418 /* AISettingTableViewCell.m in Sources */,
 				4505FEA11DAF441800AE4FED /* AIBaseViewController.m in Sources */,
@@ -1593,12 +1657,14 @@
 				4505FE901DAE8C1D00AE4FED /* AIAnimationImageView.m in Sources */,
 				45C9EAAA1DD317F9007B6418 /* AIAFN3ModelTool.m in Sources */,
 				4505FE961DAF2D3B00AE4FED /* AIShimmerViewController.m in Sources */,
+				454516081E0A815900F3BCF9 /* AIAutoTextViewViewController.m in Sources */,
 				4546AD311DD1B771006F230C /* AITableViewTapAnimationController.m in Sources */,
 				45D43E141DACDD120022F86A /* UIView+ScreensShot.m in Sources */,
 				45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */,
 				4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */,
 				451D28261DBCEEF70070BFCA /* AIPictureCollectionViewCell.m in Sources */,
 				45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */,
+				454516101E0A83A600F3BCF9 /* NSString+Extension.m in Sources */,
 				452445E61DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m in Sources */,
 				45C9EACE1DD5AF16007B6418 /* PPNumberButton.m in Sources */,
 				453665B51DE6CCEE00875A2C /* AITextFiled.m in Sources */,
