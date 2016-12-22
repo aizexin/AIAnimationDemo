@@ -7,69 +7,26 @@
 //
 
 #import "AIIrregularityViewController.h"
-#import "AIIrregularityTableViewCell.h"
-@interface AIIrregularityViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "AIIrregularityView.h"
+@interface AIIrregularityViewController ()
 
-/** tableView*/
-@property(nonatomic,weak)UITableView *tableView;
-/** 数据源*/
-@property(nonatomic,strong)NSMutableArray *dataSource;
-/** 标记cell*/
-@property(nonatomic,assign)NSInteger numCell;
-/** 定时器*/
-@property(nonatomic,strong)NSTimer *timer;
-/** 下载下来的数据源*/
-@property(nonatomic,strong)NSMutableArray *loadArrayM;
+
 
 @end
 
 @implementation AIIrregularityViewController
 
--(NSMutableArray *)dataSource {
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray array];
-        
-    }
-    return _dataSource;
-}
--(NSMutableArray *)loadArrayM {
-    if (!_loadArrayM) {
-        _loadArrayM = [NSMutableArray array];
-        for (int i = 10 ; i < 20; i++) {
-            NSString *name = [NSString stringWithFormat:@"%d",i];
-            [_loadArrayM addObject:name];
-        }
-    }
-    return _loadArrayM;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:(UITableViewStylePlain)];
-    tableView.delegate     = self;
-    tableView.dataSource   = self;
-    tableView.rowHeight    = 200.;
-    tableView.separatorStyle = UITableViewCellAccessoryNone;
-    self.tableView         = tableView;
-    [self.view addSubview:tableView];
-    [self loadCellWithRowAnimation];
+    AIIrregularityView *pentagramView   = [[AIIrregularityView alloc]init];
+    pentagramView.frame                 = CGRectMake(100, 200, 100, 100);
+    pentagramView.backgroundColor       = [UIColor orangeColor];
+    pentagramView.shapePath             = [self getPentagramPath];
+    pentagramView.image                 = [UIImage imageNamed:@"default"];
+    [pentagramView addTarget:self action:@selector(onclick) forControlEvents:(UIControlEventTouchDown)];
+    [self.view addSubview:pentagramView];
 }
-- (void)loadCellWithRowAnimation {
-    
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.3 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        
-        if (_numCell >=self.loadArrayM.count) {
-            _timer = nil;
-            [_timer invalidate];
-            return ;
-        }
-        [self.dataSource addObject:self.loadArrayM[_numCell]];
-        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:_numCell inSection:0];
-        [self.tableView insertRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationTop];
-        _numCell ++;
-    }];
-    
-}
+
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
@@ -79,24 +36,38 @@
     self.navigationController.navigationBar.hidden = NO;
 }
 
-#pragma mark -UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSource.count;
+/**
+ 五角星
+
+ @return 路径
+ */
+- (UIBezierPath *)getPentagramPath{
+    //// Bezier Drawing
+    UIBezierPath* bezierPath = [UIBezierPath bezierPath];
+    [bezierPath moveToPoint: CGPointMake(78.62, 96.78)];
+    [bezierPath addLineToPoint: CGPointMake(78.53, 96.73)];
+    [bezierPath addLineToPoint: CGPointMake(49.82, 80.92)];
+    [bezierPath addLineToPoint: CGPointMake(21.02, 96.78)];
+    [bezierPath addLineToPoint: CGPointMake(26.52, 63.21)];
+    [bezierPath addLineToPoint: CGPointMake(3.3, 39.51)];
+    [bezierPath addLineToPoint: CGPointMake(35.39, 34.63)];
+    [bezierPath addLineToPoint: CGPointMake(49.82, 4.01)];
+    [bezierPath addLineToPoint: CGPointMake(49.87, 4.11)];
+    [bezierPath addLineToPoint: CGPointMake(64.25, 34.63)];
+    [bezierPath addLineToPoint: CGPointMake(96.34, 39.51)];
+    [bezierPath addLineToPoint: CGPointMake(96.27, 39.58)];
+    [bezierPath addLineToPoint: CGPointMake(73.12, 63.21)];
+    [bezierPath addLineToPoint: CGPointMake(78.62, 96.78)];
+    [bezierPath closePath];
+    bezierPath.usesEvenOddFillRule = YES;
+    
+    [bezierPath fill];
+    return bezierPath;
+}
+- (void)onclick {
+    AILog(@"-----五角星被点击了");
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AIIrregularityTableViewCell *cell  = [AIIrregularityTableViewCell createTableViewCellWithTableView:tableView];
-    cell.indexPath                     = indexPath;
-    cell.imageName                     = self.dataSource[indexPath.row];
-    return cell;
-}
-#pragma mark --UITableViewDelegate 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AILog(@"点击了%ld",indexPath.row);
-}
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.ai_y   -= indexPath.row * cell.ai_height *.5;
-}
 
 
 

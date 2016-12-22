@@ -20,6 +20,7 @@
 		4505FED11DAF629A00AE4FED /* AICAGradientLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FED01DAF629A00AE4FED /* AICAGradientLayerViewController.m */; };
 		450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD41DB5F1C800CE7CC4 /* AICircleLayer.m */; };
 		450B9AD81DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */; };
+		4514B9FC1E0C27D800D82F04 /* AIIrregularityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4514B9FB1E0C27D800D82F04 /* AIIrregularityView.m */; };
 		4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */; };
 		4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */; };
 		451D28151DBCDCB40070BFCA /* AIButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28121DBCDCB40070BFCA /* AIButtonsView.m */; };
@@ -161,6 +162,8 @@
 		450B9AD61DB5FF8E00CE7CC4 /* AIWellComeAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWellComeAnimationView.h; sourceTree = "<group>"; };
 		450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWellComeAnimationView.m; sourceTree = "<group>"; };
 		450FF8951DADEE5100E335C3 /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
+		4514B9FA1E0C27D800D82F04 /* AIIrregularityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityView.h; sourceTree = "<group>"; };
+		4514B9FB1E0C27D800D82F04 /* AIIrregularityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityView.m; sourceTree = "<group>"; };
 		4515A1AA1D9BC4A6000F4E24 /* UIFont+Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Fonts.h"; sourceTree = "<group>"; };
 		4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Fonts.m"; sourceTree = "<group>"; };
 		4515A1BD1D9CFF5A000F4E24 /* AIMarqueeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMarqueeViewController.h; sourceTree = "<group>"; };
@@ -1097,6 +1100,8 @@
 			children = (
 				456BA6621E07B2FF00805F7C /* AIIrregularityTableViewCell.h */,
 				456BA6631E07B2FF00805F7C /* AIIrregularityTableViewCell.m */,
+				4514B9FA1E0C27D800D82F04 /* AIIrregularityView.h */,
+				4514B9FB1E0C27D800D82F04 /* AIIrregularityView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1620,6 +1625,7 @@
 				45D43E151DACDD120022F86A /* UIView+SetRect.m in Sources */,
 				4541BC5F1DCB082300907182 /* AIPush2ViewController.m in Sources */,
 				45D43DFE1DACD9460022F86A /* AILoadAnimationView.m in Sources */,
+				4514B9FC1E0C27D800D82F04 /* AIIrregularityView.m in Sources */,
 				45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */,
 				452445E31DBE51B100A9D2B9 /* AIResearchLineChartViewController.m in Sources */,
 				45C9EAB01DD4494F007B6418 /* AIBaseSettingViewController.m in Sources */,
