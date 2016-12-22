@@ -16,14 +16,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    /*因为textView内部会跟新父类高度约束，
+     所以必须要有个父控件不能直接加在self.view,
+     而且父控件必须以autolayout的方式布局*/
+    //    toolbarView.frame     = CGRectMake(0, KHeight - 30, KWidth, 30);
+    UIView *toolbarView           = [[UIView alloc]init];
+    toolbarView.layer.borderWidth = 1.;
+    toolbarView.layer.borderColor = [UIColor blueColor].CGColor;
+    [self.view addSubview:toolbarView];
+    [toolbarView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+    }];
+    
     AITextView *textView  = [[AITextView alloc]init];
-    textView.backgroundColor = [UIColor redColor];
+    textView.font         = [UIFont systemFontOfSize:20];
     textView.placeholder  = @"请输入文字";
-    [self.view addSubview:textView];
-//    textView.frame        = CGRectMake(0, KHeight - 30, KWidth, 30);
+    [toolbarView addSubview:textView];
      [textView mas_makeConstraints:^(MASConstraintMaker *make) {
          make.right.left.mas_equalTo(0);
-         make.height.mas_equalTo(30);
+         make.top.mas_equalTo(0);
          make.bottom.mas_equalTo(0);
      }];
     
