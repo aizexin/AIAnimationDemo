@@ -28,11 +28,11 @@
     [toolbarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(30);
     }];
     
     AITextView *textView  = [[AITextView alloc]init];
-    textView.font         = [UIFont systemFontOfSize:20];
+//    textView.font         = [UIFont systemFontOfSize:14];
     textView.placeholder  = @"请输入文字";
     [toolbarView addSubview:textView];
      [textView mas_makeConstraints:^(MASConstraintMaker *make) {
