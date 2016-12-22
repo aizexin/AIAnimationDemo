@@ -20,11 +20,17 @@
     [super viewDidLoad];
     AIIrregularityView *pentagramView   = [[AIIrregularityView alloc]init];
     pentagramView.frame                 = CGRectMake(100, 200, 100, 100);
-    pentagramView.backgroundColor       = [UIColor orangeColor];
     pentagramView.shapePath             = [self getPentagramPath];
     pentagramView.image                 = [UIImage imageNamed:@"default"];
     [pentagramView addTarget:self action:@selector(onclick) forControlEvents:(UIControlEventTouchDown)];
     [self.view addSubview:pentagramView];
+    //2
+    AIIrregularityView *pentagramView2   = [[AIIrregularityView alloc]init];
+    pentagramView2.frame                 = CGRectMake(150, 200, 100, 100);
+    pentagramView2.backgroundColor       = [UIColor orangeColor];
+    pentagramView2.shapePath             = [self getPentagramPath];
+    [pentagramView2 addTarget:self action:@selector(onclick2) forControlEvents:(UIControlEventTouchDown)];
+    [self.view addSubview:pentagramView2];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -65,7 +71,10 @@
     return bezierPath;
 }
 - (void)onclick {
-    AILog(@"-----五角星被点击了");
+    AILog(@"-----11111");
+}
+- (void)onclick2 {
+    AILog(@"-----222222");
 }
 
 
