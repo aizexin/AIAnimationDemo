@@ -72,6 +72,7 @@
 		4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4581319C1DAB7CB100B2E8D1 /* DrawMarqueeView.m */; };
 		458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 458131A31DAB97C300B2E8D1 /* AILayerButton.m */; };
 		4592CACC1DF7075D00B76A27 /* AITmallLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4592CACB1DF7075D00B76A27 /* AITmallLoadingView.m */; };
+		459F82D01E0CFBDB00AD6105 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 459F82CF1E0CFBDB00AD6105 /* UIImage+ImageEffects.m */; };
 		45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */ = {isa = PBXBuildFile; fileRef = 45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */; };
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
 		45C9EAAA1DD317F9007B6418 /* AIAFN3ModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAA91DD317F9007B6418 /* AIAFN3ModelTool.m */; };
@@ -268,6 +269,8 @@
 		458131A31DAB97C300B2E8D1 /* AILayerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILayerButton.m; sourceTree = "<group>"; };
 		4592CACA1DF7075D00B76A27 /* AITmallLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITmallLoadingView.h; sourceTree = "<group>"; };
 		4592CACB1DF7075D00B76A27 /* AITmallLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITmallLoadingView.m; sourceTree = "<group>"; };
+		459F82CE1E0CFBDB00AD6105 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		459F82CF1E0CFBDB00AD6105 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天猫-01.eps"; sourceTree = "<group>"; };
 		45ACB6991DB7087F001C48B2 /* AITriangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITriangleLayer.h; sourceTree = "<group>"; };
 		45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITriangleLayer.m; sourceTree = "<group>"; };
@@ -502,6 +505,7 @@
 		4515A1371D9BC356000F4E24 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				459F82CD1E0CFBCD00AD6105 /* UIImage+Extension */,
 				4545160D1E0A83A000F3BCF9 /* NSString+Extension */,
 				45C9EAB61DD44F58007B6418 /* UIColor */,
 				45D43E181DACE21B0022F86A /* InfiniteRotationView */,
@@ -1153,6 +1157,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		459F82CD1E0CFBCD00AD6105 /* UIImage+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				459F82CE1E0CFBDB00AD6105 /* UIImage+ImageEffects.h */,
+				459F82CF1E0CFBDB00AD6105 /* UIImage+ImageEffects.m */,
+			);
+			path = "UIImage+Extension";
+			sourceTree = "<group>";
+		};
 		45C9EAAB1DD31A49007B6418 /* Pop16 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1662,6 +1675,7 @@
 				458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */,
 				4505FE901DAE8C1D00AE4FED /* AIAnimationImageView.m in Sources */,
 				45C9EAAA1DD317F9007B6418 /* AIAFN3ModelTool.m in Sources */,
+				459F82D01E0CFBDB00AD6105 /* UIImage+ImageEffects.m in Sources */,
 				4505FE961DAF2D3B00AE4FED /* AIShimmerViewController.m in Sources */,
 				454516081E0A815900F3BCF9 /* AIAutoTextViewViewController.m in Sources */,
 				4546AD311DD1B771006F230C /* AITableViewTapAnimationController.m in Sources */,
