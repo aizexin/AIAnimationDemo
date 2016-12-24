@@ -8,10 +8,9 @@
 
 #import "AIIrregularityViewController.h"
 #import "AIIrregularityView.h"
-#import "UIImage+ImageEffects.h"
+
 @interface AIIrregularityViewController ()
 
-@property(nonatomic,weak)UIImageView *bgImageView;
 @end
 
 @implementation AIIrregularityViewController
@@ -19,11 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImageView *bgImageView            = [[UIImageView alloc]init];
-    self.bgImageView                    = bgImageView;
-    bgImageView.frame                   = self.view.bounds;
-    bgImageView.image                   = [[UIImage imageNamed:@"1"]blurImage];
-    [self.view addSubview:bgImageView];
     
     AIIrregularityView *pentagramView   = [[AIIrregularityView alloc]init];
     pentagramView.frame                 = CGRectMake(100, 200, 100, 100);

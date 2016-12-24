@@ -10,4 +10,5 @@ target ‘AIAnimationDemo’ do
     pod 'Bugly'                   #腾讯bug管理系统
     pod 'MJExtension'             #MJ的字典模型互转
     pod 'Masonry'                 #自动适配
+    pod 'GPUImage', '~> 0.1.7'    #图形处理
 end

@@ -32,6 +32,7 @@
 #import "AIMultiplayerViewController.h"      //多人游戏
 #import "AIIrregularityViewController.h"    //不规则图形
 #import "AIAutoTextViewViewController.h"    //自适应高度textView
+#import "AIBlurImageViewController.h"       //模糊效果
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -66,7 +67,7 @@
                            [AIListModel initWithTitle:@"多人游戏" andTargetVC:[AIMultiplayerViewController class]],
                            [AIListModel initWithTitle:@"不规则按钮" andTargetVC:[AIIrregularityViewController class]],
                            [AIListModel initWithTitle:@"自适应高度textView" andTargetVC:[AIAutoTextViewViewController class]],
-                           [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
+                           [AIListModel initWithTitle:@"模糊效果" andTargetVC:[AIBlurImageViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],

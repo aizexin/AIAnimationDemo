@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GPUImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KMCGeigerCounter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,7 +62,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>56028306A9CB9AF4BF2A992284D9E1F7</key>
+		<key>46E396611A8DF2CD9E4ADD4C2CB393F4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4F69F82C1EEBC0A05686A3B0FECD2FDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +77,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7AAD52403190DFABF3F38E8B3B1D4C53</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8884F9892ABF753B83DA6E867934F497</key>
+		<key>88D93FAC0B503D9D9610EE8395A69681</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F4D6A07720B0D0D3F3AF071B2746BF58</key>
+		<key>B0C2FE0C771B20C5246C1303E2D4B9E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C053ACD8B9EF7E45EA8D4288565DCEB2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

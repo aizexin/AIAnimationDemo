@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Bugly (2.4.2)
   - Canvas (0.1.2)
+  - GPUImage (0.1.7)
   - KMCGeigerCounter (0.2.2)
   - Masonry (1.0.2)
   - MJExtension (3.0.13)
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Bugly
   - Canvas (~> 0.1.2)
+  - GPUImage (~> 0.1.7)
   - KMCGeigerCounter
   - Masonry
   - MJExtension
@@ -49,6 +51,7 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bugly: b09cd3c7e54048a0e079be88a7a99610f14eab8f
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   KMCGeigerCounter: f8cc3c4aa19fc6f8cec168fb03b364b84c118a7a
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
@@ -57,6 +60,6 @@ SPEC CHECKSUMS:
   ReactiveObjC: 58e8dd8d5ccea31d11106c46a4755d9ce9c51aac
   ResearchKit: badba0340dd71d1cbab4789a0bf01b26022b8f94
 
-PODFILE CHECKSUM: 5fc44e800b16927636c3e5719d752c6f17a759c9
+PODFILE CHECKSUM: 2d8f76d9dd33e1aa276d2007f045855a3fe43467
 
 COCOAPODS: 1.0.1

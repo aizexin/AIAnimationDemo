@@ -73,6 +73,8 @@
 		458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 458131A31DAB97C300B2E8D1 /* AILayerButton.m */; };
 		4592CACC1DF7075D00B76A27 /* AITmallLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4592CACB1DF7075D00B76A27 /* AITmallLoadingView.m */; };
 		459F82D01E0CFBDB00AD6105 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 459F82CF1E0CFBDB00AD6105 /* UIImage+ImageEffects.m */; };
+		459F82DD1E0D213700AD6105 /* UIImage+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 459F82DC1E0D213700AD6105 /* UIImage+AIExtension.m */; };
+		459F82E21E0EA4B700AD6105 /* AIBlurImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459F82E11E0EA4B700AD6105 /* AIBlurImageViewController.m */; };
 		45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */ = {isa = PBXBuildFile; fileRef = 45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */; };
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
 		45C9EAAA1DD317F9007B6418 /* AIAFN3ModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAA91DD317F9007B6418 /* AIAFN3ModelTool.m */; };
@@ -271,6 +273,10 @@
 		4592CACB1DF7075D00B76A27 /* AITmallLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITmallLoadingView.m; sourceTree = "<group>"; };
 		459F82CE1E0CFBDB00AD6105 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		459F82CF1E0CFBDB00AD6105 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		459F82DB1E0D213700AD6105 /* UIImage+AIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AIExtension.h"; sourceTree = "<group>"; };
+		459F82DC1E0D213700AD6105 /* UIImage+AIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AIExtension.m"; sourceTree = "<group>"; };
+		459F82E01E0EA4B700AD6105 /* AIBlurImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBlurImageViewController.h; sourceTree = "<group>"; };
+		459F82E11E0EA4B700AD6105 /* AIBlurImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBlurImageViewController.m; sourceTree = "<group>"; };
 		45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天猫-01.eps"; sourceTree = "<group>"; };
 		45ACB6991DB7087F001C48B2 /* AITriangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITriangleLayer.h; sourceTree = "<group>"; };
 		45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITriangleLayer.m; sourceTree = "<group>"; };
@@ -976,6 +982,7 @@
 				45EA3F401E01777F00F7B8C2 /* Shapes-and-Masks */,
 				456BA65B1E07B22A00805F7C /* IrregularityButton */,
 				454516021E0A813100F3BCF9 /* AutoTextView */,
+				459F82DE1E0EA49800AD6105 /* BlurImage */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1160,10 +1167,29 @@
 		459F82CD1E0CFBCD00AD6105 /* UIImage+Extension */ = {
 			isa = PBXGroup;
 			children = (
+				459F82DB1E0D213700AD6105 /* UIImage+AIExtension.h */,
+				459F82DC1E0D213700AD6105 /* UIImage+AIExtension.m */,
 				459F82CE1E0CFBDB00AD6105 /* UIImage+ImageEffects.h */,
 				459F82CF1E0CFBDB00AD6105 /* UIImage+ImageEffects.m */,
 			);
 			path = "UIImage+Extension";
+			sourceTree = "<group>";
+		};
+		459F82DE1E0EA49800AD6105 /* BlurImage */ = {
+			isa = PBXGroup;
+			children = (
+				459F82DF1E0EA49800AD6105 /* Controller */,
+			);
+			path = BlurImage;
+			sourceTree = "<group>";
+		};
+		459F82DF1E0EA49800AD6105 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				459F82E01E0EA4B700AD6105 /* AIBlurImageViewController.h */,
+				459F82E11E0EA4B700AD6105 /* AIBlurImageViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		45C9EAAB1DD31A49007B6418 /* Pop16 */ = {
@@ -1610,6 +1636,7 @@
 				455DF5C11DB46D8600D3E84A /* AIScrollImageViewController.m in Sources */,
 				455E28D91D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m in Sources */,
 				455E28C51D98CCF900E3DA4D /* AIListViewController.m in Sources */,
+				459F82DD1E0D213700AD6105 /* UIImage+AIExtension.m in Sources */,
 				4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */,
 				4505FE9E1DAF315E00AE4FED /* FBShimmeringView.m in Sources */,
 				45D43DF71DACC3440022F86A /* AIBaiduHUD.m in Sources */,
@@ -1621,6 +1648,7 @@
 				4505FEC81DAF537300AE4FED /* FontAttribute.m in Sources */,
 				4505FEC91DAF537300AE4FED /* ForegroundColorAttribute.m in Sources */,
 				451D28151DBCDCB40070BFCA /* AIButtonsView.m in Sources */,
+				459F82E21E0EA4B700AD6105 /* AIBlurImageViewController.m in Sources */,
 				4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */,
 				45C9EAC11DD57166007B6418 /* AISettingCellAdapter.m in Sources */,
 				450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */,
