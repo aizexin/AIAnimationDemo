@@ -10,7 +10,7 @@
 #import "AIIrregularityView.h"
 
 @interface AIIrregularityViewController ()
-
+@property(nonatomic,weak)UITextView *logTextView;
 @end
 
 @implementation AIIrregularityViewController
@@ -32,6 +32,11 @@
     pentagramView2.shapePath             = [self getPentagramPath];
     [pentagramView2 addTarget:self action:@selector(onclick2) forControlEvents:(UIControlEventTouchDown)];
     [self.view addSubview:pentagramView2];
+    //log
+    UITextView *logTextView              = [[UITextView alloc]init];
+    logTextView.frame                    = CGRectMake(0, 300, KWidth, KHeight - 300);
+    [self.view addSubview:logTextView];
+    self.logTextView                     = logTextView;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -72,10 +77,10 @@
     return bezierPath;
 }
 - (void)onclick {
-    AILog(@"-----11111");
+    self.logTextView.text = [self.logTextView.text stringByAppendingString:@"-----11111111\n"];
 }
 - (void)onclick2 {
-    AILog(@"-----222222");
+    self.logTextView.text = [self.logTextView.text stringByAppendingString:@"-----22222222\n"];
 }
 
 
