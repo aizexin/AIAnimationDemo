@@ -107,6 +107,8 @@
 		45EA3F491E01838500F7B8C2 /* AIAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F481E01838500F7B8C2 /* AIAvatarView.m */; };
 		45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */; };
 		45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE2B1DB09A9200DC574A /* CAGradientView.m */; };
+		45F7E50D1E11526C00721BCB /* AIPlayMusicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E50C1E11526C00721BCB /* AIPlayMusicView.m */; };
+		45F7E5101E11528800721BCB /* AIPlayMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E50F1E11528800721BCB /* AIPlayMusicViewController.m */; };
 		45FF8FC61DDDED0C00FC7584 /* AIPresentCustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FC51DDDED0C00FC7584 /* AIPresentCustomTransition.m */; };
 		45FF8FC91DDDEE8500FC7584 /* AIPresentDestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FC81DDDEE8500FC7584 /* AIPresentDestViewController.m */; };
 		45FF8FCC1DDEAD0000FC7584 /* AIPresentAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FCB1DDEAD0000FC7584 /* AIPresentAnimation.m */; };
@@ -342,6 +344,10 @@
 		45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientMaskView.m; sourceTree = "<group>"; };
 		45F6DE2A1DB09A9200DC574A /* CAGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientView.h; sourceTree = "<group>"; };
 		45F6DE2B1DB09A9200DC574A /* CAGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientView.m; sourceTree = "<group>"; };
+		45F7E50B1E11526C00721BCB /* AIPlayMusicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayMusicView.h; sourceTree = "<group>"; };
+		45F7E50C1E11526C00721BCB /* AIPlayMusicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayMusicView.m; sourceTree = "<group>"; };
+		45F7E50E1E11528800721BCB /* AIPlayMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayMusicViewController.h; sourceTree = "<group>"; };
+		45F7E50F1E11528800721BCB /* AIPlayMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayMusicViewController.m; sourceTree = "<group>"; };
 		45FF8FC41DDDED0C00FC7584 /* AIPresentCustomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPresentCustomTransition.h; sourceTree = "<group>"; };
 		45FF8FC51DDDED0C00FC7584 /* AIPresentCustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPresentCustomTransition.m; sourceTree = "<group>"; };
 		45FF8FC71DDDEE8500FC7584 /* AIPresentDestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPresentDestViewController.h; sourceTree = "<group>"; };
@@ -983,6 +989,7 @@
 				456BA65B1E07B22A00805F7C /* IrregularityButton */,
 				454516021E0A813100F3BCF9 /* AutoTextView */,
 				459F82DE1E0EA49800AD6105 /* BlurImage */,
+				45F7E5081E11522B00721BCB /* PlayMusicView */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1400,6 +1407,33 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		45F7E5081E11522B00721BCB /* PlayMusicView */ = {
+			isa = PBXGroup;
+			children = (
+				45F7E5091E11522B00721BCB /* Controller */,
+				45F7E50A1E11522B00721BCB /* View */,
+			);
+			path = PlayMusicView;
+			sourceTree = "<group>";
+		};
+		45F7E5091E11522B00721BCB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45F7E50E1E11528800721BCB /* AIPlayMusicViewController.h */,
+				45F7E50F1E11528800721BCB /* AIPlayMusicViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45F7E50A1E11522B00721BCB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45F7E50B1E11526C00721BCB /* AIPlayMusicView.h */,
+				45F7E50C1E11526C00721BCB /* AIPlayMusicView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		45FF8FC31DDDECBF00FC7584 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1666,6 +1700,7 @@
 				45D43E151DACDD120022F86A /* UIView+SetRect.m in Sources */,
 				4541BC5F1DCB082300907182 /* AIPush2ViewController.m in Sources */,
 				45D43DFE1DACD9460022F86A /* AILoadAnimationView.m in Sources */,
+				45F7E50D1E11526C00721BCB /* AIPlayMusicView.m in Sources */,
 				4514B9FC1E0C27D800D82F04 /* AIIrregularityView.m in Sources */,
 				45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */,
 				452445E31DBE51B100A9D2B9 /* AIResearchLineChartViewController.m in Sources */,
@@ -1690,6 +1725,7 @@
 				4505FECB1DAF537300AE4FED /* NSString+StringAttribute.m in Sources */,
 				451D28191DBCDCE50070BFCA /* AIButtonsViewController.m in Sources */,
 				452445E91DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m in Sources */,
+				45F7E5101E11528800721BCB /* AIPlayMusicViewController.m in Sources */,
 				455DF5C41DB46E2000D3E84A /* MoreInfoView.m in Sources */,
 				456BA6641E07B2FF00805F7C /* AIIrregularityTableViewCell.m in Sources */,
 				45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */,
