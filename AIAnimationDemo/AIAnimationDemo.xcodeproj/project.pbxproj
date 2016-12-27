@@ -21,6 +21,8 @@
 		450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD41DB5F1C800CE7CC4 /* AICircleLayer.m */; };
 		450B9AD81DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */; };
 		4514B9FC1E0C27D800D82F04 /* AIIrregularityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4514B9FB1E0C27D800D82F04 /* AIIrregularityView.m */; };
+		4515885A1E12A84A00610F6D /* AIFlightInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451588591E12A84A00610F6D /* AIFlightInfoViewController.m */; };
+		4515885C1E12AA4300610F6D /* AIFlightInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4515885B1E12AA4300610F6D /* AIFlightInfoViewController.xib */; };
 		4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */; };
 		4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */; };
 		451D28151DBCDCB40070BFCA /* AIButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28121DBCDCB40070BFCA /* AIButtonsView.m */; };
@@ -169,6 +171,9 @@
 		450FF8951DADEE5100E335C3 /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
 		4514B9FA1E0C27D800D82F04 /* AIIrregularityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityView.h; sourceTree = "<group>"; };
 		4514B9FB1E0C27D800D82F04 /* AIIrregularityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityView.m; sourceTree = "<group>"; };
+		451588581E12A84A00610F6D /* AIFlightInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFlightInfoViewController.h; sourceTree = "<group>"; };
+		451588591E12A84A00610F6D /* AIFlightInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFlightInfoViewController.m; sourceTree = "<group>"; };
+		4515885B1E12AA4300610F6D /* AIFlightInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AIFlightInfoViewController.xib; path = AIAnimationDemo/Class/FlightInfo/Controller/AIFlightInfoViewController.xib; sourceTree = SOURCE_ROOT; };
 		4515A1AA1D9BC4A6000F4E24 /* UIFont+Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Fonts.h"; sourceTree = "<group>"; };
 		4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Fonts.m"; sourceTree = "<group>"; };
 		4515A1BD1D9CFF5A000F4E24 /* AIMarqueeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMarqueeViewController.h; sourceTree = "<group>"; };
@@ -512,6 +517,32 @@
 				450FF8951DADEE5100E335C3 /* single.h */,
 			);
 			path = Single;
+			sourceTree = "<group>";
+		};
+		451588551E12A82400610F6D /* FlightInfo */ = {
+			isa = PBXGroup;
+			children = (
+				451588561E12A82400610F6D /* Controller */,
+				451588571E12A82400610F6D /* View */,
+			);
+			path = FlightInfo;
+			sourceTree = "<group>";
+		};
+		451588561E12A82400610F6D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				451588581E12A84A00610F6D /* AIFlightInfoViewController.h */,
+				451588591E12A84A00610F6D /* AIFlightInfoViewController.m */,
+				4515885B1E12AA4300610F6D /* AIFlightInfoViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		451588571E12A82400610F6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4515A1371D9BC356000F4E24 /* Category */ = {
@@ -990,6 +1021,7 @@
 				454516021E0A813100F3BCF9 /* AutoTextView */,
 				459F82DE1E0EA49800AD6105 /* BlurImage */,
 				45F7E5081E11522B00721BCB /* PlayMusicView */,
+				451588551E12A82400610F6D /* FlightInfo */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1578,6 +1610,7 @@
 				45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */,
 				456BA6661E07BDF500805F7C /* Assets.xcassets in Resources */,
 				455E289C1D98C0D300E3DA4D /* LaunchScreen.storyboard in Resources */,
+				4515885C1E12AA4300610F6D /* AIFlightInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1751,6 +1784,7 @@
 				454516101E0A83A600F3BCF9 /* NSString+Extension.m in Sources */,
 				452445E61DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m in Sources */,
 				45C9EACE1DD5AF16007B6418 /* PPNumberButton.m in Sources */,
+				4515885A1E12A84A00610F6D /* AIFlightInfoViewController.m in Sources */,
 				453665B51DE6CCEE00875A2C /* AITextFiled.m in Sources */,
 				4546AD381DD1B8C2006F230C /* AITapModel.m in Sources */,
 				4546AD341DD1B89A006F230C /* AITapTableViewCell.m in Sources */,
