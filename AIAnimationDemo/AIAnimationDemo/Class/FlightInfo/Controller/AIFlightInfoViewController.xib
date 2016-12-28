@@ -110,6 +110,18 @@
                 </subviews>
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             </view>
+            <connections>
+                <outlet property="arrivingToLabel" destination="w7K-Ka-hde" id="V9V-Bu-ldY"/>
+                <outlet property="bgImageView" destination="WKX-ap-R5W" id="w2C-To-cjB"/>
+                <outlet property="departingFromLabel" destination="6b6-pJ-gNA" id="5ZB-zE-vEx"/>
+                <outlet property="flightNrLabel" destination="SMb-HA-dAN" id="ebP-ID-Gv5"/>
+                <outlet property="flightStatusLabel" destination="qdu-2m-eXy" id="ov8-Kb-d0D"/>
+                <outlet property="gateNrLabel" destination="x1Q-TN-HwV" id="M7R-LK-fYi"/>
+                <outlet property="planeImage" destination="iHb-Nd-V3d" id="7pY-DR-xVD"/>
+                <outlet property="statusBannerImage" destination="zYa-46-9O6" id="JoG-mc-Bwo"/>
+                <outlet property="summary" destination="TUd-oo-40x" id="47c-3C-6nK"/>
+                <outlet property="summaryIcon" destination="MYu-8L-aIP" id="eXW-l8-9CH"/>
+            </connections>
             <point key="canvasLocation" x="-219" y="358"/>
         </viewController>
     </objects>
