@@ -7,7 +7,7 @@
 //
 
 #import "AIFlightInfoViewController.h"
-
+#import "AIFlightDataModel.h"
 @interface AIFlightInfoViewController ()
 
 /**
@@ -67,6 +67,32 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AIFlightDataModel *londonToParis = [[AIFlightDataModel alloc]init];
+    londonToParis.summary            = @"01 Apr 2015 09:42";
+    londonToParis.flightNr           = @"ZY 2014";
+    londonToParis.gateNr             = @"T1 A33";
+    londonToParis.departingFrom      = @"LGW";
+    londonToParis.arrivingTo         = @"CDG";
+    londonToParis.weatherImageName   = @"bg-snowy";
+    londonToParis.showWeatherEffects = YES;
+    londonToParis.takingOff          = YES;
+    londonToParis.flightStatus       = @"Boarding";
+    
+    AIFlightDataModel *parisToRome = [[AIFlightDataModel alloc]init];
+    parisToRome.summary            = @"01 Apr 2015 17:05";
+    parisToRome.flightNr           = @"AE 1107";
+    parisToRome.gateNr             = @"045";
+    parisToRome.departingFrom      = @"CDG";
+    parisToRome.arrivingTo         = @"FCO";
+    parisToRome.weatherImageName   = @"bg-sunny";
+    parisToRome.showWeatherEffects = NO;
+    parisToRome.takingOff          = NO;
+    parisToRome.flightStatus       = @"Delayed";
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self changeFlightToDta:londonToParis.isTakingOff ? parisToRome: londonToParis animated:YES];
+    });
     
 }
 -(void)viewWillAppear:(BOOL)animated {
@@ -77,6 +103,14 @@
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
 }
+
+/**
+ 淡出改变图片
+
+ @param imgeView 需要改变的ImageView
+ @param toImage 改变成的图片
+ @param showEffects 是否显示效果
+ */
 - (void)fadeImageView:(UIImageView *)imgeView toImage:(UIImage *)toImage showEffects:(BOOL)showEffects {
     [UIView transitionWithView:imgeView duration:1. options:(UIViewAnimationOptionTransitionCrossDissolve) animations:^{
         imgeView.image = toImage;
@@ -89,12 +123,23 @@
     } completion:nil];
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSString *imageString   = @"bg-sunny";
-    UIImage *toImage        = [UIImage imageNamed:imageString];
-    [self fadeImageView:self.bgImageView toImage:toImage showEffects:YES];
-    
+/**
+ 修改航班状态
+
+ @param data 修改的数据
+ @param animated 是否显示动画
+ */
+- (void)changeFlightToDta:(AIFlightDataModel *)data animated:(BOOL)animated {
+    self.bgImageView.image  = [UIImage imageNamed:data.weatherImageName];
+    if (animated) {
+        [self fadeImageView:self.bgImageView toImage:[UIImage imageNamed:data.weatherImageName] showEffects:data.showWeatherEffects];
+    }else {
+        self.bgImageView.image = [UIImage imageNamed:data.weatherImageName];
+        
+    }
 }
+
+
 
 
 
