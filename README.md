@@ -15,7 +15,7 @@
 
 + 模糊效果
 
-![模糊效果.png](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/模糊效果.png)
+![模糊效果.png](http://upload-images.jianshu.io/upload_images/1389261-13ef39de9f997b70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
 
 + 多人游戏
 
