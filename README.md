@@ -1,5 +1,22 @@
 #AIAnimationDemo
 
++ 不规则按钮
+
+![不规则按钮.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/不规则按钮.gif)
+
++ 自适应高度textView
+
+![自适应高度textView.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/自适应高度textView.gif)
+
+
++ 音乐播放按钮
+
+![音乐播放按钮.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/音乐播放按钮.gif)
+
++ 模糊效果
+
+![模糊效果.png](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/模糊效果.png)
+
 + 多人游戏
 
 ![多人游戏.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/多人游戏.gif)
