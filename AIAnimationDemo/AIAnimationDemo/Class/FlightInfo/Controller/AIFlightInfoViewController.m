@@ -119,7 +119,7 @@
     }];
     
     [UIView animateWithDuration:1. delay:0 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
-//        self.snow
+
     } completion:nil];
 }
 
