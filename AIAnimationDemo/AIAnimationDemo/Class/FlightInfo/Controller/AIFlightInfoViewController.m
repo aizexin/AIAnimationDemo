@@ -8,6 +8,7 @@
 
 #import "AIFlightInfoViewController.h"
 #import "AIFlightDataModel.h"
+#import "AISnowView.h"
 @interface AIFlightInfoViewController ()
 
 /**
@@ -52,6 +53,9 @@
  */
 @property (weak, nonatomic) IBOutlet UIImageView *statusBannerImage;
 
+/** 雪花*/
+@property(nonatomic,strong)AISnowView *snowView;
+
 
 @end
 
@@ -61,12 +65,22 @@
 {
     self = [[NSBundle mainBundle]loadNibNamed:@"AIFlightInfoViewController" owner:nil options:nil].lastObject;
     if (self) {
-       
+        
     }
     return self;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.snowView       = [[AISnowView alloc]initWithFrame: CGRectMake(-150, -100, 300, 50)];
+//    self.snowView.frame =;
+    
+    UIView *snowClipView  = [[UIView alloc]init];
+    snowClipView.frame    = CGRectOffset(self.view.frame, 0, 50);
+    snowClipView.clipsToBounds       = YES;
+    [snowClipView addSubview:self.snowView];
+    
+    [self.view addSubview:self.snowView];
     AIFlightDataModel *londonToParis = [[AIFlightDataModel alloc]init];
     londonToParis.summary            = @"01 Apr 2015 09:42";
     londonToParis.flightNr           = @"ZY 2014";
@@ -85,14 +99,14 @@
     parisToRome.departingFrom      = @"CDG";
     parisToRome.arrivingTo         = @"FCO";
     parisToRome.weatherImageName   = @"bg-sunny";
-    parisToRome.showWeatherEffects = NO;
+    parisToRome.showWeatherEffects = YES;
     parisToRome.takingOff          = NO;
     parisToRome.flightStatus       = @"Delayed";
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self changeFlightToDta:londonToParis.isTakingOff ? parisToRome: londonToParis animated:YES];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//        [self changeFlightToDta:londonToParis animated:YES];
+//    });
     
 }
 -(void)viewWillAppear:(BOOL)animated {
@@ -119,7 +133,7 @@
     }];
     
     [UIView animateWithDuration:1. delay:0 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
-
+        self.snowView.alpha = showEffects ? 1.:0;
     } completion:nil];
 }
 
@@ -135,7 +149,7 @@
         [self fadeImageView:self.bgImageView toImage:[UIImage imageNamed:data.weatherImageName] showEffects:data.showWeatherEffects];
     }else {
         self.bgImageView.image = [UIImage imageNamed:data.weatherImageName];
-        
+        self.snowView.hidden   = !data.showWeatherEffects;
     }
 }
 

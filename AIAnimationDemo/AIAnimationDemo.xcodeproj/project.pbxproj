@@ -80,6 +80,7 @@
 		459F82E21E0EA4B700AD6105 /* AIBlurImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459F82E11E0EA4B700AD6105 /* AIBlurImageViewController.m */; };
 		45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */ = {isa = PBXBuildFile; fileRef = 45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */; };
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
+		45B3A00F1E1A91F000E9C37D /* AISnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B3A00E1E1A91F000E9C37D /* AISnowView.m */; };
 		45C9EAAA1DD317F9007B6418 /* AIAFN3ModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAA91DD317F9007B6418 /* AIAFN3ModelTool.m */; };
 		45C9EAB01DD4494F007B6418 /* AIBaseSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAAF1DD4494F007B6418 /* AIBaseSettingViewController.m */; };
 		45C9EAB51DD44EAA007B6418 /* AISettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAB41DD44EAA007B6418 /* AISettingTableViewCell.m */; };
@@ -290,6 +291,8 @@
 		45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天猫-01.eps"; sourceTree = "<group>"; };
 		45ACB6991DB7087F001C48B2 /* AITriangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITriangleLayer.h; sourceTree = "<group>"; };
 		45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITriangleLayer.m; sourceTree = "<group>"; };
+		45B3A00D1E1A91F000E9C37D /* AISnowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISnowView.h; sourceTree = "<group>"; };
+		45B3A00E1E1A91F000E9C37D /* AISnowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISnowView.m; sourceTree = "<group>"; };
 		45C9EAA81DD317F9007B6418 /* AIAFN3ModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAFN3ModelTool.h; sourceTree = "<group>"; };
 		45C9EAA91DD317F9007B6418 /* AIAFN3ModelTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAFN3ModelTool.m; sourceTree = "<group>"; };
 		45C9EAAE1DD4494F007B6418 /* AIBaseSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBaseSettingViewController.h; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 			children = (
 				4515887B1E155CB000610F6D /* AIFlightDataModel.h */,
 				4515887C1E155CB000610F6D /* AIFlightDataModel.m */,
+				45B3A00D1E1A91F000E9C37D /* AISnowView.h */,
+				45B3A00E1E1A91F000E9C37D /* AISnowView.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1760,6 +1765,7 @@
 				45C9EAC41DD58085007B6418 /* AISettingModelAdapter.m in Sources */,
 				455440AA1DBA15B10025DCA4 /* AIWaveLayer.m in Sources */,
 				453DD8471DACA80500D1CDA9 /* GCDSemaphore.m in Sources */,
+				45B3A00F1E1A91F000E9C37D /* AISnowView.m in Sources */,
 				45C9EAB91DD44F58007B6418 /* UIColor+AIExtension.m in Sources */,
 				4505FECA1DAF537300AE4FED /* NSMutableAttributedString+StringAttribute.m in Sources */,
 				455DF5C81DB46E6900D3E84A /* Math.m in Sources */,
