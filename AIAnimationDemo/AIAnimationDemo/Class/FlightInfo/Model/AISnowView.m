@@ -46,6 +46,7 @@
         self.emitterCell.alphaSpeed      = -.15;
         
         self.emitter.emitterCells    = @[self.emitterCell];
+        [self.layer addSublayer:self.emitter];
         
     }
     return self;

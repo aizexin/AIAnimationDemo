@@ -56,7 +56,9 @@
 /** 雪花*/
 @property(nonatomic,strong)AISnowView *snowView;
 
-
+@property(nonatomic,strong)CAEmitterLayer *emitter;
+/** 发射器cell*/
+@property(nonatomic,strong)CAEmitterCell *emitterCell;
 @end
 
 @implementation AIFlightInfoViewController
@@ -73,7 +75,6 @@
     [super viewDidLoad];
     
     self.snowView       = [[AISnowView alloc]initWithFrame: CGRectMake(-150, -100, 300, 50)];
-//    self.snowView.frame =;
     
     UIView *snowClipView  = [[UIView alloc]init];
     snowClipView.frame    = CGRectOffset(self.view.frame, 0, 50);
@@ -103,10 +104,10 @@
     parisToRome.takingOff          = NO;
     parisToRome.flightStatus       = @"Delayed";
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
-//        [self changeFlightToDta:londonToParis animated:YES];
-//    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self changeFlightToDta:londonToParis animated:YES];
+    });
     
 }
 -(void)viewWillAppear:(BOOL)animated {
