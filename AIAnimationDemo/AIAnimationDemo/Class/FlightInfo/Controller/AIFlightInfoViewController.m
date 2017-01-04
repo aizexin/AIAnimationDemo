@@ -59,6 +59,10 @@
 @property(nonatomic,strong)CAEmitterLayer *emitter;
 /** 发射器cell*/
 @property(nonatomic,strong)CAEmitterCell *emitterCell;
+/** 伦敦到巴黎*/
+@property(nonatomic,strong)AIFlightDataModel *londonToParis;
+/** 巴黎到罗马*/
+@property(nonatomic,strong)AIFlightDataModel *parisToRome;
 @end
 
 @implementation AIFlightInfoViewController
@@ -83,6 +87,7 @@
     
     [self.view addSubview:self.snowView];
     AIFlightDataModel *londonToParis = [[AIFlightDataModel alloc]init];
+    self.londonToParis               = londonToParis;
     londonToParis.summary            = @"01 Apr 2015 09:42";
     londonToParis.flightNr           = @"ZY 2014";
     londonToParis.gateNr             = @"T1 A33";
@@ -94,20 +99,20 @@
     londonToParis.flightStatus       = @"Boarding";
     
     AIFlightDataModel *parisToRome = [[AIFlightDataModel alloc]init];
+    self.parisToRome               = parisToRome;
     parisToRome.summary            = @"01 Apr 2015 17:05";
     parisToRome.flightNr           = @"AE 1107";
     parisToRome.gateNr             = @"045";
     parisToRome.departingFrom      = @"CDG";
     parisToRome.arrivingTo         = @"FCO";
     parisToRome.weatherImageName   = @"bg-sunny";
-    parisToRome.showWeatherEffects = YES;
+    parisToRome.showWeatherEffects = NO;
     parisToRome.takingOff          = NO;
     parisToRome.flightStatus       = @"Delayed";
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self changeFlightToDta:londonToParis animated:YES];
-    });
+    
+    [self changeFlightToDta:londonToParis animated:YES];
+    
     
 }
 -(void)viewWillAppear:(BOOL)animated {
@@ -152,6 +157,11 @@
         self.bgImageView.image = [UIImage imageNamed:data.weatherImageName];
         self.snowView.hidden   = !data.showWeatherEffects;
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self changeFlightToDta:data.isTakingOff?self.parisToRome:self.londonToParis animated:YES];
+    });
 }
 
 
