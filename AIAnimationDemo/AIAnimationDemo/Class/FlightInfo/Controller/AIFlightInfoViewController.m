@@ -9,6 +9,11 @@
 #import "AIFlightInfoViewController.h"
 #import "AIFlightDataModel.h"
 #import "AISnowView.h"
+
+typedef enum : NSUInteger {
+    AnimationDirectionPositive = 1,
+    AnimationDirectionNegative = -1,
+} AnimationDirection;
 @interface AIFlightInfoViewController ()
 
 /**
@@ -164,6 +169,14 @@
     });
 }
 
+- (void)cubeTransitionLabel:(UILabel *)label text:(NSString *)text direction:(AnimationDirection)direction {
+    UILabel *auxLabel = [[UILabel alloc]initWithFrame:label.frame];
+    auxLabel.text     = text;
+    auxLabel.font     = label.font;
+    auxLabel.textAlignment      = label.textAlignment;
+    auxLabel.textColor          = label.textColor;
+    auxLabel.backgroundColor    = label.backgroundColor;
+}
 
 
 
