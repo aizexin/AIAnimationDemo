@@ -9,6 +9,11 @@
 #import "AIFlightInfoViewController.h"
 #import "AIFlightDataModel.h"
 #import "AISnowView.h"
+
+typedef enum : NSUInteger {
+    AnimationDirectionPositive = 1,
+    AnimationDirectionNegative = -1,
+} AnimationDirection;
 @interface AIFlightInfoViewController ()
 
 /**
@@ -153,6 +158,10 @@
     self.bgImageView.image  = [UIImage imageNamed:data.weatherImageName];
     if (animated) {
         [self fadeImageView:self.bgImageView toImage:[UIImage imageNamed:data.weatherImageName] showEffects:data.showWeatherEffects];
+        AnimationDirection direction = data.isTakingOff ? AnimationDirectionPositive : AnimationDirectionNegative;
+        [self cubeTransitionLabel:self.flightNrLabel text:data.flightNr direction:direction];
+        [self cubeTransitionLabel:self.gateNrLabel text:data.gateNr direction:direction];
+        
     }else {
         self.bgImageView.image = [UIImage imageNamed:data.weatherImageName];
         self.snowView.hidden   = !data.showWeatherEffects;
@@ -164,6 +173,29 @@
     });
 }
 
+- (void)cubeTransitionLabel:(UILabel *)label text:(NSString *)text direction:(AnimationDirection)direction {
+    UILabel *auxLabel = [[UILabel alloc]initWithFrame:label.frame];
+    auxLabel.text     = text;
+    auxLabel.font     = label.font;
+    auxLabel.textAlignment      = label.textAlignment;
+    auxLabel.textColor          = label.textColor;
+    auxLabel.backgroundColor    = label.backgroundColor;
+    
+//    CGFloat auxLabelOffset      = direction
+    auxLabel.transform          = CGAffineTransformConcat(CGAffineTransformMakeScale(1., .1),
+                                                          CGAffineTransformMakeScale(0, 0));
+    [label.superview addSubview:auxLabel];
+    
+    [UIView animateWithDuration:.5 delay:0 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
+        auxLabel.transform      = CGAffineTransformIdentity;
+        label.transform         = CGAffineTransformConcat(CGAffineTransformMakeScale(1., .1),
+                                                          CGAffineTransformMakeTranslation(0., 0));
+    } completion:^(BOOL finished) {
+        label.text              = auxLabel.text;
+        label.transform         = CGAffineTransformIdentity;
+        [auxLabel removeFromSuperview];
+    }];
+}
 
 
 
