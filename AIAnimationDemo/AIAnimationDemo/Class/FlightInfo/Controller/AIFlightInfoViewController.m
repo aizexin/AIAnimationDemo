@@ -165,11 +165,18 @@ typedef enum : NSUInteger {
     }else {
         self.bgImageView.image = [UIImage imageNamed:data.weatherImageName];
         self.snowView.hidden   = !data.showWeatherEffects;
+        
+        self.flightNrLabel.text     = data.flightNr;
+        self.gateNrLabel.text       = data.gateNr;
+        
+        self.departingFromLabel.text  = data.departingFrom;
+        self.arrivingToLabel.text     = data.arrivingTo;
+        self.flightStatusLabel.text   = data.flightStatus;
     }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        [self changeFlightToDta:data.isTakingOff?self.parisToRome:self.londonToParis animated:YES];
+        [self changeFlightToDta:data.isTakingOff?self.parisToRome:self.londonToParis animated:animated];
     });
 }
 
