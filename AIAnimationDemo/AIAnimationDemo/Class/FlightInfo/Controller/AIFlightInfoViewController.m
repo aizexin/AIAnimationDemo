@@ -162,6 +162,9 @@ typedef enum : NSUInteger {
         [self cubeTransitionLabel:self.flightNrLabel text:data.flightNr direction:direction];
         [self cubeTransitionLabel:self.gateNrLabel text:data.gateNr direction:direction];
         
+        [self moveLabel:self.departingFromLabel text:data.departingFrom offset:CGPointMake(80, 0)];
+        [self moveLabel:self.arrivingToLabel text:data.arrivingTo offset:CGPointMake(0, 80)];
+        
     }else {
         self.bgImageView.image = [UIImage imageNamed:data.weatherImageName];
         self.snowView.hidden   = !data.showWeatherEffects;
@@ -172,6 +175,9 @@ typedef enum : NSUInteger {
         self.departingFromLabel.text  = data.departingFrom;
         self.arrivingToLabel.text     = data.arrivingTo;
         self.flightStatusLabel.text   = data.flightStatus;
+        
+        self.departingFromLabel.text  = data.departingFrom;
+        self.arrivingToLabel.text     = data.arrivingTo;
     }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -180,6 +186,13 @@ typedef enum : NSUInteger {
     });
 }
 
+/**
+ 3d效果旋转改变label
+
+ @param label 旋转的label
+ @param text 改变的文字
+ @param direction 方向
+ */
 - (void)cubeTransitionLabel:(UILabel *)label text:(NSString *)text direction:(AnimationDirection)direction {
     UILabel *auxLabel = [[UILabel alloc]initWithFrame:label.frame];
     auxLabel.text     = text;
@@ -204,6 +217,35 @@ typedef enum : NSUInteger {
     }];
 }
 
+- (void)moveLabel:(UILabel*)label text:(NSString*)text offset:(CGPoint)offset {
+    UILabel *auxLabel   = [[UILabel alloc]initWithFrame:label.frame];
+    auxLabel.text       = text;
+    auxLabel.font       = label.font;
+    auxLabel.textAlignment      = label.textAlignment;
+    auxLabel.textColor          = label.textColor;
+    auxLabel.backgroundColor    = [UIColor clearColor];
+    
+    auxLabel.transform  = CGAffineTransformMakeTranslation(offset.x, offset.y);
+    auxLabel.alpha      = 0;
+    [self.view addSubview:auxLabel];
+    
+    [UIView animateWithDuration:.5 delay:0. options:(UIViewAnimationOptionCurveEaseIn) animations:^{
+        label.transform = CGAffineTransformMakeTranslation(offset.x, offset.y);
+        label.alpha     = 0.;
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+    [UIView animateWithDuration:.25 delay:.1 options:(UIViewAnimationOptionCurveEaseIn) animations:^{
+        auxLabel.transform   = CGAffineTransformIdentity;
+        auxLabel.alpha       = 1.;
+    } completion:^(BOOL finished) {
+        [auxLabel removeFromSuperview];
+        label.text           = text;
+        label.alpha          = 1.;
+        label.transform      = CGAffineTransformIdentity;
+    }];
+}
 
 
 
