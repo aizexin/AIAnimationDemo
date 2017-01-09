@@ -165,6 +165,8 @@ typedef enum : NSUInteger {
         [self moveLabel:self.departingFromLabel text:data.departingFrom offset:CGPointMake(80, 0)];
         [self moveLabel:self.arrivingToLabel text:data.arrivingTo offset:CGPointMake(0, 80)];
         
+        [self cubeTransitionLabel:self.flightStatusLabel text:data.flightStatus direction:direction];
+        
     }else {
         self.bgImageView.image = [UIImage imageNamed:data.weatherImageName];
         self.snowView.hidden   = !data.showWeatherEffects;
@@ -201,15 +203,15 @@ typedef enum : NSUInteger {
     auxLabel.textColor          = label.textColor;
     auxLabel.backgroundColor    = label.backgroundColor;
     
-//    CGFloat auxLabelOffset      = direction
+    CGFloat auxLabelOffset      = label.frame.size.height * 0.5 * (CGFloat)(direction);
     auxLabel.transform          = CGAffineTransformConcat(CGAffineTransformMakeScale(1., .1),
-                                                          CGAffineTransformMakeScale(0, 0));
+                                                          CGAffineTransformMakeScale(0, auxLabelOffset));
     [label.superview addSubview:auxLabel];
     
     [UIView animateWithDuration:.5 delay:0 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
         auxLabel.transform      = CGAffineTransformIdentity;
         label.transform         = CGAffineTransformConcat(CGAffineTransformMakeScale(1., .1),
-                                                          CGAffineTransformMakeTranslation(0., 0));
+                                                          CGAffineTransformMakeTranslation(1., -auxLabelOffset));
     } completion:^(BOOL finished) {
         label.text              = auxLabel.text;
         label.transform         = CGAffineTransformIdentity;
