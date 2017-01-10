@@ -1,5 +1,11 @@
 #AIAnimationDemo
 
+
++ 航班信息
+
+![航班信息.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/航班信息.gif)
+
+
 + 不规则按钮
 
 ![不规则按钮.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/不规则按钮.gif)
