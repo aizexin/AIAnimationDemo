@@ -203,7 +203,7 @@ typedef enum : NSUInteger {
     auxLabel.textColor          = label.textColor;
     auxLabel.backgroundColor    = label.backgroundColor;
     
-    CGFloat auxLabelOffset      = label.frame.size.height * 0.5 * (CGFloat)(direction);
+    CGFloat auxLabelOffset      = label.frame.size.height * 0.5 * (NSInteger)(direction);
     auxLabel.transform          = CGAffineTransformConcat(CGAffineTransformMakeScale(1., .1),
                                                           CGAffineTransformMakeScale(0, auxLabelOffset));
     [label.superview addSubview:auxLabel];
