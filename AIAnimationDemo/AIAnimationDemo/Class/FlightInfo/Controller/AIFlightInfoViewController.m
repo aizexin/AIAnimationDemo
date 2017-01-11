@@ -248,6 +248,14 @@ typedef enum : NSUInteger {
         label.transform      = CGAffineTransformIdentity;
     }];
 }
+- (void)planeDepart {
+    CGPoint originalCenter = self.planeImage.center;
+    [UIView animateKeyframesWithDuration:1.5 delay:0 options:(UIViewKeyframeAnimationOptionRepeat) animations:^{
+        //add keyframes
+    } completion:^(BOOL finished) {
+        
+    }];
+}
 
 
 
