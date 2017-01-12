@@ -118,7 +118,6 @@ typedef enum : NSUInteger {
     
     [self changeFlightToDta:londonToParis animated:YES];
     
-    
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -157,6 +156,9 @@ typedef enum : NSUInteger {
 - (void)changeFlightToDta:(AIFlightDataModel *)data animated:(BOOL)animated {
     self.bgImageView.image  = [UIImage imageNamed:data.weatherImageName];
     if (animated) {
+        
+        [self planeDepart];
+        
         [self fadeImageView:self.bgImageView toImage:[UIImage imageNamed:data.weatherImageName] showEffects:data.showWeatherEffects];
         AnimationDirection direction = data.isTakingOff ? AnimationDirectionPositive : AnimationDirectionNegative;
         [self cubeTransitionLabel:self.flightNrLabel text:data.flightNr direction:direction];
@@ -166,6 +168,7 @@ typedef enum : NSUInteger {
         [self moveLabel:self.arrivingToLabel text:data.arrivingTo offset:CGPointMake(0, 80)];
         
         [self cubeTransitionLabel:self.flightStatusLabel text:data.flightStatus direction:direction];
+        
         
     }else {
         self.bgImageView.image = [UIImage imageNamed:data.weatherImageName];
@@ -219,6 +222,13 @@ typedef enum : NSUInteger {
     }];
 }
 
+/**
+ 移动变换label
+
+ @param label 变换的label
+ @param text 变换的值
+ @param offset 偏移量
+ */
 - (void)moveLabel:(UILabel*)label text:(NSString*)text offset:(CGPoint)offset {
     UILabel *auxLabel   = [[UILabel alloc]initWithFrame:label.frame];
     auxLabel.text       = text;
@@ -248,10 +258,36 @@ typedef enum : NSUInteger {
         label.transform      = CGAffineTransformIdentity;
     }];
 }
+
+/**
+ 飞机离开
+ */
 - (void)planeDepart {
     CGPoint originalCenter = self.planeImage.center;
     [UIView animateKeyframesWithDuration:1.5 delay:0 options:(UIViewKeyframeAnimationOptionRepeat) animations:^{
         //add keyframes
+        [UIView addKeyframeWithRelativeStartTime:0. relativeDuration:.25 animations:^{
+            self.planeImage.ai_centerX += 80;
+            self.planeImage.ai_centerY -= 10;
+        }];
+        
+        [UIView addKeyframeWithRelativeStartTime:0.1 relativeDuration:.4 animations:^{
+            self.planeImage.transform   = CGAffineTransformRotate(CGAffineTransformIdentity, -M_PI/8);
+        }];
+        [UIView addKeyframeWithRelativeStartTime:.25 relativeDuration:.25 animations:^{
+            self.planeImage.ai_centerX += 100;
+            self.planeImage.ai_centerY -= 50;
+            self.planeImage.alpha       = 0;
+        }];
+        [UIView addKeyframeWithRelativeStartTime:.51 relativeDuration:.01 animations:^{
+            self.planeImage.transform   = CGAffineTransformIdentity;
+            self.planeImage.center      = CGPointMake(0., originalCenter.y);
+        }];
+        [UIView addKeyframeWithRelativeStartTime:.55 relativeDuration:.45 animations:^{
+            self.planeImage.alpha       = 1.;
+            self.planeImage.center      = originalCenter;
+        }];
+        
     } completion:^(BOOL finished) {
         
     }];
