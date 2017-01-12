@@ -76,7 +76,7 @@ typedef enum : NSUInteger {
 {
     self = [[NSBundle mainBundle]loadNibNamed:@"AIFlightInfoViewController" owner:nil options:nil].lastObject;
     if (self) {
-        
+       
     }
     return self;
 }
@@ -264,7 +264,7 @@ typedef enum : NSUInteger {
  */
 - (void)planeDepart {
     CGPoint originalCenter = self.planeImage.center;
-    [UIView animateKeyframesWithDuration:1.5 delay:0 options:(UIViewKeyframeAnimationOptionRepeat) animations:^{
+    [UIView animateKeyframesWithDuration:1.5 delay:0 options:(UIViewKeyframeAnimationOptionAllowUserInteraction) animations:^{
         //add keyframes
         [UIView addKeyframeWithRelativeStartTime:0. relativeDuration:.25 animations:^{
             self.planeImage.ai_centerX += 80;
@@ -292,7 +292,6 @@ typedef enum : NSUInteger {
         
     }];
 }
-
 
 
 
