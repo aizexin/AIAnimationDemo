@@ -118,6 +118,7 @@ typedef enum : NSUInteger {
     
     [self changeFlightToDta:londonToParis animated:YES];
     
+    
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -155,6 +156,8 @@ typedef enum : NSUInteger {
  */
 - (void)changeFlightToDta:(AIFlightDataModel *)data animated:(BOOL)animated {
     self.bgImageView.image  = [UIImage imageNamed:data.weatherImageName];
+    
+    
     if (animated) {
         
         [self planeDepart];
@@ -169,7 +172,7 @@ typedef enum : NSUInteger {
         
         [self cubeTransitionLabel:self.flightStatusLabel text:data.flightStatus direction:direction];
         
-        
+        [self summarySwitchToString:data.summary];
     }else {
         self.bgImageView.image = [UIImage imageNamed:data.weatherImageName];
         self.snowView.hidden   = !data.showWeatherEffects;
@@ -183,6 +186,8 @@ typedef enum : NSUInteger {
         
         self.departingFromLabel.text  = data.departingFrom;
         self.arrivingToLabel.text     = data.arrivingTo;
+        
+        self.summary.text       = data.summary;
     }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -291,6 +296,31 @@ typedef enum : NSUInteger {
     } completion:^(BOOL finished) {
         
     }];
+}
+
+/**
+ 改变摘要
+
+ @param string 改变的字符串
+ */
+- (void)summarySwitchToString:(NSString*)string {
+    [UIView animateKeyframesWithDuration:1.5 delay:0 options:(UIViewKeyframeAnimationOptionBeginFromCurrentState) animations:^{
+       
+        [UIView addKeyframeWithRelativeStartTime:.0 relativeDuration:.5 animations:^{
+            self.summary.ai_y -= 10;
+            self.summary.alpha = 0.;
+        }];
+        [UIView addKeyframeWithRelativeStartTime:.5 relativeDuration:.5 animations:^{
+            self.summary.ai_y += 10;
+            self.summary.alpha = 1;
+        }];
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.75 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.summary.text = string;
+    });
 }
 
 
