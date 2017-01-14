@@ -13,6 +13,8 @@
 #import "AIPopSpringAnimationViewController.h"
 #import "AIMarqueeViewController.h"
 #import "GCD.h"
+#import "UIView+AnimationProperty.h"
+#import "AppleSystemService.h"
 #import "AIBaseViewController.h"          //父类
 #import "AISpringScaleViewController.h"   //pop缩放动画
 #import "AIBaiduLoadHUDViewController.h"  //防百度加载提示
@@ -93,6 +95,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // LaunchImage
+    UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    iconImageView.image        = [AppleSystemService launchImage];
+    [self.view addSubview:iconImageView];
+    
+    // Do animation
+    [UIView animateKeyframesWithDuration:1.f delay:1.f options:0 animations:^{
+        
+        iconImageView.scale = 1.2f;
+        iconImageView.alpha = 0.f;
+        
+    } completion:^(BOOL finished) {
+        
+        [iconImageView removeFromSuperview];
+    }];
     [self setUI];
 }
 -(void)viewWillAppear:(BOOL)animated{

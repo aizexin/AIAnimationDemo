@@ -50,6 +50,7 @@
 		4546AD311DD1B771006F230C /* AITableViewTapAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD301DD1B771006F230C /* AITableViewTapAnimationController.m */; };
 		4546AD341DD1B89A006F230C /* AITapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD331DD1B89A006F230C /* AITapTableViewCell.m */; };
 		4546AD381DD1B8C2006F230C /* AITapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD371DD1B8C2006F230C /* AITapModel.m */; };
+		454B9B811E2A7B8600E7F9CF /* AppleSystemService.m in Sources */ = {isa = PBXBuildFile; fileRef = 454B9B801E2A7B8600E7F9CF /* AppleSystemService.m */; };
 		455440A41DB9DF3A0025DCA4 /* AIRectangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 455440A31DB9DF3A0025DCA4 /* AIRectangleLayer.m */; };
 		455440AA1DBA15B10025DCA4 /* AIWaveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 455440A91DBA15B10025DCA4 /* AIWaveLayer.m */; };
 		455DF5C11DB46D8600D3E84A /* AIScrollImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455DF5C01DB46D8600D3E84A /* AIScrollImageViewController.m */; };
@@ -230,6 +231,8 @@
 		4546AD331DD1B89A006F230C /* AITapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITapTableViewCell.m; sourceTree = "<group>"; };
 		4546AD361DD1B8C2006F230C /* AITapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITapModel.h; sourceTree = "<group>"; };
 		4546AD371DD1B8C2006F230C /* AITapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITapModel.m; sourceTree = "<group>"; };
+		454B9B7F1E2A7B8600E7F9CF /* AppleSystemService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleSystemService.h; sourceTree = "<group>"; };
+		454B9B801E2A7B8600E7F9CF /* AppleSystemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleSystemService.m; sourceTree = "<group>"; };
 		455440A21DB9DF3A0025DCA4 /* AIRectangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRectangleLayer.h; sourceTree = "<group>"; };
 		455440A31DB9DF3A0025DCA4 /* AIRectangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRectangleLayer.m; sourceTree = "<group>"; };
 		455440A81DBA15B10025DCA4 /* AIWaveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWaveLayer.h; sourceTree = "<group>"; };
@@ -566,6 +569,7 @@
 		4515A1371D9BC356000F4E24 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				454B9B7E1E2A7B8600E7F9CF /* AppleSystemService */,
 				459F82CD1E0CFBCD00AD6105 /* UIImage+Extension */,
 				4545160D1E0A83A000F3BCF9 /* NSString+Extension */,
 				45C9EAB61DD44F58007B6418 /* UIColor */,
@@ -875,6 +879,15 @@
 				4546AD371DD1B8C2006F230C /* AITapModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		454B9B7E1E2A7B8600E7F9CF /* AppleSystemService */ = {
+			isa = PBXGroup;
+			children = (
+				454B9B7F1E2A7B8600E7F9CF /* AppleSystemService.h */,
+				454B9B801E2A7B8600E7F9CF /* AppleSystemService.m */,
+			);
+			path = AppleSystemService;
 			sourceTree = "<group>";
 		};
 		455DF5BC1DB46D4E00D3E84A /* Pop8 */ = {
@@ -1741,6 +1754,7 @@
 				45FF8FC91DDDEE8500FC7584 /* AIPresentDestViewController.m in Sources */,
 				451D281F1DBCECB50070BFCA /* AIPictureViewerViewController.m in Sources */,
 				453DD8481DACA80500D1CDA9 /* GCDTimer.m in Sources */,
+				454B9B811E2A7B8600E7F9CF /* AppleSystemService.m in Sources */,
 				455E28D31D98F80600E3DA4D /* AIListModel.m in Sources */,
 				455E28911D98C0D300E3DA4D /* AppDelegate.m in Sources */,
 				45D43E121DACDD120022F86A /* UIView+ConvenientMethod.m in Sources */,
