@@ -37,6 +37,7 @@
 #import "AIBlurImageViewController.h"       //模糊效果
 #import "AIPlayMusicViewController.h"       //音乐播放按钮
 #import "AIFlightInfoViewController.h"      //航班信息
+#import "AIPackingListViewController.h"     //包裹
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -74,7 +75,7 @@
                            [AIListModel initWithTitle:@"模糊效果" andTargetVC:[AIBlurImageViewController class]],
                            [AIListModel initWithTitle:@"音乐播放按钮" andTargetVC:[AIPlayMusicViewController class]],
                            [AIListModel initWithTitle:@"航班信息" andTargetVC:[AIFlightInfoViewController class]],
-                           [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
+                           [AIListModel initWithTitle:@"包裹" andTargetVC:[AIPackingListViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]],
                            [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]]

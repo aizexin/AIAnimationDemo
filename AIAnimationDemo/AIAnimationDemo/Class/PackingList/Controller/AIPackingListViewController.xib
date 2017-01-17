@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIPackingListViewController">
             <connections>
+                <outlet property="buttonMenu" destination="qdW-hW-Gqp" id="4uW-Ux-5Jl"/>
+                <outlet property="tableView" destination="lHZ-aQ-DmR" id="OZx-kp-RWB"/>
+                <outlet property="titleLabel" destination="zAc-8X-S2s" id="hlm-1J-Q4J"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,25 +25,55 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Hn-mK-WYL">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PackingList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAc-8X-S2s">
-                            <rect key="frame" x="122" y="15" width="130" height="36"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PackingList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAc-8X-S2s">
+                            <rect key="frame" x="133.5" y="20.5" width="107.5" height="25.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdW-hW-Gqp">
+                            <rect key="frame" x="337" y="10.5" width="30" height="45"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                            <state key="normal" title="+"/>
+                            <connections>
+                                <action selector="onClickMenu:" destination="-1" eventType="touchUpInside" id="7wT-nq-cYc"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="67" id="5Pc-ZV-r6p"/>
+                        <constraint firstItem="qdW-hW-Gqp" firstAttribute="centerY" secondItem="zAc-8X-S2s" secondAttribute="centerY" id="LJx-Qj-Z7p"/>
+                        <constraint firstAttribute="trailing" secondItem="qdW-hW-Gqp" secondAttribute="trailing" constant="8" id="NUN-Jo-tjh"/>
                         <constraint firstItem="zAc-8X-S2s" firstAttribute="centerY" secondItem="6Hn-mK-WYL" secondAttribute="centerY" id="Oxx-rl-dVX"/>
                         <constraint firstItem="zAc-8X-S2s" firstAttribute="centerX" secondItem="6Hn-mK-WYL" secondAttribute="centerX" id="b50-Io-tgl"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lHZ-aQ-DmR">
+                    <rect key="frame" x="0.0" y="67" width="375" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="9Ee-Xb-JtB"/>
+                        <outlet property="delegate" destination="-1" id="PuD-Sl-SUh"/>
+                    </connections>
+                </tableView>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="zTn-hb-kAt">
+                    <rect key="frame" x="0.0" y="67" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cell" tableViewCell="zTn-hb-kAt" id="ROf-Xa-bzz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tableViewCellContentView>
+                </tableViewCell>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="6Hn-mK-WYL" secondAttribute="trailing" id="0Sh-gU-GGK"/>
                 <constraint firstItem="6Hn-mK-WYL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rfh-Nd-2bq"/>
+                <constraint firstAttribute="trailing" secondItem="lHZ-aQ-DmR" secondAttribute="trailing" id="UMU-Ef-2yH"/>
+                <constraint firstItem="lHZ-aQ-DmR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Z0V-Fd-Ytg"/>
+                <constraint firstItem="lHZ-aQ-DmR" firstAttribute="top" secondItem="6Hn-mK-WYL" secondAttribute="bottom" id="dY8-c8-3hV"/>
+                <constraint firstAttribute="bottom" secondItem="lHZ-aQ-DmR" secondAttribute="bottom" id="fhz-lw-5zg"/>
                 <constraint firstItem="6Hn-mK-WYL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x5n-fu-7lt"/>
             </constraints>
             <point key="canvasLocation" x="-126.5" y="122.5"/>
