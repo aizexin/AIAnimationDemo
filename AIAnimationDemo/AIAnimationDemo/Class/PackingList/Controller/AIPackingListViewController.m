@@ -14,6 +14,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonMenu;
 /** 数据*/
 @property(nonatomic,strong)NSArray *titleArray;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *menuHeightConstraint;
+
+/**
+ 菜单是否打开
+ */
+@property(nonatomic,assign,getter=isMenuOpen)BOOL menuOpen;
 @end
 
 @implementation AIPackingListViewController
@@ -32,6 +38,9 @@
     self.navigationController.navigationBar.hidden = NO;
 }
 - (IBAction)onClickMenu:(id)sender {
+    self.menuOpen = !self.isMenuOpen;
+    self.menuHeightConstraint.constant = self.isMenuOpen ? 200.0 : 60.0;
+    self.titleLabel.text = self.isMenuOpen? @"Select Item":@"Packing List";
 }
 #pragma mark -UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
