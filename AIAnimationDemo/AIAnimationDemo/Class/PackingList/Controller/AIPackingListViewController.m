@@ -39,8 +39,23 @@
 }
 - (IBAction)onClickMenu:(id)sender {
     self.menuOpen = !self.isMenuOpen;
+    //label
+    [self.titleLabel.superview.constraints enumerateObjectsUsingBlock:^(__kindof NSLayoutConstraint * _Nonnull constraint, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (constraint.firstItem == self.titleLabel && constraint.firstAttribute == NSLayoutAttributeCenterX) {
+            constraint.constant = self.isMenuOpen ? -100:0;
+        }
+    }];
+    //按钮
+    CGFloat angle = self.isMenuOpen ? M_PI_4:0;
+    self.buttonMenu.transform = CGAffineTransformMakeRotation(angle);
+    //高度
     self.menuHeightConstraint.constant = self.isMenuOpen ? 200.0 : 60.0;
     self.titleLabel.text = self.isMenuOpen? @"Select Item":@"Packing List";
+    [UIView animateWithDuration:1. delay:0. usingSpringWithDamping:.4 initialSpringVelocity:5. options:(UIViewAnimationOptionCurveEaseIn) animations:^{
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 #pragma mark -UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
