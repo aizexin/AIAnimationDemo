@@ -34,7 +34,7 @@
                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="zTn-hb-kAt">
                     <rect key="frame" x="0.0" y="60" width="375" height="45"/>
                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cell" tableViewCell="zTn-hb-kAt" id="ROf-Xa-bzz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tableViewCellContentView>
                 </tableViewCell>
@@ -61,7 +61,7 @@
                         <constraint firstAttribute="height" constant="60" id="5Pc-ZV-r6p"/>
                         <constraint firstItem="qdW-hW-Gqp" firstAttribute="centerY" secondItem="zAc-8X-S2s" secondAttribute="centerY" id="LJx-Qj-Z7p"/>
                         <constraint firstAttribute="trailing" secondItem="qdW-hW-Gqp" secondAttribute="trailing" constant="8" id="NUN-Jo-tjh"/>
-                        <constraint firstItem="zAc-8X-S2s" firstAttribute="centerY" secondItem="6Hn-mK-WYL" secondAttribute="centerY" id="Oxx-rl-dVX"/>
+                        <constraint firstItem="zAc-8X-S2s" firstAttribute="centerY" secondItem="6Hn-mK-WYL" secondAttribute="centerY" identifier="TitleCenterY" id="Oxx-rl-dVX"/>
                         <constraint firstItem="zAc-8X-S2s" firstAttribute="centerX" secondItem="6Hn-mK-WYL" secondAttribute="centerX" id="b50-Io-tgl"/>
                     </constraints>
                 </view>
@@ -79,7 +79,7 @@
                 <constraint firstItem="zTn-hb-kAt" firstAttribute="top" secondItem="6Hn-mK-WYL" secondAttribute="bottom" id="toG-yW-k4e"/>
                 <constraint firstItem="6Hn-mK-WYL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x5n-fu-7lt"/>
             </constraints>
-            <point key="canvasLocation" x="1173" y="88"/>
+            <point key="canvasLocation" x="1063" y="81"/>
         </view>
     </objects>
 </document>

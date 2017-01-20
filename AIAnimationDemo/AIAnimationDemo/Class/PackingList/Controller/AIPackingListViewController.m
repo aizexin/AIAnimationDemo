@@ -7,7 +7,7 @@
 //
 
 #import "AIPackingListViewController.h"
-
+#import "AIHorizontalItemListView.h"
 @interface AIPackingListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -20,9 +20,18 @@
  菜单是否打开
  */
 @property(nonatomic,assign,getter=isMenuOpen)BOOL menuOpen;
+/** 横向列表*/
+@property(nonatomic,strong)AIHorizontalItemListView *horizontalItemListView;
 @end
 
 @implementation AIPackingListViewController
+
+-(AIHorizontalItemListView *)horizontalItemListView {
+    if (!_horizontalItemListView) {
+        _horizontalItemListView = [[AIHorizontalItemListView alloc]init];
+    }
+    return _horizontalItemListView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,6 +53,19 @@
         if (constraint.firstItem == self.titleLabel && constraint.firstAttribute == NSLayoutAttributeCenterX) {
             constraint.constant = self.isMenuOpen ? -100:0;
         }
+        if ([constraint.identifier isEqualToString:@"TitleCenterY"]) {
+            constraint.active   = NO;
+            //add new constraint
+            NSLayoutConstraint *newConstraint = [NSLayoutConstraint constraintWithItem:self.titleLabel
+                                                                             attribute:(NSLayoutAttributeCenterY)
+                                                                             relatedBy:(NSLayoutRelationEqual)
+                                                                                toItem:self.titleLabel.superview
+                                                                             attribute:(NSLayoutAttributeCenterY)
+                                                                            multiplier:self.isMenuOpen?.67:1.
+                                                                              constant:5.];
+            newConstraint.identifier = @"TitleCenterY";
+            newConstraint.active     = YES;
+        }
     }];
     //按钮
     CGFloat angle = self.isMenuOpen ? M_PI_4:0;
@@ -56,6 +78,16 @@
     } completion:^(BOOL finished) {
         
     }];
+//    if (self.isMenuOpen) {
+//        [self.titleLabel.superview addSubview:self.horizontalItemListView];
+//        [self.horizontalItemListView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.right.mas_equalTo(0);
+//            make.bottom.mas_equalTo(0);
+//            make.height.mas_equalTo(100);
+//        }];
+//    }else {
+//        [self.horizontalItemListView removeFromSuperview];
+//    }
 }
 #pragma mark -UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

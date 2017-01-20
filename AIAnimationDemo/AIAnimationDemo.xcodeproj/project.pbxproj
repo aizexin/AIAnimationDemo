@@ -70,6 +70,8 @@
 		456BA6611E07B24700805F7C /* AIIrregularityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BA6601E07B24700805F7C /* AIIrregularityViewController.m */; };
 		456BA6641E07B2FF00805F7C /* AIIrregularityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BA6631E07B2FF00805F7C /* AIIrregularityTableViewCell.m */; };
 		456BA6661E07BDF500805F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456BA6651E07BDF500805F7C /* Assets.xcassets */; };
+		456C42A21E3250E200F36403 /* AIHorizontalItemListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C42A11E3250E200F36403 /* AIHorizontalItemListView.m */; };
+		456C42A51E32585700F36403 /* AIPackingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C42A41E32585700F36403 /* AIPackingCollectionViewCell.m */; };
 		456DFD621DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 456DFD611DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m */; };
 		456DFD651DCB066400011AD7 /* AIGradientTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 456DFD641DCB066400011AD7 /* AIGradientTransitionAnimation.m */; };
 		457E55F91DF5D1CB00692DF7 /* AITmallLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55F81DF5D1CB00692DF7 /* AITmallLoadingViewController.m */; };
@@ -275,6 +277,10 @@
 		456BA6621E07B2FF00805F7C /* AIIrregularityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityTableViewCell.h; sourceTree = "<group>"; };
 		456BA6631E07B2FF00805F7C /* AIIrregularityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityTableViewCell.m; sourceTree = "<group>"; };
 		456BA6651E07BDF500805F7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		456C42A01E3250E200F36403 /* AIHorizontalItemListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHorizontalItemListView.h; sourceTree = "<group>"; };
+		456C42A11E3250E200F36403 /* AIHorizontalItemListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHorizontalItemListView.m; sourceTree = "<group>"; };
+		456C42A31E32585700F36403 /* AIPackingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPackingCollectionViewCell.h; sourceTree = "<group>"; };
+		456C42A41E32585700F36403 /* AIPackingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPackingCollectionViewCell.m; sourceTree = "<group>"; };
 		456DFD601DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIGradientLayerNavgationDelegate.h; sourceTree = "<group>"; };
 		456DFD611DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIGradientLayerNavgationDelegate.m; sourceTree = "<group>"; };
 		456DFD631DCB066400011AD7 /* AIGradientTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIGradientTransitionAnimation.h; sourceTree = "<group>"; };
@@ -1298,6 +1304,10 @@
 		45C15B0D1E2D12CF0021E9D3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				456C42A01E3250E200F36403 /* AIHorizontalItemListView.h */,
+				456C42A11E3250E200F36403 /* AIHorizontalItemListView.m */,
+				456C42A31E32585700F36403 /* AIPackingCollectionViewCell.h */,
+				456C42A41E32585700F36403 /* AIPackingCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1847,11 +1857,13 @@
 				45C15B111E2D12F70021E9D3 /* AIPackingListViewController.m in Sources */,
 				458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */,
 				4505FE901DAE8C1D00AE4FED /* AIAnimationImageView.m in Sources */,
+				456C42A21E3250E200F36403 /* AIHorizontalItemListView.m in Sources */,
 				45C9EAAA1DD317F9007B6418 /* AIAFN3ModelTool.m in Sources */,
 				459F82D01E0CFBDB00AD6105 /* UIImage+ImageEffects.m in Sources */,
 				4505FE961DAF2D3B00AE4FED /* AIShimmerViewController.m in Sources */,
 				454516081E0A815900F3BCF9 /* AIAutoTextViewViewController.m in Sources */,
 				4546AD311DD1B771006F230C /* AITableViewTapAnimationController.m in Sources */,
+				456C42A51E32585700F36403 /* AIPackingCollectionViewCell.m in Sources */,
 				45D43E141DACDD120022F86A /* UIView+ScreensShot.m in Sources */,
 				45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */,
 				4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */,
