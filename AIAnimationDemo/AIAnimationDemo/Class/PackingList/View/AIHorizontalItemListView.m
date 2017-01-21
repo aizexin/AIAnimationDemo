@@ -20,7 +20,7 @@ static NSString *identifier = @"cell";
 -(NSMutableArray *)dataSource {
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 8; i++) {
             NSString *imageString = [NSString stringWithFormat:@"summericons_100px_0%d",i];
             [_dataSource addObject:imageString];
         }
@@ -34,19 +34,26 @@ static NSString *identifier = @"cell";
     if (self) {
         
         UICollectionViewFlowLayout *flowLaout = [[UICollectionViewFlowLayout alloc]init];
-        flowLaout.itemSize                    = CGSizeMake(50, 50);
+        flowLaout.itemSize                    = CGSizeMake(60, 60);
         flowLaout.scrollDirection             = UICollectionViewScrollDirectionHorizontal;
-        UICollectionView *collectionView      = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, KWidth, 200) collectionViewLayout:flowLaout];
+        UICollectionView *collectionView      = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, KWidth, 60) collectionViewLayout:flowLaout];
+        collectionView.delegate               = self;
+        collectionView.dataSource             = self;
+        collectionView.backgroundColor        = [UIColor clearColor];
         [collectionView registerClass:[AIPackingCollectionViewCell class] forCellWithReuseIdentifier:identifier];
         self.collectionView                   = collectionView;
         [self addSubview:collectionView];
+        
+        [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.top.mas_equalTo(0);
+        }];
     }
     return self;
 }
 
 #pragma mark -UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    return self.dataSource.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:

@@ -67,6 +67,25 @@
             newConstraint.active     = YES;
         }
     }];
+    //添加列表
+    if (self.isMenuOpen) {
+        [self.titleLabel.superview addSubview:self.horizontalItemListView];
+
+        [self.horizontalItemListView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(60);
+        }];
+        
+        
+    }else {
+        [self.horizontalItemListView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(0);
+        }];
+//        [self.horizontalItemListView removeFromSuperview];
+    }
     //按钮
     CGFloat angle = self.isMenuOpen ? M_PI_4:0;
     self.buttonMenu.transform = CGAffineTransformMakeRotation(angle);
@@ -74,20 +93,16 @@
     self.menuHeightConstraint.constant = self.isMenuOpen ? 200.0 : 60.0;
     self.titleLabel.text = self.isMenuOpen? @"Select Item":@"Packing List";
     [UIView animateWithDuration:1. delay:0. usingSpringWithDamping:.4 initialSpringVelocity:5. options:(UIViewAnimationOptionCurveEaseIn) animations:^{
+        if (self.isMenuOpen) {
+            for (NSLayoutConstraint *constraint in self.horizontalItemListView.constraints) {
+                constraint.active = YES;
+            }
+        }
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         
     }];
-//    if (self.isMenuOpen) {
-//        [self.titleLabel.superview addSubview:self.horizontalItemListView];
-//        [self.horizontalItemListView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.right.mas_equalTo(0);
-//            make.bottom.mas_equalTo(0);
-//            make.height.mas_equalTo(100);
-//        }];
-//    }else {
-//        [self.horizontalItemListView removeFromSuperview];
-//    }
+    
 }
 #pragma mark -UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
