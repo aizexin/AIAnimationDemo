@@ -120,7 +120,7 @@
 #pragma mark ----UI
 /**设置ui*/
 -(void)setUI{
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,MainSize.width , MainSize.height)
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, AINavgationBarH,MainSize.width , MainSize.height-AINavgationBarH)
                                                  style:(UITableViewStylePlain)];
     //去掉自带分割线
     [_tableView setSeparatorStyle:(UITableViewCellSeparatorStyleNone)];
