@@ -8,12 +8,12 @@
 
 #import "AIPackingListViewController.h"
 #import "AIHorizontalItemListView.h"
-@interface AIPackingListViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface AIPackingListViewController ()<UITableViewDelegate,UITableViewDataSource,AIHorizontalItemListViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buttonMenu;
 /** 数据*/
-@property(nonatomic,strong)NSArray *titleArray;
+@property(nonatomic,strong)NSMutableArray *dataSource;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *menuHeightConstraint;
 
 /**
@@ -26,16 +26,32 @@
 
 @implementation AIPackingListViewController
 
+-(NSMutableArray *)dataSource {
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+        NSArray *titleArray = @[@"Icecream money", @"Great weather", @"Beach ball", @"Swim suit for him", @"Swim suit for her", @"Beach games", @"Ironing board", @"Cocktail mood", @"Sunglasses", @"Flip flops"];
+        for (int i = 0; i < 8; i++) {
+            AIPackingModel *model = [[AIPackingModel alloc]init];
+            NSString *imageString = [NSString stringWithFormat:@"summericons_100px_0%d",i];
+            model.image           = imageString;
+            model.title           = titleArray[i];
+            [_dataSource addObject:model];
+        }
+    }
+    return _dataSource;
+}
+
 -(AIHorizontalItemListView *)horizontalItemListView {
     if (!_horizontalItemListView) {
-        _horizontalItemListView = [[AIHorizontalItemListView alloc]init];
+        _horizontalItemListView          = [[AIHorizontalItemListView alloc]init];
+        _horizontalItemListView.delegate = self;
     }
     return _horizontalItemListView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[@"Icecream money", @"Great weather", @"Beach ball", @"Swim suit for him", @"Swim suit for her", @"Beach games", @"Ironing board", @"Cocktail mood", @"Sunglasses", @"Flip flops"];
+    
 //    self.titleArray     = titleArray;
 }
 -(void)viewWillAppear:(BOOL)animated {
@@ -90,7 +106,7 @@
     CGFloat angle = self.isMenuOpen ? M_PI_4:0;
     self.buttonMenu.transform = CGAffineTransformMakeRotation(angle);
     //高度
-    self.menuHeightConstraint.constant = self.isMenuOpen ? 200.0 : 60.0;
+    self.menuHeightConstraint.constant = self.isMenuOpen ? 150.0 : 60.0;
     self.titleLabel.text = self.isMenuOpen? @"Select Item":@"Packing List";
     [UIView animateWithDuration:1. delay:0. usingSpringWithDamping:.4 initialSpringVelocity:5. options:(UIViewAnimationOptionCurveEaseIn) animations:^{
         if (self.isMenuOpen) {
@@ -106,16 +122,22 @@
 }
 #pragma mark -UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.dataSource.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (!cell) {
         cell              = [[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"Cell"];
     }
-    cell.imageView.image  = [UIImage imageNamed:[NSString stringWithFormat:@"summericons_100px_0%ld",indexPath.row]];
-    cell.textLabel.text   = self.titleArray[indexPath.row];
+    AIPackingModel *model = self.dataSource[indexPath.item];
+    cell.imageView.image  = [UIImage imageNamed:model.image];
+    cell.textLabel.text   = model.title;
     return cell;
+}
+#pragma mark -AIHorizontalItemListViewDelegat
+-(void)horizontalItemListView:(AIHorizontalItemListView *)listView didSelectedModel:(AIPackingModel *)model {
+    [self.dataSource addObject:model];
+    [self.tableView reloadData];
 }
 
 @end

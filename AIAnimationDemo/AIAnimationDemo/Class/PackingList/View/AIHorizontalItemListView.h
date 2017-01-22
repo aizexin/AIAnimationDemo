@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AIPackingModel.h"
+@class AIHorizontalItemListView;
+@protocol AIHorizontalItemListViewDelegate <NSObject>
 
+-(void)horizontalItemListView:(AIHorizontalItemListView*)listView didSelectedModel:(AIPackingModel*)model;
+
+@end
 @interface AIHorizontalItemListView : UIView
+/** 代理*/
+@property(nonatomic,weak)id<AIHorizontalItemListViewDelegate> delegate;
 
 @end

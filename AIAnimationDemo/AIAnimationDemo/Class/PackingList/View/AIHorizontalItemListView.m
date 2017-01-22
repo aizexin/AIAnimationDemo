@@ -20,9 +20,13 @@ static NSString *identifier = @"cell";
 -(NSMutableArray *)dataSource {
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
+        NSArray *titleArray = @[@"Icecream money", @"Great weather", @"Beach ball", @"Swim suit for him", @"Swim suit for her", @"Beach games", @"Ironing board", @"Cocktail mood", @"Sunglasses", @"Flip flops"];
         for (int i = 0; i < 8; i++) {
+            AIPackingModel *model = [[AIPackingModel alloc]init];
             NSString *imageString = [NSString stringWithFormat:@"summericons_100px_0%d",i];
-            [_dataSource addObject:imageString];
+            model.image           = imageString;
+            model.title           = titleArray[i];
+            [_dataSource addObject:model];
         }
     }
     return _dataSource;
@@ -37,6 +41,7 @@ static NSString *identifier = @"cell";
         flowLaout.itemSize                    = CGSizeMake(60, 60);
         flowLaout.scrollDirection             = UICollectionViewScrollDirectionHorizontal;
         UICollectionView *collectionView      = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, KWidth, 60) collectionViewLayout:flowLaout];
+        collectionView.showsHorizontalScrollIndicator = NO;
         collectionView.delegate               = self;
         collectionView.dataSource             = self;
         collectionView.backgroundColor        = [UIColor clearColor];
@@ -59,8 +64,16 @@ static NSString *identifier = @"cell";
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     AIPackingCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    cell.imageString                  = self.dataSource[indexPath.item];
+    AIPackingModel *model = self.dataSource[indexPath.item];
+    cell.imageString      = model.image;
     return cell;
+}
+#pragma mark -UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    AILog(@"---%ld",indexPath.row);
+    if (self.delegate && [self.delegate respondsToSelector:@selector(horizontalItemListView:didSelectedModel:)]) {
+        [self.delegate horizontalItemListView:self didSelectedModel:self.dataSource[indexPath.item]];
+    }
 }
 
 
