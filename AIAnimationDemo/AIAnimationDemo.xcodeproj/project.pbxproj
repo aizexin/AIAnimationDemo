@@ -51,6 +51,9 @@
 		4546AD341DD1B89A006F230C /* AITapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD331DD1B89A006F230C /* AITapTableViewCell.m */; };
 		4546AD381DD1B8C2006F230C /* AITapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546AD371DD1B8C2006F230C /* AITapModel.m */; };
 		454B9B811E2A7B8600E7F9CF /* AppleSystemService.m in Sources */ = {isa = PBXBuildFile; fileRef = 454B9B801E2A7B8600E7F9CF /* AppleSystemService.m */; };
+		454DBC301E3650680025ACAE /* AISlideToRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454DBC2F1E3650680025ACAE /* AISlideToRevealViewController.m */; };
+		454DBC321E3651180025ACAE /* AISlideToRevealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454DBC311E3651180025ACAE /* AISlideToRevealViewController.xib */; };
+		454DBC351E3653590025ACAE /* AIAnimationMaskLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 454DBC341E3653590025ACAE /* AIAnimationMaskLabel.m */; };
 		455440A41DB9DF3A0025DCA4 /* AIRectangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 455440A31DB9DF3A0025DCA4 /* AIRectangleLayer.m */; };
 		455440AA1DBA15B10025DCA4 /* AIWaveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 455440A91DBA15B10025DCA4 /* AIWaveLayer.m */; };
 		455DF5C11DB46D8600D3E84A /* AIScrollImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455DF5C01DB46D8600D3E84A /* AIScrollImageViewController.m */; };
@@ -238,6 +241,11 @@
 		4546AD371DD1B8C2006F230C /* AITapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITapModel.m; sourceTree = "<group>"; };
 		454B9B7F1E2A7B8600E7F9CF /* AppleSystemService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleSystemService.h; sourceTree = "<group>"; };
 		454B9B801E2A7B8600E7F9CF /* AppleSystemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleSystemService.m; sourceTree = "<group>"; };
+		454DBC2E1E3650680025ACAE /* AISlideToRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISlideToRevealViewController.h; sourceTree = "<group>"; };
+		454DBC2F1E3650680025ACAE /* AISlideToRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISlideToRevealViewController.m; sourceTree = "<group>"; };
+		454DBC311E3651180025ACAE /* AISlideToRevealViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISlideToRevealViewController.xib; sourceTree = "<group>"; };
+		454DBC331E3653590025ACAE /* AIAnimationMaskLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAnimationMaskLabel.h; sourceTree = "<group>"; };
+		454DBC341E3653590025ACAE /* AIAnimationMaskLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAnimationMaskLabel.m; sourceTree = "<group>"; };
 		455440A21DB9DF3A0025DCA4 /* AIRectangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRectangleLayer.h; sourceTree = "<group>"; };
 		455440A31DB9DF3A0025DCA4 /* AIRectangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRectangleLayer.m; sourceTree = "<group>"; };
 		455440A81DBA15B10025DCA4 /* AIWaveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWaveLayer.h; sourceTree = "<group>"; };
@@ -904,6 +912,42 @@
 			path = AppleSystemService;
 			sourceTree = "<group>";
 		};
+		454DBC2A1E364FE10025ACAE /* SlideToReveal */ = {
+			isa = PBXGroup;
+			children = (
+				454DBC2B1E364FE10025ACAE /* Controller */,
+				454DBC2C1E364FE10025ACAE /* Model */,
+				454DBC2D1E364FE10025ACAE /* View */,
+			);
+			path = SlideToReveal;
+			sourceTree = "<group>";
+		};
+		454DBC2B1E364FE10025ACAE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				454DBC2E1E3650680025ACAE /* AISlideToRevealViewController.h */,
+				454DBC2F1E3650680025ACAE /* AISlideToRevealViewController.m */,
+				454DBC311E3651180025ACAE /* AISlideToRevealViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		454DBC2C1E364FE10025ACAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		454DBC2D1E364FE10025ACAE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				454DBC331E3653590025ACAE /* AIAnimationMaskLabel.h */,
+				454DBC341E3653590025ACAE /* AIAnimationMaskLabel.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		455DF5BC1DB46D4E00D3E84A /* Pop8 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1068,6 +1112,7 @@
 				45F7E5081E11522B00721BCB /* PlayMusicView */,
 				451588551E12A82400610F6D /* FlightInfo */,
 				45C15B0A1E2D12CF0021E9D3 /* PackingList */,
+				454DBC2A1E364FE10025ACAE /* SlideToReveal */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1698,6 +1743,7 @@
 				456BA6661E07BDF500805F7C /* Assets.xcassets in Resources */,
 				455E289C1D98C0D300E3DA4D /* LaunchScreen.storyboard in Resources */,
 				4515885C1E12AA4300610F6D /* AIFlightInfoViewController.xib in Resources */,
+				454DBC321E3651180025ACAE /* AISlideToRevealViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1829,6 +1875,7 @@
 				45C9EAB01DD4494F007B6418 /* AIBaseSettingViewController.m in Sources */,
 				4545160C1E0A81CE00F3BCF9 /* AITextView.m in Sources */,
 				45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */,
+				454DBC301E3650680025ACAE /* AISlideToRevealViewController.m in Sources */,
 				45C9EAB51DD44EAA007B6418 /* AISettingTableViewCell.m in Sources */,
 				4505FEA11DAF441800AE4FED /* AIBaseViewController.m in Sources */,
 				455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */,
@@ -1885,6 +1932,7 @@
 				45D43DF01DACC2570022F86A /* easing.c in Sources */,
 				45C9EAC81DD58D64007B6418 /* AIDestOneViewController.m in Sources */,
 				4592CACC1DF7075D00B76A27 /* AITmallLoadingView.m in Sources */,
+				454DBC351E3653590025ACAE /* AIAnimationMaskLabel.m in Sources */,
 				45E44A331DE4314A009B50BC /* AILoginAnimationViewController.m in Sources */,
 				45D43E111DACDD120022F86A /* UIView+AnimationProperty.m in Sources */,
 				455DF5CE1DB4940C00D3E84A /* AIWellComeLoadViewController.m in Sources */,
