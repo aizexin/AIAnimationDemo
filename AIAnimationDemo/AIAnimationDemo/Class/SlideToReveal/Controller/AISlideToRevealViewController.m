@@ -13,9 +13,24 @@
 @end
 
 @implementation AISlideToRevealViewController
-
+- (instancetype)init {
+    self = [[NSBundle mainBundle]loadNibNamed:@"AISlideToRevealViewController" owner:nil options:nil].lastObject;
+    if (self) {
+        
+    }
+    return self;
+}
 - (void)viewDidLoad {
+    
 
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 
