@@ -9,6 +9,7 @@
 #import "AISlideToRevealViewController.h"
 
 @interface AISlideToRevealViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
@@ -21,7 +22,11 @@
     return self;
 }
 - (void)viewDidLoad {
-    
+    [super viewDidLoad];
+    NSDate *date                    = [NSDate date];
+    NSDateFormatter *dateFormatter  = [[NSDateFormatter alloc]init];
+     dateFormatter.dateFormat       = @"HH:mm";
+    self.timeLabel.text             = [dateFormatter stringFromDate:date];
 
 }
 -(void)viewWillAppear:(BOOL)animated {
