@@ -7,9 +7,11 @@
 //
 
 #import "AISlideToRevealViewController.h"
-
+#import "AIAnimationMaskLabel.h"
 @interface AISlideToRevealViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
+@property (weak, nonatomic) IBOutlet AIAnimationMaskLabel *maskLabel;
 
 @end
 
