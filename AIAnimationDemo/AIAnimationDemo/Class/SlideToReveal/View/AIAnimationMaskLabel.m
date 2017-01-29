@@ -13,7 +13,7 @@
 @property(nonatomic,strong)CAGradientLayer *gradientLayer;
 /** 文字*/
 @property(nonatomic,strong)NSDictionary *textAttributes;
-@property(nonatomic,copy)NSString *text;
+@property(nonatomic,copy)IBInspectable NSString *text;
 @end
 @implementation AIAnimationMaskLabel
 
@@ -36,15 +36,20 @@
     return _gradientLayer;
 }
 -(void)setText:(NSString *)text {
+    _text = text;
     [self setNeedsDisplay];
     UIGraphicsBeginImageContext(self.frame.size);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     [_text drawInRect:self.bounds withAttributes:self.textAttributes];
     UIGraphicsEndImageContext();
     
     CALayer *maskLayer      = [CALayer layer];
     maskLayer.backgroundColor   = [UIColor clearColor].CGColor;
-//    maskLayer
+    maskLayer.frame         = self.bounds;//CGRectMake(self.bounds.size.width, 0, self.bounds.size.width, self.bounds.size.height);
+    maskLayer.contents      = (__bridge id _Nullable)(image.CGImage);
+    
+    self.gradientLayer.mask = maskLayer;
 }
 
 -(NSDictionary *)textAttributes {
@@ -61,10 +66,16 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        UIImage *image = UIGraphicsBeginImageContextWithOptions(<#CGSize size#>, <#BOOL opaque#>, <#CGFloat scale#>)
+        self.text = @"123";
     }
     return self;
 }
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    self.text = @"123";
+}
+
 -(void)layoutSubviews {
     [super layoutSubviews];
     self.gradientLayer.frame = self.bounds;
