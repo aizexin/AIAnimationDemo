@@ -14,6 +14,7 @@
 /** 文字*/
 @property(nonatomic,strong)NSDictionary *textAttributes;
 @property(nonatomic,copy)IBInspectable NSString *text;
+
 @end
 @implementation AIAnimationMaskLabel
 
@@ -37,19 +38,21 @@
 }
 -(void)setText:(NSString *)text {
     _text = text;
-    [self setNeedsDisplay];
+//    [self setNeedsDisplay];
     UIGraphicsBeginImageContext(self.frame.size);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
      UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     [_text drawInRect:self.bounds withAttributes:self.textAttributes];
     UIGraphicsEndImageContext();
     
+    
+    
     CALayer *maskLayer      = [CALayer layer];
     maskLayer.backgroundColor   = [UIColor clearColor].CGColor;
-    maskLayer.frame         = self.bounds;//CGRectMake(self.bounds.size.width, 0, self.bounds.size.width, self.bounds.size.height);
+    maskLayer.frame         = CGRectMake(self.bounds.size.width, 0, self.bounds.size.width, self.bounds.size.height);
     maskLayer.contents      = (__bridge id _Nullable)(image.CGImage);
     
-    self.gradientLayer.mask = maskLayer;
+//    self.gradientLayer.mask = maskLayer;
 }
 
 -(NSDictionary *)textAttributes {
