@@ -46,7 +46,7 @@ typedef enum : NSUInteger {
     
     //icon
     self.iconImageView               = [[UIImageView alloc]init];
-    self.iconImageView.image         = [UIImage imageNamed:@"plane"];
+    self.iconImageView.image         = [UIImage imageNamed:@"plane1"];
     self.iconImageView.alpha         = 0.f;
     [self.contentView addSubview:self.iconImageView];
     
