@@ -1,5 +1,8 @@
 #AIAnimationDemo
 
++ packing
+
+![packing.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/packing.gif)
 
 + 航班信息
 
