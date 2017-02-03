@@ -36,7 +36,7 @@ BLY_START_NONNULL
  *  使用指定配置初始化Bugly
  *
  *  @param appId 注册Bugly分配的应用唯一标识
- *  @param developmentDevice 是否开发设备
+ *  @param development 是否开发设备
  *  @param config 传入配置的 BuglyConfig
  */
 + (void)startWithAppId:(NSString * BLY_NULLABLE)appId
@@ -60,8 +60,8 @@ BLY_START_NONNULL
 /**
  *  设置关键数据，随崩溃信息上报
  *
- *  @param value
- *  @param key
+ *  @param value 值
+ *  @param key key
  */
 + (void)setUserValue:(NSString *)value
               forKey:(NSString *)key;
@@ -123,7 +123,7 @@ BLY_START_NONNULL
 /**
  *  SDK 版本信息
  *
- *  @return
+ *  @return 版本号
  */
 + (NSString *)sdkVersion;
 

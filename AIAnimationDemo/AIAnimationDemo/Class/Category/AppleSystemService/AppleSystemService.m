@@ -12,7 +12,7 @@
 
 + (void)directPhoneCallWithPhoneNum:(NSString *)phoneNum {
     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"tel:" stringByAppendingString:phoneNum]]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"tel:" stringByAppendingString:phoneNum]]options:@{} completionHandler:nil];
 }
 
 + (void)phoneCallWithPhoneNum:(NSString *)phoneNum contentView:(UIView *)view {
@@ -24,12 +24,12 @@
 
 + (void)jumpToAppReviewPageWithAppId:(NSString *)appId {
 
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=" stringByAppendingString:appId]]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=" stringByAppendingString:appId]]options:@{} completionHandler:nil];
 }
 
 + (void)sendEmailToAddress:(NSString *)address {
 
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"mailto://" stringByAppendingString:address]]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"mailto://" stringByAppendingString:address]]options:@{} completionHandler:nil];
 }
 
 + (NSString *)appVersion {
