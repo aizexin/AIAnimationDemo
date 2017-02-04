@@ -38,21 +38,24 @@
 }
 -(void)setText:(NSString *)text {
     _text = text;
-//    [self setNeedsDisplay];
+    [self setNeedsDisplay];
     UIGraphicsBeginImageContext(self.frame.size);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
-     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     [_text drawInRect:self.bounds withAttributes:self.textAttributes];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    
+
+//    UIImageView *imageView  = [[UIImageView alloc]init];
+//    imageView.image         = image;
+//    imageView.frame         = self.bounds;
+//    [self addSubview:imageView];
     
     CALayer *maskLayer      = [CALayer layer];
     maskLayer.backgroundColor   = [UIColor clearColor].CGColor;
     maskLayer.frame         = CGRectMake(self.bounds.size.width, 0, self.bounds.size.width, self.bounds.size.height);
     maskLayer.contents      = (__bridge id _Nullable)(image.CGImage);
     
-//    self.gradientLayer.mask = maskLayer;
+    self.gradientLayer.mask = maskLayer;
 }
 
 -(NSDictionary *)textAttributes {
@@ -69,22 +72,25 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.text = @"123";
+//        self.text = @"123";
     }
     return self;
 }
 
 -(void)awakeFromNib {
     [super awakeFromNib];
-    self.text = @"123";
 }
 
 -(void)layoutSubviews {
     [super layoutSubviews];
-    self.gradientLayer.frame = self.bounds;
+    self.gradientLayer.frame = CGRectMake(-self.bounds.size.width,
+                                          self.bounds.origin.y,
+                                          3 * self.bounds.size.width,
+                                          self.bounds.size.height);
 }
 -(void)didMoveToWindow {
     [super didMoveToWindow];
+    
     [self.layer addSublayer:self.gradientLayer];
     CABasicAnimation *gradientAnimation = [CABasicAnimation animationWithKeyPath:@"locations"];
     gradientAnimation.fromValue         = @[@0.0, @0.0, @0.25];
