@@ -68,18 +68,6 @@
     }
     return _textAttributes;
 }
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-//        self.text = @"123";
-    }
-    return self;
-}
-
--(void)awakeFromNib {
-    [super awakeFromNib];
-}
 
 -(void)layoutSubviews {
     [super layoutSubviews];

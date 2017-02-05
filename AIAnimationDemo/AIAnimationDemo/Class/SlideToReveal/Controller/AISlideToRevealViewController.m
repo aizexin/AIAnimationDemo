@@ -8,6 +8,7 @@
 
 #import "AISlideToRevealViewController.h"
 #import "AIAnimationMaskLabel.h"
+#import <MLTransition.h>
 @interface AISlideToRevealViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
@@ -29,15 +30,46 @@
     NSDateFormatter *dateFormatter  = [[NSDateFormatter alloc]init];
      dateFormatter.dateFormat       = @"HH:mm";
     self.timeLabel.text             = [dateFormatter stringFromDate:date];
+    
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(didSlide)];
+    swipe.direction                 = UISwipeGestureRecognizerDirectionRight;
+    [self.maskLabel addGestureRecognizer:swipe];
+    
+    self.maskLabel.disableMLTransition = YES;
 
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
 }
--(void)viewWillDisappear:(BOOL)animated{
+-(void)viewDidDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
+}
+
+#pragma mark -Action 
+- (void)didSlide {
+    UIImageView *imageView          = [[UIImageView alloc]init];
+    imageView.image                 = [UIImage imageNamed:@"meme"];
+    imageView.ai_viewSize           = CGSizeMake(200, 200);
+    imageView.center                = self.view.center;
+    imageView.ai_centerX            = self.view.ai_centerX + KWidth;
+    [self.view addSubview:imageView];
+    
+    [UIView animateWithDuration:.33 delay:0 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
+        self.timeLabel.ai_centerY    -= 200.;
+        self.maskLabel.ai_centerY    += 200.;
+        imageView.ai_centerX         -= KWidth;
+    } completion:^(BOOL finished) {
+        
+    }];
+    [UIView animateWithDuration:.33 delay:1.0 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
+        self.timeLabel.ai_centerY    += 200.;
+        self.maskLabel.ai_centerY    -= 200.;
+        imageView.ai_centerX         += KWidth;
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 
