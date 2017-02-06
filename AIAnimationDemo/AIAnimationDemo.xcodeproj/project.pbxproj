@@ -99,6 +99,7 @@
 		45C9EAC81DD58D64007B6418 /* AIDestOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAC71DD58D64007B6418 /* AIDestOneViewController.m */; };
 		45C9EACE1DD5AF16007B6418 /* PPNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EACD1DD5AF16007B6418 /* PPNumberButton.m */; };
 		45D1103E1E45C13700BB1CEB /* AIAnimationMaskLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 454DBC341E3653590025ACAE /* AIAnimationMaskLabel.m */; };
+		45D110541E48C85700BB1CEB /* AIRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D110531E48C85700BB1CEB /* AIRefreshView.m */; };
 		45D43DE71DACB7170022F86A /* AISpringScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */; };
 		45D43DF01DACC2570022F86A /* easing.c in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DEC1DACC2570022F86A /* easing.c */; };
 		45D43DF11DACC2570022F86A /* YXEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DEF1DACC2570022F86A /* YXEasing.m */; };
@@ -337,6 +338,8 @@
 		45C9EAC71DD58D64007B6418 /* AIDestOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDestOneViewController.m; sourceTree = "<group>"; };
 		45C9EACC1DD5AF16007B6418 /* PPNumberButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNumberButton.h; sourceTree = "<group>"; };
 		45C9EACD1DD5AF16007B6418 /* PPNumberButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNumberButton.m; sourceTree = "<group>"; };
+		45D110521E48C85700BB1CEB /* AIRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRefreshView.h; sourceTree = "<group>"; };
+		45D110531E48C85700BB1CEB /* AIRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRefreshView.m; sourceTree = "<group>"; };
 		45D43DE51DACB7170022F86A /* AISpringScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISpringScaleViewController.h; sourceTree = "<group>"; };
 		45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISpringScaleViewController.m; sourceTree = "<group>"; };
 		45D43DEC1DACC2570022F86A /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
@@ -1358,6 +1361,8 @@
 				456C42A11E3250E200F36403 /* AIHorizontalItemListView.m */,
 				456C42A31E32585700F36403 /* AIPackingCollectionViewCell.h */,
 				456C42A41E32585700F36403 /* AIPackingCollectionViewCell.m */,
+				45D110521E48C85700BB1CEB /* AIRefreshView.h */,
+				45D110531E48C85700BB1CEB /* AIRefreshView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1893,6 +1898,7 @@
 				45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */,
 				45D43DF11DACC2570022F86A /* YXEasing.m in Sources */,
 				4515887D1E155CB000610F6D /* AIFlightDataModel.m in Sources */,
+				45D110541E48C85700BB1CEB /* AIRefreshView.m in Sources */,
 				4505FECB1DAF537300AE4FED /* NSString+StringAttribute.m in Sources */,
 				451D28191DBCDCE50070BFCA /* AIButtonsViewController.m in Sources */,
 				452445E91DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m in Sources */,
