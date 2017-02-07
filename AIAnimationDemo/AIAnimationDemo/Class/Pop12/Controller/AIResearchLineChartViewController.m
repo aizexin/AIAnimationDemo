@@ -9,10 +9,15 @@
 #import "AIResearchLineChartViewController.h"
 #import <ResearchKit.h>
 #import "AILineGraphChartDataSource.h"
+#import "AILineGraphChartRefreshDateSource.h"
 @interface AIResearchLineChartViewController ()
 
 /** 数据源*/
 @property(nonatomic,strong)AILineGraphChartDataSource *lineGraphChartDataSource;
+/** 刷新数据源*/
+@property(nonatomic,strong)AILineGraphChartRefreshDateSource *refreshDataSource;
+/** 图表*/
+@property(nonatomic,weak)ORKLineGraphChartView *chartView;
 @end
 
 @implementation AIResearchLineChartViewController
@@ -23,10 +28,17 @@
     }
     return _lineGraphChartDataSource;
 }
+-(AILineGraphChartRefreshDateSource *)refreshDataSource {
+    if (!_refreshDataSource) {
+        _refreshDataSource = [[AILineGraphChartRefreshDateSource alloc]init];
+    }
+    return _refreshDataSource;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     ORKLineGraphChartView *chartView = [[ORKLineGraphChartView alloc]initWithFrame:CGRectMake(0, 135, self.view.frame.size.width, 300)];
+    self.chartView                   = chartView;
     chartView.dataSource             = self.lineGraphChartDataSource;
     [self.view addSubview:chartView];
     
@@ -42,6 +54,10 @@
     
 //    chartView
     [chartView animateWithDuration:2.];
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.chartView.dataSource       = self.refreshDataSource;
+    [_chartView animateWithDuration:2.];
 }
 
 
