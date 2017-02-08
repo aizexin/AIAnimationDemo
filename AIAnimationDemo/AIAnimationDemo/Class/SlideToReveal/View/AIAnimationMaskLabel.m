@@ -11,7 +11,7 @@
 @interface AIAnimationMaskLabel ()
 
 @property(nonatomic,strong)CAGradientLayer *gradientLayer;
-/** 文字*/
+/** 文字属性*/
 @property(nonatomic,strong)NSDictionary *textAttributes;
 @property(nonatomic,copy)IBInspectable NSString *text;
 
@@ -21,20 +21,28 @@
 -(CAGradientLayer *)gradientLayer {
     if (!_gradientLayer) {
         _gradientLayer = [CAGradientLayer layer];
+        // Configure the gradient here
         _gradientLayer.startPoint    = CGPointMake(0., .5);
         _gradientLayer.endPoint      = CGPointMake(1., .5);
         
+        //Challenges
+//        NSArray *colors    =  @[
+//                               (__bridge id)[UIColor yellowColor].CGColor,
+//                               (__bridge id)[UIColor greenColor].CGColor,
+//                               (__bridge id)[UIColor orangeColor].CGColor,
+//                               (__bridge id)[UIColor cyanColor].CGColor,
+//                               (__bridge id)[UIColor redColor].CGColor,
+//                               (__bridge id)[UIColor yellowColor].CGColor
+//                               ];
         NSArray *colors    =  @[
-                               (__bridge id)[UIColor yellowColor].CGColor,
-                               (__bridge id)[UIColor greenColor].CGColor,
-                               (__bridge id)[UIColor orangeColor].CGColor,
-                               (__bridge id)[UIColor cyanColor].CGColor,
-                               (__bridge id)[UIColor redColor].CGColor,
-                               (__bridge id)[UIColor yellowColor].CGColor
-                               ];
+                                (__bridge id)[UIColor blackColor].CGColor,
+                                (__bridge id)[UIColor whiteColor].CGColor,
+                                (__bridge id)[UIColor blackColor].CGColor,
+                                ];
         _gradientLayer.colors        = colors;
-        
-        NSArray *locations = @[@0.65, @0.8, @0.85, @0.9, @0.95,@1.];
+        //Challenges
+//        NSArray *locations = @[@0.65, @0.8, @0.85, @0.9, @0.95,@1.];
+         NSArray *locations = @[@0.25,@.5,@.75];
         _gradientLayer.locations     = locations;
     }
     return _gradientLayer;
@@ -47,7 +55,7 @@
     [_text drawInRect:self.bounds withAttributes:self.textAttributes];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+// test
 //    UIImageView *imageView  = [[UIImageView alloc]init];
 //    imageView.image         = image;
 //    imageView.frame         = self.bounds;
@@ -84,8 +92,11 @@
     
     [self.layer addSublayer:self.gradientLayer];
     CABasicAnimation *gradientAnimation = [CABasicAnimation animationWithKeyPath:@"locations"];
-    gradientAnimation.fromValue         = @[@0.0, @0.0,@0.0, @0.0,@0.0, @0.0, @0.25];
-    gradientAnimation.toValue           = @[@0.65, @0.8, @0.85, @0.9, @0.95,@1.];
+    gradientAnimation.fromValue         = @[@0.0, @0.0, @0.25];
+    gradientAnimation.toValue           = @[@.75,@1.,@1.];
+    //Challenges
+//    gradientAnimation.fromValue         = @[@0.0, @0.0,@0.0, @0.0,@0.0, @0.0, @0.25];
+//    gradientAnimation.toValue           = @[@0.65, @0.8, @0.85, @0.9, @0.95,@1.];
     gradientAnimation.duration          = 3.;
     gradientAnimation.repeatCount       = INFINITY;
     [self.gradientLayer addAnimation:gradientAnimation forKey:nil];
