@@ -85,14 +85,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     //需要1，x真实数据  2x显示数据 3 点的数据
     AIDiscreteGraphChartView *chartView = [[AIDiscreteGraphChartView alloc]init];
     chartView.maxValue                  = 100.;
-    chartView.frame                     = self.view.bounds;
     chartView.dataSource                = self;
     chartView.xExistArrayM              = self.xExistArrayM;
     chartView.xShowArrayM               = self.xShowArrayM;
     [self.view addSubview:chartView];
+    [chartView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.top.bottom.mas_equalTo(0);
+    }];
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 #pragma mark -AIDiscreteGraphChartDataSource 
