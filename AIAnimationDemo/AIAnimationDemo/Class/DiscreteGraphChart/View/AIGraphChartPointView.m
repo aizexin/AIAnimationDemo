@@ -55,4 +55,10 @@
     }];
 }
 
+#pragma mark -public
+-(void)setPointColor:(UIColor *)pointColor {
+    _pointColor = pointColor;
+    self.pointView.layer.borderColor = pointColor.CGColor;
+}
+
 @end

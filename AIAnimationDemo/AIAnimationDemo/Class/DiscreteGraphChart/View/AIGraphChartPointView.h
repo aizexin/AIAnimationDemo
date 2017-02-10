@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface AIGraphChartPointView : UIView
+/** 颜色*/
+@property(nonatomic,strong)UIColor *pointColor;
+/** title*/
+@property(nonatomic, copy)NSString *pointTitle;
 
 @end

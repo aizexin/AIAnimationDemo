@@ -10,9 +10,6 @@
 #import "AIGraphChartPointView.h"
 @interface AIDiscreteGraphChartCell ()
 
-
-
-
 @end
 
 @implementation AIDiscreteGraphChartCell
@@ -22,8 +19,9 @@
     _pointsArrayM = pointsArrayM;
     for (AIDiscretePointModel *itemModel in pointsArrayM) {
         AIGraphChartPointView *pointView = [[AIGraphChartPointView alloc]init];
+        pointView.pointColor             = itemModel.color;
+//        pointView.pointTitle             = itemMode
         [self addSubview:pointView];
-        
         //空的柱子
         UIView *pillarView  = [[UIView alloc]init];
         [self addSubview:pillarView];
