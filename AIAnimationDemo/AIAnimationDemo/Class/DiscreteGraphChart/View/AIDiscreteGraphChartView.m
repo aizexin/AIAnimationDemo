@@ -64,9 +64,10 @@
 }
 
 #pragma mark -public
-
 -(void)reloadData {
-    
+    self.dataSource   = _dataSource;
+    self.xExistArrayM = _xExistArrayM;
+    self.xShowArrayM  = _xShowArrayM;
 }
 
 -(void)setMaxValue:(CGFloat)maxValue {
@@ -74,6 +75,11 @@
 }
 -(void)setDataSource:(id<AIDiscreteGraphChartDataSource>)dataSource {
     _dataSource = dataSource;
+    
+    //先清空以前的数据
+    [self.chartView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.cellArrayM = nil;
+    
     NSInteger number = [self.dataSource numberOfCellDiscreteGraphChartView:self];
     _cellWith        = self.chartView.bounds.size.width /(CGFloat)number;
     for (int i = 0; i < number ; i++) {
@@ -98,6 +104,8 @@
 }
 -(void)setXExistArrayM:(NSMutableArray *)xExistArrayM {
     _xExistArrayM = xExistArrayM;
+    //清空以前的
+    [self.xAxleView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     //存在的都要添加上去
     for (NSString *title in xExistArrayM) {
         UILabel *xLabel      = [[UILabel alloc]init];

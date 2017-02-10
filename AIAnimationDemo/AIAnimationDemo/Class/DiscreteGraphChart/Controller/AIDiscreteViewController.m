@@ -16,6 +16,8 @@
 @property(nonatomic,strong)NSMutableArray *xExistArrayM;
 /** x显示数据*/
 @property(nonatomic,strong)NSMutableArray *xShowArrayM;
+/** 图*/
+@property(nonatomic,weak)AIDiscreteGraphChartView *chartView;
 @end
 
 @implementation AIDiscreteViewController
@@ -88,6 +90,7 @@
 
     //需要1，x真实数据  2x显示数据 3 点的数据
     AIDiscreteGraphChartView *chartView = [[AIDiscreteGraphChartView alloc]init];
+    self.chartView                      = chartView;
     chartView.maxValue                  = 100.;
     chartView.dataSource                = self;
     chartView.xExistArrayM              = self.xExistArrayM;
@@ -122,6 +125,14 @@
 }
 - (NSInteger)numberOfCellDiscreteGraphChartView:(AIDiscreteGraphChartView*)chartView {
     return self.xExistArrayM.count;
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    AIDiscretePointModel *model     = [[AIDiscretePointModel alloc]init];
+    model.xValue                    = @"2017-02-01";
+    model.yValue                    = @"80";
+    model.color                     = [UIColor blueColor];
+    [_dataSource addObject:model];
+    [self.chartView reloadData];
 }
 
 
