@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AIDiscretePointModel.h"
 @interface AIDiscreteGraphChartCell : UIView
 /** 数据源*/
-@property(nonatomic,strong)NSMutableArray *pointsArrayM;
+@property(nonatomic,strong)NSMutableArray<AIDiscretePointModel*> *pointsArrayM;
 /**
  最大值
  */

@@ -8,7 +8,6 @@
 
 #import "AIDiscreteGraphChartCell.h"
 #import "AIGraphChartPointView.h"
-#import "AIDiscretePointModel.h"
 @interface AIDiscreteGraphChartCell ()
 
 
@@ -24,11 +23,12 @@
     for (AIDiscretePointModel *itemModel in pointsArrayM) {
         AIGraphChartPointView *pointView = [[AIGraphChartPointView alloc]init];
         [self addSubview:pointView];
-        CGFloat yValue    = self.bounds.size.height * ([itemModel.yValue floatValue]/_maxValue);
+//        CGFloat yValue    = self.bounds.size.height * ([itemModel.yValue floatValue]/_maxValue);
         [pointView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.left.mas_equalTo(0);
             make.height.mas_equalTo(20);
-            make.bottom.mas_equalTo(-yValue);
+//            make.bottom.mas_equalTo(self.mas_height).multipliedBy([itemModel.yValue floatValue]/_maxValue);
+            make.bottom.mas_equalTo(30);
         }];
     }
 }
