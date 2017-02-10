@@ -29,6 +29,13 @@
     return _xExistArrayM;
 }
 
+-(NSMutableArray *)xShowArrayM {
+    if (!_xShowArrayM) {
+        _xShowArrayM = [NSMutableArray arrayWithObjects:@"2017-02-01",@"2017-02-07",@"2017-02-10", nil];
+    }
+    return _xShowArrayM;
+}
+
 -(NSMutableArray *)dataSource {
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
@@ -76,6 +83,7 @@
     chartView.frame                     = self.view.bounds;
     chartView.dataSource                = self;
     chartView.xExistArrayM              = self.xExistArrayM;
+    chartView.xShowArrayM               = self.xShowArrayM;
     [self.view addSubview:chartView];
 }
 

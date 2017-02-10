@@ -101,12 +101,13 @@
     //存在的都要添加上去
     for (NSString *title in xExistArrayM) {
         UILabel *xLabel      = [[UILabel alloc]init];
+        xLabel.hidden        = YES;
         xLabel.adjustsFontSizeToFitWidth = YES;
         xLabel.textAlignment = NSTextAlignmentCenter;
         xLabel.text          = title;
         [self.xAxleView addSubview:xLabel];
     }
-    UILabel *lastLabel       ;
+    UILabel *lastLabel;
     
     for (UILabel *label in self.xAxleView.subviews) {
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -119,6 +120,17 @@
             make.width.mas_equalTo(self.chartView).dividedBy(self.cellArrayM.count);
         }];
         lastLabel            = label;
+    }
+}
+
+-(void)setXShowArrayM:(NSMutableArray *)xShowArrayM {
+    _xShowArrayM = xShowArrayM;
+    for (int i = 0; i< xShowArrayM.count; i++) {
+        for (UILabel *label in self.xAxleView.subviews) {
+            if ([label.text isEqualToString:xShowArrayM[i]]) {
+                label.hidden = NO;
+            }
+        }
     }
 }
 
