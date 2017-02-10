@@ -28,7 +28,7 @@
             make.right.left.mas_equalTo(0);
             make.height.mas_equalTo(20);
 //            make.bottom.mas_equalTo(self.mas_height).multipliedBy([itemModel.yValue floatValue]/_maxValue);
-            make.bottom.mas_equalTo(30);
+            make.bottom.mas_equalTo(-[itemModel.yValue floatValue]);
         }];
     }
 }

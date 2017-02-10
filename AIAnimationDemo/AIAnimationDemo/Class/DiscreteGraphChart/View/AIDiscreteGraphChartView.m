@@ -39,6 +39,8 @@
         UIView *xAxleView = [[UIView alloc]init];
         self.xAxleView    = xAxleView;
         [self addSubview:xAxleView];
+        //布局
+        [self fitUI];
     }
     return self;
 }
@@ -48,19 +50,17 @@
         make.left.right.top.mas_equalTo(0);
         make.bottom.mas_equalTo(-30);
     }];
-    AIDiscreteGraphChartCell *lastCell;
-    for (AIDiscreteGraphChartCell *cell in self.cellArrayM) {
-        [cell mas_makeConstraints:^(MASConstraintMaker *make) {
-            if (lastCell) {
-                make.left.mas_equalTo(lastCell.mas_right);
-            }else{
-                make.left.mas_equalTo(0);
-            }
-            make.top.bottom.mas_equalTo(0);
-            make.width.mas_equalTo(self.chartView).dividedBy(self.cellArrayM.count);
-        }];
-        lastCell = cell;
-    }
+  
+    [self.xAxleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.mas_equalTo(0);
+        make.top.mas_equalTo(self.chartView.mas_bottom);
+        make.bottom.mas_equalTo(0);
+    }];
+}
+
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    
 }
 
 #pragma mark -public
@@ -81,8 +81,20 @@
         [self.chartView addSubview:cell];
         [self.cellArrayM addObject:cell];
     }
-    //布局
-    [self fitUI];
+    AIDiscreteGraphChartCell *lastCell;
+    for (AIDiscreteGraphChartCell *cell in self.cellArrayM) {
+        [cell mas_makeConstraints:^(MASConstraintMaker *make) {
+            if (lastCell) {
+                make.left.mas_equalTo(lastCell.mas_right);
+            }else{
+                make.left.mas_equalTo(0);
+            }
+            make.top.bottom.mas_equalTo(0);
+            make.width.mas_equalTo(self.chartView).dividedBy(self.cellArrayM.count);
+        }];
+        lastCell = cell;
+    }
+   
 }
 -(void)setXExistArrayM:(NSMutableArray *)xExistArrayM {
     _xExistArrayM = xExistArrayM;
