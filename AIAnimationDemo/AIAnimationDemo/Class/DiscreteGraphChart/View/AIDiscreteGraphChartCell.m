@@ -23,12 +23,19 @@
     for (AIDiscretePointModel *itemModel in pointsArrayM) {
         AIGraphChartPointView *pointView = [[AIGraphChartPointView alloc]init];
         [self addSubview:pointView];
-//        CGFloat yValue    = self.bounds.size.height * ([itemModel.yValue floatValue]/_maxValue);
+        
+        //空的柱子
+        UIView *pillarView  = [[UIView alloc]init];
+        [self addSubview:pillarView];
+        [pillarView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.left.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(self.mas_height).multipliedBy([itemModel.yValue floatValue]/_maxValue);
+        }];
         [pointView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.left.mas_equalTo(0);
             make.height.mas_equalTo(20);
-//            make.bottom.mas_equalTo(self.mas_height).multipliedBy([itemModel.yValue floatValue]/_maxValue);
-            make.bottom.mas_equalTo(-[itemModel.yValue floatValue]);
+            make.bottom.mas_equalTo(pillarView.mas_top);
         }];
     }
 }
