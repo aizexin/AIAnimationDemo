@@ -65,7 +65,7 @@
 
 #pragma mark -public
 -(void)reloadData {
-    self.dataSource   = _dataSource;
+    self.pointDataSource   = _pointDataSource;
     self.xExistArrayM = _xExistArrayM;
     self.xShowArrayM  = _xShowArrayM;
 }
@@ -73,17 +73,17 @@
 -(void)setMaxValue:(CGFloat)maxValue {
     _maxValue = maxValue;
 }
--(void)setDataSource:(id<AIDiscreteGraphChartDataSource>)dataSource {
-    _dataSource = dataSource;
+-(void)setPointDataSource:(id<AIDiscreteGraphChartDataSource>)dataSource {
+    _pointDataSource = dataSource;
     
     //先清空以前的数据
     [self.chartView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     self.cellArrayM = nil;
     
-    NSInteger number = [self.dataSource numberOfCellDiscreteGraphChartView:self];
+    NSInteger number = [self.pointDataSource numberOfCellDiscreteGraphChartView:self];
     _cellWith        = self.chartView.bounds.size.width /(CGFloat)number;
     for (int i = 0; i < number ; i++) {
-        AIDiscreteGraphChartCell *cell = [self.dataSource discreteGraphChartView:self indexCell:i];
+        AIDiscreteGraphChartCell *cell = [self.pointDataSource discreteGraphChartView:self indexCell:i];
         [self.chartView addSubview:cell];
         [self.cellArrayM addObject:cell];
     }

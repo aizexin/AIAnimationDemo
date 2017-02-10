@@ -47,7 +47,7 @@
 /** 最大值*/
 @property(nonatomic, assign)CGFloat maxValue;
 /** 数据源*/
-@property(nonatomic,weak)id<AIDiscreteGraphChartDataSource> dataSource;
+@property(nonatomic,weak)id<AIDiscreteGraphChartDataSource> pointDataSource;
 /** x真实数据*/
 @property(nonatomic,strong)NSMutableArray *xExistArrayM;
 /** x显示数据*/

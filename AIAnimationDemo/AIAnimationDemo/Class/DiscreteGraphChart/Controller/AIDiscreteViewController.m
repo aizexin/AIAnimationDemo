@@ -87,12 +87,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    //使用时注意:每个点是x，y一一对应，所以model中的x要和x轴上相同才会添加
     //需要1，x真实数据  2x显示数据 3 点的数据
     AIDiscreteGraphChartView *chartView = [[AIDiscreteGraphChartView alloc]init];
     self.chartView                      = chartView;
     chartView.maxValue                  = 100.;
-    chartView.dataSource                = self;
+    chartView.pointDataSource           = self;
     chartView.xExistArrayM              = self.xExistArrayM;
     chartView.xShowArrayM               = self.xShowArrayM;
     [self.view addSubview:chartView];
