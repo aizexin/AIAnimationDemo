@@ -24,4 +24,12 @@
 @property(nonatomic, assign,getter=isRefreshing)BOOL refreshing;
 /** 进度*/
 @property(nonatomic, assign)CGFloat progress;
+
+- (instancetype)initWithFrame:(CGRect)frame scrollView:(UIScrollView*)scrollView
+;
+- (void)endRefreshing;
+- (void)beginRefreshing;
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView;
+-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset;
 @end

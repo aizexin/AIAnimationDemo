@@ -18,10 +18,11 @@
 
 @implementation AIRefreshView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame scrollView:(UIScrollView*)scrollView
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.scrollView         = scrollView;
         _refreshing = NO;
         _progress   = 0.;
         //add the background Image
@@ -52,6 +53,7 @@
     if (!self.isRefreshing && self.progress >= 1.) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(refreshViewDidRefresh:)]) {
             [self.delegate refreshViewDidRefresh:self];
+            [self beginRefreshing];
         }
     }
 }

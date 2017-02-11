@@ -8,7 +8,8 @@
 
 #import "AIPackingListViewController.h"
 #import "AIHorizontalItemListView.h"
-@interface AIPackingListViewController ()<UITableViewDelegate,UITableViewDataSource,AIHorizontalItemListViewDelegate>
+#import "AIRefreshView.h"
+@interface AIPackingListViewController ()<UITableViewDelegate,UITableViewDataSource,AIHorizontalItemListViewDelegate,UIScrollViewDelegate,AIRefreshViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buttonMenu;
@@ -22,7 +23,11 @@
 @property(nonatomic,assign,getter=isMenuOpen)BOOL menuOpen;
 /** 横向列表*/
 @property(nonatomic,strong)AIHorizontalItemListView *horizontalItemListView;
+/** 刷新控件*/
+@property(nonatomic,weak)AIRefreshView *refreshView ;
 @end
+
+static const CGFloat kRefreshViewHeight = 110.;
 
 @implementation AIPackingListViewController
 
@@ -51,7 +56,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor   = [UIColor colorWithRed:0. green:154/255. blue:222/255. alpha:1.];
+    CGRect refreshRect          = CGRectMake(0, -kRefreshViewHeight, KWidth, kRefreshViewHeight);
+    AIRefreshView *refreshView  = [[AIRefreshView alloc]initWithFrame:refreshRect scrollView:self.tableView];
+    refreshView.delegate        = self;
+    self.refreshView            = refreshView;
+    [self.tableView addSubview:refreshView];
 //    self.titleArray     = titleArray;
 }
 -(void)viewWillAppear:(BOOL)animated {
@@ -138,6 +148,19 @@
 -(void)horizontalItemListView:(AIHorizontalItemListView *)listView didSelectedModel:(AIPackingModel *)model {
     [self.dataSource addObject:model];
     [self.tableView reloadData];
+}
+#pragma mark -UIScrollViewDelegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.refreshView scrollViewDidScroll:scrollView];
+}
+-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    [self.refreshView scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
+}
+#pragma mark -AIRefreshViewDelegate
+-(void)refreshViewDidRefresh:(AIRefreshView *)refreshView {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.refreshView endRefreshing];
+    });
 }
 
 @end
