@@ -31,6 +31,23 @@
         imageView.clipsToBounds = YES;
         self.bgImageView        = imageView;
         [self addSubview:imageView];
+        
+        //shapeLayer
+        CAShapeLayer *ovalShapeLayer    = [CAShapeLayer layer];
+        ovalShapeLayer.strokeColor      = [UIColor whiteColor].CGColor;
+        ovalShapeLayer.fillColor        = [UIColor clearColor].CGColor;
+        ovalShapeLayer.lineWidth        = 4.;
+        ovalShapeLayer.lineDashPattern  = @[@2,@3];
+        
+        CGFloat refreshRadius           = frame.size.height/2 *.8;
+        
+        ovalShapeLayer.path             = [UIBezierPath bezierPathWithOvalInRect:
+                                           CGRectMake(frame.size.width *.5 - refreshRadius,
+                                                      frame.size.height *.5 - refreshRadius,
+                                                      2 * refreshRadius,
+                                                      2 * refreshRadius)].CGPath;
+        
+        [self.layer addSublayer:ovalShapeLayer];
     }
     return self;
 }
