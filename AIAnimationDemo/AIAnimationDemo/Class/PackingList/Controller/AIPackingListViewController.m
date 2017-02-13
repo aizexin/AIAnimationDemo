@@ -56,14 +56,12 @@ static const CGFloat kRefreshViewHeight = 110.;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor   = [UIColor colorWithRed:0. green:154/255. blue:222/255. alpha:1.];
-//    self.tableView.backgroundColor = [UIColor colorWithRed:0. green:154/255. blue:222/255. alpha:1.];
+    self.tableView.backgroundColor = [UIColor colorWithRed:0. green:154/255. blue:222/255. alpha:1.];
     CGRect refreshRect          = CGRectMake(0, -kRefreshViewHeight, KWidth, kRefreshViewHeight);
     AIRefreshView *refreshView  = [[AIRefreshView alloc]initWithFrame:refreshRect scrollView:self.tableView];
     refreshView.delegate        = self;
     self.refreshView            = refreshView;
     [self.tableView addSubview:refreshView];
-//    self.titleArray     = titleArray;
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
