@@ -48,6 +48,15 @@
                                                       2 * refreshRadius)].CGPath;
         
         [self.layer addSublayer:self.ovalShapeLayer];
+        
+        self.airplaneLayer              = [CALayer layer];
+        UIImageView *airplaneImage      = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"airplane"]];
+        self.airplaneLayer.contents     = (__bridge id _Nullable)(airplaneImage.image.CGImage);
+        self.airplaneLayer.bounds       = CGRectMake(0, 0, airplaneImage.frame.size.width, airplaneImage.frame.size.height);
+        
+        self.airplaneLayer.position     = CGPointMake(frame.size.width * .5 + frame.size.height *.5 *.8,
+                                                      frame.size.height * .5);
+        [self.layer addSublayer:self.airplaneLayer];
     }
     return self;
 }
