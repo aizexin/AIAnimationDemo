@@ -71,8 +71,6 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = MAX(-(scrollView.contentOffset.y+scrollView.contentInset.top), 0.);
     _progress       = MIN(MAX(offsetY / self.frame.size.height, 0.), 1.);
-    self.airplaneLayer.opacity    = _progress;
-    self.ovalShapeLayer.strokeEnd = _progress;
     if (!self.isRefreshing) {
         [self redrawFromProgress:self.progress];
     }
@@ -93,6 +91,20 @@
         newInsets.top               += self.frame.size.height;
         self.scrollView.contentInset = newInsets;
     }];
+    
+    CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+    strokeStartAnimation.fromValue         = @-.5;
+    strokeStartAnimation.toValue           = @1.;
+    
+    CABasicAnimation *strokeEndAnimation   = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    strokeEndAnimation.fromValue           = @0.;
+    strokeEndAnimation.toValue             = @1.;
+    
+    CAAnimationGroup *strokeAniamtionGroup = [CAAnimationGroup animation];
+    strokeAniamtionGroup.duration          = 1.5;
+    strokeAniamtionGroup.repeatDuration    = 5.;
+    strokeAniamtionGroup.animations        = @[strokeStartAnimation,strokeEndAnimation];
+    [self.ovalShapeLayer addAnimation:strokeAniamtionGroup forKey:nil];
 }
 
 - (void)endRefreshing {
@@ -108,7 +120,8 @@
 }
 
 - (void)redrawFromProgress:(CGFloat)progress {
-    
+    self.airplaneLayer.opacity    = _progress;
+    self.ovalShapeLayer.strokeEnd = _progress;
 }
 
 @end
