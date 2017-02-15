@@ -105,6 +105,21 @@
     strokeAniamtionGroup.repeatDuration    = 5.;
     strokeAniamtionGroup.animations        = @[strokeStartAnimation,strokeEndAnimation];
     [self.ovalShapeLayer addAnimation:strokeAniamtionGroup forKey:nil];
+    
+    //飞机动画
+    CAKeyframeAnimation *flightAnimation   = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    flightAnimation.path                   = self.ovalShapeLayer.path;
+    flightAnimation.calculationMode        = kCAAnimationPaced;
+    //旋转
+    CABasicAnimation    *airplanOrientationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    airplanOrientationAnimation.fromValue  = @0.;
+    airplanOrientationAnimation.toValue    = @(M_PI *2);
+    
+    CAAnimationGroup *flightAnimationGroup = [CAAnimationGroup animation];
+    flightAnimationGroup.duration          = 1.5;
+    flightAnimationGroup.repeatDuration    = 5.;
+    flightAnimationGroup.animations        = @[flightAnimation,airplanOrientationAnimation];
+    [self.airplaneLayer addAnimation:flightAnimationGroup forKey:nil];
 }
 
 - (void)endRefreshing {
