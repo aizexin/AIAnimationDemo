@@ -71,6 +71,8 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = MAX(-(scrollView.contentOffset.y+scrollView.contentInset.top), 0.);
     _progress       = MIN(MAX(offsetY / self.frame.size.height, 0.), 1.);
+    self.airplaneLayer.opacity    = _progress;
+    self.ovalShapeLayer.strokeEnd = _progress;
     if (!self.isRefreshing) {
         [self redrawFromProgress:self.progress];
     }
