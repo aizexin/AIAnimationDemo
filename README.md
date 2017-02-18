@@ -1,5 +1,9 @@
 #AIAnimationDemo
 
++ gradientLayer动画
+
+![gradientLayer动画.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/辉光效果.gif)
+
 + packing
 
 ![packing.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/packing.gif)
