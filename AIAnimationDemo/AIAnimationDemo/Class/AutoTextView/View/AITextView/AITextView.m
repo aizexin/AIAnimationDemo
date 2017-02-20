@@ -151,6 +151,16 @@
     _placeholder              = placeholder;
     self.placeholderView.text = placeholder;
 }
+#pragma overwrite
 
+/**
+ 重写赋值方法，因为在直接settext的时候不会走代理方法
+
+ @param text text
+ */
+-(void)setText:(NSString *)text {
+    [super setText:text];
+    [self ai_textDidChange];
+}
 
 @end
