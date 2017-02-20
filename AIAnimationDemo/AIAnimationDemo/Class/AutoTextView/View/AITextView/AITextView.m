@@ -56,7 +56,7 @@
         _fill       = NO;
         self.font   = [UIFont systemFontOfSize:13];
         // 监听键盘弹出
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:self];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ai_textDidChange) name:UITextViewTextDidChangeNotification object:self];
     }
     return self;
