@@ -13,7 +13,13 @@
 @end
 
 @implementation AIBeginnerCookViewController
-
+- (instancetype)init {
+    self = [[NSBundle mainBundle]loadNibNamed:@"AIBeginnerCookViewController" owner:nil options:nil].lastObject;
+    if (self) {
+        
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
    

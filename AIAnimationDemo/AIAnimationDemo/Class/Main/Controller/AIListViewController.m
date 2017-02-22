@@ -40,6 +40,7 @@
 #import "AIPackingListViewController.h"     //包裹
 #import "AISlideToRevealViewController.h"   //gradientLayer动画
 #import "AIDiscreteViewController.h"        //离散图
+#import "AIBeginnerCookViewController.h"    //BeginnerCook
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -80,7 +81,7 @@
                            [AIListModel initWithTitle:@"包裹" andTargetVC:[AIPackingListViewController class]],
                            [AIListModel initWithTitle:@"gradientLayer动画" andTargetVC:[AISlideToRevealViewController class]],
                            [AIListModel initWithTitle:@"离散图" andTargetVC:[AIDiscreteViewController class]],
-                           [AIListModel initWithTitle:@"弹簧动画" andTargetVC:[AIPopSpringAnimationViewController class]]
+                           [AIListModel initWithTitle:@"BeginnerCook" andTargetVC:[AIBeginnerCookViewController class]]
                            ];
         
         _dataSource = [NSMutableArray arrayWithCapacity:array.count];
