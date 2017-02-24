@@ -6,9 +6,113 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="0s4-Kz-lsn" customClass="AIBeginnerCookViewController">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="Lha-Oe-m3k"/>
+                <viewControllerLayoutGuide type="bottom" id="DF2-0z-2nz"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="aNT-Pn-dAY">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" alpha="0.55000001192092896" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="gJ8-dA-DlV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    </imageView>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1000" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d58-EW-Hhm">
+                        <rect key="frame" x="0.0" y="447" width="375" height="220"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="d58-EW-Hhm" secondAttribute="height" multiplier="3:1" id="bSb-g5-WeD"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bSb-g5-WeD"/>
+                            </mask>
+                        </variation>
+                    </scrollView>
+                    <textView opaque="NO" userInteractionEnabled="NO" contentMode="center" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emU-eh-miw">
+                        <rect key="frame" x="19" y="134" width="338" height="300"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <string key="text">In general use, herbs are any plants used for flavoring, food, medicine, or perfume. 
+
+Culinary use typically distinguishes herbs as referring to the leafy green parts of a plant (either fresh or dried), from a "spice", a product from another part of the plant, including seeds, berries, bark, roots and fruits.</string>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beginner Cook" textAlignment="center" lineBreakMode="clip" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="8rp-y4-ezb">
+                        <rect key="frame" x="0.0" y="34" width="375" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="84" id="IXd-11-YPX"/>
+                            <constraint firstAttribute="width" constant="484" id="h3x-zQ-fe3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <size key="shadowOffset" width="1" height="2"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="h3x-zQ-fe3"/>
+                                <exclude reference="IXd-11-YPX"/>
+                            </mask>
+                        </variation>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="emU-eh-miw" firstAttribute="centerX" secondItem="d58-EW-Hhm" secondAttribute="centerX" id="0Ij-q0-NuD"/>
+                    <constraint firstItem="8rp-y4-ezb" firstAttribute="centerX" secondItem="d58-EW-Hhm" secondAttribute="centerX" id="3g6-a4-bYR"/>
+                    <constraint firstItem="DF2-0z-2nz" firstAttribute="top" secondItem="gJ8-dA-DlV" secondAttribute="bottom" id="3xd-yp-FpO"/>
+                    <constraint firstItem="8rp-y4-ezb" firstAttribute="width" secondItem="aNT-Pn-dAY" secondAttribute="width" id="3yw-wh-MjN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="gJ8-dA-DlV" secondAttribute="trailing" constant="-16" id="6hx-U3-2uI"/>
+                    <constraint firstItem="8rp-y4-ezb" firstAttribute="centerY" secondItem="aNT-Pn-dAY" secondAttribute="centerY" multiplier="0.25" id="7SG-B2-28z"/>
+                    <constraint firstItem="emU-eh-miw" firstAttribute="leading" secondItem="aNT-Pn-dAY" secondAttribute="leadingMargin" id="Ct7-d6-ThR"/>
+                    <constraint firstItem="8rp-y4-ezb" firstAttribute="height" secondItem="aNT-Pn-dAY" secondAttribute="height" multiplier="0.15" id="DH4-LA-MOs"/>
+                    <constraint firstAttribute="centerY" secondItem="emU-eh-miw" secondAttribute="centerY" constant="49.5" id="Gvt-7a-wZX"/>
+                    <constraint firstAttribute="width" secondItem="d58-EW-Hhm" secondAttribute="width" id="Jkb-Il-bjq"/>
+                    <constraint firstItem="gJ8-dA-DlV" firstAttribute="top" secondItem="aNT-Pn-dAY" secondAttribute="topMargin" id="KNT-Se-PRK"/>
+                    <constraint firstItem="emU-eh-miw" firstAttribute="centerY" secondItem="aNT-Pn-dAY" secondAttribute="centerY" multiplier="0.85" id="OGL-ky-x4Z"/>
+                    <constraint firstItem="d58-EW-Hhm" firstAttribute="top" secondItem="emU-eh-miw" secondAttribute="bottom" constant="28" id="TXb-RF-xIg"/>
+                    <constraint firstItem="d58-EW-Hhm" firstAttribute="height" secondItem="aNT-Pn-dAY" secondAttribute="height" multiplier="0.33" id="W9r-9H-qJZ"/>
+                    <constraint firstItem="emU-eh-miw" firstAttribute="width" secondItem="aNT-Pn-dAY" secondAttribute="width" multiplier="0.9" id="YYl-up-Tl3"/>
+                    <constraint firstItem="d58-EW-Hhm" firstAttribute="top" secondItem="emU-eh-miw" secondAttribute="bottom" constant="28" id="bFq-bs-HBC"/>
+                    <constraint firstItem="DF2-0z-2nz" firstAttribute="top" secondItem="d58-EW-Hhm" secondAttribute="bottom" id="cDz-hQ-UCF"/>
+                    <constraint firstItem="emU-eh-miw" firstAttribute="top" secondItem="8rp-y4-ezb" secondAttribute="bottom" constant="15" id="e61-vL-utQ"/>
+                    <constraint firstItem="gJ8-dA-DlV" firstAttribute="leading" secondItem="aNT-Pn-dAY" secondAttribute="leadingMargin" constant="-16" id="o5E-2h-QvR"/>
+                    <constraint firstItem="emU-eh-miw" firstAttribute="centerX" secondItem="8rp-y4-ezb" secondAttribute="centerX" id="oxV-81-GEq"/>
+                    <constraint firstAttribute="centerX" secondItem="8rp-y4-ezb" secondAttribute="centerX" id="pPD-Xd-2WN"/>
+                    <constraint firstAttribute="centerX" secondItem="d58-EW-Hhm" secondAttribute="centerX" id="pcB-5F-DfF"/>
+                    <constraint firstItem="8rp-y4-ezb" firstAttribute="top" secondItem="Lha-Oe-m3k" secondAttribute="bottom" constant="8" id="wdx-HN-fYc"/>
+                    <constraint firstAttribute="centerX" secondItem="emU-eh-miw" secondAttribute="centerX" id="xm5-9S-aQg"/>
+                    <constraint firstItem="emU-eh-miw" firstAttribute="height" secondItem="aNT-Pn-dAY" secondAttribute="height" multiplier="0.45" id="yZS-Mj-8M6"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="wdx-HN-fYc"/>
+                        <exclude reference="3g6-a4-bYR"/>
+                        <exclude reference="oxV-81-GEq"/>
+                        <exclude reference="e61-vL-utQ"/>
+                        <exclude reference="Ct7-d6-ThR"/>
+                        <exclude reference="0Ij-q0-NuD"/>
+                        <exclude reference="Gvt-7a-wZX"/>
+                        <exclude reference="bFq-bs-HBC"/>
+                        <exclude reference="TXb-RF-xIg"/>
+                    </mask>
+                </variation>
+            </view>
+            <point key="canvasLocation" x="294" y="364"/>
+        </viewController>
     </objects>
+    <resources>
+        <image name="bg" width="320" height="568"/>
+    </resources>
 </document>
