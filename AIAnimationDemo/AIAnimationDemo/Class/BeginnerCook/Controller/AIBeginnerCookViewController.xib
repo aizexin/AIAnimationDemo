@@ -109,6 +109,9 @@ Culinary use typically distinguishes herbs as referring to the leafy green parts
                     </mask>
                 </variation>
             </view>
+            <connections>
+                <outlet property="listView" destination="d58-EW-Hhm" id="2w3-HE-HbH"/>
+            </connections>
             <point key="canvasLocation" x="294" y="364"/>
         </viewController>
     </objects>

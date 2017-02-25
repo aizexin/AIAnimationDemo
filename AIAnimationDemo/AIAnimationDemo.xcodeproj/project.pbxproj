@@ -127,6 +127,7 @@
 		45EA3F441E0177F500F7B8C2 /* AIMultiplayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F431E0177F500F7B8C2 /* AIMultiplayerViewController.m */; };
 		45EA3F491E01838500F7B8C2 /* AIAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F481E01838500F7B8C2 /* AIAvatarView.m */; };
 		45ED00641E5C84B0005217AF /* AIBeginnerCookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45ED00631E5C84B0005217AF /* AIBeginnerCookViewController.xib */; };
+		45ED00671E606304005217AF /* AIHerbModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ED00661E606304005217AF /* AIHerbModel.m */; };
 		45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */; };
 		45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE2B1DB09A9200DC574A /* CAGradientView.m */; };
 		45F7E50D1E11526C00721BCB /* AIPlayMusicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E50C1E11526C00721BCB /* AIPlayMusicView.m */; };
@@ -402,6 +403,8 @@
 		45EA3F481E01838500F7B8C2 /* AIAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAvatarView.m; sourceTree = "<group>"; };
 		45EA3F4A1E01873900F7B8C2 /* Arial Rounded Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Rounded Bold.ttf"; sourceTree = "<group>"; };
 		45ED00631E5C84B0005217AF /* AIBeginnerCookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIBeginnerCookViewController.xib; sourceTree = "<group>"; };
+		45ED00651E606304005217AF /* AIHerbModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHerbModel.h; sourceTree = "<group>"; };
+		45ED00661E606304005217AF /* AIHerbModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHerbModel.m; sourceTree = "<group>"; };
 		45F6DE271DB07EA700DC574A /* CAGradientMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientMaskView.h; sourceTree = "<group>"; };
 		45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientMaskView.m; sourceTree = "<group>"; };
 		45F6DE2A1DB09A9200DC574A /* CAGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientView.h; sourceTree = "<group>"; };
@@ -781,6 +784,8 @@
 		452037F01E58763E007FA354 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				45ED00651E606304005217AF /* AIHerbModel.h */,
+				45ED00661E606304005217AF /* AIHerbModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1990,6 +1995,7 @@
 				45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */,
 				454DBC301E3650680025ACAE /* AISlideToRevealViewController.m in Sources */,
 				45C9EAB51DD44EAA007B6418 /* AISettingTableViewCell.m in Sources */,
+				45ED00671E606304005217AF /* AIHerbModel.m in Sources */,
 				4505FEA11DAF441800AE4FED /* AIBaseViewController.m in Sources */,
 				455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */,
 				451D28161DBCDCB40070BFCA /* OCKCareCardButton.m in Sources */,

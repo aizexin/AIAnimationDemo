@@ -9,6 +9,7 @@
 #import "AIBeginnerCookViewController.h"
 
 @interface AIBeginnerCookViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *listView;
 
 @end
 
