@@ -23,6 +23,6 @@
 
 
 - (instancetype)initWithName:(NSString*)name image:(NSString*)image license:(NSString*)license credit:(NSString*)credit descriptionString:(NSString*)descriptionString;
-- (void)all;
+- (NSArray*)all;
 
 @end

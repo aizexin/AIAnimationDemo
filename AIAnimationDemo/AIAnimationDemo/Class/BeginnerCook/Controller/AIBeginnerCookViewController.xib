@@ -61,8 +61,8 @@ Culinary use typically distinguishes herbs as referring to the leafy green parts
                         <size key="shadowOffset" width="1" height="2"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="h3x-zQ-fe3"/>
                                 <exclude reference="IXd-11-YPX"/>
+                                <exclude reference="h3x-zQ-fe3"/>
                             </mask>
                         </variation>
                     </label>
@@ -97,19 +97,20 @@ Culinary use typically distinguishes herbs as referring to the leafy green parts
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="wdx-HN-fYc"/>
                         <exclude reference="3g6-a4-bYR"/>
-                        <exclude reference="oxV-81-GEq"/>
-                        <exclude reference="e61-vL-utQ"/>
-                        <exclude reference="Ct7-d6-ThR"/>
+                        <exclude reference="wdx-HN-fYc"/>
                         <exclude reference="0Ij-q0-NuD"/>
+                        <exclude reference="Ct7-d6-ThR"/>
                         <exclude reference="Gvt-7a-wZX"/>
-                        <exclude reference="bFq-bs-HBC"/>
+                        <exclude reference="e61-vL-utQ"/>
+                        <exclude reference="oxV-81-GEq"/>
                         <exclude reference="TXb-RF-xIg"/>
+                        <exclude reference="bFq-bs-HBC"/>
                     </mask>
                 </variation>
             </view>
             <connections>
+                <outlet property="bgImageView" destination="gJ8-dA-DlV" id="K9t-Vd-Vbi"/>
                 <outlet property="listView" destination="d58-EW-Hhm" id="2w3-HE-HbH"/>
             </connections>
             <point key="canvasLocation" x="294" y="364"/>
