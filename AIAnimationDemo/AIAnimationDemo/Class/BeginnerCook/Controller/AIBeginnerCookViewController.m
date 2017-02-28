@@ -27,7 +27,7 @@
 }
 -(NSMutableArray *)herbs {
     if (!_herbs) {
-        _herbs   = [NSMutableArray arrayWithArray:[[AIHerbModel alloc]all]];
+        _herbs   = [NSMutableArray arrayWithArray:[AIHerbModel all]];
     }
     return _herbs;
 }
@@ -35,8 +35,54 @@
     [super viewDidLoad];
    
 }
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+//    if (self.listView.subviews.count < self.herbs.count) {
+        [self.listView viewWithTag:1000];
+        [self setUpList];
+//    }
+}
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+-(void) setUpList {
+    for (int i = 0; i < self.herbs.count; i++) {
+        AIHerbModel *model      = self.herbs[i];
+        UIImageView *imageView  = [[UIImageView alloc]initWithImage:[UIImage imageNamed:model.image]];
+        imageView.tag           = i<<1;
+        imageView.contentMode   = UIViewContentModeScaleAspectFill;
+        imageView.userInteractionEnabled    = YES;
+        imageView.layer.cornerRadius        = 20.;
+        imageView.layer.masksToBounds       = YES;
+        [self.listView addSubview:imageView];
+        
+        UITapGestureRecognizer *tap         = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapImageView)];
+        [imageView addGestureRecognizer:tap];
+        [self positionListItem];
+    }
+    self.listView.backgroundColor           = [UIColor clearColor];
+}
+
+- (void)positionListItem {
+    CGFloat listHeight      = self.listView.ai_height;
+    CGFloat itemHeight      = listHeight *1.33;
+    CGFloat aspectRatio     = KHeight/KWidth;
+    CGFloat itemWith        = itemHeight / aspectRatio;
+    
+    CGFloat horizontalPadding   = 10.;
+    
+    for (int i = 0; i < self.herbs.count; i++) {
+        UIImageView *imageView  = [self.listView viewWithTag:i<<1];
+        imageView.frame         = CGRectMake(i* itemWith+(1+i)*horizontalPadding, 0, itemWith, itemHeight);
+        AILog(@"%@",NSStringFromCGRect(imageView.frame));
+    }
+    self.listView.contentSize   = CGSizeMake(self.herbs.count * (itemWith+horizontalPadding)+horizontalPadding, 0);
+}
+
+#pragma mark -Action 
+-(void)didTapImageView {
+    
 }
 
 
