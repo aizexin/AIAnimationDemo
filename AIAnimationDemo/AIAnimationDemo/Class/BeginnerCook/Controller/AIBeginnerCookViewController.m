@@ -50,7 +50,7 @@
     for (int i = 0; i < self.herbs.count; i++) {
         AIHerbModel *model      = self.herbs[i];
         UIImageView *imageView  = [[UIImageView alloc]initWithImage:[UIImage imageNamed:model.image]];
-        imageView.tag           = i<<1;
+        imageView.tag           = i+123456;
         imageView.contentMode   = UIViewContentModeScaleAspectFill;
         imageView.userInteractionEnabled    = YES;
         imageView.layer.cornerRadius        = 20.;
@@ -59,8 +59,8 @@
         
         UITapGestureRecognizer *tap         = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapImageView)];
         [imageView addGestureRecognizer:tap];
-        [self positionListItem];
     }
+    [self positionListItem];
     self.listView.backgroundColor           = [UIColor clearColor];
 }
 
@@ -73,9 +73,8 @@
     CGFloat horizontalPadding   = 10.;
     
     for (int i = 0; i < self.herbs.count; i++) {
-        UIImageView *imageView  = [self.listView viewWithTag:i<<1];
+        UIImageView *imageView  = [self.listView viewWithTag:i+123456];
         imageView.frame         = CGRectMake(i* itemWith+(1+i)*horizontalPadding, 0, itemWith, itemHeight);
-        AILog(@"%@",NSStringFromCGRect(imageView.frame));
     }
     self.listView.contentSize   = CGSizeMake(self.herbs.count * (itemWith+horizontalPadding)+horizontalPadding, 0);
 }
