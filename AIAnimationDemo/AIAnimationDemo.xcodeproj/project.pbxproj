@@ -123,6 +123,7 @@
 		45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E0D1DACDD120022F86A /* UIView+Shake.m */; };
 		45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E0F1DACDD120022F86A /* UIView+UserInteraction.m */; };
 		45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */; };
+		45DB05761E68154200346DDD /* AIPopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB05751E68154200346DDD /* AIPopAnimator.m */; };
 		45E44A331DE4314A009B50BC /* AILoginAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */; };
 		45EA3F441E0177F500F7B8C2 /* AIMultiplayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F431E0177F500F7B8C2 /* AIMultiplayerViewController.m */; };
 		45EA3F491E01838500F7B8C2 /* AIAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F481E01838500F7B8C2 /* AIAvatarView.m */; };
@@ -395,6 +396,8 @@
 		45D43E0F1DACDD120022F86A /* UIView+UserInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UserInteraction.m"; sourceTree = "<group>"; };
 		45D43E191DACE21B0022F86A /* InfiniteRotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteRotationView.h; sourceTree = "<group>"; };
 		45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteRotationView.m; sourceTree = "<group>"; };
+		45DB05741E68154200346DDD /* AIPopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPopAnimator.h; sourceTree = "<group>"; };
+		45DB05751E68154200346DDD /* AIPopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPopAnimator.m; sourceTree = "<group>"; };
 		45E44A311DE4314A009B50BC /* AILoginAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILoginAnimationViewController.h; sourceTree = "<group>"; };
 		45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILoginAnimationViewController.m; sourceTree = "<group>"; };
 		45EA3F421E0177F500F7B8C2 /* AIMultiplayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMultiplayerViewController.h; sourceTree = "<group>"; };
@@ -786,6 +789,8 @@
 			children = (
 				45ED00651E606304005217AF /* AIHerbModel.h */,
 				45ED00661E606304005217AF /* AIHerbModel.m */,
+				45DB05741E68154200346DDD /* AIPopAnimator.h */,
+				45DB05751E68154200346DDD /* AIPopAnimator.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2000,6 +2005,7 @@
 				455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */,
 				451D28161DBCDCB40070BFCA /* OCKCareCardButton.m in Sources */,
 				45C9EAC41DD58085007B6418 /* AISettingModelAdapter.m in Sources */,
+				45DB05761E68154200346DDD /* AIPopAnimator.m in Sources */,
 				455440AA1DBA15B10025DCA4 /* AIWaveLayer.m in Sources */,
 				453DD8471DACA80500D1CDA9 /* GCDSemaphore.m in Sources */,
 				45D110571E49C93D00BB1CEB /* AILineGraphChartRefreshDateSource.m in Sources */,
