@@ -8,6 +8,7 @@
 
 #import "AIBeginnerCookViewController.h"
 #import "AIHerbModel.h"
+#import "AIPopAnimator.h"
 @interface AIBeginnerCookViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *listView;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
@@ -39,7 +40,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.navigationController.delegate
+//    self.navigationController.delegate  = [[AIPopAnimator alloc]init];
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -90,34 +91,6 @@
     
 }
 
-//
-///**
-// 比较版本
-//
-// @param v1 第一个版本
-// @param v2 第二个版本
-// @return 返回结果1 v1>v2 ,-1 v1<v2 , 0:v1=v2
-// */
-//- (NSInteger)compareV1:(NSString*)v1 v2:(NSString*)v2 {
-//    
-//    //首先判断是否相等
-//    if ([v1 isEqualToString:v2]) {
-//        return 0;
-//    }
-//    NSArray *array1 = [v1 componentsSeparatedByString:@"."];
-//    NSArray *array2 = [v2 componentsSeparatedByString:@"."];
-//    
-//    NSInteger count = array1.count < array2.count ? array1.count :array2.count;
-//    for (int i = 0; i < count; i++) {
-//        if (array1[i] > array2[i]) {
-//            return 1;
-//        }else if(array1[i] < array2[i]){
-//            return -1;
-//        }
-//    }
-//    //如果短的所占有的位数比较完了还没分出高下，就比较位数长短
-//    return array1.count > array2.count ? 1 : -1;
-//}
 
 
 
