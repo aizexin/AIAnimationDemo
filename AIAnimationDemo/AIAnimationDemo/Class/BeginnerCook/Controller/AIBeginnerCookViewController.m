@@ -9,11 +9,14 @@
 #import "AIBeginnerCookViewController.h"
 #import "AIHerbModel.h"
 #import "AIPopAnimator.h"
+#import "AIGradientLayerNavgationDelegate.h"
 @interface AIBeginnerCookViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *listView;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 /** 列表数据*/
 @property(nonatomic,strong)NSMutableArray *herbs;
+/** 被选中的图片*/
+@property(nonatomic,weak)UIImageView *selectedImageView;
 
 @end
 
@@ -26,7 +29,7 @@
 @implementation AIBeginnerCookViewController
 
 - (instancetype)init {
-    self = [[NSBundle mainBundle]loadNibNamed:@"AIBeginnerCookViewController" owner:nil options:nil].lastObject;
+    self = [[NSBundle mainBundle]loadNibNamed:@"AIBeginnerCookViewController" owner:nil options:nil].firstObject;
     if (self) {
         
     }
@@ -40,7 +43,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.navigationController.delegate  = [[AIPopAnimator alloc]init];
+//    AIPopAnimator *navDelegate                    = [[AIPopAnimator alloc]init];
+//    self.transitioningDelegate                    = navDelegate;
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -64,7 +68,7 @@
         imageView.layer.masksToBounds       = YES;
         [self.listView addSubview:imageView];
         
-        UITapGestureRecognizer *tap         = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapImageView)];
+        UITapGestureRecognizer *tap         = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapImageView:)];
         [imageView addGestureRecognizer:tap];
     }
     [self positionListItem];
@@ -87,7 +91,11 @@
 }
 
 #pragma mark -Action 
--(void)didTapImageView {
+-(void)didTapImageView:(UITapGestureRecognizer*)tap {
+    UIImageView *imageView      = [[UIImageView alloc]init];
+    self.selectedImageView      = imageView;
+    NSInteger index             = tap.view.tag;
+    
     
 }
 
