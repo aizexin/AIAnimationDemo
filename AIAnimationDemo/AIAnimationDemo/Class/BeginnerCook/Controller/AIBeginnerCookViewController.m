@@ -10,23 +10,27 @@
 #import "AIHerbModel.h"
 #import "AIPopAnimator.h"
 #import "AIGradientLayerNavgationDelegate.h"
-@interface AIBeginnerCookViewController ()
+#import "AIHerbDetailViewController.h"
+@interface AIBeginnerCookViewController ()<UIViewControllerTransitioningDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *listView;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 /** 列表数据*/
 @property(nonatomic,strong)NSMutableArray *herbs;
 /** 被选中的图片*/
 @property(nonatomic,weak)UIImageView *selectedImageView;
+/** 转场动画*/
+@property(nonatomic,strong)AIPopAnimator *transition;
 
 @end
 
-//typedef enum : NSUInteger {
-//    OrderedAscending = -1,    // < 升序
-//    OrderedSame      = 0// = 等于
-//    OrderedDescending   // > 降序
-//} ComparisonResult;
-
 @implementation AIBeginnerCookViewController
+
+-(AIPopAnimator *)transition {
+    if (!_transition) {
+        _transition = [[AIPopAnimator alloc]init];
+    }
+    return _transition;
+}
 
 - (instancetype)init {
     self = [[NSBundle mainBundle]loadNibNamed:@"AIBeginnerCookViewController" owner:nil options:nil].firstObject;
@@ -43,8 +47,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    AIPopAnimator *navDelegate                    = [[AIPopAnimator alloc]init];
-//    self.transitioningDelegate                    = navDelegate;
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -94,11 +96,30 @@
 -(void)didTapImageView:(UITapGestureRecognizer*)tap {
     UIImageView *imageView      = [[UIImageView alloc]init];
     self.selectedImageView      = imageView;
-    NSInteger index             = tap.view.tag;
+    NSInteger index             = tap.view.tag - 123456;
+    AIHerbModel *selectedHerbModel              = self.herbs[index];
     
+//    AIHerbDetailViewController *herbDetailVC    = [[NSBundle mainBundle]loadNibNamed:@"AIHerbDetailViewController" owner:nil options:nil].firstObject;
+//    AIHerbDetailViewController   *herbDetailVC  = [[AIHerbDetailViewController alloc]init];//WithNibName:@"AIHerbDetailViewController" bundle:[NSBundle mainBundle]];
+//    herbDetailVC.herbModel                      = selectedHerbModel;
+//    herbDetailVC.transitioningDelegate          = self;
+//    [self presentViewController:herbDetailVC animated:YES completion:nil];
     
 }
 
+#pragma mark -UIViewControllerTransitioningDelegat
+
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    //坐标转换
+    self.transition.originFrame = [self.selectedImageView convertRect:_selectedImageView.frame toView:nil];
+    self.transition.presenting    = YES;
+    self.selectedImageView.hidden = YES;
+    return self.transition;
+}
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    self.transition.presenting    = NO;
+    return self.transition;
+}
 
 
 

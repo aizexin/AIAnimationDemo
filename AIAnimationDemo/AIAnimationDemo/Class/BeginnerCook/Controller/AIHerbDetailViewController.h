@@ -7,7 +7,8 @@
 //
 
 #import "AIBaseViewController.h"
-
+#import "AIHerbModel.h"
 @interface AIHerbDetailViewController : AIBaseViewController
-
+/** 数据*/
+@property(nonatomic,strong)AIHerbModel *herbModel;
 @end

@@ -125,7 +125,6 @@
 		45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */; };
 		45DB05761E68154200346DDD /* AIPopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB05751E68154200346DDD /* AIPopAnimator.m */; };
 		45DB058D1E6C1BB000346DDD /* AIHerbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB058B1E6C1BAF00346DDD /* AIHerbDetailViewController.m */; };
-		45DB058E1E6C1BB000346DDD /* AIHerbDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB058C1E6C1BAF00346DDD /* AIHerbDetailViewController.xib */; };
 		45E44A331DE4314A009B50BC /* AILoginAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */; };
 		45EA3F441E0177F500F7B8C2 /* AIMultiplayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F431E0177F500F7B8C2 /* AIMultiplayerViewController.m */; };
 		45EA3F491E01838500F7B8C2 /* AIAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F481E01838500F7B8C2 /* AIAvatarView.m */; };
@@ -402,7 +401,6 @@
 		45DB05751E68154200346DDD /* AIPopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPopAnimator.m; sourceTree = "<group>"; };
 		45DB058A1E6C1BAF00346DDD /* AIHerbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHerbDetailViewController.h; sourceTree = "<group>"; };
 		45DB058B1E6C1BAF00346DDD /* AIHerbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHerbDetailViewController.m; sourceTree = "<group>"; };
-		45DB058C1E6C1BAF00346DDD /* AIHerbDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHerbDetailViewController.xib; sourceTree = "<group>"; };
 		45E44A311DE4314A009B50BC /* AILoginAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILoginAnimationViewController.h; sourceTree = "<group>"; };
 		45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILoginAnimationViewController.m; sourceTree = "<group>"; };
 		45EA3F421E0177F500F7B8C2 /* AIMultiplayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMultiplayerViewController.h; sourceTree = "<group>"; };
@@ -787,7 +785,6 @@
 				45ED00631E5C84B0005217AF /* AIBeginnerCookViewController.xib */,
 				45DB058A1E6C1BAF00346DDD /* AIHerbDetailViewController.h */,
 				45DB058B1E6C1BAF00346DDD /* AIHerbDetailViewController.m */,
-				45DB058C1E6C1BAF00346DDD /* AIHerbDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1865,7 +1862,6 @@
 				45ED00641E5C84B0005217AF /* AIBeginnerCookViewController.xib in Resources */,
 				451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */,
 				45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */,
-				45DB058E1E6C1BB000346DDD /* AIHerbDetailViewController.xib in Resources */,
 				45C15B121E2D12F70021E9D3 /* AIPackingListViewController.xib in Resources */,
 				456BA6661E07BDF500805F7C /* Assets.xcassets in Resources */,
 				455E289C1D98C0D300E3DA4D /* LaunchScreen.storyboard in Resources */,
