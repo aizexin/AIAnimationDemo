@@ -99,9 +99,8 @@
     NSInteger index             = tap.view.tag - 123456;
     AIHerbModel *selectedHerbModel              = self.herbs[index];
     
-//    AIHerbDetailViewController *herbDetailVC    = [[NSBundle mainBundle]loadNibNamed:@"AIHerbDetailViewController" owner:nil options:nil].firstObject;
-//    AIHerbDetailViewController   *herbDetailVC  = [[AIHerbDetailViewController alloc]init];//WithNibName:@"AIHerbDetailViewController" bundle:[NSBundle mainBundle]];
-//    herbDetailVC.herbModel                      = selectedHerbModel;
+//    AIHerbDetailViewController   *herbDetailVC  = [[AIHerbDetailViewController alloc]initWithNibName:@"AIHerbDetailViewController" bundle:nil];
+////    herbDetailVC.herbModel                      = selectedHerbModel;
 //    herbDetailVC.transitioningDelegate          = self;
 //    [self presentViewController:herbDetailVC animated:YES completion:nil];
     
