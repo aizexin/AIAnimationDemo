@@ -28,7 +28,7 @@
                     </imageView>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1000" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d58-EW-Hhm">
                         <rect key="frame" x="0.0" y="447" width="375" height="220"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="d58-EW-Hhm" secondAttribute="height" multiplier="3:1" id="bSb-g5-WeD"/>
                         </constraints>
