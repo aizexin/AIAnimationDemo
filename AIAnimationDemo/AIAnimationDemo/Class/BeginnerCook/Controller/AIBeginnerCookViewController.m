@@ -100,7 +100,7 @@
     AIHerbModel *selectedHerbModel              = self.herbs[index];
     
     AIHerbDetailViewController   *herbDetailVC  = [[AIHerbDetailViewController alloc]initWithNibName:@"AIHerbDetailViewController" bundle:nil];
-//    herbDetailVC.herbModel                      = selectedHerbModel;
+    herbDetailVC.herbModel                      = selectedHerbModel;
     herbDetailVC.transitioningDelegate          = self;
     [self presentViewController:herbDetailVC animated:YES completion:nil];
     
