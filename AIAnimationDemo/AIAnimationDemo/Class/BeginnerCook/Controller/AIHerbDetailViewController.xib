@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,40 +19,40 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="npV-wu-ywR">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="npV-wu-ywR">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J43-1P-gti">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J43-1P-gti">
                     <rect key="frame" x="0.0" y="334" width="375" height="333"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shz-np-LY8">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shz-np-LY8">
                             <rect key="frame" x="16" y="38" width="343" height="56"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="32"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="Description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="654-Ga-7ip">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="654-Ga-7ip">
                             <rect key="frame" x="16" y="103" width="343" height="200"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6I-mE-G9C">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6I-mE-G9C">
                             <rect key="frame" x="16" y="299" width="171" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="171" id="NmL-jL-O9D"/>
-                            </constraints>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Image license">
                                 <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyY-4o-VW0">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyY-4o-VW0">
                             <rect key="frame" x="188" y="299" width="171" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="171" id="Ler-eb-uB2"/>
-                            </constraints>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Image author">
                                 <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,31 +60,9 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstItem="654-Ga-7ip" firstAttribute="leading" secondItem="Shz-np-LY8" secondAttribute="leading" id="75T-oI-BHo"/>
-                        <constraint firstItem="654-Ga-7ip" firstAttribute="top" secondItem="Shz-np-LY8" secondAttribute="bottom" multiplier="1.1" id="9dT-PC-K2y"/>
-                        <constraint firstItem="i6I-mE-G9C" firstAttribute="baseline" secondItem="lyY-4o-VW0" secondAttribute="baseline" id="Ak5-Qh-uLx"/>
-                        <constraint firstItem="lyY-4o-VW0" firstAttribute="trailing" secondItem="654-Ga-7ip" secondAttribute="trailing" id="HN3-xU-Yx8"/>
-                        <constraint firstAttribute="bottom" secondItem="654-Ga-7ip" secondAttribute="bottom" constant="30" id="Nb4-ef-Buw"/>
-                        <constraint firstItem="i6I-mE-G9C" firstAttribute="bottom" secondItem="J43-1P-gti" secondAttribute="bottomMargin" constant="4" id="OPi-jh-XHP"/>
-                        <constraint firstItem="i6I-mE-G9C" firstAttribute="leading" secondItem="654-Ga-7ip" secondAttribute="leading" id="V7i-eL-99c"/>
-                        <constraint firstItem="654-Ga-7ip" firstAttribute="leading" secondItem="J43-1P-gti" secondAttribute="leading" constant="16" id="Xex-jk-sQW"/>
-                        <constraint firstItem="654-Ga-7ip" firstAttribute="centerX" secondItem="J43-1P-gti" secondAttribute="centerX" id="a1x-t9-DEh"/>
-                        <constraint firstItem="654-Ga-7ip" firstAttribute="trailing" secondItem="Shz-np-LY8" secondAttribute="trailing" id="aV3-mq-BTX"/>
-                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="654-Ga-7ip" firstAttribute="height" secondItem="5a2-Sz-u1C" secondAttribute="height" multiplier="0.3" id="AiX-44-0me"/>
-                <constraint firstItem="J43-1P-gti" firstAttribute="trailing" secondItem="npV-wu-ywR" secondAttribute="trailing" id="Ce5-go-4Xb"/>
-                <constraint firstItem="J43-1P-gti" firstAttribute="top" secondItem="npV-wu-ywR" secondAttribute="bottom" multiplier="0.5" id="JRJ-dJ-1KW"/>
-                <constraint firstItem="npV-wu-ywR" firstAttribute="leading" secondItem="5a2-Sz-u1C" secondAttribute="leading" id="Mmd-T3-gpp"/>
-                <constraint firstAttribute="trailing" secondItem="npV-wu-ywR" secondAttribute="trailing" id="YwE-G8-fT8"/>
-                <constraint firstItem="J43-1P-gti" firstAttribute="leading" secondItem="npV-wu-ywR" secondAttribute="leading" id="l5l-zs-69k"/>
-                <constraint firstItem="Shz-np-LY8" firstAttribute="height" secondItem="5a2-Sz-u1C" secondAttribute="height" multiplier="0.08" constant="2" id="lur-Mp-DSt"/>
-                <constraint firstItem="npV-wu-ywR" firstAttribute="top" secondItem="5a2-Sz-u1C" secondAttribute="topMargin" id="mOx-QP-teh"/>
-            </constraints>
         </view>
     </objects>
 </document>

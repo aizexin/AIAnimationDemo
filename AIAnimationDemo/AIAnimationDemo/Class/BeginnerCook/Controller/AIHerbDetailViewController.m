@@ -23,9 +23,17 @@
     [super viewDidLoad];
     
 }
-
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.bgImageView.image = [UIImage imageNamed:self.herbModel.image];
+    self.titleLabel.text   = self.herbModel.name;
+    self.descriptionTextView.text = self.herbModel.descriptionString;
+}
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)setHerbModel:(AIHerbModel *)herbModel {
+    _herbModel = herbModel;
 }
 
 @end
