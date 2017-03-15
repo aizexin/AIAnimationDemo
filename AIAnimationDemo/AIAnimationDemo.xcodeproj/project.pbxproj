@@ -92,6 +92,7 @@
 		459F82E21E0EA4B700AD6105 /* AIBlurImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459F82E11E0EA4B700AD6105 /* AIBlurImageViewController.m */; };
 		45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */ = {isa = PBXBuildFile; fileRef = 45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */; };
 		45A396F21E7422E700EBFFFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45A396F11E7422E700EBFFFA /* Images.xcassets */; };
+		45A397181E790ED500EBFFFA /* AILocationClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A397171E790ED500EBFFFA /* AILocationClockViewController.m */; };
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
 		45B3A00F1E1A91F000E9C37D /* AISnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B3A00E1E1A91F000E9C37D /* AISnowView.m */; };
 		45C15B111E2D12F70021E9D3 /* AIPackingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C15B0F1E2D12F70021E9D3 /* AIPackingListViewController.m */; };
@@ -338,6 +339,8 @@
 		459F82E11E0EA4B700AD6105 /* AIBlurImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBlurImageViewController.m; sourceTree = "<group>"; };
 		45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天猫-01.eps"; sourceTree = "<group>"; };
 		45A396F11E7422E700EBFFFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		45A397161E790ED500EBFFFA /* AILocationClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILocationClockViewController.h; sourceTree = "<group>"; };
+		45A397171E790ED500EBFFFA /* AILocationClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILocationClockViewController.m; sourceTree = "<group>"; };
 		45ACB6991DB7087F001C48B2 /* AITriangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITriangleLayer.h; sourceTree = "<group>"; };
 		45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITriangleLayer.m; sourceTree = "<group>"; };
 		45B3A00D1E1A91F000E9C37D /* AISnowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISnowView.h; sourceTree = "<group>"; };
@@ -1239,6 +1242,7 @@
 				454DBC2A1E364FE10025ACAE /* SlideToReveal */,
 				453733021E4C52950086F391 /* DiscreteGraphChart */,
 				452037EE1E58763E007FA354 /* BeginnerCook */,
+				45A397141E790EB800EBFFFA /* LocationClock */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1444,6 +1448,23 @@
 			children = (
 				459F82E01E0EA4B700AD6105 /* AIBlurImageViewController.h */,
 				459F82E11E0EA4B700AD6105 /* AIBlurImageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45A397141E790EB800EBFFFA /* LocationClock */ = {
+			isa = PBXGroup;
+			children = (
+				45A397151E790EB800EBFFFA /* Controller */,
+			);
+			path = LocationClock;
+			sourceTree = "<group>";
+		};
+		45A397151E790EB800EBFFFA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45A397161E790ED500EBFFFA /* AILocationClockViewController.h */,
+				45A397171E790ED500EBFFFA /* AILocationClockViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1984,6 +2005,7 @@
 				459F82E21E0EA4B700AD6105 /* AIBlurImageViewController.m in Sources */,
 				4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */,
 				45C9EAC11DD57166007B6418 /* AISettingCellAdapter.m in Sources */,
+				45A397181E790ED500EBFFFA /* AILocationClockViewController.m in Sources */,
 				450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */,
 				45D43E131DACDD120022F86A /* UIView+GlowView.m in Sources */,
 				45FF8FC91DDDEE8500FC7584 /* AIPresentDestViewController.m in Sources */,

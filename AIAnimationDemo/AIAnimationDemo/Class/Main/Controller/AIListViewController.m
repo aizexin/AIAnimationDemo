@@ -41,6 +41,7 @@
 #import "AISlideToRevealViewController.h"   //gradientLayer动画
 #import "AIDiscreteViewController.h"        //离散图
 #import "AIBeginnerCookViewController.h"    //BeginnerCook
+#import "AILocationClockViewController.h"   //本地闹钟
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -81,7 +82,8 @@
                            [AIListModel initWithTitle:@"包裹" andTargetVC:[AIPackingListViewController class]],
                            [AIListModel initWithTitle:@"gradientLayer动画" andTargetVC:[AISlideToRevealViewController class]],
                            [AIListModel initWithTitle:@"离散图" andTargetVC:[AIDiscreteViewController class]],
-                           [AIListModel initWithTitle:@"BeginnerCook" andTargetVC:[AIBeginnerCookViewController class]]
+                           [AIListModel initWithTitle:@"BeginnerCook" andTargetVC:[AIBeginnerCookViewController class]],
+                           [AIListModel initWithTitle:@"本地闹钟" andTargetVC:[AILocationClockViewController class]]
                            ];
         
         _dataSource = [NSMutableArray arrayWithCapacity:array.count];
