@@ -9,19 +9,33 @@
 #import "AILocationClockViewController.h"
 #import <EventKit/EventKit.h>
 @interface AILocationClockViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
 @implementation AILocationClockViewController
-
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self = [[NSBundle mainBundle]loadNibNamed:@"AILocationClockViewController" owner:nil options:nil].firstObject;
+    }
+    return self;
+}
 
 - (void)viewDidLoad{
     
     [super viewDidLoad];
+
     
-//    [self addEventNotify:[NSDate dateWithTimeIntervalSinceNow:60] title:@"测试事件"];
+   
+}
+- (IBAction)onClickCalendar:(id)sender {
     
-    [self addReminderNotify:[NSDate dateWithTimeIntervalSinceNow:60] title:@"222222"];
+    [self addEventNotify:[NSDate dateWithTimeIntervalSinceNow:60] title:self.textField.text];
+}
+- (IBAction)onClickReminder:(id)sender {
+    [self addReminderNotify:[NSDate dateWithTimeIntervalSinceNow:60] title:self.textField.text];
 }
 
 -(void)addEventNotify:(NSDate *)date title:(NSString *)title

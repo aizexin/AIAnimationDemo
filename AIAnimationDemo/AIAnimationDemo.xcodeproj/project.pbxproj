@@ -93,6 +93,7 @@
 		45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */ = {isa = PBXBuildFile; fileRef = 45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */; };
 		45A396F21E7422E700EBFFFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45A396F11E7422E700EBFFFA /* Images.xcassets */; };
 		45A397181E790ED500EBFFFA /* AILocationClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A397171E790ED500EBFFFA /* AILocationClockViewController.m */; };
+		45A397431E7ADCC300EBFFFA /* AILocationClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A397421E7ADCC300EBFFFA /* AILocationClockViewController.xib */; };
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
 		45B3A00F1E1A91F000E9C37D /* AISnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B3A00E1E1A91F000E9C37D /* AISnowView.m */; };
 		45C15B111E2D12F70021E9D3 /* AIPackingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C15B0F1E2D12F70021E9D3 /* AIPackingListViewController.m */; };
@@ -341,6 +342,7 @@
 		45A396F11E7422E700EBFFFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45A397161E790ED500EBFFFA /* AILocationClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILocationClockViewController.h; sourceTree = "<group>"; };
 		45A397171E790ED500EBFFFA /* AILocationClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILocationClockViewController.m; sourceTree = "<group>"; };
+		45A397421E7ADCC300EBFFFA /* AILocationClockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AILocationClockViewController.xib; sourceTree = "<group>"; };
 		45ACB6991DB7087F001C48B2 /* AITriangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITriangleLayer.h; sourceTree = "<group>"; };
 		45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITriangleLayer.m; sourceTree = "<group>"; };
 		45B3A00D1E1A91F000E9C37D /* AISnowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISnowView.h; sourceTree = "<group>"; };
@@ -1465,6 +1467,7 @@
 			children = (
 				45A397161E790ED500EBFFFA /* AILocationClockViewController.h */,
 				45A397171E790ED500EBFFFA /* AILocationClockViewController.m */,
+				45A397421E7ADCC300EBFFFA /* AILocationClockViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1889,6 +1892,7 @@
 				45ED00641E5C84B0005217AF /* AIBeginnerCookViewController.xib in Resources */,
 				45A396F21E7422E700EBFFFA /* Images.xcassets in Resources */,
 				451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */,
+				45A397431E7ADCC300EBFFFA /* AILocationClockViewController.xib in Resources */,
 				45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */,
 				45DB05951E704F5C00346DDD /* AIHerbDetailViewController.xib in Resources */,
 				45C15B121E2D12F70021E9D3 /* AIPackingListViewController.xib in Resources */,
