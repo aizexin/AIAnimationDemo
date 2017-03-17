@@ -65,9 +65,8 @@
     } completion:^(BOOL finished) {
         if (!self.presenting) {
             [self dismissComletion];
-        }else {
-            [transitionContext completeTransition:YES];
         }
+        [transitionContext completeTransition:YES];
     }];
 }
 
