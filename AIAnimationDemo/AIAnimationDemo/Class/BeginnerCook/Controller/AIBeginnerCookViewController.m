@@ -47,13 +47,17 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    typeof(self)weakSelf = self;
+    self.transition.dismissComletion = ^{
+        weakSelf.selectedImageView.hidden = NO;
+    };
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    if (self.listView.subviews.count < self.herbs.count) {
+    if (self.listView.subviews.count < self.herbs.count) {
         [self.listView viewWithTag:1000];
         [self setUpList];
-//    }
+    }
 }
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
@@ -110,7 +114,7 @@
 
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     //坐标转换
-    self.transition.originFrame = [self.selectedImageView convertRect:_selectedImageView.frame toView:nil];
+    self.transition.originFrame = [self.selectedImageView.superview convertRect:_selectedImageView.frame toView:nil];
     self.transition.presenting    = YES;
     self.selectedImageView.hidden = YES;
     return self.transition;

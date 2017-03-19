@@ -16,4 +16,7 @@
 @property(nonatomic, assign)BOOL presenting;
 /** 其实frame*/
 @property(nonatomic, assign)CGRect originFrame;
+/** 消失的时候调用*/
+@property(nonatomic, copy)void(^dismissComletion)();
+
 @end

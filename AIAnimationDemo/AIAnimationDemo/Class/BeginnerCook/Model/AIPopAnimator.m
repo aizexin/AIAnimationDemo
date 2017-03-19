@@ -59,18 +59,17 @@
         
         herbView.transform      = self.presenting ? CGAffineTransformIdentity:scaleTransfrom;
         herbView.center         = CGPointMake(
-                                              initialFrame.size.width *.5 + initialFrame.origin.x,
-                                              initialFrame.size.height *.5 + initialFrame.origin.y);
+                                              finalFrame.size.width *.5 + finalFrame.origin.x,
+                                              finalFrame.size.height *.5 + finalFrame.origin.y);
         
     } completion:^(BOOL finished) {
         if (!self.presenting) {
-            [self dismissComletion];
+            if (self.dismissComletion) {
+                self.dismissComletion();
+            }
         }
         [transitionContext completeTransition:YES];
     }];
 }
 
-- (void)dismissComletion {
-    
-}
 @end
