@@ -21,7 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionClLose:)];
+    [self.view addGestureRecognizer:tap];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -29,11 +30,10 @@
     self.titleLabel.text   = self.herbModel.name;
     self.descriptionTextView.text = self.herbModel.descriptionString;
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+
+#pragma mark -action 
+- (void)actionClLose:(UITapGestureRecognizer*)tap {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
--(void)setHerbModel:(AIHerbModel *)herbModel {
-    _herbModel = herbModel;
 }
 
 @end

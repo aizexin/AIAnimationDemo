@@ -63,7 +63,7 @@
     return UIStatusBarStyleLightContent;
 }
 
--(void) setUpList {
+- (void)setUpList {
     for (int i = 0; i < self.herbs.count; i++) {
         AIHerbModel *model      = self.herbs[i];
         UIImageView *imageView  = [[UIImageView alloc]initWithImage:[UIImage imageNamed:model.image]];
