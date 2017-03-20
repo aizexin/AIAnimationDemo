@@ -98,8 +98,7 @@
 
 #pragma mark -Action 
 -(void)didTapImageView:(UITapGestureRecognizer*)tap {
-    UIImageView *imageView      = [[UIImageView alloc]init];
-    self.selectedImageView      = imageView;
+    self.selectedImageView      = (UIImageView*)tap.view;
     NSInteger index             = tap.view.tag - 123456;
     AIHerbModel *selectedHerbModel              = self.herbs[index];
     
@@ -114,7 +113,7 @@
 
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     //坐标转换
-    self.transition.originFrame = [self.selectedImageView.superview convertRect:_selectedImageView.frame toView:nil];
+    self.transition.originFrame = [self.selectedImageView.superview convertRect:_selectedImageView.frame toView:self.view];
     self.transition.presenting    = YES;
     self.selectedImageView.hidden = YES;
     return self.transition;
