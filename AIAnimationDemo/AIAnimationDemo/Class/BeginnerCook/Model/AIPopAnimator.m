@@ -55,7 +55,7 @@
     [containerView addSubview:toView];
     [containerView bringSubviewToFront:herbView];
     
-    [UIView animateWithDuration:_duration delay:1. usingSpringWithDamping:.4 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
+    [UIView animateWithDuration:_duration delay:0 usingSpringWithDamping:.4 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
         
         herbView.transform      = self.presenting ? CGAffineTransformIdentity:scaleTransfrom;
         herbView.center         = CGPointMake(

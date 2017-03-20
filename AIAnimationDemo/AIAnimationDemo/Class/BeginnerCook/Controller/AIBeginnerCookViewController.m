@@ -78,7 +78,6 @@
         [imageView addGestureRecognizer:tap];
     }
     [self positionListItem];
-//    self.listView.backgroundColor           = [UIColor clearColor];
 }
 
 - (void)positionListItem {
