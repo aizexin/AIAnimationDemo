@@ -1,5 +1,13 @@
 #AIAnimationDemo
 
++ BeginnerCook
+
+![BeginnerCook.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/BeginnerCook.gif)
+
++ 自定义刷新控件
+
+![自定义刷新控件.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/自定义刷新控件.gif)
+
 + gradientLayer动画
 
 ![gradientLayer动画.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/辉光效果.gif)
