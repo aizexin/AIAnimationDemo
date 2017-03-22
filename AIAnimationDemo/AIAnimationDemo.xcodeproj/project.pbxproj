@@ -91,7 +91,6 @@
 		459F82DD1E0D213700AD6105 /* UIImage+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 459F82DC1E0D213700AD6105 /* UIImage+AIExtension.m */; };
 		459F82E21E0EA4B700AD6105 /* AIBlurImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459F82E11E0EA4B700AD6105 /* AIBlurImageViewController.m */; };
 		45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */ = {isa = PBXBuildFile; fileRef = 45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */; };
-		45A396F21E7422E700EBFFFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45A396F11E7422E700EBFFFA /* Images.xcassets */; };
 		45A397181E790ED500EBFFFA /* AILocationClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A397171E790ED500EBFFFA /* AILocationClockViewController.m */; };
 		45A397431E7ADCC300EBFFFA /* AILocationClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A397421E7ADCC300EBFFFA /* AILocationClockViewController.xib */; };
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
@@ -339,7 +338,6 @@
 		459F82E01E0EA4B700AD6105 /* AIBlurImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBlurImageViewController.h; sourceTree = "<group>"; };
 		459F82E11E0EA4B700AD6105 /* AIBlurImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBlurImageViewController.m; sourceTree = "<group>"; };
 		45A1C5DE1DFF943F006B9894 /* 天猫-01.eps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天猫-01.eps"; sourceTree = "<group>"; };
-		45A396F11E7422E700EBFFFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45A397161E790ED500EBFFFA /* AILocationClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILocationClockViewController.h; sourceTree = "<group>"; };
 		45A397171E790ED500EBFFFA /* AILocationClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILocationClockViewController.m; sourceTree = "<group>"; };
 		45A397421E7ADCC300EBFFFA /* AILocationClockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AILocationClockViewController.xib; sourceTree = "<group>"; };
@@ -1176,7 +1174,6 @@
 				455E288F1D98C0D300E3DA4D /* AppDelegate.h */,
 				455E28901D98C0D300E3DA4D /* AppDelegate.m */,
 				455E28C11D98C5C800E3DA4D /* Header.h */,
-				45A396F11E7422E700EBFFFA /* Images.xcassets */,
 				455E288C1D98C0D300E3DA4D /* Supporting Files */,
 			);
 			path = AIAnimationDemo;
@@ -1890,7 +1887,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45ED00641E5C84B0005217AF /* AIBeginnerCookViewController.xib in Resources */,
-				45A396F21E7422E700EBFFFA /* Images.xcassets in Resources */,
 				451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */,
 				45A397431E7ADCC300EBFFFA /* AILocationClockViewController.xib in Resources */,
 				45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */,
