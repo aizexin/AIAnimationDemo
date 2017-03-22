@@ -116,8 +116,8 @@
     } completion:^(BOOL finished) {
         
         [iconImageView removeFromSuperview];
+        [self setUI];
     }];
-    [self setUI];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
