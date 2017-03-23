@@ -95,6 +95,7 @@
 		45A397431E7ADCC300EBFFFA /* AILocationClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A397421E7ADCC300EBFFFA /* AILocationClockViewController.xib */; };
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
 		45B3A00F1E1A91F000E9C37D /* AISnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B3A00E1E1A91F000E9C37D /* AISnowView.m */; };
+		45B6D4C01E841C80008CFC4B /* AILogoRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6D4BF1E841C80008CFC4B /* AILogoRevealViewController.m */; };
 		45C15B111E2D12F70021E9D3 /* AIPackingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C15B0F1E2D12F70021E9D3 /* AIPackingListViewController.m */; };
 		45C15B121E2D12F70021E9D3 /* AIPackingListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C15B101E2D12F70021E9D3 /* AIPackingListViewController.xib */; };
 		45C9EAAA1DD317F9007B6418 /* AIAFN3ModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAA91DD317F9007B6418 /* AIAFN3ModelTool.m */; };
@@ -345,6 +346,8 @@
 		45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITriangleLayer.m; sourceTree = "<group>"; };
 		45B3A00D1E1A91F000E9C37D /* AISnowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISnowView.h; sourceTree = "<group>"; };
 		45B3A00E1E1A91F000E9C37D /* AISnowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISnowView.m; sourceTree = "<group>"; };
+		45B6D4BE1E841C80008CFC4B /* AILogoRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILogoRevealViewController.h; sourceTree = "<group>"; };
+		45B6D4BF1E841C80008CFC4B /* AILogoRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILogoRevealViewController.m; sourceTree = "<group>"; };
 		45C15B0E1E2D12F70021E9D3 /* AIPackingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPackingListViewController.h; sourceTree = "<group>"; };
 		45C15B0F1E2D12F70021E9D3 /* AIPackingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPackingListViewController.m; sourceTree = "<group>"; };
 		45C15B101E2D12F70021E9D3 /* AIPackingListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIPackingListViewController.xib; sourceTree = "<group>"; };
@@ -1242,6 +1245,7 @@
 				453733021E4C52950086F391 /* DiscreteGraphChart */,
 				452037EE1E58763E007FA354 /* BeginnerCook */,
 				45A397141E790EB800EBFFFA /* LocationClock */,
+				45B6D4BC1E841C1E008CFC4B /* LogoReveal */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1465,6 +1469,23 @@
 				45A397161E790ED500EBFFFA /* AILocationClockViewController.h */,
 				45A397171E790ED500EBFFFA /* AILocationClockViewController.m */,
 				45A397421E7ADCC300EBFFFA /* AILocationClockViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45B6D4BC1E841C1E008CFC4B /* LogoReveal */ = {
+			isa = PBXGroup;
+			children = (
+				45B6D4BD1E841C1E008CFC4B /* Controller */,
+			);
+			path = LogoReveal;
+			sourceTree = "<group>";
+		};
+		45B6D4BD1E841C1E008CFC4B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45B6D4BE1E841C80008CFC4B /* AILogoRevealViewController.h */,
+				45B6D4BF1E841C80008CFC4B /* AILogoRevealViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1997,6 +2018,7 @@
 				451D28221DBCED090070BFCA /* AIPictureViewer.m in Sources */,
 				45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */,
 				45FF8FC61DDDED0C00FC7584 /* AIPresentCustomTransition.m in Sources */,
+				45B6D4C01E841C80008CFC4B /* AILogoRevealViewController.m in Sources */,
 				453DD8461DACA80500D1CDA9 /* GCDQueue.m in Sources */,
 				45FF8FCC1DDEAD0000FC7584 /* AIPresentAnimation.m in Sources */,
 				4505FEC81DAF537300AE4FED /* FontAttribute.m in Sources */,
