@@ -130,6 +130,7 @@
 		45DB058D1E6C1BB000346DDD /* AIHerbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB058B1E6C1BAF00346DDD /* AIHerbDetailViewController.m */; };
 		45DB05951E704F5C00346DDD /* AIHerbDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB05941E704F5C00346DDD /* AIHerbDetailViewController.xib */; };
 		45E44A331DE4314A009B50BC /* AILoginAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */; };
+		45E700951E86C3DE00065731 /* AILogoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E700941E86C3DE00065731 /* AILogoDetailViewController.m */; };
 		45EA3F441E0177F500F7B8C2 /* AIMultiplayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F431E0177F500F7B8C2 /* AIMultiplayerViewController.m */; };
 		45EA3F491E01838500F7B8C2 /* AIAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F481E01838500F7B8C2 /* AIAvatarView.m */; };
 		45ED00641E5C84B0005217AF /* AIBeginnerCookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45ED00631E5C84B0005217AF /* AIBeginnerCookViewController.xib */; };
@@ -413,6 +414,8 @@
 		45DB05941E704F5C00346DDD /* AIHerbDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHerbDetailViewController.xib; sourceTree = "<group>"; };
 		45E44A311DE4314A009B50BC /* AILoginAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILoginAnimationViewController.h; sourceTree = "<group>"; };
 		45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILoginAnimationViewController.m; sourceTree = "<group>"; };
+		45E700931E86C3DE00065731 /* AILogoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILogoDetailViewController.h; sourceTree = "<group>"; };
+		45E700941E86C3DE00065731 /* AILogoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILogoDetailViewController.m; sourceTree = "<group>"; };
 		45EA3F421E0177F500F7B8C2 /* AIMultiplayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMultiplayerViewController.h; sourceTree = "<group>"; };
 		45EA3F431E0177F500F7B8C2 /* AIMultiplayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMultiplayerViewController.m; sourceTree = "<group>"; };
 		45EA3F471E01838500F7B8C2 /* AIAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAvatarView.h; sourceTree = "<group>"; };
@@ -1486,6 +1489,8 @@
 			children = (
 				45B6D4BE1E841C80008CFC4B /* AILogoRevealViewController.h */,
 				45B6D4BF1E841C80008CFC4B /* AILogoRevealViewController.m */,
+				45E700931E86C3DE00065731 /* AILogoDetailViewController.h */,
+				45E700941E86C3DE00065731 /* AILogoDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2032,6 +2037,7 @@
 				45D43E131DACDD120022F86A /* UIView+GlowView.m in Sources */,
 				45FF8FC91DDDEE8500FC7584 /* AIPresentDestViewController.m in Sources */,
 				451D281F1DBCECB50070BFCA /* AIPictureViewerViewController.m in Sources */,
+				45E700951E86C3DE00065731 /* AILogoDetailViewController.m in Sources */,
 				453DD8481DACA80500D1CDA9 /* GCDTimer.m in Sources */,
 				454B9B811E2A7B8600E7F9CF /* AppleSystemService.m in Sources */,
 				455E28D31D98F80600E3DA4D /* AIListModel.m in Sources */,
