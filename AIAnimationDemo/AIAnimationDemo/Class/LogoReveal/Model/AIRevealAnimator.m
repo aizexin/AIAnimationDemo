@@ -7,7 +7,6 @@
 //
 
 #import "AIRevealAnimator.h"
-
 @implementation AIRevealAnimator
 
 @end

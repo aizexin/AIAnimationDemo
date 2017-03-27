@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AIRevealAnimator : NSObject
+@interface AIRevealAnimator : NSObject<UIViewControllerAnimatedTransitioning,CAAnimationDelegate>
 
 @end
