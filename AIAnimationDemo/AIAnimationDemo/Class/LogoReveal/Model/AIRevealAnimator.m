@@ -9,4 +9,15 @@
 #import "AIRevealAnimator.h"
 @implementation AIRevealAnimator
 
+
+-(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
+    return _animationDuration;
+}
+-(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+    self.storedContext  = transitionContext;
+    
+    if (self.operation  == UINavigationControllerOperationPush) {
+        
+    }
+}
 @end

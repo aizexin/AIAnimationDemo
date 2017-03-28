@@ -9,5 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface AIRevealAnimator : NSObject<UIViewControllerAnimatedTransitioning,CAAnimationDelegate>
-
+/** 持续时间*/
+@property(nonatomic, assign)NSTimeInterval animationDuration;
+/** 操作*/
+@property(nonatomic, assign)UINavigationControllerOperation operation;
+/** 存储内容*/
+@property(nonatomic,weak)id<UIViewControllerContextTransitioning> storedContext;
 @end

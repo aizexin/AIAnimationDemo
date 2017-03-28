@@ -7,7 +7,7 @@
 //
 
 #import "AILogoRevealViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 @interface AILogoRevealViewController ()
 
 @end

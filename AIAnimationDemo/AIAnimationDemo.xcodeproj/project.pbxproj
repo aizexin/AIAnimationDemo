@@ -126,6 +126,7 @@
 		45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E0D1DACDD120022F86A /* UIView+Shake.m */; };
 		45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E0F1DACDD120022F86A /* UIView+UserInteraction.m */; };
 		45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */; };
+		45DA48751E8A50AE00816C2C /* AIRWLogoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DA48741E8A50AE00816C2C /* AIRWLogoLayer.m */; };
 		45DB05761E68154200346DDD /* AIPopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB05751E68154200346DDD /* AIPopAnimator.m */; };
 		45DB058D1E6C1BB000346DDD /* AIHerbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB058B1E6C1BAF00346DDD /* AIHerbDetailViewController.m */; };
 		45DB05951E704F5C00346DDD /* AIHerbDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB05941E704F5C00346DDD /* AIHerbDetailViewController.xib */; };
@@ -408,6 +409,8 @@
 		45D43E0F1DACDD120022F86A /* UIView+UserInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UserInteraction.m"; sourceTree = "<group>"; };
 		45D43E191DACE21B0022F86A /* InfiniteRotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteRotationView.h; sourceTree = "<group>"; };
 		45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteRotationView.m; sourceTree = "<group>"; };
+		45DA48731E8A50AE00816C2C /* AIRWLogoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRWLogoLayer.h; sourceTree = "<group>"; };
+		45DA48741E8A50AE00816C2C /* AIRWLogoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRWLogoLayer.m; sourceTree = "<group>"; };
 		45DB05741E68154200346DDD /* AIPopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPopAnimator.h; sourceTree = "<group>"; };
 		45DB05751E68154200346DDD /* AIPopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPopAnimator.m; sourceTree = "<group>"; };
 		45DB058A1E6C1BAF00346DDD /* AIHerbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHerbDetailViewController.h; sourceTree = "<group>"; };
@@ -1482,6 +1485,7 @@
 		45B6D4BC1E841C1E008CFC4B /* LogoReveal */ = {
 			isa = PBXGroup;
 			children = (
+				45DA48721E8A507200816C2C /* View */,
 				45E700981E88111700065731 /* Model */,
 				45B6D4BD1E841C1E008CFC4B /* Controller */,
 			);
@@ -1693,6 +1697,15 @@
 				45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */,
 			);
 			path = InfiniteRotationView;
+			sourceTree = "<group>";
+		};
+		45DA48721E8A507200816C2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45DA48731E8A50AE00816C2C /* AIRWLogoLayer.h */,
+				45DA48741E8A50AE00816C2C /* AIRWLogoLayer.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		45E44A2E1DE4310D009B50BC /* Pop17 */ = {
@@ -2127,6 +2140,7 @@
 				4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */,
 				451D28261DBCEEF70070BFCA /* AIPictureCollectionViewCell.m in Sources */,
 				45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */,
+				45DA48751E8A50AE00816C2C /* AIRWLogoLayer.m in Sources */,
 				454516101E0A83A600F3BCF9 /* NSString+Extension.m in Sources */,
 				452445E61DBE56E800A9D2B9 /* AIBaseFloatRangeGraphChartDataSource.m in Sources */,
 				45C9EACE1DD5AF16007B6418 /* PPNumberButton.m in Sources */,
