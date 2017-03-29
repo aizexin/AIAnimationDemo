@@ -8,6 +8,7 @@
 
 #import "AILogoRevealViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AIRWLogoLayer.h"
 @interface AILogoRevealViewController ()
 
 @end
