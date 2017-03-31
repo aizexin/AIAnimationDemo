@@ -9,5 +9,5 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface AIRWLogoLayer : NSObject
-
+- (CAShapeLayer*)logoLayer;
 @end
