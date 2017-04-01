@@ -9,5 +9,5 @@
 #import "AIBaseViewController.h"
 
 @interface AILogoRevealViewController : AIBaseViewController
-
+@property(nonatomic,strong)CAShapeLayer  *logo;
 @end

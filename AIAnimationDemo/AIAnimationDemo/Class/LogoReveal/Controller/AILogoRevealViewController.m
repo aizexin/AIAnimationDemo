@@ -12,7 +12,7 @@
 #import "AIRevealAnimator.h"
 #import "AILogoDetailViewController.h"
 @interface AILogoRevealViewController ()<UINavigationControllerDelegate>
-@property(nonatomic,strong)CAShapeLayer  *logo;
+
 
 /** 动画*/
 @property(nonatomic,strong)AIRevealAnimator *transition;
