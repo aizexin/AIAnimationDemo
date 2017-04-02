@@ -28,7 +28,7 @@
     return _logo;
 }
 -(AIRevealAnimator *)transition {
-    if (_transition) {
+    if (!_transition) {
         _transition = [[AIRevealAnimator alloc]init];
     }
     return _transition;
@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title      = @"Start";
-    self.view.backgroundColor   = [UIColor blackColor];
+    self.view.backgroundColor   = [UIColor brownColor];
     self.navigationController.delegate  = self;
 }
 -(void)viewDidAppear:(BOOL)animated {
