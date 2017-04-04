@@ -48,6 +48,7 @@
         maskLayer.position           = fromVC.logo.position;
         [maskLayer addAnimation:animation forKey:nil];
         toVC.view.layer.mask         = maskLayer;
+        
         [fromVC.logo addAnimation:animation forKey:nil];
     }
 }
