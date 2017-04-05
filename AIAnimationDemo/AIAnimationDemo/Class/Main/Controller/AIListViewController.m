@@ -42,7 +42,7 @@
 #import "AIDiscreteViewController.h"        //离散图
 #import "AIBeginnerCookViewController.h"    //BeginnerCook
 #import "AILocationClockViewController.h"   //本地闹钟
-#import "AILogoRevealViewController.h"      //facebook开场动画
+#import "AILogoRevealViewController.h"      //Twitter开场动画
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -85,7 +85,7 @@
                            [AIListModel initWithTitle:@"离散图" andTargetVC:[AIDiscreteViewController class]],
                            [AIListModel initWithTitle:@"BeginnerCook" andTargetVC:[AIBeginnerCookViewController class]],
                            [AIListModel initWithTitle:@"本地闹钟" andTargetVC:[AILocationClockViewController class]],
-                           [AIListModel initWithTitle:@"facebook开场动画" andTargetVC:[AILogoRevealViewController class]]
+                           [AIListModel initWithTitle:@"Twitter开场动画" andTargetVC:[AILogoRevealViewController class]]
                            ];
         
         _dataSource = [NSMutableArray arrayWithCapacity:array.count];
