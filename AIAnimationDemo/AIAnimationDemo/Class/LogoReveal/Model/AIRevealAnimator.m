@@ -27,7 +27,7 @@
     self.storedContext  = transitionContext;
     
     if (self.operation  == UINavigationControllerOperationPush) {
-        AILogoRevealViewController *fromVC     = [transitionContext viewControllerForKey:( UITransitionContextFromViewKey)];
+        AILogoRevealViewController *fromVC     = [transitionContext viewControllerForKey:( UITransitionContextFromViewControllerKey)];
         UIViewController *toVC       = [transitionContext viewControllerForKey:( UITransitionContextToViewControllerKey)];
         
         [transitionContext.containerView addSubview:toVC.view];
@@ -46,8 +46,8 @@
         
         CAShapeLayer *maskLayer      = [[AIRWLogoLayer alloc]logoLayer];
         maskLayer.position           = fromVC.logo.position;
-        [maskLayer addAnimation:animation forKey:nil];
         toVC.view.layer.mask         = maskLayer;
+        [maskLayer addAnimation:animation forKey:nil];
         
         [fromVC.logo addAnimation:animation forKey:nil];
     }
