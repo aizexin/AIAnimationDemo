@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title  = @"Detail";
-    self.view.backgroundColor    = [UIColor lightGrayColor];
+    self.view.backgroundColor    = [UIColor colorWithHexString:@"#E7AB3D"];
  
 }
 

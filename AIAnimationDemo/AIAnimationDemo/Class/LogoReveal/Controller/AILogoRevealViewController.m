@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title      = @"Start";
-    self.view.backgroundColor   = [UIColor brownColor];
+    self.view.backgroundColor   = [UIColor colorWithHexString:@"#555555"];
     self.navigationController.delegate  = self;
 }
 -(void)viewDidAppear:(BOOL)animated {

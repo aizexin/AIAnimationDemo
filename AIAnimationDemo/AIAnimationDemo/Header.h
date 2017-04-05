@@ -25,6 +25,7 @@
 #import <Masonry.h>
 #import "UIView+AISetRect.h"
 #import "single.h"
+#import "UIColor+AIExtension.h"
 #define MainSize [UIScreen mainScreen].bounds.size
 //导航栏高度
 #define AINavgationBarH 64
