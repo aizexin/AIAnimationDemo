@@ -9,6 +9,8 @@
 #import "AIRefreshView.h"
 
 @interface AIRefreshView ()<UIScrollViewDelegate>
+
+/** 圆CAShapeLayer */
 @property(nonatomic,strong)CAShapeLayer *ovalShapeLayer;
 /** 飞机layer*/
 @property(nonatomic,strong)CALayer *airplaneLayer;
@@ -39,7 +41,7 @@
         self.ovalShapeLayer.lineWidth        = 4.;
         self.ovalShapeLayer.lineDashPattern  = @[@2,@3];
         
-        CGFloat refreshRadius           = frame.size.height/2 *.8;
+        CGFloat refreshRadius                = frame.size.height/2 *.8;
         
         self.ovalShapeLayer.path             = [UIBezierPath bezierPathWithOvalInRect:
                                            CGRectMake(frame.size.width *.5 - refreshRadius,
@@ -64,8 +66,17 @@
     [super layoutSubviews];
     self.bgImageView.frame      = self.bounds;
 }
+/**
+ 通过进度画圆，和飞机
+ 
+ @param progress 进度
+ */
+- (void)redrawFromProgress:(CGFloat)progress {
+    self.airplaneLayer.opacity    = _progress;
+    self.ovalShapeLayer.strokeEnd = _progress;
+}
 
-
+#pragma mark -public
 
 #pragma mark -UIScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -134,9 +145,6 @@
     }];
 }
 
-- (void)redrawFromProgress:(CGFloat)progress {
-    self.airplaneLayer.opacity    = _progress;
-    self.ovalShapeLayer.strokeEnd = _progress;
-}
+
 
 @end
