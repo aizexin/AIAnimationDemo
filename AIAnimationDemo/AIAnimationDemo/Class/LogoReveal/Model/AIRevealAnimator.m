@@ -44,6 +44,12 @@
         animation.removedOnCompletion = NO;
         animation.timingFunction     = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
         
+        CABasicAnimation *fadeIn     = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        fadeIn.fromValue             = @0;
+        fadeIn.toValue               = @1.;
+        fadeIn.duration              = _animationDuration;
+        [toVC.view.layer addAnimation:fadeIn forKey:nil];
+        
         CAShapeLayer *maskLayer      = [[AIRWLogoLayer alloc]logoLayer];
         maskLayer.position           = fromVC.logo.position;
         toVC.view.layer.mask         = maskLayer;
