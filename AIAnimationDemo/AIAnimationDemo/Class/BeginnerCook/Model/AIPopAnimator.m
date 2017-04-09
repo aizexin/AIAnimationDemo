@@ -7,7 +7,7 @@
 //
 
 #import "AIPopAnimator.h"
-
+#import "AIHerbDetailViewController.h"
 @implementation AIPopAnimator
 
 - (instancetype)init
@@ -55,13 +55,19 @@
     [containerView addSubview:toView];
     [containerView bringSubviewToFront:herbView];
     
+    AIHerbDetailViewController *herbController  = [transitionContext viewControllerForKey:(self.presenting? UITransitionContextToViewControllerKey:UITransitionContextFromViewControllerKey)];
+    
+    if (_presenting) {
+        herbController.containerView.alpha      = 0.;
+    }
+    
     [UIView animateWithDuration:_duration delay:0 usingSpringWithDamping:.4 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
         
         herbView.transform      = self.presenting ? CGAffineTransformIdentity:scaleTransfrom;
         herbView.center         = CGPointMake(
                                               finalFrame.size.width *.5 + finalFrame.origin.x,
                                               finalFrame.size.height *.5 + finalFrame.origin.y);
-        
+        herbController.containerView.alpha      = self.presenting ? 1. : 0.;
     } completion:^(BOOL finished) {
         if (!self.presenting) {
             if (self.dismissComletion) {

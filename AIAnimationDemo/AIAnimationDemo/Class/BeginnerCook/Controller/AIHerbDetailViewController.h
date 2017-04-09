@@ -11,4 +11,5 @@
 @interface AIHerbDetailViewController : AIBaseViewController
 /** 数据*/
 @property(nonatomic,strong)AIHerbModel *herbModel;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 @end
