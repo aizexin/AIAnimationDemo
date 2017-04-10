@@ -22,7 +22,7 @@ static const CGFloat KLineWidth = 5.0;
         self.fillColor        = [UIColor clearColor].CGColor;
         self.lineWidth        = KLineWidth;
         self.path             = self.rectangleFullPath.CGPath;
-        _allAnimationDuration = 0.4;
+        self.allAnimationDuration = 0.4;
     }
     return self;
 }
