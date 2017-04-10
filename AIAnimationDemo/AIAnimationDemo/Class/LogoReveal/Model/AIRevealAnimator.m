@@ -56,6 +56,16 @@
         [maskLayer addAnimation:animation forKey:nil];
         
         [fromVC.logo addAnimation:animation forKey:nil];
+    }else {
+        UIView *fromView     = [transitionContext viewForKey:( UITransitionContextFromViewKey)];
+        UIView *toView       = [transitionContext viewForKey:( UITransitionContextToViewKey)];
+        
+        [transitionContext.containerView insertSubview:toView belowSubview:fromView];
+        [UIView animateWithDuration:_animationDuration animations:^{
+            fromView.transform       = CGAffineTransformMakeScale(.01, .01);
+        } completion:^(BOOL finished) {
+            [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
+        }];
     }
 }
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
