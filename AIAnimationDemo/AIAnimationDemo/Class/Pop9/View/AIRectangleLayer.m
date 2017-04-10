@@ -18,7 +18,7 @@ static const CGFloat KLineWidth = 5.0;
 
 
 - (instancetype)init {
-    if (self == [super init]) {
+    if (self = [super init]) {
         self.fillColor        = [UIColor clearColor].CGColor;
         self.lineWidth        = KLineWidth;
         self.path             = self.rectangleFullPath.CGPath;
