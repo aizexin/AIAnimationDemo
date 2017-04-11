@@ -82,7 +82,8 @@ typedef enum : NSUInteger {
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //添加返回按钮
+    [self addbackBtn];
     self.snowView       = [[AISnowView alloc]initWithFrame: CGRectMake(-150, -100, 300, 50)];
     
     UIView *snowClipView  = [[UIView alloc]init];
