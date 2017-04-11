@@ -105,20 +105,21 @@ const CGFloat animationDuration = 1.;
     [self.maskLayer addAnimation:morphAnimation forKey:nil];
     
     //移动位置
+    AIWeakSelf
     [UIView animateWithDuration:animationDuration delay:0. usingSpringWithDamping:.7 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.center  = point;
+        weakSelf.center  = point;
     } completion:nil];
     
     [UIView animateWithDuration:animationDuration delay:animationDuration usingSpringWithDamping:.7 initialSpringVelocity:1. options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.center  = originalCenter;
+        weakSelf.center  = originalCenter;
     } completion:^(BOOL finished) {
-        if (!self.shouldTransitionToFinishedState) {
+        if (!weakSelf.shouldTransitionToFinishedState) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self bounceOffPoint:point morphSize:morphSize];
+                [weakSelf bounceOffPoint:point morphSize:morphSize];
             });
         }else {
-            [self.layer removeAllAnimations];
-            [self animateToSquare];
+            [weakSelf.layer removeAllAnimations];
+            [weakSelf animateToSquare];
         }
     }];
 }

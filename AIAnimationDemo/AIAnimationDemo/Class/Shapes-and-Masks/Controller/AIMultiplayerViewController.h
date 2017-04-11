@@ -6,8 +6,8 @@
 //  Copyright © 2016年 艾泽鑫. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AIBaseViewController.h"
 
-@interface AIMultiplayerViewController : UIViewController
+@interface AIMultiplayerViewController : AIBaseViewController
 
 @end

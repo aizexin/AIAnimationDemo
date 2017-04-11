@@ -32,6 +32,7 @@
     [super viewDidLoad];
     [self setUI];
     [self searchForOpponent];
+    [self addbackBtn];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -54,8 +55,9 @@
     CGPoint leftBouncePoint   = CGPointMake(KWidth * .5 - bounceXOffset, self.myAvatarView.center.y);
     [self.myAvatarView bounceOffPoint:rightBouncePoint morphSize:morphSize];
     [self.opponentAvatarView bounceOffPoint:leftBouncePoint morphSize:morphSize];
+    AIWeakSelf
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self foundOpponent];
+        [weakSelf foundOpponent];
     });
 }
 
@@ -66,8 +68,9 @@
     self.statusLabel.text           = @"Connecting...";
     self.opponentAvatarView.image   = [UIImage imageNamed:@"avatar-2"];
     self.opponentAvatarView.name    = @"Ray";
+    AIWeakSelf
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self connectedToOpponent];
+        [weakSelf connectedToOpponent];
     });
 }
 
@@ -77,8 +80,9 @@
 - (void)connectedToOpponent {
     self.myAvatarView.shouldTransitionToFinishedState        = YES;
     self.opponentAvatarView.shouldTransitionToFinishedState  = YES;
+    AIWeakSelf
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self completed];
+        [weakSelf completed];
     });
 }
 
@@ -87,9 +91,10 @@
  */
 - (void)completed {
     self.statusLabel.text           = @"Ready to play";
+    AIWeakSelf
     [UIView animateWithDuration:.2 animations:^{
-        self.vsLabel.alpha          = 1.;
-        self.searchAgainBtn.alpha   = 1.;
+        weakSelf.vsLabel.alpha          = 1.;
+        weakSelf.searchAgainBtn.alpha   = 1.;
     }];
     
 }
@@ -146,9 +151,10 @@
 
 //Mark: Action
 - (void)onClickAgainBtn:(UIButton*)btn {
+    AIWeakSelf
     [UIView animateWithDuration:.2 animations:^{
-        self.vsLabel.alpha          = 0.;
-        self.searchAgainBtn.alpha   = 0.;
+        weakSelf.vsLabel.alpha          = 0.;
+        weakSelf.searchAgainBtn.alpha   = 0.;
     }];
     [self.myAvatarView reset];
     [self.opponentAvatarView reset];
@@ -156,7 +162,7 @@
     self.myAvatarView.name          = @"Me";
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        [self searchForOpponent];
+        [weakSelf searchForOpponent];
     });
 }
 
