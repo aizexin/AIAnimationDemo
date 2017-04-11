@@ -104,6 +104,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.title                 = @"😎";
     // LaunchImage
     UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     iconImageView.image        = [AppleSystemService launchImage];

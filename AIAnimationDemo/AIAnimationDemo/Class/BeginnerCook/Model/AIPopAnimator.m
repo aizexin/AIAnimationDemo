@@ -76,6 +76,12 @@
         }
         [transitionContext completeTransition:YES];
     }];
+    CABasicAnimation    *round                  = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    round.fromValue                             = !_presenting?@0.:@(20.0/xScaleFactor);
+    round.toValue                               = @(_presenting ? 0.:20./xScaleFactor);
+    round.duration                              = _duration * .5;
+    [herbView.layer addAnimation:round forKey:nil];
+    herbView.layer.cornerRadius                 = _presenting? 0.:20./xScaleFactor;
 }
 
 @end
