@@ -22,6 +22,28 @@
 //    [KMCGeigerCounter sharedGeigerCounter].enabled = YES;
 //#endif
 }
+-(void)dealloc {
+    AILog(@"%@--dealloc",NSStringFromClass([self class]));
+}
+/**
+ 添加返回
+ */
+- (void)addbackBtn {
+    UIButton *backBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    [self.view addSubview:backBtn];
+    [backBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:(UIControlStateNormal)];
+    [backBtn addTarget:self action:@selector(onClickBack:) forControlEvents:(UIControlEventTouchUpInside)];
+    [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(8);
+        make.top.mas_equalTo(10);
+        make.width.height.mas_equalTo(24);
+    }];
+}
 
+
+#pragma mark -Action
+- (void)onClickBack:(UIButton*)back {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

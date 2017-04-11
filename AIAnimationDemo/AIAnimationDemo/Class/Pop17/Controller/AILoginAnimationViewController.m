@@ -42,6 +42,11 @@
 /** 状态信息*/
 @property(nonatomic,strong)NSArray *messages;
 @property(nonatomic,assign)CGPoint statusPoint;
+
+/**
+ 是否显示
+ */
+@property(nonatomic,assign,getter=isAppear)BOOL appear;
 @end
 
 @implementation AILoginAnimationViewController
@@ -58,14 +63,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpUI];
+    [self addbackBtn];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    //隐藏导航栏
     self.navigationController.navigationBar.hidden = YES;
-    
-  
-    
+    //设置显示
+    self.appear                          = YES;
     CABasicAnimation *flyRightAnimation  = [CABasicAnimation animationWithKeyPath:@"position.x"];
     flyRightAnimation.delegate           = self;
     [flyRightAnimation setValue:@"form" forKey:@"name"];
@@ -140,7 +146,10 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    //显示导航栏
     self.navigationController.navigationBar.hidden = NO;
+    //设置不显示
+    self.appear  = NO;
 }
 
 #pragma mark --UI
@@ -247,20 +256,21 @@
     [self.view endEditing:YES];
     loginBtn.enabled = NO;
     //弹簧动画变宽
+    AIWeakSelf
     [UIView animateWithDuration:1.5 delay:0. usingSpringWithDamping:.2 initialSpringVelocity:0. options:(UIViewAnimationOptionCurveLinear) animations:^{
         CGRect loginBounds                = self.loginBtn.bounds;
         loginBounds.size.width           += 80;
-        self.loginBtn.bounds              = loginBounds;
+        weakSelf.loginBtn.bounds              = loginBounds;
     } completion:^(BOOL finished) {
-        [self showMessageWithIndex:0];
+        [weakSelf showMessageWithIndex:0];
         
     }];
     
     [UIView animateWithDuration:.33 delay:0 usingSpringWithDamping:.7 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
-        self.loginBtn.ai_centerY         += 60;
-        self.spinner.ai_x                 = 40;
-        self.spinner.alpha                = 1;
-        self.spinner.ai_centerY           = self.loginBtn.ai_middleY;
+        weakSelf.loginBtn.ai_centerY         += 60;
+        weakSelf.spinner.ai_x                 = 40;
+        weakSelf.spinner.alpha                = 1;
+        weakSelf.spinner.ai_centerY           = weakSelf.loginBtn.ai_middleY;
     } completion:nil];
     
     //改变颜色
@@ -277,14 +287,15 @@
  */
 - (void)showMessageWithIndex:(NSInteger)index {
     self.label.text  = self.messages[index];
+    AIWeakSelf
     [UIView transitionWithView:self.statusImageV duration:.33 options:(UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionTransitionFlipFromBottom) animations:^{
-        self.statusImageV.hidden = NO;
+        weakSelf.statusImageV.hidden = NO;
     } completion:^(BOOL finished) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (index < (self.messages.count - 1)) {
-                [self removeMessageWithIndex:index];
+            if (index < (weakSelf.messages.count - 1)) {
+                [weakSelf removeMessageWithIndex:index];
             }else{
-                [self resetFrom];
+                [weakSelf resetFrom];
             }
         });
     }];
@@ -297,12 +308,13 @@
  @param index 第几条
  */
 - (void)removeMessageWithIndex:(NSInteger)index {
+    AIWeakSelf
     [UIView animateWithDuration:.33 animations:^{
-        self.statusImageV.ai_centerX += MainSize.width;
+        weakSelf.statusImageV.ai_centerX += MainSize.width;
     } completion:^(BOOL finished) {
-        self.statusImageV.hidden      = YES;
-        self.statusImageV.center      = self.statusPoint;
-        [self showMessageWithIndex:index+1];
+        weakSelf.statusImageV.hidden      = YES;
+        weakSelf.statusImageV.center      = self.statusPoint;
+        [weakSelf showMessageWithIndex:index+1];
     }];
 }
 
@@ -310,6 +322,9 @@
  云动画
  */
 - (void)animationCloud:(CALayer*)layer {
+    if (!self.isAppear) {//如果没有显示直接return防止内存泄漏
+        return;
+    }
     //1
     CGFloat cloudSpeed       = 60/MainSize.width;
     NSTimeInterval duration  = (MainSize.width - layer.frame.origin.x) * cloudSpeed;
@@ -346,32 +361,33 @@
  重置状态
  */
 - (void)resetFrom{
+    AIWeakSelf
     //提示图片消失动画
     [UIView transitionWithView:self.statusImageV duration:.2 options:(UIViewAnimationOptionTransitionFlipFromTop) animations:^{
-        self.statusImageV.hidden = YES;
-        self.statusImageV.center = self.statusPoint;
+        weakSelf.statusImageV.hidden = YES;
+        self.statusImageV.center = weakSelf.statusPoint;
     } completion:nil];
     
     [UIView animateWithDuration:.2 animations:^{
-        self.spinner.center = CGPointMake(-20, 16);
-        self.spinner.alpha  = 0.;
-        CGRect loginBounds             = self.loginBtn.bounds;
+        weakSelf.spinner.center = CGPointMake(-20, 16);
+        weakSelf.spinner.alpha  = 0.;
+        CGRect loginBounds             = weakSelf.loginBtn.bounds;
         loginBounds.size.width        -= 80;
-        self.loginBtn.bounds           = loginBounds;
-        self.loginBtn.ai_centerY      -= 60;
-        self.loginBtn.enabled          = YES;
+        weakSelf.loginBtn.bounds           = loginBounds;
+        weakSelf.loginBtn.ai_centerY      -= 60;
+        weakSelf.loginBtn.enabled          = YES;
     } completion:^(BOOL finished) {
         CAKeyframeAnimation *wobbleAniamtion  = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation"];
         wobbleAniamtion.duration              = 0.25;
         wobbleAniamtion.repeatCount           = 4;
         wobbleAniamtion.values                = @[@0.0, @(-M_PI_4), @0.0, @M_PI_4, @0.0];
         wobbleAniamtion.keyTimes              = @[@0.0, @0.25, @0.5, @0.75, @1.0];
-        [self.headingLabel.layer addAnimation:wobbleAniamtion forKey:nil];
+        [weakSelf.headingLabel.layer addAnimation:wobbleAniamtion forKey:nil];
         //改变颜色
         UIColor             *toColor  = [UIColor colorWithRed:161/255. green:212/255. blue:98/255. alpha:1.];
-        [self tintBackgroundColorWithCALayer:self.loginBtn.layer toColor:toColor];
+        [weakSelf tintBackgroundColorWithCALayer:weakSelf.loginBtn.layer toColor:toColor];
         //改变圆角
-        [self roundCornersWithCALayer:self.loginBtn.layer toRadius:8];
+        [self roundCornersWithCALayer:weakSelf.loginBtn.layer toRadius:8];
     }];
 }
 

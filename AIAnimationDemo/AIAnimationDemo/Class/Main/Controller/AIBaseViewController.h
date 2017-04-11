@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AIBaseViewController : UIViewController
-
+/**
+ 添加返回
+ */
+- (void)addbackBtn;
 @end
