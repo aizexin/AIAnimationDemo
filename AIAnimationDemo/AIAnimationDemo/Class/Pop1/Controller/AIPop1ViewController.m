@@ -8,8 +8,9 @@
 
 #import "AIPop1ViewController.h"
 
-@interface AIPop1ViewController ()
-
+@interface AIPop1ViewController ()<POPAnimationDelegate>
+/** 方块*/
+@property(nonatomic,weak)UIView *showView;
 @end
 
 @implementation AIPop1ViewController
@@ -17,7 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIView *showView = [[UIView alloc]initWithFrame:CGRectMake(20, 100, 100, 100)];
-    showView.backgroundColor = [UIColor blueColor];
+    self.showView    = showView;
+    showView.backgroundColor = [UIColor colorWithHexString:@"#E7AB3D"];
     [self.view addSubview:showView];
     //添加手势
     UIPanGestureRecognizer *panGest =  [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handGesture:)];
@@ -34,8 +36,16 @@
         CGPoint velocity = [recognizer velocityInView:self.view];
         //添加pop动画
         POPDecayAnimation *decayAnimation = [POPDecayAnimation animationWithPropertyNamed:kPOPLayerPosition];
+        decayAnimation.delegate           = self;
         decayAnimation.velocity = [NSValue valueWithCGPoint:velocity];
         [recognizer.view.layer pop_addAnimation:decayAnimation forKey:nil];
+    }
+}
+#pragma mark -POPAnimationDelegate
+- (void)pop_animationDidStop:(POPAnimation *)anim finished:(BOOL)finished {
+    AILog(@"------");
+    if (!CGRectContainsPoint(self.view.frame, self.showView.center)) {
+        self.showView.frame = CGRectMake(20, 100, 100, 100);
     }
 }
 
