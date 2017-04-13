@@ -105,6 +105,9 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title                 = @"😎";
+    
+    self.navigationController.navigationBar.barTintColor   = [UIColor flatRedColor];
+//    self.navigationController.t
     // LaunchImage
     UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     iconImageView.image        = [AppleSystemService launchImage];

@@ -2,7 +2,7 @@
 //  Bugly.h
 //  Bugly
 //
-//  Version: 2.4(2)
+//  Version: 2.4(7)
 //
 //  Copyright (c) 2016年 Bugly. All rights reserved.
 //
@@ -60,8 +60,8 @@ BLY_START_NONNULL
 /**
  *  设置关键数据，随崩溃信息上报
  *
- *  @param value 值
- *  @param key key
+ *  @param value KEY
+ *  @param key VALUE
  */
 + (void)setUserValue:(NSString *)value
               forKey:(NSString *)key;
@@ -123,9 +123,17 @@ BLY_START_NONNULL
 /**
  *  SDK 版本信息
  *
- *  @return 版本号
+ *  @return SDK版本号
  */
 + (NSString *)sdkVersion;
+
+/**
+ *  App 是否发生了连续闪退
+ *  如果启动SDK 且 5秒内 闪退，且次数达到 3次 则判定为连续闪退
+ *
+ *  @return 是否连续闪退
+ */
++ (BOOL)isAppCrashedOnStartUpExceedTheLimit;
 
 BLY_END_NONNULL
 

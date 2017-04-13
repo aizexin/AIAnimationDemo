@@ -11,4 +11,5 @@ target ‘AIAnimationDemo’ do
     pod 'MJExtension'             #MJ的字典模型互转
     pod 'Masonry'                 #自动适配
     pod 'GPUImage', '~> 0.1.7'    #图形处理
+    pod 'ChameleonFramework', '~> 2.1.0' #变色龙颜色处理
 end

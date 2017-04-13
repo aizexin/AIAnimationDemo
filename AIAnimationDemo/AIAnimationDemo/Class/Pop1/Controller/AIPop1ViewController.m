@@ -43,7 +43,7 @@
 }
 #pragma mark -POPAnimationDelegate
 - (void)pop_animationDidStop:(POPAnimation *)anim finished:(BOOL)finished {
-    AILog(@"------");
+    AILog(@"衰减动画结束");
     if (!CGRectContainsPoint(self.view.frame, self.showView.center)) {
         self.showView.frame = CGRectMake(20, 100, 100, 100);
     }

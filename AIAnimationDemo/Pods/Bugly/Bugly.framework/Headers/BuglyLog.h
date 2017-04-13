@@ -15,7 +15,6 @@ typedef NS_ENUM(NSUInteger, BuglyLogLevel) {
     BuglyLogLevelDebug   = 4,
     BuglyLogLevelVerbose = 5,
 };
-
 #pragma mark -
 
 FOUNDATION_EXPORT void BLYLog(BuglyLogLevel level, NSString *format, ...);

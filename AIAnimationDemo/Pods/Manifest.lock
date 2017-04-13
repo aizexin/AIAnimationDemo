@@ -14,8 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - Bugly (2.4.2)
+  - Bugly (2.4.7)
   - Canvas (0.1.2)
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
   - GPUImage (0.1.7)
   - KMCGeigerCounter (0.2.2)
   - Masonry (1.0.2)
@@ -29,6 +32,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Bugly
   - Canvas (~> 0.1.2)
+  - ChameleonFramework (~> 2.1.0)
   - GPUImage (~> 0.1.7)
   - KMCGeigerCounter
   - Masonry
@@ -44,13 +48,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   pop:
-    :commit: 92b2c5b7bcad64f7507da34f921492c71ff1d330
+    :commit: 68796e3b2dfcabf1c395e4dccaf1f91b06018b30
     :git: https://github.com/facebook/pop.git
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  Bugly: b09cd3c7e54048a0e079be88a7a99610f14eab8f
+  Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   KMCGeigerCounter: f8cc3c4aa19fc6f8cec168fb03b364b84c118a7a
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -60,6 +65,6 @@ SPEC CHECKSUMS:
   ReactiveObjC: 58e8dd8d5ccea31d11106c46a4755d9ce9c51aac
   ResearchKit: badba0340dd71d1cbab4789a0bf01b26022b8f94
 
-PODFILE CHECKSUM: 2d8f76d9dd33e1aa276d2007f045855a3fe43467
+PODFILE CHECKSUM: b47fd5947a074273af571f85a08d1b93b50c097c
 
 COCOAPODS: 1.0.1

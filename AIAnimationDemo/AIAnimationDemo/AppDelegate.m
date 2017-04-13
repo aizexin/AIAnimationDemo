@@ -25,6 +25,7 @@
     /*          email :443792431@qq.com                            */
     /*                                                             */
     /***************************************************************/
+    
     //Bugly
     [Bugly startWithAppId:AIBuglyAppID];
     //c侧滑返回
@@ -37,6 +38,7 @@
     self.window.rootViewController = nav;
 //    nav.navigationBarHidden = YES;
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 
