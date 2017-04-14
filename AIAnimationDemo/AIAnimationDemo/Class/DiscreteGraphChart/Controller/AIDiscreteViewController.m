@@ -100,14 +100,6 @@
         make.right.left.top.bottom.mas_equalTo(0);
     }];
 }
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
-}
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    self.navigationController.navigationBar.hidden = NO;
-}
 
 #pragma mark -AIDiscreteGraphChartDataSource 
 -(AIDiscreteGraphChartCell *)discreteGraphChartView:(AIDiscreteGraphChartView *)chartView indexCell:(NSInteger)indexCell {

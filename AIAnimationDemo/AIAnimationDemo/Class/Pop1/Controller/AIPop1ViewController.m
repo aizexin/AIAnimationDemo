@@ -19,7 +19,7 @@
     [super viewDidLoad];
     UIView *showView = [[UIView alloc]initWithFrame:CGRectMake(20, 100, 100, 100)];
     self.showView    = showView;
-    showView.backgroundColor = [UIColor colorWithHexString:@"#E7AB3D"];
+    showView.backgroundColor = [UIColor colorWithHexString:@"#3B9AD8"];
     [self.view addSubview:showView];
     //添加手势
     UIPanGestureRecognizer *panGest =  [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handGesture:)];

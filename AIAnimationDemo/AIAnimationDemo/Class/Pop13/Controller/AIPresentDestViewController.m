@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     self.view.layer.cornerRadius = 8.f;
-    self.view.backgroundColor    = [UIColor redColor];
+    self.view.backgroundColor    = [UIColor flatRedColor];
     UIButton *btn  = [UIButton buttonWithType:UIButtonTypeSystem];
     self.btn       = btn;
     

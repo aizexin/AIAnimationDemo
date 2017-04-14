@@ -16,9 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor flatRedColor];
     UILabel *label            = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, MainSize.width, 50)];
-    label.textColor           = [UIColor blackColor];
+    label.textColor           = ComplementaryFlatColor(self.view.backgroundColor);
     label.backgroundColor     = [UIColor colorWithRed:86 green:134 blue:188 alpha:1.];
     label.text                = @"我是第二个页面1234567890";
     label.center              = self.view.center;

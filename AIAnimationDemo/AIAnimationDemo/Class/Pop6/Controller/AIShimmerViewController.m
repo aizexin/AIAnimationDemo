@@ -18,12 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor   = [UIColor grayColor];
+    self.view.backgroundColor   = [UIColor flatBlackColor];
     
     UILabel *headlinelabel      = [UILabel new];
-    headlinelabel.font          = [UIFont HeitiSCWithFontSize:20.f];
+    headlinelabel.font          = [UIFont fontWithName:@"ArialRoundedMTBold" size:40];
     headlinelabel.textAlignment = NSTextAlignmentCenter;
-    headlinelabel.textColor     = [UIColor cyanColor];
+    headlinelabel.textColor     = [UIColor flatWhiteColor];
     headlinelabel.text          = @"辉光效果";
     [headlinelabel sizeToFit];
 //    headlinelabel.center        = self.view.center;

@@ -34,6 +34,7 @@
     [self.view addSubview:pentagramView2];
     //log
     UITextView *logTextView              = [[UITextView alloc]init];
+    logTextView.backgroundColor          = [UIColor flatWhiteColor];
     logTextView.frame                    = CGRectMake(0, 300, KWidth, KHeight - 300);
     [self.view addSubview:logTextView];
     self.logTextView                     = logTextView;
@@ -77,10 +78,10 @@
     return bezierPath;
 }
 - (void)onclick {
-    self.logTextView.text = [self.logTextView.text stringByAppendingString:@"-----11111111\n"];
+    self.logTextView.text = [self.logTextView.text stringByAppendingString:@"-----点击了彩色五角心\n"];
 }
 - (void)onclick2 {
-    self.logTextView.text = [self.logTextView.text stringByAppendingString:@"-----22222222\n"];
+    self.logTextView.text = [self.logTextView.text stringByAppendingString:@"-----点击了橙色五角心\n"];
 }
 
 

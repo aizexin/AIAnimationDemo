@@ -25,7 +25,7 @@
 #import <Masonry.h>
 #import "UIView+AISetRect.h"
 #import "single.h"
-#import "UIColor+AIExtension.h"
+//#import "UIColor+AIExtension.h"
 #import <Chameleon.h>
 #define MainSize [UIScreen mainScreen].bounds.size
 //导航栏高度

@@ -34,7 +34,7 @@ static const CGFloat padding       = 4.;
         flowLayout.itemSize                    = CGSizeMake((MainSize.width - 3*padding)/3, pictureHeight);
         _collectionView                        =\
         [[UICollectionView alloc]initWithFrame:self.fixedRect collectionViewLayout:flowLayout];
-        _collectionView.backgroundColor         = [UIColor lightGrayColor];
+        _collectionView.backgroundColor         = [UIColor flatWhiteColor];
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.dataSource             = self;
         _collectionView.contentSize            = CGSizeMake(flowLayout.itemSize.width+padding * self.imageArrayM.count, pictureHeight);
