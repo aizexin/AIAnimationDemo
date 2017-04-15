@@ -71,6 +71,11 @@ static const CGFloat kRefreshViewHeight = 110.;
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
 }
+#pragma mark -Action
+- (IBAction)onClickBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction)onClickMenu:(id)sender {
     self.menuOpen = !self.isMenuOpen;
     //label
