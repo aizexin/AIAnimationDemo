@@ -18,7 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    UILabel *label      = [[UILabel alloc]init];
+    label.text          = @"点我";
+    label.font          = [UIFont systemFontOfSize:25];
+    label.textColor     = [UIColor flatRedColor];
+    [self.view addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(0);
+    }];
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     AIPresentDestViewController *destVC = [[AIPresentDestViewController alloc]init];

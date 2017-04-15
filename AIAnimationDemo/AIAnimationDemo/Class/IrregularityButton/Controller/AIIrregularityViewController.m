@@ -38,6 +38,8 @@
     logTextView.frame                    = CGRectMake(0, 300, KWidth, KHeight - 300);
     [self.view addSubview:logTextView];
     self.logTextView                     = logTextView;
+    
+    [self addbackBtn];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
