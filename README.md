@@ -1,5 +1,9 @@
 #AIAnimationDemo
 
++ Twitter开场动画
+
+![Twitter开场动画.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/Twitter开场动画.gif)
+
 + BeginnerCook
 
 ![BeginnerCook.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/BeginnerCook.gif)
