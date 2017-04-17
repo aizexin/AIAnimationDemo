@@ -133,6 +133,7 @@
 		45E44A331DE4314A009B50BC /* AILoginAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */; };
 		45E700951E86C3DE00065731 /* AILogoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E700941E86C3DE00065731 /* AILogoDetailViewController.m */; };
 		45E7009B1E88113C00065731 /* AIRevealAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E7009A1E88113C00065731 /* AIRevealAnimator.m */; };
+		45E8C4A61EA4FBED00B69852 /* AIDoodleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E8C4A51EA4FBED00B69852 /* AIDoodleViewController.m */; };
 		45EA3F441E0177F500F7B8C2 /* AIMultiplayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F431E0177F500F7B8C2 /* AIMultiplayerViewController.m */; };
 		45EA3F491E01838500F7B8C2 /* AIAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F481E01838500F7B8C2 /* AIAvatarView.m */; };
 		45ED00641E5C84B0005217AF /* AIBeginnerCookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45ED00631E5C84B0005217AF /* AIBeginnerCookViewController.xib */; };
@@ -422,6 +423,8 @@
 		45E700941E86C3DE00065731 /* AILogoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILogoDetailViewController.m; sourceTree = "<group>"; };
 		45E700991E88113C00065731 /* AIRevealAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRevealAnimator.h; sourceTree = "<group>"; };
 		45E7009A1E88113C00065731 /* AIRevealAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRevealAnimator.m; sourceTree = "<group>"; };
+		45E8C4A41EA4FBED00B69852 /* AIDoodleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDoodleViewController.h; sourceTree = "<group>"; };
+		45E8C4A51EA4FBED00B69852 /* AIDoodleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDoodleViewController.m; sourceTree = "<group>"; };
 		45EA3F421E0177F500F7B8C2 /* AIMultiplayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMultiplayerViewController.h; sourceTree = "<group>"; };
 		45EA3F431E0177F500F7B8C2 /* AIMultiplayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMultiplayerViewController.m; sourceTree = "<group>"; };
 		45EA3F471E01838500F7B8C2 /* AIAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAvatarView.h; sourceTree = "<group>"; };
@@ -1255,6 +1258,7 @@
 				452037EE1E58763E007FA354 /* BeginnerCook */,
 				45A397141E790EB800EBFFFA /* LocationClock */,
 				45B6D4BC1E841C1E008CFC4B /* LogoReveal */,
+				45E8C4A01EA4FBC700B69852 /* Doodle */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1744,6 +1748,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		45E8C4A01EA4FBC700B69852 /* Doodle */ = {
+			isa = PBXGroup;
+			children = (
+				45E8C4A11EA4FBC700B69852 /* Controller */,
+				45E8C4A21EA4FBC700B69852 /* Model */,
+				45E8C4A31EA4FBC700B69852 /* View */,
+			);
+			path = Doodle;
+			sourceTree = "<group>";
+		};
+		45E8C4A11EA4FBC700B69852 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45E8C4A41EA4FBED00B69852 /* AIDoodleViewController.h */,
+				45E8C4A51EA4FBED00B69852 /* AIDoodleViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45E8C4A21EA4FBC700B69852 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45E8C4A31EA4FBC700B69852 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		45EA3F401E01777F00F7B8C2 /* Shapes-and-Masks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2076,6 +2113,7 @@
 				453733081E4C52B00086F391 /* AIDiscreteViewController.m in Sources */,
 				453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */,
 				45D43E151DACDD120022F86A /* UIView+SetRect.m in Sources */,
+				45E8C4A61EA4FBED00B69852 /* AIDoodleViewController.m in Sources */,
 				4541BC5F1DCB082300907182 /* AIPush2ViewController.m in Sources */,
 				45D43DFE1DACD9460022F86A /* AILoadAnimationView.m in Sources */,
 				45F7E50D1E11526C00721BCB /* AIPlayMusicView.m in Sources */,
