@@ -265,7 +265,7 @@
         [weakSelf showMessageWithIndex:0];
         
     }];
-    
+    //spinner
     [UIView animateWithDuration:.33 delay:0 usingSpringWithDamping:.7 initialSpringVelocity:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
         weakSelf.loginBtn.ai_centerY         += 60;
         weakSelf.spinner.ai_x                 = 40;
