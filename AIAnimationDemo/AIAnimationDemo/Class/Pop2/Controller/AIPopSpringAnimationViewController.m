@@ -29,20 +29,21 @@
 }
 
 -(void)onClickBtn:(UIButton*)btn{
-    //放大
+    btn.selected                        = !btn.isSelected;
+    //
     POPSpringAnimation *springAnimation = \
-    [POPSpringAnimation animationWithPropertyNamed:kPOPLayerBounds];
-    springAnimation.springSpeed         = 0.f;
-    springAnimation.toValue             = [NSValue valueWithCGRect:
-                                           CGRectMake(0, 0, 150, 150)];
-    [self.showBtn pop_addAnimation:springAnimation forKey:nil];
+    [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+    springAnimation.springSpeed         = 100.f;
+    springAnimation.toValue             = @(self.view.ai_centerY + (btn.isSelected?100:-100));//[NSValue valueWithCGRect:
+                                           //CGRectMake(0, 0, 150, 150)];
+    [self.showBtn.layer pop_addAnimation:springAnimation forKey:nil];
     
-    POPSpringAnimation *reduceAnimation = \
-    [POPSpringAnimation animationWithPropertyNamed:kPOPLayerBounds];
-    reduceAnimation.springSpeed         = 0.f;
-    reduceAnimation.toValue             = [NSValue valueWithCGRect:
-                                           CGRectMake(0, 0, 100, 100)];
-    [self.showBtn pop_addAnimation:reduceAnimation forKey:nil];
+//    POPSpringAnimation *reduceAnimation = \
+//    [POPSpringAnimation animationWithPropertyNamed:kPOPLayerBounds];
+//    reduceAnimation.springSpeed         = 0.f;
+//    reduceAnimation.toValue             = [NSValue valueWithCGRect:
+//                                           CGRectMake(0, 0, 100, 100)];
+//    [self.showBtn pop_addAnimation:reduceAnimation forKey:nil];
     
 }
 
