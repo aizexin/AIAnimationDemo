@@ -65,7 +65,10 @@
 #endif
 
 @class RACDisposable;
-@class RACSignal;
+@class RACTwoTuple<__covariant First, __covariant Second>;
+@class RACSignal<__covariant ValueType>;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (RACPropertySubscribing)
 
@@ -93,12 +96,14 @@
 /// Returns a signal that sends tuples containing the current value at the key
 /// path and the change dictionary for each KVO callback.
 #if OS_OBJECT_HAVE_OBJC_SUPPORT
-- (RACSignal *)rac_valuesAndChangesForKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options observer:(__weak NSObject *)observer;
+- (RACSignal<RACTwoTuple<id, NSDictionary *> *> *)rac_valuesAndChangesForKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options observer:(__weak NSObject *)observer;
 #else
-- (RACSignal *)rac_valuesAndChangesForKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options observer:(NSObject *)observer;
+- (RACSignal<RACTwoTuple<id, NSDictionary *> *> *)rac_valuesAndChangesForKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options observer:(NSObject *)observer;
 #endif
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #define RACAble(...) \
 	metamacro_if_eq(1, metamacro_argcount(__VA_ARGS__)) \
@@ -113,14 +118,3 @@
 		(_RACAbleWithStartObject(__VA_ARGS__))
 
 #define _RACAbleWithStartObject(object, property) [object rac_signalWithStartingValueForKeyPath:@keypath(object, property) observer:self]
-
-@interface NSObject (RACUnavailablePropertySubscribing)
-
-+ (RACSignal *)rac_signalFor:(NSObject *)object keyPath:(NSString *)keyPath observer:(NSObject *)observer __attribute__((unavailable("Use -rac_valuesForKeyPath:observer: or RACObserve() instead.")));
-+ (RACSignal *)rac_signalWithStartingValueFor:(NSObject *)object keyPath:(NSString *)keyPath observer:(NSObject *)observer __attribute__((unavailable("Use -rac_valuesForKeyPath:observer: or RACObserve() instead.")));
-+ (RACSignal *)rac_signalWithChangesFor:(NSObject *)object keyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options observer:(NSObject *)observer __attribute__((unavailable("Use -rac_valuesAndChangesForKeyPath:options:observer: instead.")));
-- (RACSignal *)rac_signalForKeyPath:(NSString *)keyPath observer:(NSObject *)observer __attribute__((unavailable("Use -rac_valuesForKeyPath:observer: or RACObserve() instead.")));
-- (RACSignal *)rac_signalWithStartingValueForKeyPath:(NSString *)keyPath observer:(NSObject *)observer __attribute__((unavailable("Use -rac_valuesForKeyPath:observer: or RACObserve() instead.")));
-- (RACDisposable *)rac_deriveProperty:(NSString *)keyPath from:(RACSignal *)signal __attribute__((unavailable("Use -[RACSignal setKeyPath:onObject:] instead")));
-
-@end

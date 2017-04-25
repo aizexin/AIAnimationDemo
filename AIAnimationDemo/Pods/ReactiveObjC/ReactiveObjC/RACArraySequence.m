@@ -26,7 +26,7 @@
 
 #pragma mark Lifecycle
 
-+ (instancetype)sequenceWithArray:(NSArray *)array offset:(NSUInteger)offset {
++ (RACSequence *)sequenceWithArray:(NSArray *)array offset:(NSUInteger)offset {
 	NSCParameterAssert(offset <= array.count);
 
 	if (offset == array.count) return self.empty;
@@ -101,7 +101,7 @@
 
 #pragma mark NSCoding
 
-- (id)initWithCoder:(NSCoder *)coder {
+- (instancetype)initWithCoder:(NSCoder *)coder {
 	self = [super initWithCoder:coder];
 	if (self == nil) return nil;
 

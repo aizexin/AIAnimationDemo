@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class RACChannelTerminal;
+@class RACChannelTerminal<ValueType>;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface UIStepper (RACSignalSupport)
 
@@ -19,6 +21,8 @@
 /// Returns a RACChannelTerminal that sends the receiver's value whenever the
 /// UIControlEventValueChanged control event is fired, and sets the value to the
 /// values it receives.
-- (RACChannelTerminal *)rac_newValueChannelWithNilValue:(NSNumber *)nilValue;
+- (RACChannelTerminal<NSNumber *> *)rac_newValueChannelWithNilValue:(nullable NSNumber *)nilValue;
 
 @end
+
+NS_ASSUME_NONNULL_END

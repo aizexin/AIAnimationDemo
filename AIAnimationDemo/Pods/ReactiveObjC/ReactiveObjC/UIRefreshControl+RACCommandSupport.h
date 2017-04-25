@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class RACCommand<__contravariant InputType>;
+@class RACCommand<__contravariant InputType, __covariant ValueType>;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface UIRefreshControl (RACCommandSupport)
 
@@ -17,6 +19,8 @@
 /// When this refresh control is activated by the user, the command will be
 /// executed. Upon completion or error of the execution signal, -endRefreshing
 /// will be invoked.
-@property (nonatomic, strong) RACCommand<__kindof UIRefreshControl *> *rac_command;
+@property (nonatomic, strong, nullable) RACCommand<__kindof UIRefreshControl *, id> *rac_command;
 
 @end
+
+NS_ASSUME_NONNULL_END

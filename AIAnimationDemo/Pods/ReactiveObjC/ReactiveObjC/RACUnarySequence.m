@@ -25,7 +25,7 @@
 
 #pragma mark Lifecycle
 
-+ (instancetype)return:(id)value {
++ (RACUnarySequence *)return:(id)value {
 	RACUnarySequence *sequence = [[self alloc] init];
 	sequence.head = value;
 	return [sequence setNameWithFormat:@"+return: %@", RACDescription(value)];
@@ -37,7 +37,7 @@
 	return nil;
 }
 
-- (instancetype)bind:(RACStreamBindBlock (^)(void))block {
+- (RACSequence *)bind:(RACSequenceBindBlock (^)(void))block {
 	RACStreamBindBlock bindBlock = block();
 	BOOL stop = NO;
 
@@ -52,7 +52,7 @@
 	return self.class;
 }
 
-- (id)initWithCoder:(NSCoder *)coder {
+- (instancetype)initWithCoder:(NSCoder *)coder {
 	id value = [coder decodeObjectForKey:@keypath(self.head)];
 	return [self.class return:value];
 }

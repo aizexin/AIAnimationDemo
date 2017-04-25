@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class RACSignal;
+@class RACTuple;
+@class RACSignal<__covariant ValueType>;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /// The domain for any errors originating from -rac_signalForSelector:.
 extern NSString * const RACSelectorSignalErrorDomain;
@@ -52,7 +55,7 @@ extern const NSInteger RACSelectorSignalErrorMethodSwizzlingRace;
 /// will be sent synchronously from the thread that invoked the method. If
 /// a runtime call fails, the signal will send an error in the
 /// RACSelectorSignalErrorDomain.
-- (RACSignal *)rac_signalForSelector:(SEL)selector;
+- (RACSignal<RACTuple *> *)rac_signalForSelector:(SEL)selector;
 
 /// Behaves like -rac_signalForSelector:, but if the selector is not yet
 /// implemented on the receiver, its method signature is looked up within
@@ -74,6 +77,8 @@ extern const NSInteger RACSelectorSignalErrorMethodSwizzlingRace;
 /// Returns a signal which will send a tuple of arguments on each invocation of
 /// the selector, or an error in RACSelectorSignalErrorDomain if a runtime
 /// call fails.
-- (RACSignal *)rac_signalForSelector:(SEL)selector fromProtocol:(Protocol *)protocol;
+- (RACSignal<RACTuple *> *)rac_signalForSelector:(SEL)selector fromProtocol:(Protocol *)protocol;
 
 @end
+
+NS_ASSUME_NONNULL_END

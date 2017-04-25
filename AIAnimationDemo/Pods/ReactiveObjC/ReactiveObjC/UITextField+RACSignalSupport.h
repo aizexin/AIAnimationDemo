@@ -8,21 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@class RACChannelTerminal;
-@class RACSignal;
+@class RACChannelTerminal<ValueType>;
+@class RACSignal<__covariant ValueType>;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface UITextField (RACSignalSupport)
 
 /// Creates and returns a signal for the text of the field. It always starts with
 /// the current text. The signal sends next when the UIControlEventAllEditingEvents
 /// control event is fired on the control.
-- (RACSignal *)rac_textSignal;
+- (RACSignal<NSString *> *)rac_textSignal;
 
 /// Creates a new RACChannel-based binding to the receiver.
 ///
 /// Returns a RACChannelTerminal that sends the receiver's text whenever the
 /// UIControlEventAllEditingEvents control event is fired, and sets the text
 /// to the values it receives.
-- (RACChannelTerminal *)rac_newTextChannel;
+- (RACChannelTerminal<NSString *> *)rac_newTextChannel;
 
 @end
+
+NS_ASSUME_NONNULL_END

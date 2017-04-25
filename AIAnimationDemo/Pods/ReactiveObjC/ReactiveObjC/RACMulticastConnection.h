@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RACAnnotations.h"
 
 @class RACDisposable;
-@class RACSignal;
+@class RACSignal<__covariant ValueType>;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /// A multicast connection encapsulates the idea of sharing one subscription to a
 /// signal to many subscribers. This is most often needed if the subscription to
@@ -23,10 +26,10 @@
 ///
 /// Note that you shouldn't create RACMulticastConnection manually. Instead use
 /// -[RACSignal publish] or -[RACSignal multicast:].
-@interface RACMulticastConnection : NSObject
+@interface RACMulticastConnection<__covariant ValueType> : NSObject
 
 /// The multicasted signal.
-@property (nonatomic, strong, readonly) RACSignal *signal;
+@property (nonatomic, strong, readonly) RACSignal<ValueType> *signal;
 
 /// Connect to the underlying signal by subscribing to it. Calling this multiple
 /// times does nothing but return the existing connection's disposable.
@@ -43,6 +46,8 @@
 /// multicasted signal.
 ///
 /// Returns the autoconnecting signal.
-- (RACSignal *)autoconnect;
+- (RACSignal<ValueType> *)autoconnect RAC_WARN_UNUSED_RESULT;
 
 @end
+
+NS_ASSUME_NONNULL_END

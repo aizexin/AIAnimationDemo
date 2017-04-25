@@ -28,7 +28,7 @@
 		4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */; };
 		451A2FFE1EAE424D003F0050 /* MementoCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 451A2FFA1EAE424D003F0050 /* MementoCenter.m */; };
 		451A2FFF1EAE424D003F0050 /* NSObject+MementoCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 451A2FFD1EAE424D003F0050 /* NSObject+MementoCenter.m */; };
-		451A30031EAE427D003F0050 /* FastCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 451A30021EAE427D003F0050 /* FastCoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		451A30031EAE427D003F0050 /* FastCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 451A30021EAE427D003F0050 /* FastCoder.m */; };
 		451D28151DBCDCB40070BFCA /* AIButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28121DBCDCB40070BFCA /* AIButtonsView.m */; };
 		451D28161DBCDCB40070BFCA /* OCKCareCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28141DBCDCB40070BFCA /* OCKCareCardButton.m */; };
 		451D28191DBCDCE50070BFCA /* AIButtonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28181DBCDCE50070BFCA /* AIButtonsViewController.m */; };

@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @class RACDelegateProxy;
-@class RACSignal;
+@class RACSignal<__covariant ValueType>;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface UIActionSheet (RACSignalSupport)
 
@@ -27,6 +29,8 @@
 ///
 /// Returns a signal which will send the index of the specific button clicked.
 /// The signal will complete when the receiver is deallocated.
-- (RACSignal *)rac_buttonClickedSignal;
+- (RACSignal<NSNumber *> *)rac_buttonClickedSignal;
 
 @end
+
+NS_ASSUME_NONNULL_END

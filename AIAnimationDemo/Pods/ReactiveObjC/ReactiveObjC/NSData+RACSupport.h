@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @class RACScheduler;
-@class RACSignal;
+@class RACSignal<__covariant ValueType>;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface NSData (RACSupport)
 
@@ -17,6 +19,8 @@
 // Sends the data or the error.
 //
 // scheduler - cannot be nil.
-+ (RACSignal *)rac_readContentsOfURL:(NSURL *)URL options:(NSDataReadingOptions)options scheduler:(RACScheduler *)scheduler;
++ (RACSignal<NSData *> *)rac_readContentsOfURL:(nullable NSURL *)URL options:(NSDataReadingOptions)options scheduler:(RACScheduler *)scheduler;
 
 @end
+
+NS_ASSUME_NONNULL_END
