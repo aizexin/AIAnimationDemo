@@ -78,6 +78,7 @@
 		455E28D31D98F80600E3DA4D /* AIListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28D21D98F80600E3DA4D /* AIListModel.m */; };
 		455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28D51D98F87600E3DA4D /* AIListTableViewCell.m */; };
 		455E28D91D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28D81D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m */; };
+		4568F23A1EB237DF0065B250 /* AFBrushBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568F2391EB237DF0065B250 /* AFBrushBoard.m */; };
 		456BA6611E07B24700805F7C /* AIIrregularityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BA6601E07B24700805F7C /* AIIrregularityViewController.m */; };
 		456BA6641E07B2FF00805F7C /* AIIrregularityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BA6631E07B2FF00805F7C /* AIIrregularityTableViewCell.m */; };
 		456BA6661E07BDF500805F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456BA6651E07BDF500805F7C /* Assets.xcassets */; };
@@ -323,6 +324,8 @@
 		455E28D51D98F87600E3DA4D /* AIListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIListTableViewCell.m; sourceTree = "<group>"; };
 		455E28D71D990C6C00E3DA4D /* AIPopSpringAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPopSpringAnimationViewController.h; sourceTree = "<group>"; };
 		455E28D81D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPopSpringAnimationViewController.m; sourceTree = "<group>"; };
+		4568F2381EB237DF0065B250 /* AFBrushBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFBrushBoard.h; sourceTree = "<group>"; };
+		4568F2391EB237DF0065B250 /* AFBrushBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFBrushBoard.m; sourceTree = "<group>"; };
 		456BA65F1E07B24700805F7C /* AIIrregularityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityViewController.h; sourceTree = "<group>"; };
 		456BA6601E07B24700805F7C /* AIIrregularityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityViewController.m; sourceTree = "<group>"; };
 		456BA6621E07B2FF00805F7C /* AIIrregularityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityTableViewCell.h; sourceTree = "<group>"; };
@@ -1387,6 +1390,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4568F2371EB237DF0065B250 /* BrushBoard */ = {
+			isa = PBXGroup;
+			children = (
+				4568F2381EB237DF0065B250 /* AFBrushBoard.h */,
+				4568F2391EB237DF0065B250 /* AFBrushBoard.m */,
+			);
+			path = BrushBoard;
+			sourceTree = "<group>";
+		};
 		456BA65B1E07B22A00805F7C /* IrregularityButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1810,6 +1822,7 @@
 		45E8C4A31EA4FBC700B69852 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4568F2371EB237DF0065B250 /* BrushBoard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2165,6 +2178,7 @@
 				45ED00671E606304005217AF /* AIHerbModel.m in Sources */,
 				4505FEA11DAF441800AE4FED /* AIBaseViewController.m in Sources */,
 				455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */,
+				4568F23A1EB237DF0065B250 /* AFBrushBoard.m in Sources */,
 				451D28161DBCDCB40070BFCA /* OCKCareCardButton.m in Sources */,
 				45C9EAC41DD58085007B6418 /* AISettingModelAdapter.m in Sources */,
 				45DB05761E68154200346DDD /* AIPopAnimator.m in Sources */,
