@@ -24,6 +24,12 @@
 @property (nonatomic, strong) UIImage *lastImage;
 // 设置调试
 @property (nonatomic, assign) BOOL debug;
+/** 清楚所有*/
+@property(nonatomic,weak)UIButton *clearBtn;
+/** 撤销*/
+@property(nonatomic,weak)UIButton *goBackBtn;
+/** 前进*/
+@property(nonatomic,weak)UIButton *goForwardBtn;
 
 
 @end
@@ -54,7 +60,8 @@
     self.userInteractionEnabled = YES;
     
     // 添加清楚Button
-    UIButton *cleanBtn = [[UIButton alloc]initWithFrame:CGRectMake(0,self.frame.size.height-50, self.frame.size.width, 50)];
+    UIButton *cleanBtn = [[UIButton alloc]init];
+    self.clearBtn      = cleanBtn;
     cleanBtn.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.3];
     [cleanBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     cleanBtn.titleLabel.font = [UIFont fontWithName:@"Zapfino" size:18];
@@ -65,6 +72,19 @@
     [cleanBtn addTarget:self action:@selector(cleanBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:cleanBtn];
+    //前进
+    UIButton *goForwardBtn      = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    self.goForwardBtn           = goForwardBtn;
+    [goForwardBtn addTarget:self action:@selector(onClickGoForwardBtn:) forControlEvents:(UIControlEventTouchUpInside)];
+    [goForwardBtn setImage:[UIImage imageNamed:@"goForWard"] forState:(UIControlStateNormal)];
+    [self addSubview:goForwardBtn];
+    
+    //撤销
+    UIButton *goBackBtn         = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    [goBackBtn addTarget: self action:@selector(onClickGoBackBtn:) forControlEvents:(UIControlEventTouchUpInside)];
+    self.goBackBtn              = goBackBtn;
+    [goBackBtn setImage:[UIImage imageNamed:@"goBack"] forState:(UIControlStateNormal)];
+    [self addSubview:goBackBtn];
     
     // 设置默认图片
     UIImage *tempImage = [UIImage imageNamed:@"apple"];
@@ -86,10 +106,46 @@
         
     }
     
+    //布局
+    [self fitUI];
     
 }
+- (void)fitUI {
+    [self.clearBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+    }];
+    [self.goBackBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.left.mas_equalTo(0);
+    }];
+    [self.goForwardBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.right.mas_equalTo(0);
+    }];
+}
 
+#pragma mark -Action
 
+/**
+ 点击前进按钮
+ 
+ @param btn 前进按钮
+ */
+-(void)onClickGoForwardBtn:(UIButton*)btn {
+    AILog(@"%s",__func__);
+}
+
+/**
+ 点击撤销按钮
+ 
+ @param btn 撤销按钮
+ */
+-(void)onClickGoBackBtn:(UIButton*)btn {
+    AILog(@"%s",__func__);
+}
 /**
  *   cleanBtn 响应事件: 恢复初始状态
  */
@@ -420,6 +476,8 @@
     
     self.lastImage =  self.image;
 }
+
+
 
 
 @end
