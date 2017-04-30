@@ -145,6 +145,8 @@
  */
 -(void)onClickGoBackBtn:(UIButton*)btn {
     AILog(@"%s",__func__);
+    [self.points recoverFromStateWithKey:@"began"];
+    [self changeImage];
 }
 /**
  *   cleanBtn 响应事件: 恢复初始状态
@@ -457,6 +459,8 @@
     
     self.currentWidth = 13;
     [self changeImage];
+    
+    [self.points saveStateWithKey:@"began"];
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -475,6 +479,7 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     self.lastImage =  self.image;
+    [self.points saveStateWithKey:@"end"];
 }
 
 

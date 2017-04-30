@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NSObject+MementoCenter.h"
 @interface AFBrushBoard : UIImageView
 
 @end

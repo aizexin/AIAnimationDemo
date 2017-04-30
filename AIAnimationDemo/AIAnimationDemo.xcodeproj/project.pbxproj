@@ -20,6 +20,7 @@
 		4505FED11DAF629A00AE4FED /* AICAGradientLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FED01DAF629A00AE4FED /* AICAGradientLayerViewController.m */; };
 		450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD41DB5F1C800CE7CC4 /* AICircleLayer.m */; };
 		450B9AD81DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */; };
+		450F78621EB460DF009F7E7B /* AIPointsMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F78611EB460DF009F7E7B /* AIPointsMutableArray.m */; };
 		4514B9FC1E0C27D800D82F04 /* AIIrregularityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4514B9FB1E0C27D800D82F04 /* AIIrregularityView.m */; };
 		4515885A1E12A84A00610F6D /* AIFlightInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451588591E12A84A00610F6D /* AIFlightInfoViewController.m */; };
 		4515885C1E12AA4300610F6D /* AIFlightInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4515885B1E12AA4300610F6D /* AIFlightInfoViewController.xib */; };
@@ -203,6 +204,8 @@
 		450B9AD41DB5F1C800CE7CC4 /* AICircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICircleLayer.m; sourceTree = "<group>"; };
 		450B9AD61DB5FF8E00CE7CC4 /* AIWellComeAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWellComeAnimationView.h; sourceTree = "<group>"; };
 		450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWellComeAnimationView.m; sourceTree = "<group>"; };
+		450F78601EB460DF009F7E7B /* AIPointsMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPointsMutableArray.h; sourceTree = "<group>"; };
+		450F78611EB460DF009F7E7B /* AIPointsMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPointsMutableArray.m; sourceTree = "<group>"; };
 		450FF8951DADEE5100E335C3 /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
 		4514B9FA1E0C27D800D82F04 /* AIIrregularityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityView.h; sourceTree = "<group>"; };
 		4514B9FB1E0C27D800D82F04 /* AIIrregularityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityView.m; sourceTree = "<group>"; };
@@ -743,6 +746,8 @@
 				451A2FFB1EAE424D003F0050 /* MementoCenterProtocol.h */,
 				451A2FFC1EAE424D003F0050 /* NSObject+MementoCenter.h */,
 				451A2FFD1EAE424D003F0050 /* NSObject+MementoCenter.m */,
+				450F78601EB460DF009F7E7B /* AIPointsMutableArray.h */,
+				450F78611EB460DF009F7E7B /* AIPointsMutableArray.m */,
 			);
 			name = MementoCenter;
 			sourceTree = "<group>";
@@ -2139,6 +2144,7 @@
 				4505FEC91DAF537300AE4FED /* ForegroundColorAttribute.m in Sources */,
 				451D28151DBCDCB40070BFCA /* AIButtonsView.m in Sources */,
 				459F82E21E0EA4B700AD6105 /* AIBlurImageViewController.m in Sources */,
+				450F78621EB460DF009F7E7B /* AIPointsMutableArray.m in Sources */,
 				4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */,
 				45C9EAC11DD57166007B6418 /* AISettingCellAdapter.m in Sources */,
 				45A397181E790ED500EBFFFA /* AILocationClockViewController.m in Sources */,
