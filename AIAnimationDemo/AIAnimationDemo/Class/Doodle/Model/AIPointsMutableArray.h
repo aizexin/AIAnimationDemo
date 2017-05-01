@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "MementoCenterProtocol.h"
-@interface AIPointsMutableArray : NSMutableArray <MementoCenterProtocol>
-
+@interface AIPointsMutableArray : NSObject <MementoCenterProtocol>
+/** 数组*/
+@property(nonatomic,strong)NSMutableArray *pointsArrayM;
+- (void)addObjectsFromArray:(NSArray*)otherArray;
+- (void)addObject:(id)object;
 @end
