@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSObject+MementoCenter.h"
-@interface AFBrushBoard : UIImageView
+#import "MementoCenterProtocol.h"
+@interface AFBrushBoard : UIImageView<MementoCenterProtocol>
 
 @end

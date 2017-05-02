@@ -7,6 +7,7 @@
 //
 
 #import "AIPictureCollectionViewCell.h"
+#import <ReactiveObjC.h>
 CGFloat const gestureMinimumTranslation = 20.0;
 
 typedef enum :NSInteger {

@@ -121,7 +121,7 @@ typedef NS_ENUM(uint8_t, FCType)
     FCTypeDecimalNumber,
     FCTypeOne,
     FCTypeZero,
-    
+  
     FCTypeCount // sentinel value
 };
 
@@ -229,12 +229,12 @@ typedef id FCTypeConstructor(FCNSDecoder *);
 
 static Boolean FCEqualityCallback(const void *value1, const void *value2)
 {
-    return (Boolean)[(__bridge id)value1 isEqual:(__bridge id)value2];
+    return (Boolean)[(id)value1 isEqual:(id)value2];
 }
 
 static CFHashCode	FCHashCallback(const void *value)
 {
-    return [(__bridge id)value hash];
+    return [(id)value hash];
 }
 
 static inline NSUInteger FCCacheParsedObject(__unsafe_unretained id object, __unsafe_unretained NSData *cache)
@@ -428,7 +428,7 @@ static id FCReadMutableDictionary(__unsafe_unretained FCNSDecoder *decoder)
         &FCEqualityCallback,
         &FCHashCallback
     };
-    
+  
     const CFDictionaryValueCallBacks valueCallbacks =
     {
         kCFTypeDictionaryKeyCallBacks.version,
@@ -437,7 +437,7 @@ static id FCReadMutableDictionary(__unsafe_unretained FCNSDecoder *decoder)
         kCFTypeDictionaryKeyCallBacks.copyDescription,
         &FCEqualityCallback,
     };
-    
+  
     FC_ALIGN_INPUT(uint32_t, *decoder->_offset);
     uint32_t count = FCReadRawUInt32(decoder);
     __autoreleasing NSMutableDictionary *dict = CFBridgingRelease(CFDictionaryCreateMutable(NULL, (CFIndex)count, &keyCallbacks, &valueCallbacks));
@@ -1213,7 +1213,7 @@ static void FCWriteObject(__unsafe_unretained id object, __unsafe_unretained FCN
         FCReadOne,
         FCReadZero
     };
-    
+  
     return FCParseData(data, constructors);
 }
 
@@ -1230,7 +1230,7 @@ static void FCWriteObject(__unsafe_unretained id object, __unsafe_unretained FCN
         FCWriteUInt32(0, output);
         FCWriteUInt32(0, output);
         FCWriteUInt32(0, output);
-        
+
         @autoreleasepool
         {
             __autoreleasing id objectCache = CFBridgingRelease(CFDictionaryCreateMutable(NULL, 0, NULL, NULL));

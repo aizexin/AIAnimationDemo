@@ -25,6 +25,7 @@
         
         [[NSUserDefaults standardUserDefaults] setObject:tmpData
                                                   forKey:key];
+        [[NSUserDefaults standardUserDefaults]synchronize];
     }
 }
 

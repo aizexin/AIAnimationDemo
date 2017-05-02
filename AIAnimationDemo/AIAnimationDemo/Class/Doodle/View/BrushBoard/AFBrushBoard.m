@@ -136,6 +136,7 @@
  */
 -(void)onClickGoForwardBtn:(UIButton*)btn {
     AILog(@"%s",__func__);
+    [self recoverFromStateWithKey:@"end"];
 }
 
 /**
@@ -145,8 +146,7 @@
  */
 -(void)onClickGoBackBtn:(UIButton*)btn {
     AILog(@"%s",__func__);
-    [self.points recoverFromStateWithKey:@"began"];
-    [self changeImage];
+    [self recoverFromStateWithKey:@"lastImage"];
 }
 /**
  *   cleanBtn 响应事件: 恢复初始状态
@@ -443,12 +443,11 @@
     
 }
 
-
-
-
 #pragma mark - /*** 触摸事件 ***/
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    [self saveStateWithKey:@"lastImage"];
     
     UITouch *touch = touches.anyObject;
     CGPoint p = [touch locationInView:self];
@@ -460,7 +459,6 @@
     self.currentWidth = 13;
     [self changeImage];
     
-    [self.points saveStateWithKey:@"began"];
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -475,13 +473,22 @@
     [self changeImage];
 }
 
-
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     self.lastImage =  self.image;
-    [self.points saveStateWithKey:@"end"];
+    [self saveStateWithKey:@"end"];
+}
+#pragma mark -MementoCenterProtocol
+- (id)currentState {
+    return @{@"image":self.lastImage};
 }
 
+- (void)recoverFromState:(id)state {
+    NSDictionary *data = state;
+    UIImage *image     = data[@"image"];
+    self.image         = image;
+    self.lastImage     = image;
+}
 
 
 
