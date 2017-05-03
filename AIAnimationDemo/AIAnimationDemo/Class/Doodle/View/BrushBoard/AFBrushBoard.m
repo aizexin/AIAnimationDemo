@@ -7,7 +7,7 @@
 //
 
 #import "AFBrushBoard.h"
-
+#import "FastCoder.h"
 // 最小/大宽度
 #define kWIDTH_MIN 5
 #define kWIDTH_MAX 13
@@ -30,11 +30,33 @@
 @property(nonatomic,weak)UIButton *goBackBtn;
 /** 前进*/
 @property(nonatomic,weak)UIButton *goForwardBtn;
-
+/** 后退栈*/
+@property(nonatomic,strong)NSMutableArray *backStackArrayM;
+/** 前进栈*/
+@property(nonatomic,strong)NSMutableArray *forwardStackArrayM;
 
 @end
 
 @implementation AFBrushBoard
+
+-(UIImage *)lastImage {
+    if (!_lastImage) {
+        _lastImage = self.defaultImage;
+    }
+    return _lastImage;
+}
+-(NSMutableArray *)backStackArrayM {
+    if (!_backStackArrayM) {
+        _backStackArrayM = [NSMutableArray array];
+    }
+    return _backStackArrayM;
+}
+-(NSMutableArray *)forwardStackArrayM {
+    if (!_forwardStackArrayM) {
+        _forwardStackArrayM = [NSMutableArray array];
+    }
+    return _forwardStackArrayM;
+}
 
 /**
  *  重写初始化方法
@@ -135,8 +157,14 @@
  @param btn 前进按钮
  */
 -(void)onClickGoForwardBtn:(UIButton*)btn {
-    AILog(@"%s",__func__);
-    [self recoverFromStateWithKey:@"end"];
+    id forwardImage    = [self.forwardStackArrayM lastObject];
+    if (!forwardImage) {
+        return;
+    }
+    [self.forwardStackArrayM removeLastObject];
+    [self.backStackArrayM addObject:self.image];
+    self.image         = forwardImage;
+    self.lastImage     = forwardImage;
 }
 
 /**
@@ -145,8 +173,14 @@
  @param btn 撤销按钮
  */
 -(void)onClickGoBackBtn:(UIButton*)btn {
-    AILog(@"%s",__func__);
-    [self recoverFromStateWithKey:@"lastImage"];
+    id lastImage    = [self.backStackArrayM lastObject];
+    if (!lastImage) {
+        return;
+    }
+    [self.forwardStackArrayM addObject:self.image];
+    self.image      = lastImage;
+    self.lastImage  = lastImage;
+    [self.backStackArrayM removeLastObject];
 }
 /**
  *   cleanBtn 响应事件: 恢复初始状态
@@ -155,6 +189,8 @@
     self.image = self.defaultImage;
     self.lastImage = self.defaultImage;
     self.currentWidth = 13.0;
+    self.backStackArrayM    = [NSMutableArray array];
+    self.forwardStackArrayM = [NSMutableArray array];
     
 }
 
@@ -406,8 +442,6 @@
     
 }
 
-
-
 - (CGFloat)compWithN:(int)n andK:(int)k {
     int s1 = 1;
     int s2 = 1;
@@ -440,14 +474,14 @@
     
     return [self compWithN:n andK:k] * [self realPowWithN:1-t K:n-k] * [self realPowWithN:t K:k];
     
-    
 }
 
 #pragma mark - /*** 触摸事件 ***/
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    [self saveStateWithKey:@"lastImage"];
+//    [self saveStateWithKey:@"lastImage"];
+    [self.backStackArrayM addObject:self.lastImage];
     
     UITouch *touch = touches.anyObject;
     CGPoint p = [touch locationInView:self];
@@ -476,18 +510,45 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     self.lastImage =  self.image;
-    [self saveStateWithKey:@"end"];
+//    [self saveStateWithKey:@"end"];
 }
 #pragma mark -MementoCenterProtocol
 - (id)currentState {
-    return @{@"image":self.lastImage};
+    
+//    NSData *tmpData = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastImage"];
+//    
+//    NSMutableArray *dataArrayM     = [NSMutableArray array];
+//    if (tmpData) {
+//        
+//        dataArrayM                 = [FastCoder objectWithData:tmpData];
+//        if (dataArrayM) {
+//            [dataArrayM addObject:self.lastImage];
+//        }
+//    }
+    id lastImage    = [self.backStackArrayM lastObject];
+    if (!lastImage) {
+        lastImage   = self.defaultImage;
+    }
+    [self.backStackArrayM removeLastObject];
+    [self.forwardStackArrayM addObject:lastImage];
+    return lastImage;
 }
 
 - (void)recoverFromState:(id)state {
-    NSDictionary *data = state;
-    UIImage *image     = data[@"image"];
-    self.image         = image;
-    self.lastImage     = image;
+//    NSMutableArray *arrayM = state;
+//    [arrayM removeLastObject];
+//    UIImage *image     = [arrayM lastObject];
+//    self.image         = image;
+//    self.lastImage     = image;
+//    
+    id forwardImage    = [self.forwardStackArrayM lastObject];
+    if (!forwardImage) {
+        forwardImage   = self.defaultImage;
+    }
+    [self.forwardStackArrayM removeLastObject];
+    [self.backStackArrayM addObject:forwardImage];
+    self.image         = forwardImage;
+    self.lastImage     = forwardImage;
 }
 
 
