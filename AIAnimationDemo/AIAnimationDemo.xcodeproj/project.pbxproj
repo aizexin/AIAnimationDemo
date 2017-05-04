@@ -20,15 +20,12 @@
 		4505FED11DAF629A00AE4FED /* AICAGradientLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FED01DAF629A00AE4FED /* AICAGradientLayerViewController.m */; };
 		450B9AD51DB5F1C800CE7CC4 /* AICircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD41DB5F1C800CE7CC4 /* AICircleLayer.m */; };
 		450B9AD81DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */; };
-		450F78661EB82BA9009F7E7B /* FastCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F78651EB82BA9009F7E7B /* FastCoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4514B9FC1E0C27D800D82F04 /* AIIrregularityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4514B9FB1E0C27D800D82F04 /* AIIrregularityView.m */; };
 		4515885A1E12A84A00610F6D /* AIFlightInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451588591E12A84A00610F6D /* AIFlightInfoViewController.m */; };
 		4515885C1E12AA4300610F6D /* AIFlightInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4515885B1E12AA4300610F6D /* AIFlightInfoViewController.xib */; };
 		4515887D1E155CB000610F6D /* AIFlightDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515887C1E155CB000610F6D /* AIFlightDataModel.m */; };
 		4515A1AC1D9BC4A6000F4E24 /* UIFont+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */; };
 		4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */; };
-		451A2FFE1EAE424D003F0050 /* MementoCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 451A2FFA1EAE424D003F0050 /* MementoCenter.m */; };
-		451A2FFF1EAE424D003F0050 /* NSObject+MementoCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 451A2FFD1EAE424D003F0050 /* NSObject+MementoCenter.m */; };
 		451D28151DBCDCB40070BFCA /* AIButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28121DBCDCB40070BFCA /* AIButtonsView.m */; };
 		451D28161DBCDCB40070BFCA /* OCKCareCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28141DBCDCB40070BFCA /* OCKCareCardButton.m */; };
 		451D28191DBCDCE50070BFCA /* AIButtonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451D28181DBCDCE50070BFCA /* AIButtonsViewController.m */; };
@@ -203,8 +200,6 @@
 		450B9AD41DB5F1C800CE7CC4 /* AICircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICircleLayer.m; sourceTree = "<group>"; };
 		450B9AD61DB5FF8E00CE7CC4 /* AIWellComeAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWellComeAnimationView.h; sourceTree = "<group>"; };
 		450B9AD71DB5FF8E00CE7CC4 /* AIWellComeAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWellComeAnimationView.m; sourceTree = "<group>"; };
-		450F78641EB82BA9009F7E7B /* FastCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastCoder.h; sourceTree = "<group>"; };
-		450F78651EB82BA9009F7E7B /* FastCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastCoder.m; sourceTree = "<group>"; };
 		450FF8951DADEE5100E335C3 /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
 		4514B9FA1E0C27D800D82F04 /* AIIrregularityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityView.h; sourceTree = "<group>"; };
 		4514B9FB1E0C27D800D82F04 /* AIIrregularityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityView.m; sourceTree = "<group>"; };
@@ -217,11 +212,6 @@
 		4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Fonts.m"; sourceTree = "<group>"; };
 		4515A1BD1D9CFF5A000F4E24 /* AIMarqueeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMarqueeViewController.h; sourceTree = "<group>"; };
 		4515A1BE1D9CFF5A000F4E24 /* AIMarqueeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMarqueeViewController.m; sourceTree = "<group>"; };
-		451A2FF91EAE424D003F0050 /* MementoCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MementoCenter.h; sourceTree = "<group>"; };
-		451A2FFA1EAE424D003F0050 /* MementoCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MementoCenter.m; sourceTree = "<group>"; };
-		451A2FFB1EAE424D003F0050 /* MementoCenterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MementoCenterProtocol.h; sourceTree = "<group>"; };
-		451A2FFC1EAE424D003F0050 /* NSObject+MementoCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MementoCenter.h"; sourceTree = "<group>"; };
-		451A2FFD1EAE424D003F0050 /* NSObject+MementoCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MementoCenter.m"; sourceTree = "<group>"; };
 		451D28111DBCDCB40070BFCA /* AIButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIButtonsView.h; sourceTree = "<group>"; };
 		451D28121DBCDCB40070BFCA /* AIButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIButtonsView.m; sourceTree = "<group>"; };
 		451D28131DBCDCB40070BFCA /* OCKCareCardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCKCareCardButton.h; sourceTree = "<group>"; };
@@ -612,15 +602,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		450F78631EB82BA9009F7E7B /* FastCoder */ = {
-			isa = PBXGroup;
-			children = (
-				450F78641EB82BA9009F7E7B /* FastCoder.h */,
-				450F78651EB82BA9009F7E7B /* FastCoder.m */,
-			);
-			path = FastCoder;
-			sourceTree = "<group>";
-		};
 		450FF8941DADEE3700E335C3 /* Single */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,18 +723,6 @@
 			children = (
 			);
 			path = Libs;
-			sourceTree = "<group>";
-		};
-		451A2FF81EAE4238003F0050 /* MementoCenter */ = {
-			isa = PBXGroup;
-			children = (
-				451A2FF91EAE424D003F0050 /* MementoCenter.h */,
-				451A2FFA1EAE424D003F0050 /* MementoCenter.m */,
-				451A2FFB1EAE424D003F0050 /* MementoCenterProtocol.h */,
-				451A2FFC1EAE424D003F0050 /* NSObject+MementoCenter.h */,
-				451A2FFD1EAE424D003F0050 /* NSObject+MementoCenter.m */,
-			);
-			name = MementoCenter;
 			sourceTree = "<group>";
 		};
 		451D280D1DBCDCA50070BFCA /* Pop10 */ = {
@@ -1813,8 +1782,6 @@
 		45E8C4A21EA4FBC700B69852 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				450F78631EB82BA9009F7E7B /* FastCoder */,
-				451A2FF81EAE4238003F0050 /* MementoCenter */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2132,7 +2099,6 @@
 				451D28221DBCED090070BFCA /* AIPictureViewer.m in Sources */,
 				45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */,
 				45FF8FC61DDDED0C00FC7584 /* AIPresentCustomTransition.m in Sources */,
-				450F78661EB82BA9009F7E7B /* FastCoder.m in Sources */,
 				45B6D4C01E841C80008CFC4B /* AILogoRevealViewController.m in Sources */,
 				453DD8461DACA80500D1CDA9 /* GCDQueue.m in Sources */,
 				45FF8FCC1DDEAD0000FC7584 /* AIPresentAnimation.m in Sources */,
@@ -2156,7 +2122,6 @@
 				45D43E121DACDD120022F86A /* UIView+ConvenientMethod.m in Sources */,
 				455440A41DB9DF3A0025DCA4 /* AIRectangleLayer.m in Sources */,
 				45D43DE71DACB7170022F86A /* AISpringScaleViewController.m in Sources */,
-				451A2FFF1EAE424D003F0050 /* NSObject+MementoCenter.m in Sources */,
 				4541BC6E1DD021F600907182 /* AIBezierPathViewController.m in Sources */,
 				453733081E4C52B00086F391 /* AIDiscreteViewController.m in Sources */,
 				453DD8451DACA80500D1CDA9 /* GCDGroup.m in Sources */,
@@ -2197,7 +2162,6 @@
 				45D43DF11DACC2570022F86A /* YXEasing.m in Sources */,
 				4515887D1E155CB000610F6D /* AIFlightDataModel.m in Sources */,
 				45D110541E48C85700BB1CEB /* AIRefreshView.m in Sources */,
-				451A2FFE1EAE424D003F0050 /* MementoCenter.m in Sources */,
 				4505FECB1DAF537300AE4FED /* NSString+StringAttribute.m in Sources */,
 				451D28191DBCDCE50070BFCA /* AIButtonsViewController.m in Sources */,
 				452445E91DBE5B1300A9D2B9 /* AILineGraphChartDataSource.m in Sources */,

@@ -7,7 +7,6 @@
 //
 
 #import "AFBrushBoard.h"
-#import "FastCoder.h"
 // 最小/大宽度
 #define kWIDTH_MIN 5
 #define kWIDTH_MAX 13
@@ -480,7 +479,6 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-//    [self saveStateWithKey:@"lastImage"];
     [self.backStackArrayM addObject:self.lastImage];
     
     UITouch *touch = touches.anyObject;
@@ -510,46 +508,8 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     self.lastImage =  self.image;
-//    [self saveStateWithKey:@"end"];
-}
-#pragma mark -MementoCenterProtocol
-- (id)currentState {
-    
-//    NSData *tmpData = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastImage"];
-//    
-//    NSMutableArray *dataArrayM     = [NSMutableArray array];
-//    if (tmpData) {
-//        
-//        dataArrayM                 = [FastCoder objectWithData:tmpData];
-//        if (dataArrayM) {
-//            [dataArrayM addObject:self.lastImage];
-//        }
-//    }
-    id lastImage    = [self.backStackArrayM lastObject];
-    if (!lastImage) {
-        lastImage   = self.defaultImage;
-    }
-    [self.backStackArrayM removeLastObject];
-    [self.forwardStackArrayM addObject:lastImage];
-    return lastImage;
 }
 
-- (void)recoverFromState:(id)state {
-//    NSMutableArray *arrayM = state;
-//    [arrayM removeLastObject];
-//    UIImage *image     = [arrayM lastObject];
-//    self.image         = image;
-//    self.lastImage     = image;
-//    
-    id forwardImage    = [self.forwardStackArrayM lastObject];
-    if (!forwardImage) {
-        forwardImage   = self.defaultImage;
-    }
-    [self.forwardStackArrayM removeLastObject];
-    [self.backStackArrayM addObject:forwardImage];
-    self.image         = forwardImage;
-    self.lastImage     = forwardImage;
-}
 
 
 
