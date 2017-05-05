@@ -63,9 +63,17 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     
     if (self = [super initWithFrame:frame]) {
-        
+        self.userInteractionEnabled               = YES;
+        self.multipleTouchEnabled                 = YES;
         [self updateUI];
-        
+        UISwipeGestureRecognizer *gobackSwipe     = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(onGobackSwipe:)];
+        gobackSwipe.direction                     = UISwipeGestureRecognizerDirectionLeft;
+        gobackSwipe.numberOfTouchesRequired       = 2;
+        [self addGestureRecognizer:gobackSwipe];
+        UISwipeGestureRecognizer *goForwardSwipe     = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(goForwardSwipe:)];
+        goForwardSwipe.direction                     = UISwipeGestureRecognizerDirectionRight;
+        goForwardSwipe.numberOfTouchesRequired       = 2;
+        [self addGestureRecognizer:goForwardSwipe];
     }
     return self;
 }
@@ -191,6 +199,14 @@
     self.backStackArrayM    = [NSMutableArray array];
     self.forwardStackArrayM = [NSMutableArray array];
     
+}
+
+- (void)onGobackSwipe:(UISwipeGestureRecognizer*)swipe {
+    [self onClickGoBackBtn:nil];
+}
+
+- (void)goForwardSwipe:(UISwipeGestureRecognizer*)swipe {
+    [self onClickGoForwardBtn:nil];
 }
 
 /**
@@ -479,6 +495,9 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
+    if (touches.count >1) {
+        return;
+    }
     [self.backStackArrayM addObject:self.lastImage];
     
     UITouch *touch = touches.anyObject;
@@ -494,7 +513,9 @@
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
+    if (touches.count >1) {
+        return;
+    }
     UITouch *touch = touches.anyObject;
     CGPoint p = [touch locationInView:self];
     
@@ -506,7 +527,9 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
+    if (touches.count >1) {
+        return;
+    }
     self.lastImage =  self.image;
 }
 
