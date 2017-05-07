@@ -1,5 +1,11 @@
 #AIAnimationDemo
 
+
++ 画板
+
+![Twitter开场动画.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/画板.gif)
+
+
 + Twitter开场动画
 
 ![Twitter开场动画.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/Twitter开场动画.gif)
