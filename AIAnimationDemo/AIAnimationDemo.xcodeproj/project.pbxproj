@@ -127,6 +127,10 @@
 		45D43E161DACDD120022F86A /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E0D1DACDD120022F86A /* UIView+Shake.m */; };
 		45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E0F1DACDD120022F86A /* UIView+UserInteraction.m */; };
 		45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */; };
+		45D5BAF71EC018F300388B6E /* AIDownloadButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D5BAF51EC018F300388B6E /* AIDownloadButtonViewController.m */; };
+		45D5BAF81EC018F300388B6E /* AIDownloadButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D5BAF61EC018F300388B6E /* AIDownloadButtonViewController.xib */; };
+		45D5BAFB1EC0192A00388B6E /* AIDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D5BAFA1EC0192A00388B6E /* AIDownloadButton.m */; };
+		45D5BAFE1EC02EBE00388B6E /* CALayer+SetRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D5BAFD1EC02EBE00388B6E /* CALayer+SetRect.m */; };
 		45DA48751E8A50AE00816C2C /* AIRWLogoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DA48741E8A50AE00816C2C /* AIRWLogoLayer.m */; };
 		45DB05761E68154200346DDD /* AIPopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB05751E68154200346DDD /* AIPopAnimator.m */; };
 		45DB058D1E6C1BB000346DDD /* AIHerbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB058B1E6C1BAF00346DDD /* AIHerbDetailViewController.m */; };
@@ -413,6 +417,13 @@
 		45D43E0F1DACDD120022F86A /* UIView+UserInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UserInteraction.m"; sourceTree = "<group>"; };
 		45D43E191DACE21B0022F86A /* InfiniteRotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteRotationView.h; sourceTree = "<group>"; };
 		45D43E1A1DACE21B0022F86A /* InfiniteRotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteRotationView.m; sourceTree = "<group>"; };
+		45D5BAF41EC018F300388B6E /* AIDownloadButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDownloadButtonViewController.h; sourceTree = "<group>"; };
+		45D5BAF51EC018F300388B6E /* AIDownloadButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDownloadButtonViewController.m; sourceTree = "<group>"; };
+		45D5BAF61EC018F300388B6E /* AIDownloadButtonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIDownloadButtonViewController.xib; sourceTree = "<group>"; };
+		45D5BAF91EC0192A00388B6E /* AIDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDownloadButton.h; sourceTree = "<group>"; };
+		45D5BAFA1EC0192A00388B6E /* AIDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDownloadButton.m; sourceTree = "<group>"; };
+		45D5BAFC1EC02EBE00388B6E /* CALayer+SetRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+SetRect.h"; sourceTree = "<group>"; };
+		45D5BAFD1EC02EBE00388B6E /* CALayer+SetRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+SetRect.m"; sourceTree = "<group>"; };
 		45DA48731E8A50AE00816C2C /* AIRWLogoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRWLogoLayer.h; sourceTree = "<group>"; };
 		45DA48741E8A50AE00816C2C /* AIRWLogoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRWLogoLayer.m; sourceTree = "<group>"; };
 		45DB05741E68154200346DDD /* AIPopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPopAnimator.h; sourceTree = "<group>"; };
@@ -659,6 +670,8 @@
 				45D43DFF1DACDD120022F86A /* UIView+Category */,
 				4515A1AA1D9BC4A6000F4E24 /* UIFont+Fonts.h */,
 				4515A1AB1D9BC4A6000F4E24 /* UIFont+Fonts.m */,
+				45D5BAFC1EC02EBE00388B6E /* CALayer+SetRect.h */,
+				45D5BAFD1EC02EBE00388B6E /* CALayer+SetRect.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1262,6 +1275,7 @@
 				45A397141E790EB800EBFFFA /* LocationClock */,
 				45B6D4BC1E841C1E008CFC4B /* LogoReveal */,
 				45E8C4A01EA4FBC700B69852 /* Doodle */,
+				45D5BAEE1EC0188800388B6E /* DownloadButton */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1715,6 +1729,34 @@
 			path = InfiniteRotationView;
 			sourceTree = "<group>";
 		};
+		45D5BAEE1EC0188800388B6E /* DownloadButton */ = {
+			isa = PBXGroup;
+			children = (
+				45D5BAEF1EC0188800388B6E /* Controlller */,
+				45D5BAF01EC0188800388B6E /* View */,
+			);
+			path = DownloadButton;
+			sourceTree = "<group>";
+		};
+		45D5BAEF1EC0188800388B6E /* Controlller */ = {
+			isa = PBXGroup;
+			children = (
+				45D5BAF41EC018F300388B6E /* AIDownloadButtonViewController.h */,
+				45D5BAF51EC018F300388B6E /* AIDownloadButtonViewController.m */,
+				45D5BAF61EC018F300388B6E /* AIDownloadButtonViewController.xib */,
+			);
+			path = Controlller;
+			sourceTree = "<group>";
+		};
+		45D5BAF01EC0188800388B6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45D5BAF91EC0192A00388B6E /* AIDownloadButton.h */,
+				45D5BAFA1EC0192A00388B6E /* AIDownloadButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		45DA48721E8A507200816C2C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1989,6 +2031,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45ED00641E5C84B0005217AF /* AIBeginnerCookViewController.xib in Resources */,
+				45D5BAF81EC018F300388B6E /* AIDownloadButtonViewController.xib in Resources */,
 				451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */,
 				45A397431E7ADCC300EBFFFA /* AILocationClockViewController.xib in Resources */,
 				45A1C5DF1DFF943F006B9894 /* 天猫-01.eps in Resources */,
@@ -2096,6 +2139,8 @@
 				4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */,
 				4505FE9E1DAF315E00AE4FED /* FBShimmeringView.m in Sources */,
 				45D43DF71DACC3440022F86A /* AIBaiduHUD.m in Sources */,
+				45D5BAF71EC018F300388B6E /* AIDownloadButtonViewController.m in Sources */,
+				45D5BAFE1EC02EBE00388B6E /* CALayer+SetRect.m in Sources */,
 				451D28221DBCED090070BFCA /* AIPictureViewer.m in Sources */,
 				45D43E171DACDD120022F86A /* UIView+UserInteraction.m in Sources */,
 				45FF8FC61DDDED0C00FC7584 /* AIPresentCustomTransition.m in Sources */,
@@ -2137,6 +2182,7 @@
 				45C9EAB01DD4494F007B6418 /* AIBaseSettingViewController.m in Sources */,
 				452037F41E587669007FA354 /* AIBeginnerCookViewController.m in Sources */,
 				4545160C1E0A81CE00F3BCF9 /* AITextView.m in Sources */,
+				45D5BAFB1EC0192A00388B6E /* AIDownloadButton.m in Sources */,
 				45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */,
 				454DBC301E3650680025ACAE /* AISlideToRevealViewController.m in Sources */,
 				45C9EAB51DD44EAA007B6418 /* AISettingTableViewCell.m in Sources */,

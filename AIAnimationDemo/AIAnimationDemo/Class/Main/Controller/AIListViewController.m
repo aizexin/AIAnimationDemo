@@ -44,6 +44,7 @@
 #import "AILocationClockViewController.h"   //本地闹钟
 #import "AILogoRevealViewController.h"      //Twitter开场动画
 #import "AIDoodleViewController.h"          //画板
+#import "AIDownloadButtonViewController.h"  //下载按钮
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -87,7 +88,8 @@
                            [AIListModel initWithTitle:@"BeginnerCook" andTargetVC:[AIBeginnerCookViewController class]],
                            [AIListModel initWithTitle:@"本地闹钟" andTargetVC:[AILocationClockViewController class]],
                            [AIListModel initWithTitle:@"Twitter开场动画" andTargetVC:[AILogoRevealViewController class]],
-                           [AIListModel initWithTitle:@"画板" andTargetVC:[AIDoodleViewController class]]
+                           [AIListModel initWithTitle:@"画板" andTargetVC:[AIDoodleViewController class]],
+                           [AIListModel initWithTitle:@"下载按钮" andTargetVC:[AIDownloadButtonViewController class]]
                            ];
         
         _dataSource = [NSMutableArray arrayWithCapacity:array.count];
