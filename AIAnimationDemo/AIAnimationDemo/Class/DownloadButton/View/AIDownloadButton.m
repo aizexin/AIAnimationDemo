@@ -53,9 +53,12 @@
     self.arrowShapeLayer.lineWidth      = 3.;
     self.arrowShapeLayer.lineCap        = kCALineCapRound;
     self.arrowShapeLayer.strokeColor    = [UIColor flatWhiteColor].CGColor;
+    self.arrowShapeLayer.fillColor      = [UIColor flatWhiteColor].CGColor;
     self.arrowShapeLayer.fillColor      = [UIColor clearColor].CGColor;
     [self.layer addSublayer:self.arrowShapeLayer];
     
+    UITapGestureRecognizer *tap         = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+    [self addGestureRecognizer:tap];
 }
 
 -(void)layoutSubviews {
@@ -73,6 +76,49 @@
     [arrowPath addLineToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.75)];
     [arrowPath addLineToPoint: CGPointMake(self.ai_middleX * 1.25, self.ai_height *(0.25 + .5 * 0.6))];
     self.arrowShapeLayer.path       = arrowPath.CGPath;
+    
+}
+#pragma mark -Action    
+- (void)onTap:(UITapGestureRecognizer*)tap {
+    //变为点
+    UIBezierPath         *pointPath      = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_height *0.5) radius:.5 startAngle:0 endAngle:2*M_PI clockwise:NO];
+    CABasicAnimation    *changeToPoint   = [CABasicAnimation animationWithKeyPath:@"path"];
+    changeToPoint.toValue                = (__bridge id)(pointPath.CGPath);
+    changeToPoint.fillMode               = kCAFillModeForwards;
+    changeToPoint.removedOnCompletion    = NO;
+    changeToPoint.duration               = .2;
+    [self.pointShapeLayer addAnimation:changeToPoint forKey:nil];
+    //箭头变为线
+   
+    CABasicAnimation   *lineAniamtion  = [CABasicAnimation animationWithKeyPath:@"position.y"];
+    
+    lineAniamtion.duration              = .2;
+    lineAniamtion.fillMode              = kCAFillModeForwards;
+    lineAniamtion.toValue               = @(self.arrowShapeLayer.y +10);
+    lineAniamtion.removedOnCompletion   = NO;
+    
+    
+    UIBezierPath         *linePath       = [UIBezierPath bezierPath];
+    [linePath moveToPoint: CGPointMake(self.ai_middleX * .5, self.ai_height *(0.25 + .5 * 0.6))];
+    [linePath addLineToPoint:CGPointMake(self.ai_middleX, self.ai_height *(0.25 + .5 * 0.6))];
+    [linePath addLineToPoint: CGPointMake(self.ai_middleX * 1.5, self.ai_height *(0.25 + .5 * 0.6))];
+    CASpringAnimation   *lineSpringAnimation    = [CASpringAnimation animationWithKeyPath:@"path"];
+    lineSpringAnimation.toValue                 = (__bridge id _Nullable)(linePath.CGPath);
+    lineSpringAnimation.duration                = lineSpringAnimation.settlingDuration;
+    lineSpringAnimation.damping                 = 0;
+    lineSpringAnimation.mass                    = 30;
+    lineSpringAnimation.stiffness               = 5;
+    lineSpringAnimation.initialVelocity         = 30;
+    lineSpringAnimation.fillMode                = kCAFillModeForwards;
+    lineSpringAnimation.beginTime               = .2;
+    lineSpringAnimation.removedOnCompletion     = NO;
+    
+    CAAnimationGroup    *groupAnimation         = [CAAnimationGroup animation];
+    groupAnimation.duration                     = 1.5;
+    groupAnimation.fillMode                     = kCAFillModeForwards;
+    groupAnimation.removedOnCompletion          = NO;
+    groupAnimation.animations                   = @[lineAniamtion,lineSpringAnimation];
+    [self.arrowShapeLayer addAnimation:groupAnimation forKey:nil];
     
 }
 @end
