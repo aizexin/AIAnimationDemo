@@ -80,8 +80,9 @@
 }
 #pragma mark -Action    
 - (void)onTap:(UITapGestureRecognizer*)tap {
+    
     //变为点
-    UIBezierPath         *pointPath      = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_height *0.5) radius:.5 startAngle:0 endAngle:2*M_PI clockwise:NO];
+    UIBezierPath         *pointPath      = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_height *(0.25 + .5 * 0.6)) radius:.5 startAngle:0 endAngle:2*M_PI clockwise:NO];
     CABasicAnimation    *changeToPoint   = [CABasicAnimation animationWithKeyPath:@"path"];
     changeToPoint.toValue                = (__bridge id)(pointPath.CGPath);
     changeToPoint.fillMode               = kCAFillModeForwards;
@@ -93,15 +94,15 @@
     CABasicAnimation   *lineAniamtion  = [CABasicAnimation animationWithKeyPath:@"position.y"];
     
     lineAniamtion.duration              = .2;
-    lineAniamtion.fillMode              = kCAFillModeForwards;
+    lineAniamtion.fillMode              = kCAFillModeBackwards;
     lineAniamtion.toValue               = @(self.arrowShapeLayer.y +10);
     lineAniamtion.removedOnCompletion   = NO;
-    
     
     UIBezierPath         *linePath       = [UIBezierPath bezierPath];
     [linePath moveToPoint: CGPointMake(self.ai_middleX * .5, self.ai_height *(0.25 + .5 * 0.6))];
     [linePath addLineToPoint:CGPointMake(self.ai_middleX, self.ai_height *(0.25 + .5 * 0.6))];
     [linePath addLineToPoint: CGPointMake(self.ai_middleX * 1.5, self.ai_height *(0.25 + .5 * 0.6))];
+    
     CASpringAnimation   *lineSpringAnimation    = [CASpringAnimation animationWithKeyPath:@"path"];
     lineSpringAnimation.toValue                 = (__bridge id _Nullable)(linePath.CGPath);
     lineSpringAnimation.duration                = lineSpringAnimation.settlingDuration;
@@ -112,13 +113,24 @@
     lineSpringAnimation.fillMode                = kCAFillModeForwards;
     lineSpringAnimation.beginTime               = .2;
     lineSpringAnimation.removedOnCompletion     = NO;
+
     
     CAAnimationGroup    *groupAnimation         = [CAAnimationGroup animation];
-    groupAnimation.duration                     = 1.5;
+    groupAnimation.duration                     = 1;
     groupAnimation.fillMode                     = kCAFillModeForwards;
     groupAnimation.removedOnCompletion          = NO;
     groupAnimation.animations                   = @[lineAniamtion,lineSpringAnimation];
     [self.arrowShapeLayer addAnimation:groupAnimation forKey:nil];
+    
+    //圆点起跳
+    CASpringAnimation   *pointSpringAnimation   = [CASpringAnimation animationWithKeyPath:@"position.y"];
+    pointSpringAnimation.toValue                = @(-self.ai_height*.5 - self.bgCircleShapeLayer.lineWidth );
+    pointSpringAnimation.duration               = pointSpringAnimation.settlingDuration;
+    pointSpringAnimation.fillMode               = kCAFillModeForwards;
+    pointSpringAnimation.removedOnCompletion    = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(changeToPoint.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.pointShapeLayer addAnimation:pointSpringAnimation forKey:nil];
+    });
     
 }
 @end
