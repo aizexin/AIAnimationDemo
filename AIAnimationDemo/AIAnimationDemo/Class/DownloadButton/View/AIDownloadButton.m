@@ -166,7 +166,7 @@
         
         self.waveLayer                          = [[AIDownloadWaveLayer alloc]init];
         self.waveLayer.onView                   = self;
-        self.waveLayer.lineWidth                = 2.;
+        self.waveLayer.lineWidth                = 3.;
         self.waveLayer.waveColor                = [UIColor flatWhiteColor];
         [self.layer addSublayer:self.waveLayer];
         [self.waveLayer waveAnimate];

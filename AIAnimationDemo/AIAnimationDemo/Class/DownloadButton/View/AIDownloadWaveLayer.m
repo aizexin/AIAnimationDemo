@@ -26,7 +26,8 @@ static const NSTimeInterval KAnimationDuration = 0.3;
     self = [super init];
     if (self) {
         self.fillColor = [UIColor clearColor].CGColor;
-        
+        self.lineCap   = kCALineCapRound;
+        self.lineJoin  = kCALineJoinRound;
     }
     return self;
 }
@@ -53,7 +54,6 @@ static const NSTimeInterval KAnimationDuration = 0.3;
     }
     
     _wavePath2 = [UIBezierPath bezierPath];
-    [_wavePath2 moveToPoint:CGPointMake(onView.ai_middleX *.5, onView.ai_middleY)];
     for (float x = 0.0f; x<onView.ai_width *.5; x++) {
         y        = 3*sin(.3*x + M_PI_2*2);
         if (x == 0) {
@@ -63,7 +63,6 @@ static const NSTimeInterval KAnimationDuration = 0.3;
         }
     }
     _wavePath3 = [UIBezierPath bezierPath];
-    [_wavePath3 moveToPoint:CGPointMake(onView.ai_middleX *.5, onView.ai_middleY)];
     for (float x = 0.0f; x<onView.ai_width *.5; x++) {
         y        = 3*sin(.3*x + M_PI_2*3);
         if (x == 0) {
@@ -74,7 +73,7 @@ static const NSTimeInterval KAnimationDuration = 0.3;
     }
     
     _wavePath4 = [UIBezierPath bezierPath];
-    [_wavePath4 moveToPoint:CGPointMake(onView.ai_middleX *.5, onView.ai_middleY)];
+    
     for (float x = 0.0f; x<onView.ai_width *.5; x++) {
         y        = 3*sin(.3*x + M_PI_2*4);
         if (x == 0) {
@@ -83,6 +82,10 @@ static const NSTimeInterval KAnimationDuration = 0.3;
         [_wavePath4 addLineToPoint:CGPointMake(x + onView.ai_middleX *.5, y+onView.ai_middleY )];
         }
     }
+    _wavePathComplete = [UIBezierPath bezierPath];
+    [_wavePathComplete moveToPoint:CGPointMake(onView.ai_middleX *.7, onView.ai_middleY)];
+    [_wavePathComplete addLineToPoint:CGPointMake(onView.ai_middleX*.9, onView.ai_middleY *1.25)];
+    [_wavePathComplete addLineToPoint:CGPointMake(onView.ai_middleX *1.3, onView.ai_height *0.35)];
     
 }
 
@@ -145,8 +148,18 @@ static const NSTimeInterval KAnimationDuration = 0.3;
 #pragma mark -CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSString *name  = [anim valueForKey:@"name"];
-    if ([name isEqualToString:@"group"] && !self.isStop) {
-        [self waveAnimateWithLayer:self];
+    if ([name isEqualToString:@"group"] ) {
+        if (self.isStop) {
+            CABasicAnimation *waveAnimationCompelted = [CABasicAnimation animationWithKeyPath:@"path"];
+            waveAnimationCompelted.fromValue = (__bridge id _Nullable)(self.wavePathStarting.CGPath);
+            waveAnimationCompelted.toValue = (__bridge id _Nullable)(self.wavePathComplete.CGPath);
+            waveAnimationCompelted.duration = KAnimationDuration;
+            waveAnimationCompelted.fillMode = kCAFillModeForwards;
+            waveAnimationCompelted.removedOnCompletion = NO;
+            [self addAnimation:waveAnimationCompelted forKey:nil];
+        }else {
+            [self waveAnimateWithLayer:self];
+        }
     }
 }
 
