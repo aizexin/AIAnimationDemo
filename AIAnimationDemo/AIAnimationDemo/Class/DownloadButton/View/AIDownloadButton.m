@@ -23,6 +23,8 @@
 @property(nonatomic,strong)CAShapeLayer *progressShapeLayer;
 /** 波浪*/
 @property(nonatomic,strong)AIDownloadWaveLayer *waveLayer;
+/** 文件大小*/
+@property(nonatomic,weak)UILabel *progressLabel;
 @end
 @implementation AIDownloadButton
 
@@ -39,6 +41,14 @@
     return self;
 }
 - (void)initUI {
+    UILabel *progressLabel              = [[UILabel alloc]init];
+    progressLabel.textAlignment         = NSTextAlignmentCenter;
+    progressLabel.textColor             = [UIColor flatWhiteColor];
+    progressLabel.font                  = [UIFont systemFontOfSize:13];
+    progressLabel.alpha                 = 0.;
+    progressLabel.text                  = @"23131MB";
+    self.progressLabel                  = progressLabel;
+    [self addSubview:progressLabel];
     //背景
     self.bgCircleShapeLayer = [CAShapeLayer layer];
     self.bgCircleShapeLayer.lineWidth   = 6.;
@@ -52,7 +62,6 @@
     self.pointShapeLayer.lineCap        = kCALineCapRound;
     self.pointShapeLayer.strokeColor    = [UIColor flatWhiteColor].CGColor;
     [self.layer addSublayer:self.pointShapeLayer];
-    
     //箭头
     self.arrowShapeLayer    = [CAShapeLayer layer];
     self.arrowShapeLayer.lineWidth      = 3.;
@@ -88,6 +97,12 @@
     [arrowPath addLineToPoint: CGPointMake(self.ai_middleX * 1.25, self.ai_height *(0.25 + .5 * 0.6))];
     self.arrowShapeLayer.path       = arrowPath.CGPath;
     
+    [self.progressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.bottom.mas_equalTo(-self.ai_height *.25);
+    }];
+//    self.progressLabel.frame        = CGRectMake(self.ai_middleX, self.ai_height * .75, self.ai_width * 0.5, 15);
+//    self.progressLabel.ai_centerX   = self.ai_middleX;
 }
 #pragma mark -Action    
 - (void)onTap:(UITapGestureRecognizer*)tap {
@@ -170,6 +185,18 @@
         self.waveLayer.waveColor                = [UIColor flatWhiteColor];
         [self.layer addSublayer:self.waveLayer];
         [self.waveLayer waveAnimate];
+        //文件大小
+        POPBasicAnimation   *scaleAnimation          = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+        scaleAnimation.fromValue                     = [NSValue valueWithCGPoint:CGPointMake(.1, .1)];
+        scaleAnimation.toValue                       = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+        scaleAnimation.duration                      = .3;
+        [self.progressLabel.layer pop_addAnimation:scaleAnimation forKey:nil];
+        
+        POPBasicAnimation *opacityAnimation          = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
+        opacityAnimation.toValue                     = @1.;
+        opacityAnimation.fromValue                   = @0.;
+        opacityAnimation.duration                    = .3;
+        [self.progressLabel.layer pop_addAnimation:opacityAnimation forKey:nil];
     }
     if ([name isEqualToString:@"progress"]) {
         self.waveLayer.stop = YES;

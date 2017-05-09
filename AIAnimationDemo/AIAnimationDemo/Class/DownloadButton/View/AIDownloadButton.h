@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AIDownloadButton : UIView
+/** 文件大小*/
+@property(nonatomic, copy)NSString *text;
 
 @end
