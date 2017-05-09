@@ -8,7 +8,7 @@
 
 #import "AIDownloadButton.h"
 #import "CALayer+SetRect.h"
-@interface AIDownloadButton ()
+@interface AIDownloadButton ()<CAAnimationDelegate>
 
 /**
  背景圆
@@ -18,6 +18,8 @@
 @property(nonatomic,strong)CAShapeLayer *pointShapeLayer;
 /** 箭头*/
 @property(nonatomic,strong)CAShapeLayer *arrowShapeLayer;
+/** 进度*/
+@property(nonatomic,strong)CAShapeLayer *progressShapeLayer;
 @end
 @implementation AIDownloadButton
 
@@ -56,7 +58,13 @@
     self.arrowShapeLayer.fillColor      = [UIColor flatWhiteColor].CGColor;
     self.arrowShapeLayer.fillColor      = [UIColor clearColor].CGColor;
     [self.layer addSublayer:self.arrowShapeLayer];
+    //进度
+    self.progressShapeLayer             = [CAShapeLayer layer];
+    self.progressShapeLayer.lineWidth   = 6.;
+    self.progressShapeLayer.strokeColor = [UIColor flatWhiteColor].CGColor;
+    self.progressShapeLayer.fillColor   = [UIColor clearColor].CGColor;
     
+    //添加手势
     UITapGestureRecognizer *tap         = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
     [self addGestureRecognizer:tap];
 }
@@ -99,9 +107,9 @@
     lineAniamtion.removedOnCompletion   = NO;
     
     UIBezierPath         *linePath       = [UIBezierPath bezierPath];
-    [linePath moveToPoint: CGPointMake(self.ai_middleX * .5, self.ai_height *(0.25 + .5 * 0.6))];
-    [linePath addLineToPoint:CGPointMake(self.ai_middleX, self.ai_height *(0.25 + .5 * 0.6))];
-    [linePath addLineToPoint: CGPointMake(self.ai_middleX * 1.5, self.ai_height *(0.25 + .5 * 0.6))];
+    [linePath moveToPoint: CGPointMake(self.ai_middleX * .5, self.ai_height *.5 )];
+    [linePath addLineToPoint:CGPointMake(self.ai_middleX, self.ai_height *.5 )];
+    [linePath addLineToPoint: CGPointMake(self.ai_middleX * 1.5, self.ai_height *.5 )];
     
     CASpringAnimation   *lineSpringAnimation    = [CASpringAnimation animationWithKeyPath:@"path"];
     lineSpringAnimation.toValue                 = (__bridge id _Nullable)(linePath.CGPath);
@@ -124,6 +132,8 @@
     
     //圆点起跳
     CASpringAnimation   *pointSpringAnimation   = [CASpringAnimation animationWithKeyPath:@"position.y"];
+    pointSpringAnimation.delegate               = self;
+    [pointSpringAnimation setValue:@"pointLayer" forKey:@"name"];
     pointSpringAnimation.toValue                = @(-self.ai_height*.5 - self.bgCircleShapeLayer.lineWidth );
     pointSpringAnimation.duration               = pointSpringAnimation.settlingDuration;
     pointSpringAnimation.fillMode               = kCAFillModeForwards;
@@ -132,5 +142,20 @@
         [self.pointShapeLayer addAnimation:pointSpringAnimation forKey:nil];
     });
     
+}
+#pragma mark -CAAnimationDelegate
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    NSString *name = [anim valueForKey:@"name"];
+    if ([name isEqualToString:@"pointLayer"]) { //完成点的动画
+        UIBezierPath    *circlePath   = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_middleY) radius:self.ai_width *.5 - self.progressShapeLayer.lineWidth *0.5 startAngle:-M_PI_2 endAngle:2 * M_PI -M_PI_2 clockwise:YES];
+        self.progressShapeLayer.path            = circlePath.CGPath;
+        [self.layer addSublayer:self.progressShapeLayer];
+        //进度动画
+        CABasicAnimation *progressAnimation     = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+        progressAnimation.fromValue             = @1;
+        progressAnimation.toValue               = @0.;
+        progressAnimation.duration              = 1.;
+        [self.progressShapeLayer addAnimation:progressAnimation forKey:nil];
+    }
 }
 @end
