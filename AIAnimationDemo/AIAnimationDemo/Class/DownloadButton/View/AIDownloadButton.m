@@ -8,6 +8,7 @@
 
 #import "AIDownloadButton.h"
 #import "CALayer+SetRect.h"
+#import "AIDownloadWaveLayer.h"
 @interface AIDownloadButton ()<CAAnimationDelegate>
 
 /**
@@ -20,6 +21,8 @@
 @property(nonatomic,strong)CAShapeLayer *arrowShapeLayer;
 /** 进度*/
 @property(nonatomic,strong)CAShapeLayer *progressShapeLayer;
+/** 波浪*/
+@property(nonatomic,strong)AIDownloadWaveLayer *waveLayer;
 @end
 @implementation AIDownloadButton
 
@@ -152,10 +155,24 @@
         [self.layer addSublayer:self.progressShapeLayer];
         //进度动画
         CABasicAnimation *progressAnimation     = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+        progressAnimation.delegate              = self;
+        [progressAnimation setValue:@"progress" forKey:@"name"];
         progressAnimation.fromValue             = @1;
         progressAnimation.toValue               = @0.;
         progressAnimation.duration              = 1.;
         [self.progressShapeLayer addAnimation:progressAnimation forKey:nil];
+        
+        self.arrowShapeLayer.opacity            = 0;
+        
+        self.waveLayer                          = [[AIDownloadWaveLayer alloc]init];
+        self.waveLayer.onView                   = self;
+        self.waveLayer.lineWidth                = 2.;
+        self.waveLayer.waveColor                = [UIColor flatWhiteColor];
+        [self.layer addSublayer:self.waveLayer];
+        [self.waveLayer waveAnimate];
+    }
+    if ([name isEqualToString:@"progress"]) {
+        self.waveLayer.stop = YES;
     }
 }
 @end

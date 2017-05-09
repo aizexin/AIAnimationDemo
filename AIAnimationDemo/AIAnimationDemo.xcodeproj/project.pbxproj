@@ -131,6 +131,7 @@
 		45D5BAF81EC018F300388B6E /* AIDownloadButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D5BAF61EC018F300388B6E /* AIDownloadButtonViewController.xib */; };
 		45D5BAFB1EC0192A00388B6E /* AIDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D5BAFA1EC0192A00388B6E /* AIDownloadButton.m */; };
 		45D5BAFE1EC02EBE00388B6E /* CALayer+SetRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D5BAFD1EC02EBE00388B6E /* CALayer+SetRect.m */; };
+		45D5BB011EC1839E00388B6E /* AIDownloadWaveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D5BB001EC1839E00388B6E /* AIDownloadWaveLayer.m */; };
 		45DA48751E8A50AE00816C2C /* AIRWLogoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DA48741E8A50AE00816C2C /* AIRWLogoLayer.m */; };
 		45DB05761E68154200346DDD /* AIPopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB05751E68154200346DDD /* AIPopAnimator.m */; };
 		45DB058D1E6C1BB000346DDD /* AIHerbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB058B1E6C1BAF00346DDD /* AIHerbDetailViewController.m */; };
@@ -424,6 +425,8 @@
 		45D5BAFA1EC0192A00388B6E /* AIDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDownloadButton.m; sourceTree = "<group>"; };
 		45D5BAFC1EC02EBE00388B6E /* CALayer+SetRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+SetRect.h"; sourceTree = "<group>"; };
 		45D5BAFD1EC02EBE00388B6E /* CALayer+SetRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+SetRect.m"; sourceTree = "<group>"; };
+		45D5BAFF1EC1839E00388B6E /* AIDownloadWaveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDownloadWaveLayer.h; sourceTree = "<group>"; };
+		45D5BB001EC1839E00388B6E /* AIDownloadWaveLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDownloadWaveLayer.m; sourceTree = "<group>"; };
 		45DA48731E8A50AE00816C2C /* AIRWLogoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRWLogoLayer.h; sourceTree = "<group>"; };
 		45DA48741E8A50AE00816C2C /* AIRWLogoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRWLogoLayer.m; sourceTree = "<group>"; };
 		45DB05741E68154200346DDD /* AIPopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPopAnimator.h; sourceTree = "<group>"; };
@@ -1753,6 +1756,8 @@
 			children = (
 				45D5BAF91EC0192A00388B6E /* AIDownloadButton.h */,
 				45D5BAFA1EC0192A00388B6E /* AIDownloadButton.m */,
+				45D5BAFF1EC1839E00388B6E /* AIDownloadWaveLayer.h */,
+				45D5BB001EC1839E00388B6E /* AIDownloadWaveLayer.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2190,6 +2195,7 @@
 				4505FEA11DAF441800AE4FED /* AIBaseViewController.m in Sources */,
 				455E28D61D98F87600E3DA4D /* AIListTableViewCell.m in Sources */,
 				4568F23A1EB237DF0065B250 /* AFBrushBoard.m in Sources */,
+				45D5BB011EC1839E00388B6E /* AIDownloadWaveLayer.m in Sources */,
 				451D28161DBCDCB40070BFCA /* OCKCareCardButton.m in Sources */,
 				45C9EAC41DD58085007B6418 /* AISettingModelAdapter.m in Sources */,
 				45DB05761E68154200346DDD /* AIPopAnimator.m in Sources */,
