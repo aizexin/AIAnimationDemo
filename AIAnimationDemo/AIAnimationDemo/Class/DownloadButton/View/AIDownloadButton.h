@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AIDownloadButton : UIView
+@interface AIDownloadButton : UIButton
 /** 文件大小*/
-@property(nonatomic, copy)NSString *text;
+@property(nonatomic, copy)NSString * _Nullable text;
+/** 进度比例*/
+@property(nonatomic, assign)CGFloat progress;
+/** block*/
+@property(nonatomic, copy)void(^ _Nullable block)();
 
 @end

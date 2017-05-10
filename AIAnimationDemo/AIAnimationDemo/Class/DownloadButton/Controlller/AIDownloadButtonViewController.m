@@ -7,8 +7,9 @@
 //
 
 #import "AIDownloadButtonViewController.h"
-
+#import "AIDownloadButton.h"
 @interface AIDownloadButtonViewController ()
+@property (weak, nonatomic) IBOutlet AIDownloadButton *downLoadButton;
 
 @end
 
@@ -17,7 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.downLoadButton setBlock:^{
+        AILog(@"2222");
+    }];
+    
 }
+
 
 
 

@@ -9,6 +9,7 @@
 #import "AIDownloadButton.h"
 #import "CALayer+SetRect.h"
 #import "AIDownloadWaveLayer.h"
+#import "GCD.h"
 @interface AIDownloadButton ()<CAAnimationDelegate>
 
 /**
@@ -25,6 +26,7 @@
 @property(nonatomic,strong)AIDownloadWaveLayer *waveLayer;
 /** 文件大小*/
 @property(nonatomic,weak)UILabel *progressLabel;
+
 @end
 @implementation AIDownloadButton
 
@@ -73,6 +75,7 @@
     //进度
     self.progressShapeLayer             = [CAShapeLayer layer];
     self.progressShapeLayer.lineWidth   = 6.;
+    self.progressShapeLayer.lineCap     = kCALineCapRound;
     self.progressShapeLayer.strokeColor = [UIColor flatWhiteColor].CGColor;
     self.progressShapeLayer.fillColor   = [UIColor clearColor].CGColor;
     
@@ -101,8 +104,9 @@
         make.centerX.mas_equalTo(0);
         make.bottom.mas_equalTo(-self.ai_height *.25);
     }];
-//    self.progressLabel.frame        = CGRectMake(self.ai_middleX, self.ai_height * .75, self.ai_width * 0.5, 15);
-//    self.progressLabel.ai_centerX   = self.ai_middleX;
+    UIBezierPath    *circlePath   = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_middleY) radius:self.ai_width *.5 - self.progressShapeLayer.lineWidth *0.5 startAngle:-M_PI_2 endAngle:2 * M_PI -M_PI_2 clockwise:YES];
+    self.progressShapeLayer.path            = circlePath.CGPath;
+
 }
 #pragma mark -Action    
 - (void)onTap:(UITapGestureRecognizer*)tap {
@@ -165,17 +169,19 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSString *name = [anim valueForKey:@"name"];
     if ([name isEqualToString:@"pointLayer"]) { //完成点的动画
-        UIBezierPath    *circlePath   = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_middleY) radius:self.ai_width *.5 - self.progressShapeLayer.lineWidth *0.5 startAngle:-M_PI_2 endAngle:2 * M_PI -M_PI_2 clockwise:YES];
-        self.progressShapeLayer.path            = circlePath.CGPath;
+        
         [self.layer addSublayer:self.progressShapeLayer];
-        //进度动画
-        CABasicAnimation *progressAnimation     = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-        progressAnimation.delegate              = self;
-        [progressAnimation setValue:@"progress" forKey:@"name"];
-        progressAnimation.fromValue             = @1;
-        progressAnimation.toValue               = @0.;
-        progressAnimation.duration              = 1.;
-        [self.progressShapeLayer addAnimation:progressAnimation forKey:nil];
+
+        if (self.block) {
+            self.block();
+        }
+//        CABasicAnimation *progressAnimation     = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+//        progressAnimation.delegate              = self;
+//        [progressAnimation setValue:@"progress" forKey:@"name"];
+//        progressAnimation.fromValue             = @1;
+//        progressAnimation.toValue               = @0.;
+//        progressAnimation.duration              = 1.;
+//        [self.progressShapeLayer addAnimation:progressAnimation forKey:nil];
         
         self.arrowShapeLayer.opacity            = 0;
         
@@ -186,20 +192,51 @@
         [self.layer addSublayer:self.waveLayer];
         [self.waveLayer waveAnimate];
         //文件大小
-        POPBasicAnimation   *scaleAnimation          = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-        scaleAnimation.fromValue                     = [NSValue valueWithCGPoint:CGPointMake(.1, .1)];
-        scaleAnimation.toValue                       = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
-        scaleAnimation.duration                      = .3;
-        [self.progressLabel.layer pop_addAnimation:scaleAnimation forKey:nil];
+      
+        [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:.1 toValue:1.];
         
-        POPBasicAnimation *opacityAnimation          = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
-        opacityAnimation.toValue                     = @1.;
-        opacityAnimation.fromValue                   = @0.;
-        opacityAnimation.duration                    = .3;
-        [self.progressLabel.layer pop_addAnimation:opacityAnimation forKey:nil];
+        [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:0. toValue:1.];
     }
-    if ([name isEqualToString:@"progress"]) {
+
+}
+
+/**
+ 缩放动画
+
+ @param layer 所要缩放的layer
+ @param from 从多少比例开始
+ @param to 到多少比例
+ */
+- (void)scaleAnimationWithLayer:(CALayer*)layer fromValue:(CGFloat)from toValue:(CGFloat)to {
+    //文件大小
+    POPBasicAnimation   *scaleAnimation          = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.fromValue                     = [NSValue valueWithCGPoint:CGPointMake(from, from)];
+    scaleAnimation.toValue                       = [NSValue valueWithCGPoint:CGPointMake(to, to)];
+    scaleAnimation.duration                      = .3;
+    [layer pop_addAnimation:scaleAnimation forKey:nil];
+}
+- (void)opacityAnimationWithLayer:(CALayer*)layer fromValue:(CGFloat)from toValue:(CGFloat)to {
+    POPBasicAnimation *opacityAnimation          = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
+    opacityAnimation.toValue                     = @(to);
+    opacityAnimation.fromValue                   = @(from);
+    opacityAnimation.duration                    = .3;
+    [layer pop_addAnimation:opacityAnimation forKey:nil];
+}
+
+#pragma mark -public
+-(void)setProgress:(CGFloat)progress {
+    _progress = progress;
+    self.progressShapeLayer.strokeEnd   = progress;
+    if (progress >= 1) {
         self.waveLayer.stop = YES;
+        [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
+        
+        [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0.];
     }
 }
+-(void)setText:(NSString *)text {
+    _text     = text;
+    self.progressLabel.text = text;
+}
+
 @end

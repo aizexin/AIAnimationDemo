@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIDownloadButtonViewController">
             <connections>
+                <outlet property="downLoadButton" destination="8Vq-1c-qrJ" id="80u-jp-0CL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
