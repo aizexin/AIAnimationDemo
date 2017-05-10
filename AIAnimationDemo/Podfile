@@ -12,4 +12,5 @@ target ‘AIAnimationDemo’ do
     pod 'Masonry'                 #自动适配
     pod 'GPUImage', '~> 0.1.7'    #图形处理
     pod 'ChameleonFramework', '~> 2.1.0' #变色龙颜色处理
+    pod 'YYCache'                 #离线缓存
 end
