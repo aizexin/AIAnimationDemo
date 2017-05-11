@@ -3,7 +3,7 @@
 
 + 画板
 
-![Twitter开场动画.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/画板.gif)
+![画板.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/画板.gif)
 
 
 + Twitter开场动画
@@ -57,7 +57,7 @@
 
 ![天猫Loading.gif](http://upload-images.jianshu.io/upload_images/1389261-0e921079215f2186.gif?imageMogr2/auto-orient/strip)
 
-+ 登录动画
++ 登录动画([http://www.jianshu.com/p/cadebba45601](http://www.jianshu.com/p/cadebba45601))
 
 ![登录动画.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/登录.gif)
 
