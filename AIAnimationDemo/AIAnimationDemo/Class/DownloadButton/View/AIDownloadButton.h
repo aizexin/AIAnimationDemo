@@ -15,5 +15,5 @@
 @property(nonatomic, assign)CGFloat progress;
 /** block*/
 @property(nonatomic, copy)void(^ _Nullable block)();
-
+-(void)resume;
 @end

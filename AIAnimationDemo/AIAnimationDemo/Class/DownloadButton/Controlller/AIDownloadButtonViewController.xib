@@ -24,6 +24,14 @@
                     <rect key="frame" x="120" y="144" width="134" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXT-dr-HEd">
+                    <rect key="frame" x="146" y="491" width="82" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="复位"/>
+                    <connections>
+                        <action selector="resume:" destination="-1" eventType="touchUpInside" id="gRr-99-ykJ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="calibratedRGB"/>
             <point key="canvasLocation" x="44.5" y="136.5"/>

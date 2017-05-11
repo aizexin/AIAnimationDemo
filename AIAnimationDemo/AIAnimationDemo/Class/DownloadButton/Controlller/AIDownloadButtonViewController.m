@@ -33,6 +33,9 @@
     }];
     
 }
+- (IBAction)resume:(id)sender {
+    [self.downLoadButton resume];
+}
 
 
 

@@ -166,6 +166,43 @@
     });
     
 }
+
+/**
+ 恢复原样
+ */
+-(void)resume {
+    [self.pointShapeLayer removeAllAnimations];
+    //进度消失
+    POPBasicAnimation   *progressAnimation  = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerLineWidth];
+    progressAnimation.toValue               = @0.;
+    progressAnimation.duration              = .3;
+    [self.progressShapeLayer pop_addAnimation:progressAnimation forKey:nil];
+    //点变成竖线
+    UIBezierPath    *pointPath      = [UIBezierPath bezierPath];
+    [pointPath moveToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.25)];
+    [pointPath addLineToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.75 - self.arrowShapeLayer.lineWidth)];
+    CABasicAnimation    *pointToLineAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    pointToLineAnimation.toValue              = (__bridge id _Nullable)(pointPath.CGPath);
+    pointToLineAnimation.duration             = .3;
+    pointToLineAnimation.removedOnCompletion  = NO;
+    pointToLineAnimation.fillMode             = kCAFillModeForwards;
+    [self.pointShapeLayer addAnimation:pointToLineAnimation forKey:nil];
+    
+    [self.waveLayer removeFromSuperlayer];
+    //箭头
+    self.arrowShapeLayer.opacity    = 1.;
+    UIBezierPath    *arrowPath      = [UIBezierPath bezierPath];
+    [arrowPath moveToPoint: CGPointMake(self.ai_middleX * .75, self.ai_height *(0.25 + .5 * 0.6))];
+    [arrowPath addLineToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.75)];
+    [arrowPath addLineToPoint: CGPointMake(self.ai_middleX * 1.25, self.ai_height *(0.25 + .5 * 0.6))];
+    CABasicAnimation    *arrowAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    arrowAnimation.toValue              = (__bridge id _Nullable)(arrowPath.CGPath);
+    arrowAnimation.duration             = .3;
+    arrowAnimation.removedOnCompletion  = NO;
+    arrowAnimation.fillMode             = kCAFillModeForwards;
+    [self.arrowShapeLayer addAnimation:arrowAnimation forKey:nil];
+    
+}
 #pragma mark -CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSString *name = [anim valueForKey:@"name"];
@@ -216,6 +253,14 @@
     scaleAnimation.duration                      = .3;
     [layer pop_addAnimation:scaleAnimation forKey:nil];
 }
+
+/**
+ 不透明度动画
+
+ @param layer 要执行动画的layer
+ @param from 从多少开始
+ @param to 到多少
+ */
 - (void)opacityAnimationWithLayer:(CALayer*)layer fromValue:(CGFloat)from toValue:(CGFloat)to {
     POPBasicAnimation *opacityAnimation          = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
     opacityAnimation.toValue                     = @(to);
@@ -233,6 +278,7 @@
         [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
         
         [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0.];
+    } else {
     }
 }
 -(void)setText:(NSString *)text {
