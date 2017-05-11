@@ -74,6 +74,7 @@
     [self.layer addSublayer:self.arrowShapeLayer];
     //进度
     self.progressShapeLayer             = [CAShapeLayer layer];
+    self.progressShapeLayer.strokeStart = 1;
     self.progressShapeLayer.lineWidth   = 6.;
     self.progressShapeLayer.lineCap     = kCALineCapRound;
     self.progressShapeLayer.strokeColor = [UIColor flatWhiteColor].CGColor;
@@ -226,7 +227,7 @@
 #pragma mark -public
 -(void)setProgress:(CGFloat)progress {
     _progress = progress;
-    self.progressShapeLayer.strokeEnd   = progress;
+    self.progressShapeLayer.strokeStart   = 1-progress;
     if (progress >= 1) {
         self.waveLayer.stop = YES;
         [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
