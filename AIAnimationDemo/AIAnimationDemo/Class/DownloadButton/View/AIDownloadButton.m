@@ -111,6 +111,10 @@
 }
 #pragma mark -Action    
 - (void)onTap:(UITapGestureRecognizer*)tap {
+    if (self.isSelected) {
+        return;
+    }
+    self.selected                        = YES;
     
     //变为点
     UIBezierPath         *pointPath      = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_height *(0.25 + .5 * 0.6)) radius:.5 startAngle:0 endAngle:2*M_PI clockwise:NO];
@@ -173,6 +177,8 @@
 -(void)resume {
     [self.pointShapeLayer removeAllAnimations];
     self.progressShapeLayer.strokeStart     = 1;
+    self.progress                           = 0.;
+    self.selected                           = NO;
     //进度消失
     POPBasicAnimation   *progressAnimation  = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerLineWidth];
     progressAnimation.toValue               = @0.;
