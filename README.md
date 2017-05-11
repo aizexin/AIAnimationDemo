@@ -59,7 +59,7 @@
 
 + 登录动画
 
-![登录动画.gif](http://upload-images.jianshu.io/upload_images/1389261-2215d780e7fdcc3f.gif?imageMogr2/auto-orient/strip)
+![登录动画.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/登录.gif)
 
 + 仿百度loading
 
