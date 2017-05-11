@@ -172,6 +172,7 @@
  */
 -(void)resume {
     [self.pointShapeLayer removeAllAnimations];
+    self.progressShapeLayer.strokeStart     = 1;
     //进度消失
     POPBasicAnimation   *progressAnimation  = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerLineWidth];
     progressAnimation.toValue               = @0.;
@@ -207,7 +208,6 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSString *name = [anim valueForKey:@"name"];
     if ([name isEqualToString:@"pointLayer"]) { //完成点的动画
-        
         [self.layer addSublayer:self.progressShapeLayer];
 
         if (self.block) {
@@ -220,6 +220,8 @@
 //        progressAnimation.toValue               = @0.;
 //        progressAnimation.duration              = 1.;
 //        [self.progressShapeLayer addAnimation:progressAnimation forKey:nil];
+        
+        self.progressShapeLayer.lineWidth       = 6.;
         
         self.arrowShapeLayer.opacity            = 0;
         
