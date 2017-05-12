@@ -105,7 +105,7 @@
         make.centerX.mas_equalTo(0);
         make.bottom.mas_equalTo(-self.ai_height *.25);
     }];
-    UIBezierPath    *circlePath   = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_middleY) radius:self.ai_width *.5 - self.progressShapeLayer.lineWidth *0.5 startAngle:-M_PI_2 endAngle:2 * M_PI -M_PI_2 clockwise:YES];
+    UIBezierPath    *circlePath   = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_middleY) radius:self.ai_width *.5  startAngle:-M_PI_2 endAngle:2 * M_PI -M_PI_2 clockwise:YES];
     self.progressShapeLayer.path            = circlePath.CGPath;
 
 }
@@ -117,7 +117,7 @@
     self.selected                        = YES;
     
     //变为点
-    UIBezierPath         *pointPath      = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_height *(0.25 + .5 * 0.6)) radius:.5 startAngle:0 endAngle:2*M_PI clockwise:NO];
+    UIBezierPath         *pointPath      = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_middleY + 1) radius:.5 startAngle:0 endAngle:2*M_PI clockwise:NO];
     CABasicAnimation    *changeToPoint   = [CABasicAnimation animationWithKeyPath:@"path"];
     changeToPoint.toValue                = (__bridge id)(pointPath.CGPath);
     changeToPoint.fillMode               = kCAFillModeForwards;
@@ -161,7 +161,7 @@
     CASpringAnimation   *pointSpringAnimation   = [CASpringAnimation animationWithKeyPath:@"position.y"];
     pointSpringAnimation.delegate               = self;
     [pointSpringAnimation setValue:@"pointLayer" forKey:@"name"];
-    pointSpringAnimation.toValue                = @(-self.ai_height*.5 - self.bgCircleShapeLayer.lineWidth );
+    pointSpringAnimation.toValue                = @(-self.ai_height*.5 - self.bgCircleShapeLayer.lineWidth + self.pointShapeLayer.lineWidth );
     pointSpringAnimation.duration               = pointSpringAnimation.settlingDuration;
     pointSpringAnimation.fillMode               = kCAFillModeForwards;
     pointSpringAnimation.removedOnCompletion    = NO;
@@ -178,6 +178,7 @@
     [self.pointShapeLayer removeAllAnimations];
     self.progressShapeLayer.strokeStart     = 1;
     self.progress                           = 0.;
+    self.pointShapeLayer.opacity            = 1.;
     self.selected                           = NO;
     //进度消失
     POPBasicAnimation   *progressAnimation  = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerLineWidth];
@@ -227,6 +228,7 @@
 //        progressAnimation.duration              = 1.;
 //        [self.progressShapeLayer addAnimation:progressAnimation forKey:nil];
         
+        self.pointShapeLayer.opacity            = 0.;
         self.progressShapeLayer.lineWidth       = 6.;
         
         self.arrowShapeLayer.opacity            = 0;
