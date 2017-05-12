@@ -161,7 +161,7 @@
     CASpringAnimation   *pointSpringAnimation   = [CASpringAnimation animationWithKeyPath:@"position.y"];
     pointSpringAnimation.delegate               = self;
     [pointSpringAnimation setValue:@"pointLayer" forKey:@"name"];
-    pointSpringAnimation.toValue                = @(-self.ai_height*.5 - self.bgCircleShapeLayer.lineWidth + self.pointShapeLayer.lineWidth );
+    pointSpringAnimation.toValue                = @(-self.ai_height*.5 - self.bgCircleShapeLayer.lineWidth * 0.5  + self.pointShapeLayer.lineWidth * 0.5 );
     pointSpringAnimation.duration               = pointSpringAnimation.settlingDuration;
     pointSpringAnimation.fillMode               = kCAFillModeForwards;
     pointSpringAnimation.removedOnCompletion    = NO;
@@ -180,7 +180,7 @@
     [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0];
     self.progressShapeLayer.strokeStart     = 1;
     self.progress                           = 0.;
-    self.pointShapeLayer.opacity            = 1.;
+//    self.pointShapeLayer.opacity            = 1.;
     self.selected                           = NO;
     //进度消失
     POPBasicAnimation   *progressAnimation  = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerLineWidth];
@@ -230,7 +230,6 @@
 //        progressAnimation.duration              = 1.;
 //        [self.progressShapeLayer addAnimation:progressAnimation forKey:nil];
         
-        [self opacityAnimationWithLayer:self.pointShapeLayer fromValue:1. toValue:0.];
         [self opacityAnimationWithLayer:self.arrowShapeLayer fromValue:1. toValue:0.];
         self.progressShapeLayer.lineWidth       = 6.;
         
@@ -291,7 +290,6 @@
         [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
         
         [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0.];
-    } else {
     }
 }
 -(void)setText:(NSString *)text {
