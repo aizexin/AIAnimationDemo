@@ -11,7 +11,8 @@
 #import "AFNetHelper.h"
 @interface AIDownloadButtonViewController ()
 @property (weak, nonatomic) IBOutlet AIDownloadButton *downLoadButton;
-
+/** 进程*/
+@property(nonatomic,strong)NSURLSessionTask *task;
 @end
 
 @implementation AIDownloadButtonViewController
@@ -22,7 +23,7 @@
     [self.downLoadButton setBlock:^{
         AILog(@"2222");
         AIWeakSelf
-        [AFNetHelper downloadWithURL:@"http://wvideo.spriteapp.cn/video/2016/0116/569a048739c11_wpc.mp4" fileDir:@"xx" progress:^(NSProgress *progress) {
+       self.task = [AFNetHelper downloadWithURL:@"http://wvideo.spriteapp.cn/video/2016/0116/569a048739c11_wpc.mp4" fileDir:@"xx" progress:^(NSProgress *progress) {
             weakSelf.downLoadButton.progress    = progress.fractionCompleted;
             weakSelf.downLoadButton.text        = [NSString stringWithFormat:@"%f",progress.fractionCompleted];
         } success:^(NSString *filePath) {
@@ -34,6 +35,7 @@
     
 }
 - (IBAction)resume:(id)sender {
+    [self.task  cancel];
     [self.downLoadButton resume];
 }
 

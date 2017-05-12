@@ -176,6 +176,8 @@
  */
 -(void)resume {
     [self.pointShapeLayer removeAllAnimations];
+    [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
+    [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0];
     self.progressShapeLayer.strokeStart     = 1;
     self.progress                           = 0.;
     self.pointShapeLayer.opacity            = 1.;
@@ -228,10 +230,11 @@
 //        progressAnimation.duration              = 1.;
 //        [self.progressShapeLayer addAnimation:progressAnimation forKey:nil];
         
-        self.pointShapeLayer.opacity            = 0.;
+        [self opacityAnimationWithLayer:self.pointShapeLayer fromValue:1. toValue:0.];
+        [self opacityAnimationWithLayer:self.arrowShapeLayer fromValue:1. toValue:0.];
         self.progressShapeLayer.lineWidth       = 6.;
         
-        self.arrowShapeLayer.opacity            = 0;
+//        self.arrowShapeLayer.opacity            = 0;
         
         self.waveLayer                          = [[AIDownloadWaveLayer alloc]init];
         self.waveLayer.onView                   = self;
