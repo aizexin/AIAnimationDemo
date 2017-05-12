@@ -83,7 +83,7 @@
 
 + 转场动画
 
-![转场动画.gif](http://upload-images.jianshu.io/upload_images/1389261-5e47afd2d6999f56.gif?imageMogr2/auto-orient/strip)
+![转场动画.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/转场动画.gif)
 
 + 适配器模式解决-设置页面
 
