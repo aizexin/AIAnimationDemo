@@ -180,7 +180,6 @@
     [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0];
     self.progressShapeLayer.strokeStart     = 1;
     self.progress                           = 0.;
-//    self.pointShapeLayer.opacity            = 1.;
     self.selected                           = NO;
     //进度消失
     POPBasicAnimation   *progressAnimation  = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerLineWidth];
@@ -222,18 +221,9 @@
         if (self.block) {
             self.block();
         }
-//        CABasicAnimation *progressAnimation     = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-//        progressAnimation.delegate              = self;
-//        [progressAnimation setValue:@"progress" forKey:@"name"];
-//        progressAnimation.fromValue             = @1;
-//        progressAnimation.toValue               = @0.;
-//        progressAnimation.duration              = 1.;
-//        [self.progressShapeLayer addAnimation:progressAnimation forKey:nil];
         
         [self opacityAnimationWithLayer:self.arrowShapeLayer fromValue:1. toValue:0.];
         self.progressShapeLayer.lineWidth       = 6.;
-        
-//        self.arrowShapeLayer.opacity            = 0;
         
         self.waveLayer                          = [[AIDownloadWaveLayer alloc]init];
         self.waveLayer.onView                   = self;
