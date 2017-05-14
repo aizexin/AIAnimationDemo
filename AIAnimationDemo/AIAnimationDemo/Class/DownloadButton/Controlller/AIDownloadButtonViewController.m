@@ -25,7 +25,7 @@
         AIWeakSelf
        self.task = [AFNetHelper downloadWithURL:@"http://wvideo.spriteapp.cn/video/2016/0116/569a048739c11_wpc.mp4" fileDir:@"xx" progress:^(NSProgress *progress) {
             weakSelf.downLoadButton.progress    = progress.fractionCompleted;
-            weakSelf.downLoadButton.text        = [NSString stringWithFormat:@"%f",progress.fractionCompleted];
+            weakSelf.downLoadButton.text        = [NSString stringWithFormat:@"%lldkb",progress.completedUnitCount /1024];
         } success:^(NSString *filePath) {
             weakSelf.downLoadButton.progress    = 1.;
         } failure:^(NSError *err) {
