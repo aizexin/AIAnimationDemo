@@ -157,6 +157,8 @@
 		45FF8FE21DE2C37E00FC7584 /* AISettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FE11DE2C37E00FC7584 /* AISettingViewController.m */; };
 		45FF8FE51DE2C7EC00FC7584 /* AIDestTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FE41DE2C7EC00FC7584 /* AIDestTwoViewController.m */; };
 		CE844DCC7CDAC9A358C39F2F /* libPods-AIAnimationDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2094375E453D88DFC8C32A45 /* libPods-AIAnimationDemo.a */; };
+		D01E76581ECE668200601C0D /* AIOfficeBuddyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01E76561ECE668200601C0D /* AIOfficeBuddyViewController.m */; };
+		D01E76591ECE668200601C0D /* AIOfficeBuddyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01E76571ECE668200601C0D /* AIOfficeBuddyViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -478,6 +480,9 @@
 		45FF8FE41DE2C7EC00FC7584 /* AIDestTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDestTwoViewController.m; sourceTree = "<group>"; };
 		48ED125D08E27BAFBE549DFC /* Pods-AIAnimationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.release.xcconfig"; sourceTree = "<group>"; };
 		7620388811825F2ABC3F5185 /* Pods-AIAnimationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D01E76551ECE668200601C0D /* AIOfficeBuddyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOfficeBuddyViewController.h; sourceTree = "<group>"; };
+		D01E76561ECE668200601C0D /* AIOfficeBuddyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIOfficeBuddyViewController.m; sourceTree = "<group>"; };
+		D01E76571ECE668200601C0D /* AIOfficeBuddyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIOfficeBuddyViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1285,6 +1290,7 @@
 				45B6D4BC1E841C1E008CFC4B /* LogoReveal */,
 				45E8C4A01EA4FBC700B69852 /* Doodle */,
 				45D5BAEE1EC0188800388B6E /* DownloadButton */,
+				D01E76511ECE664B00601C0D /* OfficeBuddy */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -1933,6 +1939,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D01E76511ECE664B00601C0D /* OfficeBuddy */ = {
+			isa = PBXGroup;
+			children = (
+				D01E76521ECE664B00601C0D /* Controller */,
+				D01E76531ECE664B00601C0D /* Model */,
+				D01E76541ECE664B00601C0D /* View */,
+			);
+			path = OfficeBuddy;
+			sourceTree = "<group>";
+		};
+		D01E76521ECE664B00601C0D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D01E76551ECE668200601C0D /* AIOfficeBuddyViewController.h */,
+				D01E76561ECE668200601C0D /* AIOfficeBuddyViewController.m */,
+				D01E76571ECE668200601C0D /* AIOfficeBuddyViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D01E76531ECE664B00601C0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D01E76541ECE664B00601C0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2046,6 +2086,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45ED00641E5C84B0005217AF /* AIBeginnerCookViewController.xib in Resources */,
+				D01E76591ECE668200601C0D /* AIOfficeBuddyViewController.xib in Resources */,
 				45D5BAF81EC018F300388B6E /* AIDownloadButtonViewController.xib in Resources */,
 				451D28271DBCEEF70070BFCA /* AIPictureCollectionViewCell.xib in Resources */,
 				45A397431E7ADCC300EBFFFA /* AILocationClockViewController.xib in Resources */,
@@ -2152,6 +2193,7 @@
 				455E28C51D98CCF900E3DA4D /* AIListViewController.m in Sources */,
 				459F82DD1E0D213700AD6105 /* UIImage+AIExtension.m in Sources */,
 				4515A1BF1D9CFF5A000F4E24 /* AIMarqueeViewController.m in Sources */,
+				D01E76581ECE668200601C0D /* AIOfficeBuddyViewController.m in Sources */,
 				4505FE9E1DAF315E00AE4FED /* FBShimmeringView.m in Sources */,
 				45D43DF71DACC3440022F86A /* AIBaiduHUD.m in Sources */,
 				45D5BAF71EC018F300388B6E /* AIDownloadButtonViewController.m in Sources */,
