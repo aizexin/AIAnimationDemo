@@ -45,6 +45,7 @@
 #import "AILogoRevealViewController.h"      //Twitter开场动画
 #import "AIDoodleViewController.h"          //画板
 #import "AIDownloadButtonViewController.h"  //下载按钮
+#import "AIOfficeBuddyViewController.h"     //officebuddy
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
