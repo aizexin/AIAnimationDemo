@@ -81,7 +81,6 @@
 		455E28D91D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28D81D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m */; };
 		4568F23A1EB237DF0065B250 /* AFBrushBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568F2391EB237DF0065B250 /* AFBrushBoard.m */; };
 		456BA6611E07B24700805F7C /* AIIrregularityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BA6601E07B24700805F7C /* AIIrregularityViewController.m */; };
-		456BA6641E07B2FF00805F7C /* AIIrregularityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BA6631E07B2FF00805F7C /* AIIrregularityTableViewCell.m */; };
 		456BA6661E07BDF500805F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456BA6651E07BDF500805F7C /* Assets.xcassets */; };
 		456C42A21E3250E200F36403 /* AIHorizontalItemListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C42A11E3250E200F36403 /* AIHorizontalItemListView.m */; };
 		456C42A51E32585700F36403 /* AIPackingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C42A41E32585700F36403 /* AIPackingCollectionViewCell.m */; };
@@ -336,8 +335,6 @@
 		4568F2391EB237DF0065B250 /* AFBrushBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFBrushBoard.m; sourceTree = "<group>"; };
 		456BA65F1E07B24700805F7C /* AIIrregularityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityViewController.h; sourceTree = "<group>"; };
 		456BA6601E07B24700805F7C /* AIIrregularityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityViewController.m; sourceTree = "<group>"; };
-		456BA6621E07B2FF00805F7C /* AIIrregularityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityTableViewCell.h; sourceTree = "<group>"; };
-		456BA6631E07B2FF00805F7C /* AIIrregularityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityTableViewCell.m; sourceTree = "<group>"; };
 		456BA6651E07BDF500805F7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		456C42A01E3250E200F36403 /* AIHorizontalItemListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHorizontalItemListView.h; sourceTree = "<group>"; };
 		456C42A11E3250E200F36403 /* AIHorizontalItemListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHorizontalItemListView.m; sourceTree = "<group>"; };
@@ -1429,8 +1426,6 @@
 		456BA65E1E07B22A00805F7C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				456BA6621E07B2FF00805F7C /* AIIrregularityTableViewCell.h */,
-				456BA6631E07B2FF00805F7C /* AIIrregularityTableViewCell.m */,
 				4514B9FA1E0C27D800D82F04 /* AIIrregularityView.h */,
 				4514B9FB1E0C27D800D82F04 /* AIIrregularityView.m */,
 			);
@@ -2272,7 +2267,6 @@
 				45F7E5101E11528800721BCB /* AIPlayMusicViewController.m in Sources */,
 				4537330E1E4C531B0086F391 /* AIDiscretePointModel.m in Sources */,
 				455DF5C41DB46E2000D3E84A /* MoreInfoView.m in Sources */,
-				456BA6641E07B2FF00805F7C /* AIIrregularityTableViewCell.m in Sources */,
 				45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */,
 				45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */,
 				451DDFB31EC2F9F00073C6AB /* AFNetHelper.m in Sources */,
