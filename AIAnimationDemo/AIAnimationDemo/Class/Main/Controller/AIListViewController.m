@@ -90,7 +90,8 @@
                            [AIListModel initWithTitle:@"本地闹钟" andTargetVC:[AILocationClockViewController class]],
                            [AIListModel initWithTitle:@"Twitter开场动画" andTargetVC:[AILogoRevealViewController class]],
                            [AIListModel initWithTitle:@"画板" andTargetVC:[AIDoodleViewController class]],
-                           [AIListModel initWithTitle:@"下载按钮" andTargetVC:[AIDownloadButtonViewController class]]
+                           [AIListModel initWithTitle:@"下载按钮" andTargetVC:[AIDownloadButtonViewController class]],
+                           [AIListModel initWithTitle:@"officebuddy" andTargetVC:[AIOfficeBuddyViewController class]]
                            ];
         
         _dataSource = [NSMutableArray arrayWithCapacity:array.count];
