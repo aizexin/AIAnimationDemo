@@ -156,6 +156,7 @@
 		45FF8FE21DE2C37E00FC7584 /* AISettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FE11DE2C37E00FC7584 /* AISettingViewController.m */; };
 		45FF8FE51DE2C7EC00FC7584 /* AIDestTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FE41DE2C7EC00FC7584 /* AIDestTwoViewController.m */; };
 		C43810EF1ED8705400D655D3 /* AIMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C43810EE1ED8705400D655D3 /* AIMenuButton.m */; };
+		C4E3EDC91EDEEB3700DDF236 /* AIMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EDC81EDEEB3700DDF236 /* AIMenuItem.m */; };
 		CE844DCC7CDAC9A358C39F2F /* libPods-AIAnimationDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2094375E453D88DFC8C32A45 /* libPods-AIAnimationDemo.a */; };
 		D01E76581ECE668200601C0D /* AIOfficeBuddyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01E76561ECE668200601C0D /* AIOfficeBuddyViewController.m */; };
 		D01E76591ECE668200601C0D /* AIOfficeBuddyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01E76571ECE668200601C0D /* AIOfficeBuddyViewController.xib */; };
@@ -480,6 +481,8 @@
 		7620388811825F2ABC3F5185 /* Pods-AIAnimationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIAnimationDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIAnimationDemo/Pods-AIAnimationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C43810ED1ED8705400D655D3 /* AIMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMenuButton.h; sourceTree = "<group>"; };
 		C43810EE1ED8705400D655D3 /* AIMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMenuButton.m; sourceTree = "<group>"; };
+		C4E3EDC71EDEEB3700DDF236 /* AIMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMenuItem.h; sourceTree = "<group>"; };
+		C4E3EDC81EDEEB3700DDF236 /* AIMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMenuItem.m; sourceTree = "<group>"; };
 		D01E76551ECE668200601C0D /* AIOfficeBuddyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOfficeBuddyViewController.h; sourceTree = "<group>"; };
 		D01E76561ECE668200601C0D /* AIOfficeBuddyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIOfficeBuddyViewController.m; sourceTree = "<group>"; };
 		D01E76571ECE668200601C0D /* AIOfficeBuddyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIOfficeBuddyViewController.xib; sourceTree = "<group>"; };
@@ -1961,6 +1964,8 @@
 			children = (
 				C43810ED1ED8705400D655D3 /* AIMenuButton.h */,
 				C43810EE1ED8705400D655D3 /* AIMenuButton.m */,
+				C4E3EDC71EDEEB3700DDF236 /* AIMenuItem.h */,
+				C4E3EDC81EDEEB3700DDF236 /* AIMenuItem.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2215,6 +2220,7 @@
 				455E28911D98C0D300E3DA4D /* AppDelegate.m in Sources */,
 				45D43E121DACDD120022F86A /* UIView+ConvenientMethod.m in Sources */,
 				455440A41DB9DF3A0025DCA4 /* AIRectangleLayer.m in Sources */,
+				C4E3EDC91EDEEB3700DDF236 /* AIMenuItem.m in Sources */,
 				C43810EF1ED8705400D655D3 /* AIMenuButton.m in Sources */,
 				45D43DE71DACB7170022F86A /* AISpringScaleViewController.m in Sources */,
 				4541BC6E1DD021F600907182 /* AIBezierPathViewController.m in Sources */,
