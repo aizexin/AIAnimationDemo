@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AIMenuItem : UIView
-
+@interface AIMenuItem : NSObject
+@property(nonatomic,strong)NSArray *menuColors;
+-(instancetype)initWithSymbol:(NSString*)symbol Color:(UIColor*)color title:(NSString*)title;
 @end
