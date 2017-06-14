@@ -30,9 +30,8 @@
     }
     return self;
 }
--(NSArray *)menuColors {
-    if (!_menuColors) {
-        _menuColors = @[
++(NSArray *)menuColors {
+     NSArray *   menuColors = @[
                         [UIColor colorWithRed:249/255. green:84/255. blue:7/255. alpha:1.],
                         [UIColor colorWithRed:69/255. green:59/255. blue:55/255. alpha:1.],
                         [UIColor colorWithRed:249/255. green:194/255. blue:7/255. alpha:1.],
@@ -41,14 +40,19 @@
                         [UIColor colorWithRed:14/255. green:88/255. blue:149/255. alpha:1.],
                         [UIColor colorWithRed:15/255. green:193/255. blue:231/255. alpha:1.],
                         ];
-    }
-    return _menuColors;
+    return menuColors;
 }
 + (NSArray<AIMenuItem *>*)shareMenuItems {
-//    NSArray * items = @[
-//                        [AIMenuItem alloc]initWithSymbol:@"" Color: title:<#(NSString *)#>
-//                        ];
-    return nil;
+    NSArray * items = @[
+                        [[AIMenuItem alloc]initWithSymbol:@"☎︎" Color:[AIMenuItem menuColors][0] title:@"Phone book"],
+                        [[AIMenuItem alloc]initWithSymbol:@"✉︎" Color:[AIMenuItem menuColors][1] title:@"Email directory"],
+                        [[AIMenuItem alloc]initWithSymbol:@"♻︎" Color:[AIMenuItem menuColors][0] title:@"Company recycle policy"],
+                        [[AIMenuItem alloc]initWithSymbol:@"♞" Color:[AIMenuItem menuColors][0] title:@"Games and fun"],
+                        [[AIMenuItem alloc]initWithSymbol:@"✾" Color:[AIMenuItem menuColors][0] title:@"Training programs"],
+                        [[AIMenuItem alloc]initWithSymbol:@"✈︎" Color:[AIMenuItem menuColors][0] title:@"Travel"],
+                        [[AIMenuItem alloc]initWithSymbol:@"🃖" Color:[AIMenuItem menuColors][0] title:@"Etc."],
+                        ];
+    return items;
 }
 
 
