@@ -10,5 +10,7 @@
 
 @interface AIMenuItem : NSObject
 @property(nonatomic,strong)NSArray *menuColors;
++ (instancetype)shareItems;
+- (NSArray<AIMenuItem *>*)shareMenuItems;
 -(instancetype)initWithSymbol:(NSString*)symbol Color:(UIColor*)color title:(NSString*)title;
 @end

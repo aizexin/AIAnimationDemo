@@ -7,7 +7,7 @@
 //
 
 #import "AISideMenuTableViewController.h"
-
+#import "AIMenuItem.h"
 @interface AISideMenuTableViewController ()
 
 @end
@@ -32,13 +32,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return [AIMenuItem shareItems].shareMenuItems.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [AIMenuItem shareItems].shareMenuItems.count;
 }
 
 /*

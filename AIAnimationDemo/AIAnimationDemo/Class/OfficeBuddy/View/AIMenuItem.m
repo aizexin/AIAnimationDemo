@@ -21,6 +21,15 @@
 
 @implementation AIMenuItem
 
++ (instancetype)shareItems {
+    static AIMenuItem  *menuItem   = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        menuItem                   = [[AIMenuItem alloc]init];
+    });
+    return menuItem;
+}
+
 -(instancetype)initWithSymbol:(NSString*)symbol Color:(UIColor*)color title:(NSString*)title {
     self = [super init];
     if (self) {
@@ -42,7 +51,7 @@
                         ];
     return menuColors;
 }
-+ (NSArray<AIMenuItem *>*)shareMenuItems {
+- (NSArray<AIMenuItem *>*)shareMenuItems {
     NSArray * items = @[
                         [[AIMenuItem alloc]initWithSymbol:@"☎︎" Color:[AIMenuItem menuColors][0] title:@"Phone book"],
                         [[AIMenuItem alloc]initWithSymbol:@"✉︎" Color:[AIMenuItem menuColors][1] title:@"Email directory"],
