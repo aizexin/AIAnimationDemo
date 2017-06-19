@@ -39,15 +39,23 @@
     return [AIMenuItem shareItems].shareMenuItems.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell" forIndexPath:indexPath];
+    AIMenuItem *item      = [[AIMenuItem shareItems]shareMenuItems][indexPath.row];
+    cell.textLabel.backgroundColor      = [UIColor clearColor];
+    cell.textLabel.textColor            = [UIColor whiteColor];
+    cell.textLabel.font                 = [UIFont fontWithName:@"Helvetica" size:36.0];
+    cell.textLabel.text                 = item.symbol;
+    cell.contentView.backgroundColor    = item.color;
     // Configure the cell...
     
     return cell;
 }
-*/
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 85.;
+}
+
 
 /*
 // Override to support conditional editing of the table view.

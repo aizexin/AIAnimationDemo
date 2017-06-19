@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45048B881EF7AE3100765898 /* AIContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45048B871EF7AE3100765898 /* AIContainerViewController.m */; };
 		4505FE901DAE8C1D00AE4FED /* AIAnimationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FE8F1DAE8C1D00AE4FED /* AIAnimationImageView.m */; };
 		4505FE961DAF2D3B00AE4FED /* AIShimmerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FE951DAF2D3B00AE4FED /* AIShimmerViewController.m */; };
 		4505FE9D1DAF315E00AE4FED /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4505FE9A1DAF315E00AE4FED /* FBShimmeringLayer.m */; };
@@ -182,6 +183,8 @@
 
 /* Begin PBXFileReference section */
 		2094375E453D88DFC8C32A45 /* libPods-AIAnimationDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AIAnimationDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45048B861EF7AE3100765898 /* AIContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIContainerViewController.h; sourceTree = "<group>"; };
+		45048B871EF7AE3100765898 /* AIContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIContainerViewController.m; sourceTree = "<group>"; };
 		4505FE8E1DAE8C1D00AE4FED /* AIAnimationImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAnimationImageView.h; sourceTree = "<group>"; };
 		4505FE8F1DAE8C1D00AE4FED /* AIAnimationImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAnimationImageView.m; sourceTree = "<group>"; };
 		4505FE941DAF2D3B00AE4FED /* AIShimmerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIShimmerViewController.h; sourceTree = "<group>"; };
@@ -1960,6 +1963,8 @@
 				D01E76571ECE668200601C0D /* AIOfficeBuddyViewController.xib */,
 				4596FB3C1EF02C1C00ED94E3 /* AISideMenuTableViewController.h */,
 				4596FB3D1EF02C1C00ED94E3 /* AISideMenuTableViewController.m */,
+				45048B861EF7AE3100765898 /* AIContainerViewController.h */,
+				45048B871EF7AE3100765898 /* AIContainerViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2277,6 +2282,7 @@
 				45F7E5101E11528800721BCB /* AIPlayMusicViewController.m in Sources */,
 				4537330E1E4C531B0086F391 /* AIDiscretePointModel.m in Sources */,
 				455DF5C41DB46E2000D3E84A /* MoreInfoView.m in Sources */,
+				45048B881EF7AE3100765898 /* AIContainerViewController.m in Sources */,
 				45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */,
 				45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */,
 				451DDFB31EC2F9F00073C6AB /* AFNetHelper.m in Sources */,

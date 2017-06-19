@@ -9,14 +9,6 @@
 #import "AIMenuItem.h"
 @interface AIMenuItem()
 
-/**标题 */
-@property(nonatomic,copy)NSString *title;
-/**符号 */
-@property(nonatomic,copy)NSString *symbol;
-/**
- 颜色
- */
-@property(nonatomic,strong)UIColor  *color;
 @end
 
 @implementation AIMenuItem

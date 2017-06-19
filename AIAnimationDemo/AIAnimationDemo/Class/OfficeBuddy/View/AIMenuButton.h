@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AIMenuButton : UIView
-
+@property(nonatomic,copy)void(^tapHandler)();
 @end

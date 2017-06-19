@@ -12,7 +12,7 @@
 @interface AIMenuButton ()
 
 @property(nonatomic,weak)UIImageView *imageView;
-@property(nonatomic,copy)void(^tapHandler)();
+
 @end
 @implementation AIMenuButton
 
