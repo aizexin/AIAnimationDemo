@@ -40,6 +40,8 @@ NSTimeInterval animationTime    = .5;
     UIPanGestureRecognizer  *panGesture                 = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handleGesture:)];
     [self.view addGestureRecognizer:panGesture];
     
+    [self setMenuToPercent:0];
+    
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
@@ -52,6 +54,22 @@ NSTimeInterval animationTime    = .5;
         _centerViewController   = center;
     }
     return self;
+}
+
+-(void)setMenuToPercent:(CGFloat)percent {
+    self.centerViewController.view.ai_x         = menuWith * percent;
+    _menuViewController.view.layer.transform    = [self menuTransformWithPercent:percent];
+    _menuViewController.view.alpha              = MAX(0.2, percent);
+}
+- (CATransform3D)menuTransformWithPercent:(CGFloat)percent {
+    CATransform3D identity     = CATransform3DIdentity;
+    identity.m34               = -1.0/1000;
+    CGFloat remainingPercent   = 1.0 - percent;
+    CGFloat angle              = remainingPercent * M_PI * -.5;
+    
+    CATransform3D rotationTransform     = CATransform3DRotate(identity, angle, 0., 1., 0.);
+    CATransform3D translationTransform  = CATransform3DMakeTranslation(menuWith * percent, 0, 0);
+    return CATransform3DConcat(rotationTransform, translationTransform);
 }
 #pragma mark -Action    
 - (void)handleGesture:(UIPanGestureRecognizer*)pan {
