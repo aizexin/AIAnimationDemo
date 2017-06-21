@@ -88,6 +88,8 @@
 		456CB0A61E34556300764022 /* AIPackingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 456CB0A51E34556300764022 /* AIPackingModel.m */; };
 		456DFD621DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 456DFD611DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m */; };
 		456DFD651DCB066400011AD7 /* AIGradientTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 456DFD641DCB066400011AD7 /* AIGradientTransitionAnimation.m */; };
+		45793C301EFACBF300D67F14 /* AISildeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45793C2E1EFACBF300D67F14 /* AISildeTableViewCell.m */; };
+		45793C311EFACBF300D67F14 /* AISildeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45793C2F1EFACBF300D67F14 /* AISildeTableViewCell.xib */; };
 		457E55F91DF5D1CB00692DF7 /* AITmallLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55F81DF5D1CB00692DF7 /* AITmallLoadingViewController.m */; };
 		4581319D1DAB7CB100B2E8D1 /* DrawMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4581319C1DAB7CB100B2E8D1 /* DrawMarqueeView.m */; };
 		458131A41DAB97C300B2E8D1 /* AILayerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 458131A31DAB97C300B2E8D1 /* AILayerButton.m */; };
@@ -351,6 +353,9 @@
 		456DFD611DCB05B400011AD7 /* AIGradientLayerNavgationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIGradientLayerNavgationDelegate.m; sourceTree = "<group>"; };
 		456DFD631DCB066400011AD7 /* AIGradientTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIGradientTransitionAnimation.h; sourceTree = "<group>"; };
 		456DFD641DCB066400011AD7 /* AIGradientTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIGradientTransitionAnimation.m; sourceTree = "<group>"; };
+		45793C2D1EFACBF300D67F14 /* AISildeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISildeTableViewCell.h; sourceTree = "<group>"; };
+		45793C2E1EFACBF300D67F14 /* AISildeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISildeTableViewCell.m; sourceTree = "<group>"; };
+		45793C2F1EFACBF300D67F14 /* AISildeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISildeTableViewCell.xib; sourceTree = "<group>"; };
 		457E55F71DF5D1CB00692DF7 /* AITmallLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITmallLoadingViewController.h; sourceTree = "<group>"; };
 		457E55F81DF5D1CB00692DF7 /* AITmallLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITmallLoadingViewController.m; sourceTree = "<group>"; };
 		4581319B1DAB7CB100B2E8D1 /* DrawMarqueeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawMarqueeView.h; sourceTree = "<group>"; };
@@ -1976,6 +1981,9 @@
 				C43810EE1ED8705400D655D3 /* AIMenuButton.m */,
 				C4E3EDC71EDEEB3700DDF236 /* AIMenuItem.h */,
 				C4E3EDC81EDEEB3700DDF236 /* AIMenuItem.m */,
+				45793C2D1EFACBF300D67F14 /* AISildeTableViewCell.h */,
+				45793C2E1EFACBF300D67F14 /* AISildeTableViewCell.m */,
+				45793C2F1EFACBF300D67F14 /* AISildeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2103,6 +2111,7 @@
 				455E289C1D98C0D300E3DA4D /* LaunchScreen.storyboard in Resources */,
 				4515885C1E12AA4300610F6D /* AIFlightInfoViewController.xib in Resources */,
 				454DBC321E3651180025ACAE /* AISlideToRevealViewController.xib in Resources */,
+				45793C311EFACBF300D67F14 /* AISildeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2202,6 +2211,7 @@
 				D01E76581ECE668200601C0D /* AIOfficeBuddyViewController.m in Sources */,
 				4505FE9E1DAF315E00AE4FED /* FBShimmeringView.m in Sources */,
 				45D43DF71DACC3440022F86A /* AIBaiduHUD.m in Sources */,
+				45793C301EFACBF300D67F14 /* AISildeTableViewCell.m in Sources */,
 				45D5BAF71EC018F300388B6E /* AIDownloadButtonViewController.m in Sources */,
 				45D5BAFE1EC02EBE00388B6E /* CALayer+SetRect.m in Sources */,
 				451D28221DBCED090070BFCA /* AIPictureViewer.m in Sources */,

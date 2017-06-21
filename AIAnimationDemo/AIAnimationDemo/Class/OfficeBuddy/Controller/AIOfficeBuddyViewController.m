@@ -9,11 +9,13 @@
 #import "AIOfficeBuddyViewController.h"
 #import "AIMenuButton.h"
 #import "AIMenuItem.h"
+#import "AIContainerViewController.h"
 @interface AIOfficeBuddyViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *symbol;
 
-/** 按钮*/
+/** */
 @property(nonatomic,strong)AIMenuItem *menuItem;
+@property(nonatomic,strong)AIMenuButton *menuButton;
 @end
 
 @implementation AIOfficeBuddyViewController
@@ -25,12 +27,20 @@
     }
     return _menuItem;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.barTintColor   = [UIColor flatRedColor];
     AIMenuButton *MenuButton    = [[AIMenuButton alloc]init];
-    MenuButton.tapHandler = ^{
-        
+    MenuButton.tapHandler       = ^{
+        AIContainerViewController *containerVC  = (AIContainerViewController*)self.navigationController.parentViewController ;
+        if (containerVC) {
+            [containerVC toggleSideMenu];
+        }
     };
+    self.navigationItem.leftBarButtonItem       = [[UIBarButtonItem alloc]initWithCustomView:MenuButton];
+    self.menuItem                               = [[AIMenuItem shareItems].shareMenuItems firstObject];
     
 }
 

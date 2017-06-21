@@ -8,6 +8,7 @@
 
 #import "AISideMenuTableViewController.h"
 #import "AIMenuItem.h"
+#import "AISildeTableViewCell.h"
 @interface AISideMenuTableViewController ()
 
 @end
@@ -16,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"AISildeTableViewCell" bundle:nil] forCellReuseIdentifier:@"MenuCell"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -42,6 +43,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell" forIndexPath:indexPath];
+    if (!cell) {
+        cell              = [[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"MenuCell"];
+    }
     AIMenuItem *item      = [[AIMenuItem shareItems]shareMenuItems][indexPath.row];
     cell.textLabel.backgroundColor      = [UIColor clearColor];
     cell.textLabel.textColor            = [UIColor whiteColor];

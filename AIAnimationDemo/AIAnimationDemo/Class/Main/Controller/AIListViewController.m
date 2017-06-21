@@ -45,7 +45,7 @@
 #import "AILogoRevealViewController.h"      //Twitter开场动画
 #import "AIDoodleViewController.h"          //画板
 #import "AIDownloadButtonViewController.h"  //下载按钮
-#import "AIOfficeBuddyViewController.h"     //officebuddy
+#import "AIContainerViewController.h"     //officebuddy
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -91,7 +91,7 @@
                            [AIListModel initWithTitle:@"Twitter开场动画" andTargetVC:[AILogoRevealViewController class]],
                            [AIListModel initWithTitle:@"画板" andTargetVC:[AIDoodleViewController class]],
                            [AIListModel initWithTitle:@"下载按钮" andTargetVC:[AIDownloadButtonViewController class]],
-                           [AIListModel initWithTitle:@"officebuddy" andTargetVC:[AIOfficeBuddyViewController class]]
+                           [AIListModel initWithTitle:@"officebuddy" andTargetVC:[AIContainerViewController class]]
                            ];
         
         _dataSource = [NSMutableArray arrayWithCapacity:array.count];

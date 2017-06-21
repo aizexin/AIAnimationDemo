@@ -24,7 +24,9 @@
     self.imageView          = imageView;
     self.imageView.userInteractionEnabled   = YES;
     UITapGestureRecognizer  *tap            = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTap)];
-    [self addGestureRecognizer:tap];
+    [self.imageView addGestureRecognizer:tap];
+    
+    [self addSubview:self.imageView];
 }
 
 - (void)didTap {

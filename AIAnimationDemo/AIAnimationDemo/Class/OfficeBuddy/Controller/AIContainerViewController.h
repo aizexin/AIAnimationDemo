@@ -11,4 +11,5 @@
 @interface AIContainerViewController : AIBaseViewController
 
 -(instancetype)initWithSlideMeun:(UIViewController*)slideMeun center:(UINavigationController*)center;
+- (void)toggleSideMenu;
 @end
