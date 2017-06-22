@@ -42,6 +42,12 @@
     self.navigationItem.leftBarButtonItem       = [[UIBarButtonItem alloc]initWithCustomView:MenuButton];
     self.menuItem                               = [[AIMenuItem shareItems].shareMenuItems firstObject];
     
+     self.navigationItem.rightBarButtonItem             = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickBack)];
+    self.navigationController.navigationBar.tintColor   = [UIColor flatWhiteColor];
+}
+
+- (void)onClickBack {
+    [self.parentViewController.navigationController popViewControllerAnimated:YES];
 }
 
 

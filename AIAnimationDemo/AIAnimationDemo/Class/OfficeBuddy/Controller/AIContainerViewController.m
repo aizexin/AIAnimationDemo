@@ -24,15 +24,10 @@ NSTimeInterval animationTime    = .5;
 
 - (instancetype)init
 {
-//    self = [super init];
-//    if (self) {
-        AISideMenuTableViewController   *sideVC   = [[AISideMenuTableViewController alloc]init];
-//        self.menuViewController                   = sideVC;
-        AIOfficeBuddyViewController     *office   = [[AIOfficeBuddyViewController alloc]initWithNibName:@"AIOfficeBuddyViewController" bundle:nil];
-        UINavigationController *nav               = [[UINavigationController alloc]initWithRootViewController:office];
-//        self.centerViewController                 = nav;
-       self                                       = [self initWithSlideMeun:sideVC center:nav];
-//    }
+    AISideMenuTableViewController   *sideVC   = [[AISideMenuTableViewController alloc]init];
+    AIOfficeBuddyViewController     *office   = [[AIOfficeBuddyViewController alloc]initWithNibName:@"AIOfficeBuddyViewController" bundle:nil];
+    UINavigationController *nav               = [[UINavigationController alloc]initWithRootViewController:office];
+    self                                      = [self initWithSlideMeun:sideVC center:nav];
     return self;
 }
 -(instancetype)initWithSlideMeun:(UIViewController*)slideMeun center:(UINavigationController*)center {
@@ -65,6 +60,7 @@ NSTimeInterval animationTime    = .5;
     
     [self setMenuToPercent:0];
     
+    
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -78,7 +74,6 @@ NSTimeInterval animationTime    = .5;
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
-
 
 -(void)setMenuToPercent:(CGFloat)percent {
     self.centerViewController.view.ai_x         = menuWith * percent;
@@ -109,5 +104,6 @@ NSTimeInterval animationTime    = .5;
 - (void)handleGesture:(UIPanGestureRecognizer*)pan {
     //todo
 }
+
 
 @end

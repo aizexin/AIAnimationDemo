@@ -32,10 +32,6 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [AIMenuItem shareItems].shareMenuItems.count;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [AIMenuItem shareItems].shareMenuItems.count;
 }
