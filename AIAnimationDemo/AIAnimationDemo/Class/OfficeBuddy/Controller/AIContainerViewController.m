@@ -27,6 +27,7 @@ NSTimeInterval animationTime    = .5;
     AISideMenuTableViewController   *sideVC   = [[AISideMenuTableViewController alloc]init];
     AIOfficeBuddyViewController     *office   = [[AIOfficeBuddyViewController alloc]initWithNibName:@"AIOfficeBuddyViewController" bundle:nil];
     UINavigationController *nav               = [[UINavigationController alloc]initWithRootViewController:office];
+    sideVC.centerVC                           = [nav.viewControllers firstObject];
     self                                      = [self initWithSlideMeun:sideVC center:nav];
     return self;
 }

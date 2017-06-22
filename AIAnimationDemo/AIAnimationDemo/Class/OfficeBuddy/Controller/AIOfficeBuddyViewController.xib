@@ -28,7 +28,7 @@
                         <constraint firstAttribute="width" constant="144" id="af3-Rt-OI9"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="sUi-31-aWV"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="144"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="107"/>
                     <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <nil key="highlightedColor"/>
                 </label>

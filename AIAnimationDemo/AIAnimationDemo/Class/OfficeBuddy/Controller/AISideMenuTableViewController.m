@@ -9,6 +9,8 @@
 #import "AISideMenuTableViewController.h"
 #import "AIMenuItem.h"
 #import "AISildeTableViewCell.h"
+#import "AIContainerViewController.h"
+
 @interface AISideMenuTableViewController ()
 
 @end
@@ -19,16 +21,13 @@
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"AISildeTableViewCell" bundle:nil] forCellReuseIdentifier:@"MenuCell"];
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+//     self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - Table view data source
 
@@ -55,7 +54,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 85.;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.centerVC.menuItem                   = [AIMenuItem shareItems].shareMenuItems[indexPath.row];
+    AIContainerViewController *containerVC   = (AIContainerViewController*)self.parentViewController;
+    [containerVC toggleSideMenu];
+    
+}
 
 /*
 // Override to support conditional editing of the table view.

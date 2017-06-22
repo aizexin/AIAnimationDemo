@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AIOfficeBuddyViewController.h"
 @interface AISideMenuTableViewController : UITableViewController
-
+@property(nonatomic,weak)AIOfficeBuddyViewController *centerVC;
 @end

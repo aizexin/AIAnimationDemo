@@ -47,11 +47,11 @@
     NSArray * items = @[
                         [[AIMenuItem alloc]initWithSymbol:@"☎︎" Color:[AIMenuItem menuColors][0] title:@"Phone book"],
                         [[AIMenuItem alloc]initWithSymbol:@"✉︎" Color:[AIMenuItem menuColors][1] title:@"Email directory"],
-                        [[AIMenuItem alloc]initWithSymbol:@"♻︎" Color:[AIMenuItem menuColors][0] title:@"Company recycle policy"],
-                        [[AIMenuItem alloc]initWithSymbol:@"♞" Color:[AIMenuItem menuColors][0] title:@"Games and fun"],
-                        [[AIMenuItem alloc]initWithSymbol:@"✾" Color:[AIMenuItem menuColors][0] title:@"Training programs"],
-                        [[AIMenuItem alloc]initWithSymbol:@"✈︎" Color:[AIMenuItem menuColors][0] title:@"Travel"],
-                        [[AIMenuItem alloc]initWithSymbol:@"🃖" Color:[AIMenuItem menuColors][0] title:@"Etc."],
+                        [[AIMenuItem alloc]initWithSymbol:@"♻︎" Color:[AIMenuItem menuColors][2] title:@"Company recycle policy"],
+                        [[AIMenuItem alloc]initWithSymbol:@"♞" Color:[AIMenuItem menuColors][3] title:@"Games and fun"],
+                        [[AIMenuItem alloc]initWithSymbol:@"✾" Color:[AIMenuItem menuColors][4] title:@"Training programs"],
+                        [[AIMenuItem alloc]initWithSymbol:@"✈︎" Color:[AIMenuItem menuColors][5] title:@"Travel"],
+                        [[AIMenuItem alloc]initWithSymbol:@"🃖" Color:[AIMenuItem menuColors][6] title:@"Etc."],
                         ];
     return items;
 }
