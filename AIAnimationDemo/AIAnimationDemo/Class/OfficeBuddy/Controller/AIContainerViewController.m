@@ -56,8 +56,7 @@ NSTimeInterval animationTime    = .5;
     self.menuViewController.view.layer.anchorPoint      = CGPointMake(1., self.menuViewController.view.layer.anchorPoint.y);
     self.menuViewController.view.frame                  = CGRectMake(-menuWith, 0, menuWith, self.view.ai_height);
     
-    UIPanGestureRecognizer  *panGesture                 = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handleGesture:)];
-    [self.view addGestureRecognizer:panGesture];
+   
     
     [self setMenuToPercent:0];
     
@@ -100,10 +99,6 @@ NSTimeInterval animationTime    = .5;
     } completion:^(BOOL finished) {
         self.menuViewController.view.layer.shouldRasterize  = NO;
     }];
-}
-#pragma mark -Action    
-- (void)handleGesture:(UIPanGestureRecognizer*)pan {
-    //todo
 }
 
 
