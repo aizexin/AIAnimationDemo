@@ -56,7 +56,8 @@ NSTimeInterval animationTime    = .5;
     self.menuViewController.view.layer.anchorPoint      = CGPointMake(1., self.menuViewController.view.layer.anchorPoint.y);
     self.menuViewController.view.frame                  = CGRectMake(-menuWith, 0, menuWith, self.view.ai_height);
     
-   
+    UIPanGestureRecognizer  *panGesture                 = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handleGesture:)];
+    [self.view addGestureRecognizer:panGesture];
     
     [self setMenuToPercent:0];
     
@@ -99,6 +100,46 @@ NSTimeInterval animationTime    = .5;
     } completion:^(BOOL finished) {
         self.menuViewController.view.layer.shouldRasterize  = NO;
     }];
+}
+#pragma mark -Action
+- (void)handleGesture:(UIPanGestureRecognizer*)pan {
+    //todo
+    CGPoint translation   = [pan translationInView:self.view.superview];
+    CGFloat progess       = translation.x / menuWith * (self.isOpening ? 1.:-1.);
+    progess               = MIN(MAX(progess, 0.), 1.);
+    
+    switch (pan.state) {
+        case UIGestureRecognizerStateBegan:{
+            
+            BOOL isOpen       = floor(self.centerViewController.view.frame.origin.x / menuWith);
+            self.opening      = !isOpen;
+            self.menuViewController.view.layer.shouldRasterize     = YES;
+            self.menuViewController.view.layer.rasterizationScale  = [UIScreen mainScreen].scale;
+        }
+            break;
+        case UIGestureRecognizerStateChanged: {
+            [self setMenuToPercent:(self.isOpening? progess:1-progess)];
+            break;
+        }
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateFailed: {
+            CGFloat targetProgress;
+            if (self.isOpening) {
+                targetProgress     = progess < 0.5 ? 0.:1.;
+            } else {
+                targetProgress     = progess < 0.5 ? 1.:0.;
+            }
+            AIWeakSelf;
+            [UIView animateWithDuration:animationTime animations:^{
+                [weakSelf setMenuToPercent:targetProgress];
+            } completion:nil];
+            self.menuViewController.view.layer.shouldRasterize = NO;
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 

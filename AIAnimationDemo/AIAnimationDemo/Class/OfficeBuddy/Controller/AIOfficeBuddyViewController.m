@@ -44,8 +44,7 @@
      self.navigationItem.rightBarButtonItem             = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickBack)];
     self.navigationController.navigationBar.tintColor   = [UIColor flatWhiteColor];
     
-    UIPanGestureRecognizer  *panGesture                 = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handleGesture:)];
-    [self.view addGestureRecognizer:panGesture];
+   
 }
 -(void)setMenuItem:(AIMenuItem *)menuItem {
     _menuItem     = menuItem;
@@ -53,10 +52,7 @@
     self.view.backgroundColor  = menuItem.color;
     self.symbol.text           = menuItem.symbol;
 }
-#pragma mark -Action
-- (void)handleGesture:(UIPanGestureRecognizer*)pan {
-    //todo
-}
+
 
 
 - (void)onClickBack {
