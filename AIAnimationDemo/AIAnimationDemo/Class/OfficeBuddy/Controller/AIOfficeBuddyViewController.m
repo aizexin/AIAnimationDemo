@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.barTintColor   = [UIColor flatRedColor];
+    self.navigationController.navigationBar.barTintColor   = [UIColor flatBlackColorDark];
     AIMenuButton *MenuButton    = [[AIMenuButton alloc]init];
     MenuButton.tapHandler       = ^{
         AIContainerViewController *containerVC  = (AIContainerViewController*)self.navigationController.parentViewController ;
@@ -41,10 +41,11 @@
     self.navigationItem.leftBarButtonItem       = [[UIBarButtonItem alloc]initWithCustomView:MenuButton];
     self.menuItem                               = [[AIMenuItem shareItems].shareMenuItems firstObject];
     
-     self.navigationItem.rightBarButtonItem             = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickBack)];
-    self.navigationController.navigationBar.tintColor   = [UIColor flatWhiteColor];
+     self.navigationItem.rightBarButtonItem              = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickBack)];
+    //设置title 和 item的颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
+    self.navigationController.navigationBar.tintColor    = [UIColor flatWhiteColor];
     
-   
 }
 -(void)setMenuItem:(AIMenuItem *)menuItem {
     _menuItem     = menuItem;
