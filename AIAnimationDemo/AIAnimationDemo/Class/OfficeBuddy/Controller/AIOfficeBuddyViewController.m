@@ -7,14 +7,13 @@
 //
 
 #import "AIOfficeBuddyViewController.h"
-#import "AIMenuButton.h"
 
 #import "AIContainerViewController.h"
 @interface AIOfficeBuddyViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *symbol;
 
 
-@property(nonatomic,strong)AIMenuButton *menuButton;
+
 @end
 
 @implementation AIOfficeBuddyViewController
@@ -31,14 +30,15 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.barTintColor   = [UIColor flatBlackColorDark];
-    AIMenuButton *MenuButton    = [[AIMenuButton alloc]init];
-    MenuButton.tapHandler       = ^{
+    AIMenuButton *menuButton    = [[AIMenuButton alloc]init];
+    self.menuButton             = menuButton;
+    menuButton.tapHandler       = ^{
         AIContainerViewController *containerVC  = (AIContainerViewController*)self.navigationController.parentViewController ;
         if (containerVC) {
             [containerVC toggleSideMenu];
         }
     };
-    self.navigationItem.leftBarButtonItem       = [[UIBarButtonItem alloc]initWithCustomView:MenuButton];
+    self.navigationItem.leftBarButtonItem       = [[UIBarButtonItem alloc]initWithCustomView:menuButton];
     self.menuItem                               = [[AIMenuItem shareItems].shareMenuItems firstObject];
     
      self.navigationItem.rightBarButtonItem              = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickBack)];

@@ -11,7 +11,7 @@
 
 @interface AIMenuButton ()
 
-@property(nonatomic,weak)UIImageView *imageView;
+
 
 @end
 @implementation AIMenuButton

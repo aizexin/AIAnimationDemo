@@ -9,6 +9,7 @@
 #import "AIContainerViewController.h"
 #import "AISideMenuTableViewController.h"
 #import "AIOfficeBuddyViewController.h"
+#import "AIMenuButton.h"
 @interface AIContainerViewController ()
 
 /**菜单 */
@@ -80,7 +81,18 @@ NSTimeInterval animationTime    = .5;
     self.centerViewController.view.ai_x         = menuWith * percent;
     _menuViewController.view.layer.transform    = [self menuTransformWithPercent:percent];
     _menuViewController.view.alpha              = MAX(0.2, percent);
+    
+    AIOfficeBuddyViewController *centerVC       = [self.centerViewController.viewControllers firstObject];
+    AIMenuButton *menuButton                    = centerVC.menuButton;
+    menuButton.imageView.layer.transform        = [self buttonTransformPercent:percent];
 }
+
+/**
+ 菜单旋转
+
+ @param percent 旋转的百分比
+ @return 返回改变值
+ */
 - (CATransform3D)menuTransformWithPercent:(CGFloat)percent {
     CATransform3D identity     = CATransform3DIdentity;
     identity.m34               = -1.0/1000;
@@ -90,6 +102,14 @@ NSTimeInterval animationTime    = .5;
     CATransform3D rotationTransform     = CATransform3DRotate(identity, angle, 0., 1., 0.);
     CATransform3D translationTransform  = CATransform3DMakeTranslation(menuWith * percent, 0, 0);
     return CATransform3DConcat(rotationTransform, translationTransform);
+}
+- (CATransform3D)buttonTransformPercent:(CGFloat)percent {
+    CATransform3D identity     = CATransform3DIdentity;
+    identity.m34               = -1.0/1000;
+    
+    CGFloat angle              = percent * M_PI;
+    CATransform3D rotationTransform     = CATransform3DMakeRotation(angle, 1., 1., 0.);
+    return rotationTransform;
 }
 - (void)toggleSideMenu {
     BOOL isOpen   = floor(self.centerViewController.view.frame.origin.x/menuWith);
