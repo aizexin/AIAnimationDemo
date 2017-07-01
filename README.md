@@ -1,5 +1,9 @@
 #AIAnimationDemo
 
++ officebuddy
+
+![downloadButton.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/officebuddy.gif)
+
 + downloadButton
 
 ![downloadButton.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/downloadButton.gif)
