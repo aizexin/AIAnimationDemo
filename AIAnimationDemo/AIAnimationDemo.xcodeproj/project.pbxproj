@@ -54,6 +54,7 @@
 		453DD8481DACA80500D1CDA9 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD8441DACA80500D1CDA9 /* GCDTimer.m */; };
 		4541BC5F1DCB082300907182 /* AIPush2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541BC5E1DCB082200907182 /* AIPush2ViewController.m */; };
 		4541BC6E1DD021F600907182 /* AIBezierPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */; };
+		4542126F1F0935FE00663BC9 /* AIFoldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4542126E1F0935FE00663BC9 /* AIFoldViewController.m */; };
 		45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 45427DE61DE6949500472959 /* UIView+AISetRect.m */; };
 		454516081E0A815900F3BCF9 /* AIAutoTextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454516071E0A815900F3BCF9 /* AIAutoTextViewViewController.m */; };
 		4545160C1E0A81CE00F3BCF9 /* AITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4545160B1E0A81CE00F3BCF9 /* AITextView.m */; };
@@ -282,6 +283,8 @@
 		4541BC5E1DCB082200907182 /* AIPush2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPush2ViewController.m; sourceTree = "<group>"; };
 		4541BC6C1DD021F600907182 /* AIBezierPathViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBezierPathViewController.h; sourceTree = "<group>"; };
 		4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBezierPathViewController.m; sourceTree = "<group>"; };
+		4542126D1F0935FE00663BC9 /* AIFoldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFoldViewController.h; sourceTree = "<group>"; };
+		4542126E1F0935FE00663BC9 /* AIFoldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFoldViewController.m; sourceTree = "<group>"; };
 		45427DE51DE6949500472959 /* UIView+AISetRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AISetRect.h"; sourceTree = "<group>"; };
 		45427DE61DE6949500472959 /* UIView+AISetRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AISetRect.m"; sourceTree = "<group>"; };
 		454516061E0A815900F3BCF9 /* AIAutoTextViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAutoTextViewViewController.h; sourceTree = "<group>"; };
@@ -999,6 +1002,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		454212691F0935E700663BC9 /* Fold */ = {
+			isa = PBXGroup;
+			children = (
+				4542126A1F0935E700663BC9 /* Controller */,
+				4542126B1F0935E700663BC9 /* Model */,
+				4542126C1F0935E700663BC9 /* View */,
+			);
+			path = Fold;
+			sourceTree = "<group>";
+		};
+		4542126A1F0935E700663BC9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4542126D1F0935FE00663BC9 /* AIFoldViewController.h */,
+				4542126E1F0935FE00663BC9 /* AIFoldViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4542126B1F0935E700663BC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4542126C1F0935E700663BC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		454516021E0A813100F3BCF9 /* AutoTextView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1305,6 +1341,7 @@
 				45E8C4A01EA4FBC700B69852 /* Doodle */,
 				45D5BAEE1EC0188800388B6E /* DownloadButton */,
 				D01E76511ECE664B00601C0D /* OfficeBuddy */,
+				454212691F0935E700663BC9 /* Fold */,
 				45D43DF81DACC8900022F86A /* NetWorking */,
 				4515A1371D9BC356000F4E24 /* Category */,
 				455E28C01D98C58100E3DA4D /* Main */,
@@ -2258,6 +2295,7 @@
 				452037F41E587669007FA354 /* AIBeginnerCookViewController.m in Sources */,
 				451DDFB11EC2F9F00073C6AB /* PPNetworkCache.m in Sources */,
 				4545160C1E0A81CE00F3BCF9 /* AITextView.m in Sources */,
+				4542126F1F0935FE00663BC9 /* AIFoldViewController.m in Sources */,
 				45D5BAFB1EC0192A00388B6E /* AIDownloadButton.m in Sources */,
 				45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */,
 				454DBC301E3650680025ACAE /* AISlideToRevealViewController.m in Sources */,
