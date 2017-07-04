@@ -55,7 +55,7 @@
 		4541BC5F1DCB082300907182 /* AIPush2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541BC5E1DCB082200907182 /* AIPush2ViewController.m */; };
 		4541BC6E1DD021F600907182 /* AIBezierPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */; };
 		4542126F1F0935FE00663BC9 /* AIFoldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4542126E1F0935FE00663BC9 /* AIFoldViewController.m */; };
-		454212721F09D97500663BC9 /* AIFoldContainer View.m in Sources */ = {isa = PBXBuildFile; fileRef = 454212711F09D97500663BC9 /* AIFoldContainer View.m */; };
+		454212721F09D97500663BC9 /* AIFoldContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 454212711F09D97500663BC9 /* AIFoldContainerView.m */; };
 		454212751F09D9C200663BC9 /* AIFoldRotatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 454212741F09D9C200663BC9 /* AIFoldRotatedView.m */; };
 		454212781F09F3AA00663BC9 /* UIView+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 454212771F09F3AA00663BC9 /* UIView+AIExtension.m */; };
 		45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 45427DE61DE6949500472959 /* UIView+AISetRect.m */; };
@@ -288,8 +288,8 @@
 		4541BC6D1DD021F600907182 /* AIBezierPathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBezierPathViewController.m; sourceTree = "<group>"; };
 		4542126D1F0935FE00663BC9 /* AIFoldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFoldViewController.h; sourceTree = "<group>"; };
 		4542126E1F0935FE00663BC9 /* AIFoldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFoldViewController.m; sourceTree = "<group>"; };
-		454212701F09D97500663BC9 /* AIFoldContainer View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AIFoldContainer View.h"; sourceTree = "<group>"; };
-		454212711F09D97500663BC9 /* AIFoldContainer View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AIFoldContainer View.m"; sourceTree = "<group>"; };
+		454212701F09D97500663BC9 /* AIFoldContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFoldContainerView.h; sourceTree = "<group>"; };
+		454212711F09D97500663BC9 /* AIFoldContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFoldContainerView.m; sourceTree = "<group>"; };
 		454212731F09D9C200663BC9 /* AIFoldRotatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFoldRotatedView.h; sourceTree = "<group>"; };
 		454212741F09D9C200663BC9 /* AIFoldRotatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFoldRotatedView.m; sourceTree = "<group>"; };
 		454212761F09F3AA00663BC9 /* UIView+AIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AIExtension.h"; sourceTree = "<group>"; };
@@ -1040,8 +1040,8 @@
 		4542126C1F0935E700663BC9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				454212701F09D97500663BC9 /* AIFoldContainer View.h */,
-				454212711F09D97500663BC9 /* AIFoldContainer View.m */,
+				454212701F09D97500663BC9 /* AIFoldContainerView.h */,
+				454212711F09D97500663BC9 /* AIFoldContainerView.m */,
 				454212731F09D9C200663BC9 /* AIFoldRotatedView.h */,
 				454212741F09D9C200663BC9 /* AIFoldRotatedView.m */,
 			);
@@ -2337,7 +2337,7 @@
 				45D43E101DACDD120022F86A /* UIView+AnimationPracticalMethod.m in Sources */,
 				457E55F91DF5D1CB00692DF7 /* AITmallLoadingViewController.m in Sources */,
 				45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */,
-				454212721F09D97500663BC9 /* AIFoldContainer View.m in Sources */,
+				454212721F09D97500663BC9 /* AIFoldContainerView.m in Sources */,
 				45D43DF11DACC2570022F86A /* YXEasing.m in Sources */,
 				4515887D1E155CB000610F6D /* AIFlightDataModel.m in Sources */,
 				45D110541E48C85700BB1CEB /* AIRefreshView.m in Sources */,
