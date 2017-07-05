@@ -27,7 +27,7 @@
     label.text                              = @"1";
     label.font                              = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
     label.textColor                         = [UIColor flatWhiteColor];
-    label.backgroundColor                   = [UIColor randomFlatColor];
+    label.backgroundColor                   = [UIColor colorWithRandomFlatColorOfShadeStyle:(UIShadeStyleDark)];
     [foldContainerView.contentView addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
@@ -41,7 +41,7 @@
     label2.text                              = @"2";
     label2.font                              = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
     label2.textColor                         = [UIColor flatWhiteColor];
-    label2.backgroundColor                   = [UIColor randomFlatColor];
+    label2.backgroundColor                   = [UIColor colorWithRandomFlatColorOfShadeStyle:(UIShadeStyleDark)];
     [foldContainerView.contentView addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
@@ -55,7 +55,7 @@
     label3.text                              = @"3";
     label3.font                              = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
     label3.textColor                         = [UIColor flatWhiteColor];
-    label3.backgroundColor                   = [UIColor randomFlatColor];
+    label3.backgroundColor                   = [UIColor colorWithRandomFlatColorOfShadeStyle:(UIShadeStyleDark)];
     [foldContainerView.contentView addSubview:label3];
     [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
