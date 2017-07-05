@@ -19,6 +19,7 @@
     
     //容器
     AIFoldContainerView *foldContainerView  = [[AIFoldContainerView alloc]init];
+    foldContainerView.itemCount             = 3;
     [self.view addSubview:foldContainerView];
     //1
     UILabel *label                          = [[UILabel alloc]init];
@@ -27,7 +28,7 @@
     label.font                              = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
     label.textColor                         = [UIColor flatWhiteColor];
     label.backgroundColor                   = [UIColor randomFlatColor];
-    [foldContainerView addSubview:label];
+    [foldContainerView.contentView addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
         make.top.mas_equalTo(0);
@@ -41,7 +42,7 @@
     label2.font                              = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
     label2.textColor                         = [UIColor flatWhiteColor];
     label2.backgroundColor                   = [UIColor randomFlatColor];
-    [foldContainerView addSubview:label2];
+    [foldContainerView.contentView addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
         make.top.mas_equalTo(label.mas_bottom);
@@ -55,7 +56,7 @@
     label3.font                              = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
     label3.textColor                         = [UIColor flatWhiteColor];
     label3.backgroundColor                   = [UIColor randomFlatColor];
-    [foldContainerView addSubview:label3];
+    [foldContainerView.contentView addSubview:label3];
     [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
         make.top.mas_equalTo(label2.mas_bottom);
@@ -68,6 +69,9 @@
         make.centerY.mas_equalTo(0);
         make.bottom.mas_equalTo(label3.mas_bottom);
     }];
+    
+    //开始折叠
+    [foldContainerView showFold];
 }
 
 

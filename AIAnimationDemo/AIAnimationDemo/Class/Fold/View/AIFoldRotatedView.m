@@ -7,32 +7,53 @@
 //
 
 #import "AIFoldRotatedView.h"
-
+#import "UIImage+ImageEffects.h"
 @interface AIFoldRotatedView ()
 
-@property(nonatomic,weak)AIFoldRotatedView *backView;
+@property(nonatomic,weak)UIImageView *backView;
+@property(nonatomic,weak)UIImageView *faceView;
 @end
 @implementation AIFoldRotatedView
 
-- (void)addBackViewWithHeight:(CGFloat)height backgroundColor:(UIColor*)color {
-    AIFoldRotatedView *view  = [[AIFoldRotatedView alloc]init];
-    view.backgroundColor     = color;
-    view.layer.anchorPoint   = CGPointMake(0.5, 1.);
-    view.layer.transform     = [self transform3d];
+- (instancetype)initWithRect:(CGRect)rect Image:(UIImage *)image
+{
+    self = [super initWithFrame:rect];
+    if (self) {
+        UIImageView *faceImageView   = [[UIImageView alloc]initWithFrame:self.bounds];
+        self.faceView                = faceImageView;
+        faceImageView.image          = image;
+//        faceImageView.layer.anchorPoint  = CGPointMake(0.5, 0.);
+////        faceImageView.layer.transform    = [self transform3d];
+//        faceImageView.layer.mask         = [self maskWithRect:rect];
+//        faceImageView.layer.position     = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+        faceImageView.contentMode        = UIViewContentModeScaleAspectFill;
+        
+        [self addBackViewWithImage:image];
+        [self.backView addSubview:faceImageView];
+        
+        [faceImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.left.mas_equalTo(0);
+            make.top.bottom.mas_equalTo(0);
+        }];
+    }
+    return self;
+}
+
+
+- (void)addBackViewWithImage:(UIImage*)image {
+    UIImageView *view        = [[UIImageView alloc]init];
+    view.image               = [image blurImage];
+//    view.layer.anchorPoint   = CGPointMake(0.5, 1.);
+//    view.layer.transform     = [self transform3d];
     self.backView            = view;
     view.translatesAutoresizingMaskIntoConstraints  = NO;
     [self addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
-        make.top.mas_equalTo(-height*0.5);
-        make.height.mas_equalTo(height);
+        make.top.bottom.mas_equalTo(0);
     }];
 }
 
-- (CATransform3D)transform3d {
-    CATransform3D transform     = CATransform3DIdentity;
-    transform.m34               = 2.5 / -2000;
-    return transform;
-}
+
 
 @end

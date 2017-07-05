@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface AIFoldContainerView : UIView
-
+/** 折叠个数*/
+@property(nonatomic,assign)NSInteger itemCount;
+/** 容器*/
+@property(nonatomic,weak)UIView *contentView;
+/**
+ 开启折叠
+ */
+- (void)showFold;
 @end

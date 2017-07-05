@@ -13,7 +13,7 @@
 - (UIImage*)ai_takeSnapshotWithFrame:(CGRect)frame {
     UIGraphicsBeginImageContextWithOptions(frame.size, NO, 0);
     CGContextRef context        = UIGraphicsGetCurrentContext();
-    CGContextTranslateCTM(context, frame.origin.x * -1, frame.origin.y * -1);
+//    CGContextTranslateCTM(context, frame.origin.x * -1, frame.origin.y * -1);
     [self.layer renderInContext:context];
     UIImage *image              = UIGraphicsGetImageFromCurrentImageContext();
     return image;
