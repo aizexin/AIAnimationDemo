@@ -42,14 +42,15 @@
     for (int  i = 0; i < self.itemCount; i ++ ) {
         CGRect rect             = CGRectMake(0 , i * itemHeight, KWidth, itemHeight);
         UIImage *image          = [self ai_takeSnapshotWithFrame:rect];
-        AIFoldRotatedView *rotatedView = [[AIFoldRotatedView alloc]initWithRect:rect Image:image];
-        rotatedView.layer.anchorPoint  = CGPointMake(0.5, 0.);
+        AIFoldRotatedView *rotatedView = [[AIFoldRotatedView alloc]initWithFrame:rect Image:image];
         [self addSubview:rotatedView];
     }
     for (UIView *itemView in self.subviews) {
         if ([itemView isKindOfClass:[AIFoldRotatedView class]]) {
-            itemView.layer.position     = CGPointMake(CGRectGetMidX(itemView.frame), itemView.layer.position.y - itemHeight *.5);
+            itemView.layer.anchorPoint  = CGPointMake(0.5, 0.);
+            itemView.layer.transform    = CATransform3DIdentity;
             itemView.layer.transform    = [self transform3d];
+            itemView.layer.position     = CGPointMake(CGRectGetMidX(itemView.frame), itemView.layer.position.y - itemHeight *.5);
         }
     }
     self.contentView.alpha                  = 0.;

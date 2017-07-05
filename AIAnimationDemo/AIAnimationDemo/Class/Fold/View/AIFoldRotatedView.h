@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AIFoldRotatedView : UIView
-- (instancetype)initWithRect:(CGRect)rect Image:(UIImage *)image;
+- (instancetype)initWithFrame:(CGRect)frame Image:(UIImage *)image;
 @end

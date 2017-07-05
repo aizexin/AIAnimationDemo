@@ -67,6 +67,7 @@
     [foldContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
         make.centerY.mas_equalTo(0);
+//        make.height.mas_equalTo(300);
         make.bottom.mas_equalTo(label3.mas_bottom);
     }];
     

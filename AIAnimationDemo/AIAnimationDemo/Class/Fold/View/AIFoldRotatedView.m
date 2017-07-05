@@ -15,44 +15,26 @@
 @end
 @implementation AIFoldRotatedView
 
-- (instancetype)initWithRect:(CGRect)rect Image:(UIImage *)image
+- (instancetype)initWithFrame:(CGRect)frame Image:(UIImage *)image
 {
-    self = [super initWithFrame:rect];
+    self = [super initWithFrame:frame];
     if (self) {
+        //背景
+        UIImageView *view        = [[UIImageView alloc]initWithFrame:self.bounds];
+        view.image               = [image blurImage];
+        self.backView            = view;
+        [self addSubview:view];
+        
         UIImageView *faceImageView   = [[UIImageView alloc]initWithFrame:self.bounds];
         self.faceView                = faceImageView;
         faceImageView.image          = image;
-//        faceImageView.layer.anchorPoint  = CGPointMake(0.5, 0.);
-////        faceImageView.layer.transform    = [self transform3d];
-//        faceImageView.layer.mask         = [self maskWithRect:rect];
-//        faceImageView.layer.position     = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
-        faceImageView.contentMode        = UIViewContentModeScaleAspectFill;
+        faceImageView.contentMode    = UIViewContentModeScaleToFill;
         
-        [self addBackViewWithImage:image];
         [self.backView addSubview:faceImageView];
-        
-        [faceImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.left.mas_equalTo(0);
-            make.top.bottom.mas_equalTo(0);
-        }];
     }
     return self;
 }
 
-
-- (void)addBackViewWithImage:(UIImage*)image {
-    UIImageView *view        = [[UIImageView alloc]init];
-    view.image               = [image blurImage];
-//    view.layer.anchorPoint   = CGPointMake(0.5, 1.);
-//    view.layer.transform     = [self transform3d];
-    self.backView            = view;
-    view.translatesAutoresizingMaskIntoConstraints  = NO;
-    [self addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.left.mas_equalTo(0);
-        make.top.bottom.mas_equalTo(0);
-    }];
-}
 
 
 
