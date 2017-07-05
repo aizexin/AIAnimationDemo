@@ -14,7 +14,7 @@
 /** 容器*/
 @property(nonatomic,weak)UIView *contentView;
 /**
- 开启折叠
+ 配置折叠元素
  */
-- (void)showFold;
+- (void)configurationFoldItem ;
 @end

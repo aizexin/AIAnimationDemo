@@ -35,9 +35,9 @@
 }
 
 /**
- 开启折叠
+ 配置折叠元素
  */
-- (void)showFold {
+- (void)configurationFoldItem {
     CGFloat itemHeight          = 100;
     for (int  i = 0; i < self.itemCount; i ++ ) {
         CGRect rect             = CGRectMake(0 , i * itemHeight, KWidth, itemHeight);

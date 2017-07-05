@@ -72,7 +72,7 @@
     }];
     
     //开始折叠
-    [foldContainerView showFold];
+    [foldContainerView configurationFoldItem];
 }
 
 
