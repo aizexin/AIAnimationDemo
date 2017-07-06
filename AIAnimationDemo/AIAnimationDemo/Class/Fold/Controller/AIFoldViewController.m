@@ -66,9 +66,23 @@
     
     [foldContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
-        make.centerY.mas_equalTo(0);
-//        make.height.mas_equalTo(300);
+//        make.centerY.mas_equalTo(0);
+        make.top.mas_equalTo(AINavgationBarH);
         make.bottom.mas_equalTo(label3.mas_bottom);
+    }];
+    
+    //测试底部view 测试折叠容器高度变化
+    UILabel *testLabel                        = [[UILabel alloc]init];
+    testLabel.font                            = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
+    testLabel.text                            = @"↑";
+    testLabel.textAlignment                   = NSTextAlignmentCenter;
+    testLabel.textColor                       = [UIColor flatWhiteColor];
+    testLabel.backgroundColor                 = [UIColor colorWithRandomFlatColorOfShadeStyle:(UIShadeStyleDark)];
+    [self.view addSubview:testLabel];
+    [testLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(foldContainerView.mas_bottom);
+        make.size.mas_equalTo(CGSizeMake(100, 100));
+        make.centerX.mas_equalTo(0);
     }];
     
     //配置折叠元素

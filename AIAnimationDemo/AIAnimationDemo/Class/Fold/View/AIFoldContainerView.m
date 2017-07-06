@@ -14,6 +14,8 @@
 
 @property(nonatomic,assign)CGFloat itemHeight;
 @property(nonatomic,assign)CGFloat itemWidth;
+/** 是否折叠*/
+@property(nonatomic,assign,getter=isFold)BOOL fold;
 
 /** 折叠到的目的view*/
 @property(nonatomic,weak)UIView *descView;
@@ -57,24 +59,42 @@
     self.itemHeight = self.ai_height / self.itemCount;
 }
 
-- (CATransform3D)transform3d {
-    CATransform3D transform     = CATransform3DIdentity;
-    transform.m34               = 2.5 / -2000;
-    CATransform3D transform3d   = CATransform3DRotate(transform, M_PI_4, 1., 0., 0.);
-    return transform3d;
-}
+
 #pragma mark -AIFoldRotatedViewDelegate
+
+/**
+ 一个折叠模块完成后回调
+
+ @param roatatedView 折叠视图
+ @param anim anim description
+ @param flag flag description
+ */
 -(void)foldRotatedView:(AIFoldRotatedView *)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
 
+    [roatatedView.layer removeAllAnimations];
     NSInteger index    = [self.itemArrayM indexOfObject:roatatedView];
-    if (index > 1) {
-        self.descView      = self.itemArrayM[index-1];
-        roatatedView.frame = self.descView.frame;
-        [self.descView addSubview:roatatedView];
+    self.descView      = self.itemArrayM[index-1];
+    roatatedView.frame = self.descView.bounds;
+    [self.descView addSubview:roatatedView];
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(roatatedView.mas_bottom);
+    }];
+    if (index == 1) {
+        self.fold          = YES;
     }
     AILog(@"----%ld",index);
 }
 
+/**
+ 一个模块展开后回调
+
+ @param roatatedView 折叠模块
+ @param anim anim description
+ @param flag flag description
+ */
+-(void)unfoldRotatedView:(AIFoldRotatedView *)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    
+}
 
 #pragma mark public
 /**
