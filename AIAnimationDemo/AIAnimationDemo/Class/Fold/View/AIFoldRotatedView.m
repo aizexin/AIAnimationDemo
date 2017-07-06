@@ -22,7 +22,6 @@
         //背景
         UIImageView *backView        = [[UIImageView alloc]initWithFrame:self.bounds];
         backView.image               = [image blurImage];
-        backView.hidden              = YES;
         self.backView                = backView;
         //前景
         UIImageView *faceImageView   = [[UIImageView alloc]initWithFrame:self.bounds];
@@ -30,7 +29,7 @@
         faceImageView.image          = image;
         faceImageView.contentMode    = UIViewContentModeScaleToFill;
         
-        [faceImageView addSubview:backView];
+        [self addSubview:backView];
         [self addSubview:faceImageView];
         
         
@@ -89,10 +88,17 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSString *name = [anim valueForKey:@"name"];
     if ([name isEqualToString:@"animation1Layer"]) {
-        self.backView.hidden                  = NO;
+      //todo 让faceview到最前面来
+        [self bringSubviewToFront:self.backView];
         CABasicAnimation *animation2          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_2 to:M_PI duration:1. delay:0 hiden:NO];
         [self.layer addAnimation:animation2 forKey:nil];
         
+    }else {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(foldRotatedView:animationDidStop:finished:)]) {
+            [self.delegate foldRotatedView:self animationDidStop:anim finished:flag];
+        }else {
+            AILog(@"未设置代理");
+        }
     }
 }
 

@@ -74,7 +74,14 @@
 }
 #pragma mark -AIFoldRotatedViewDelegate
 -(void)foldRotatedView:(AIFoldRotatedView *)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    [self.descView addSubview:roatatedView];
+
+    NSInteger index    = [self.itemArrayM indexOfObject:roatatedView];
+    if (index > 1) {
+        self.descView      = self.itemArrayM[index-1];
+        roatatedView.frame = self.descView.frame;
+        [self.descView addSubview:roatatedView];
+    }
+    AILog(@"----%ld",index);
 }
 
 
@@ -87,9 +94,10 @@
     for (int  i = 0; i < self.itemCount; i ++ ) {
         CGRect rect             = CGRectMake(0 , i * itemHeight, KWidth, itemHeight);
         UIImage *image          = [self ai_takeSnapshotWithFrame:rect];
-        AIFoldRotatedView *rotatedView = [[AIFoldRotatedView alloc]initWithFrame:rect Image:image];
+        AIFoldRotatedView *rotatedView      = [[AIFoldRotatedView alloc]initWithFrame:rect Image:image];
+        rotatedView.delegate    = self;
         [self addSubview:rotatedView];
-        //添加到数组中
+        //添加到可折叠数组中
         [self.itemArrayM addObject:rotatedView];
     }
     self.contentView.alpha                  = 0.;
@@ -110,6 +118,7 @@
     
     for (NSInteger i = self.itemArrayM.count - 1; i > 0; i--) {
         AIFoldRotatedView *lastView   = self.itemArrayM[i];
+        
         lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame), lastView.layer.position.y - self.itemHeight *.5);
         lastView.layer.anchorPoint    = CGPointMake(.5, 0);
         [lastView foldingAnimationMI_PWithDuration:2. delay:2. * (_itemCount -i)];

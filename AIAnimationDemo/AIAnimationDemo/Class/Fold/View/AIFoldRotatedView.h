@@ -22,6 +22,8 @@
 @end
 @interface AIFoldRotatedView : UIView
 
+/** 代理*/
+@property(nonatomic,weak)id<AIFoldRotatedViewDelegate> delegate;
 /**
  初始化
 
