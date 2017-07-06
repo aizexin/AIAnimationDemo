@@ -12,8 +12,6 @@
 
 @interface AIFoldContainerView ()<AIFoldRotatedViewDelegate>
 
-@property(nonatomic,assign)CGFloat itemHeight;
-@property(nonatomic,assign)CGFloat itemWidth;
 /** 是否折叠*/
 @property(nonatomic,assign,getter=isFold)BOOL fold;
 
@@ -25,6 +23,8 @@
 @property(nonatomic,strong)NSMutableArray *itemArrayM;
 
 @end
+//折叠一个所需时间
+const NSTimeInterval foldDuration = 1.0;
 
 @implementation AIFoldContainerView
 
@@ -44,6 +44,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _itemCount = 1;
+        _itemWidth = KWidth;
         UIView *contentView  = [[UIView alloc]init];
         self.contentView     = contentView;
         [self addSubview:contentView];
@@ -53,12 +54,6 @@
     }
     return self;
 }
-
--(void)layoutSubviews {
-    [super layoutSubviews];
-    self.itemHeight = self.ai_height / self.itemCount;
-}
-
 
 #pragma mark -AIFoldRotatedViewDelegate
 
@@ -81,8 +76,12 @@
     }];
     if (index == 1) {
         self.fold          = YES;
+        AILog(@"全部折叠完成");
     }
     AILog(@"----%ld",index);
+    if (self.itemfinshBlock) {
+        self.itemfinshBlock();
+    }
 }
 
 /**
@@ -97,13 +96,13 @@
 }
 
 #pragma mark public
+
 /**
  配置折叠元素
  */
 - (void)configurationFoldItem {
-    CGFloat itemHeight          = 100;
     for (int  i = 0; i < self.itemCount; i ++ ) {
-        CGRect rect             = CGRectMake(0 , i * itemHeight, KWidth, itemHeight);
+        CGRect rect             = CGRectMake(0 , i * self.itemHeight, KWidth, self.itemHeight);
         UIImage *image          = [self ai_takeSnapshotWithFrame:rect];
         AIFoldRotatedView *rotatedView      = [[AIFoldRotatedView alloc]initWithFrame:rect Image:image];
         rotatedView.delegate    = self;
@@ -128,7 +127,7 @@
         
         lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame), lastView.layer.position.y - self.itemHeight *.5);
         lastView.layer.anchorPoint    = CGPointMake(.5, 0);
-        [lastView foldingAnimationMI_PWithDuration:2. delay:2. * (_itemCount -i)];
+        [lastView foldingAnimationMI_PWithDuration:foldDuration delay:foldDuration * (_itemCount -i)];
     }
 }
 

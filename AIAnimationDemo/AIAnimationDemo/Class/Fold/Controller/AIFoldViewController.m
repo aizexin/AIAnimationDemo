@@ -19,7 +19,15 @@
     
     //容器
     AIFoldContainerView *foldContainerView  = [[AIFoldContainerView alloc]init];
+    AIWeakSelf;
+    [foldContainerView setItemfinshBlock:^ {
+        [UIView animateWithDuration:0.3 animations:^{
+            [weakSelf.view layoutIfNeeded];
+        }];
+    }];
     foldContainerView.itemCount             = 3;
+    foldContainerView.itemWidth             = KWidth;
+    foldContainerView.itemHeight            = 100;
     [self.view addSubview:foldContainerView];
     //1
     UILabel *label                          = [[UILabel alloc]init];

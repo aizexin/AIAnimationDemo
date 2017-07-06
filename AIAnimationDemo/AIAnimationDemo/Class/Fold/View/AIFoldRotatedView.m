@@ -91,7 +91,7 @@
     if ([name isEqualToString:@"foldstarAnimation"]) {
         // 让faceview到最前面来
         [self bringSubviewToFront:self.backView];
-        CABasicAnimation *foldendAnimation          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_2 to:M_PI duration:1. delay:0 ];
+        CABasicAnimation *foldendAnimation          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_2 to:M_PI duration:anim.duration delay:0 ];
         [foldendAnimation setValue:@"foldendAnimation" forKey:@"name"];
         [self.layer addAnimation:foldendAnimation forKey:nil];
         
