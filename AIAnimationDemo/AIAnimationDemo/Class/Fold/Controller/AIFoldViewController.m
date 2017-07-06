@@ -26,7 +26,7 @@
         }];
     }];
     foldContainerView.itemCount             = 3;
-    foldContainerView.itemWidth             = KWidth;
+    foldContainerView.itemWidth             = KWidth ;
     foldContainerView.itemHeight            = 100;
     [self.view addSubview:foldContainerView];
     //1

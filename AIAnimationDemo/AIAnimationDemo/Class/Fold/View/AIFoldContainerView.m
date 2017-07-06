@@ -102,7 +102,7 @@ const NSTimeInterval foldDuration = 1.0;
  */
 - (void)configurationFoldItem {
     for (int  i = 0; i < self.itemCount; i ++ ) {
-        CGRect rect             = CGRectMake(0 , i * self.itemHeight, KWidth, self.itemHeight);
+        CGRect rect             = CGRectMake(0 , i * self.itemHeight, self.itemWidth, self.itemHeight);
         UIImage *image          = [self ai_takeSnapshotWithFrame:rect];
         AIFoldRotatedView *rotatedView      = [[AIFoldRotatedView alloc]initWithFrame:rect Image:image];
         rotatedView.delegate    = self;
