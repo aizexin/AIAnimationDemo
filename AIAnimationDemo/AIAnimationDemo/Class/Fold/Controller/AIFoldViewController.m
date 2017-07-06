@@ -10,6 +10,7 @@
 #import "AIFoldContainerView.h"
 @interface AIFoldViewController ()
 
+@property(nonatomic,weak)AIFoldContainerView *foldContainerView;
 @end
 
 @implementation AIFoldViewController
@@ -17,86 +18,82 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //测试底部view 测试折叠容器高度变化
+    UIButton *testButton                       = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    testButton.titleLabel.font                 = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
+    testButton.titleLabel.textAlignment        = NSTextAlignmentCenter;
+    testButton.backgroundColor                 = [UIColor colorWithRandomFlatColorOfShadeStyle:(UIShadeStyleDark)];
+    [testButton addTarget:self action:@selector(onClickBtn:) forControlEvents:(UIControlEventTouchUpInside)];
+    [testButton setTitle:@"↑" forState:(UIControlStateNormal)];
+    [testButton setTitle:@"↓" forState:(UIControlStateSelected)];
+    [testButton setTitleColor:[UIColor flatWhiteColor] forState:(UIControlStateNormal)];
+    [self.view addSubview:testButton];
+
+    
     //容器
     AIFoldContainerView *foldContainerView  = [[AIFoldContainerView alloc]init];
+    self.foldContainerView                  = foldContainerView;
+    foldContainerView.itemCount             = 5;
+    foldContainerView.itemWidth             = 100;
+    foldContainerView.itemHeight            = 100;
     AIWeakSelf;
-    [foldContainerView setItemfinshBlock:^ {
-        [UIView animateWithDuration:0.3 animations:^{
+    [foldContainerView setItemfinshBlock:^ (NSInteger index){
+        [UIView animateWithDuration:0.2 animations:^{
             [weakSelf.view layoutIfNeeded];
         }];
-    }];
-    foldContainerView.itemCount             = 3;
-    foldContainerView.itemWidth             = KWidth ;
-    foldContainerView.itemHeight            = 100;
-    [self.view addSubview:foldContainerView];
-    //1
-    UILabel *label                          = [[UILabel alloc]init];
-    label.textAlignment                     = NSTextAlignmentCenter;
-    label.text                              = @"1";
-    label.font                              = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
-    label.textColor                         = [UIColor flatWhiteColor];
-    label.backgroundColor                   = [UIColor colorWithRandomFlatColorOfShadeStyle:(UIShadeStyleDark)];
-    [foldContainerView.contentView addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.left.mas_equalTo(0);
-        make.top.mas_equalTo(0);
-        make.height.mas_equalTo(100);
+        if (index == 1) {//代表折叠完成了
+            testButton.selected = YES;
+        }
     }];
     [self.view addSubview:foldContainerView];
-    //2
-    UILabel *label2                          = [[UILabel alloc]init];
-    label2.textAlignment                     = NSTextAlignmentCenter;
-    label2.text                              = @"2";
-    label2.font                              = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
-    label2.textColor                         = [UIColor flatWhiteColor];
-    label2.backgroundColor                   = [UIColor colorWithRandomFlatColorOfShadeStyle:(UIShadeStyleDark)];
-    [foldContainerView.contentView addSubview:label2];
-    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.left.mas_equalTo(0);
-        make.top.mas_equalTo(label.mas_bottom);
-        make.height.mas_equalTo(100);
-    }];
-    [self.view addSubview:foldContainerView];
-    //3
-    UILabel *label3                          = [[UILabel alloc]init];
-    label3.textAlignment                     = NSTextAlignmentCenter;
-    label3.text                              = @"3";
-    label3.font                              = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
-    label3.textColor                         = [UIColor flatWhiteColor];
-    label3.backgroundColor                   = [UIColor colorWithRandomFlatColorOfShadeStyle:(UIShadeStyleDark)];
-    [foldContainerView.contentView addSubview:label3];
-    [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.left.mas_equalTo(0);
-        make.top.mas_equalTo(label2.mas_bottom);
-        make.height.mas_equalTo(100);
-    }];
-    [self.view addSubview:foldContainerView];
+    
+    UILabel *lastLabel                      = nil;
+    
+    for (int i = 0 ; i < 5; i++) {
+        
+        UILabel *label                          = [[UILabel alloc]init];
+        label.textAlignment                     = NSTextAlignmentCenter;
+        label.text                              = [NSString stringWithFormat:@"%d",i];
+        label.font                              = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
+        label.textColor                         = [UIColor flatWhiteColor];
+        label.backgroundColor                   = [UIColor colorWithRandomFlatColorOfShadeStyle:(UIShadeStyleDark)];
+        [foldContainerView.contentView addSubview:label];
+        
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(0);
+            make.width.mas_equalTo(100);
+            if (lastLabel) {
+                make.top.mas_equalTo(lastLabel.mas_bottom);
+            }else {
+                make.top.mas_equalTo(0);
+            }
+            make.height.mas_equalTo(100);
+        }];
+        lastLabel                               = label;
+    }
     
     [foldContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.left.mas_equalTo(0);
-//        make.centerY.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.width.mas_equalTo(lastLabel.mas_width);
         make.top.mas_equalTo(AINavgationBarH);
-        make.bottom.mas_equalTo(label3.mas_bottom);
+        make.bottom.mas_equalTo(lastLabel.mas_bottom);
     }];
-    
-    //测试底部view 测试折叠容器高度变化
-    UILabel *testLabel                        = [[UILabel alloc]init];
-    testLabel.font                            = [UIFont fontWithName:@"ArialRoundedMTBold" size:100];
-    testLabel.text                            = @"↑";
-    testLabel.textAlignment                   = NSTextAlignmentCenter;
-    testLabel.textColor                       = [UIColor flatWhiteColor];
-    testLabel.backgroundColor                 = [UIColor colorWithRandomFlatColorOfShadeStyle:(UIShadeStyleDark)];
-    [self.view addSubview:testLabel];
-    [testLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(foldContainerView.mas_bottom);
-        make.size.mas_equalTo(CGSizeMake(100, 100));
-        make.centerX.mas_equalTo(0);
-    }];
-    
     //配置折叠元素
     [foldContainerView configurationFoldItem];
-    //开始折叠
-    [foldContainerView showFold];
+    
+    [testButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(foldContainerView.mas_bottom);
+        make.size.mas_equalTo(CGSizeMake(100, 100));
+        make.centerX.mas_equalTo(foldContainerView.mas_centerX);
+    }];
+}
+
+#pragma mark -Action
+- (void)onClickBtn:(UIButton*)button {
+    if (!button.isSelected) {
+        //开始折叠
+        [self.foldContainerView showFold];
+    }
 }
 
 

@@ -24,7 +24,7 @@
 
 @end
 //折叠一个所需时间
-const NSTimeInterval foldDuration = 1.0;
+const NSTimeInterval foldDuration = 0.5;
 
 @implementation AIFoldContainerView
 
@@ -77,11 +77,12 @@ const NSTimeInterval foldDuration = 1.0;
     if (index == 1) {
         self.fold          = YES;
         AILog(@"全部折叠完成");
+    }else {
+    }
+    if (self.itemfinshBlock) {
+        self.itemfinshBlock(index);
     }
     AILog(@"----%ld",index);
-    if (self.itemfinshBlock) {
-        self.itemfinshBlock();
-    }
 }
 
 /**

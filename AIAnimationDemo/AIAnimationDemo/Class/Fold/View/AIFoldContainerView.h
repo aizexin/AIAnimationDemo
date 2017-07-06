@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^ItemFinshBlock)(void);
+typedef void(^ItemFinshBlock)(NSInteger index);
 
 @interface AIFoldContainerView : UIView
 /** 折叠个数*/
