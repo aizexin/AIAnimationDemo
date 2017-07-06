@@ -71,8 +71,10 @@
         make.bottom.mas_equalTo(label3.mas_bottom);
     }];
     
-    //开始折叠
+    //配置折叠元素
     [foldContainerView configurationFoldItem];
+    //开始折叠
+    [foldContainerView showFold];
 }
 
 

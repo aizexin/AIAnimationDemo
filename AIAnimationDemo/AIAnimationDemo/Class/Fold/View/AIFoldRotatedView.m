@@ -8,7 +8,7 @@
 
 #import "AIFoldRotatedView.h"
 #import "UIImage+ImageEffects.h"
-@interface AIFoldRotatedView ()
+@interface AIFoldRotatedView ()<CAAnimationDelegate>
 
 @property(nonatomic,weak)UIImageView *backView;
 @property(nonatomic,weak)UIImageView *faceView;
@@ -24,7 +24,7 @@
         view.image               = [image blurImage];
         self.backView            = view;
         [self addSubview:view];
-        
+        //前景
         UIImageView *faceImageView   = [[UIImageView alloc]initWithFrame:self.bounds];
         self.faceView                = faceImageView;
         faceImageView.image          = image;
@@ -35,7 +35,30 @@
     return self;
 }
 
-
+/**
+ 折叠动画
+ 
+ @param timing 节奏
+ @param from 开始
+ @param to 结束
+ @param duration 持续时长
+ @param delay 延时
+ @param hiden 是否隐藏contentView
+ */
+- (void)foldingAnimationTiming:(NSString *)timing from:(CGFloat)from to:(CGFloat)to duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay hiden:(BOOL)hiden {
+    CABasicAnimation *rotateAnimation     = [CABasicAnimation animationWithKeyPath:@"transform.rotation.x"];
+    rotateAnimation.timingFunction        = [CAMediaTimingFunction functionWithName:timing];
+    rotateAnimation.fromValue             = @(from);
+    rotateAnimation.toValue               = @(to);
+    rotateAnimation.duration              = duration;
+    rotateAnimation.delegate              = self;
+    rotateAnimation.fillMode              = kCAFillModeForwards;
+    rotateAnimation.removedOnCompletion   = NO;
+    rotateAnimation.beginTime             = CACurrentMediaTime() + delay;
+    
+    [self.layer addAnimation:rotateAnimation forKey:@"rotation.x"];
+//    [self.backView.layer addAnimation:rotateAnimation forKey:@"rotation.x"];
+}
 
 
 @end

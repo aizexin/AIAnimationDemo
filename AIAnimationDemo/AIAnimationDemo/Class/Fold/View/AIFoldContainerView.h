@@ -17,4 +17,8 @@
  配置折叠元素
  */
 - (void)configurationFoldItem ;
+/**
+ 开始折叠
+ */
+- (void)showFold;
 @end

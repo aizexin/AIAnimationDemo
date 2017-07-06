@@ -15,10 +15,26 @@
 @property(nonatomic,assign)CGFloat itemHeight;
 @property(nonatomic,assign)CGFloat itemWidth;
 
+/**
+ 折叠元素数组
+ */
+@property(nonatomic,strong)NSMutableArray *itemArrayM;
+
 @end
 
 @implementation AIFoldContainerView
 
+#pragma mark private
+
+#pragma mark -lazy
+-(NSMutableArray *)itemArrayM {
+    if (!_itemArrayM) {
+        _itemArrayM  = [NSMutableArray array];
+    }
+    return _itemArrayM;
+}
+
+#pragma mark -lifecycle
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -34,27 +50,11 @@
     return self;
 }
 
-/**
- 配置折叠元素
- */
-- (void)configurationFoldItem {
-    CGFloat itemHeight          = 100;
-    for (int  i = 0; i < self.itemCount; i ++ ) {
-        CGRect rect             = CGRectMake(0 , i * itemHeight, KWidth, itemHeight);
-        UIImage *image          = [self ai_takeSnapshotWithFrame:rect];
-        AIFoldRotatedView *rotatedView = [[AIFoldRotatedView alloc]initWithFrame:rect Image:image];
-        [self addSubview:rotatedView];
-    }
-    for (UIView *itemView in self.subviews) {
-        if ([itemView isKindOfClass:[AIFoldRotatedView class]]) {
-            itemView.layer.anchorPoint  = CGPointMake(0.5, 0.);
-            itemView.layer.transform    = CATransform3DIdentity;
-            itemView.layer.transform    = [self transform3d];
-            itemView.layer.position     = CGPointMake(CGRectGetMidX(itemView.frame), itemView.layer.position.y - itemHeight *.5);
-        }
-    }
-    self.contentView.alpha                  = 0.;
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    self.itemHeight = self.ai_height / self.itemCount;
 }
+
 //- (CAShapeLayer *)maskWithRect:(CGRect)rect {
 //    CAShapeLayer *layerMask = [CAShapeLayer layer];
 //    UIRectCorner corners    =  12;
@@ -70,7 +70,39 @@
     CATransform3D transform3d   = CATransform3DRotate(transform, M_PI_4, 1., 0., 0.);
     return transform3d;
 }
-#pragma mark public
 
+
+
+#pragma mark public
+/**
+ 配置折叠元素
+ */
+- (void)configurationFoldItem {
+    CGFloat itemHeight          = 100;
+    for (int  i = 0; i < self.itemCount; i ++ ) {
+        CGRect rect             = CGRectMake(0 , i * itemHeight, KWidth, itemHeight);
+        UIImage *image          = [self ai_takeSnapshotWithFrame:rect];
+        AIFoldRotatedView *rotatedView = [[AIFoldRotatedView alloc]initWithFrame:rect Image:image];
+        [self addSubview:rotatedView];
+        //添加到数组中
+        [self.itemArrayM addObject:rotatedView];
+    }
+    self.contentView.alpha                  = 0.;
+}
+
+/**
+ 开始折叠
+ */
+- (void)showFold {
+    //背景问题
+    //翻转完成后要加到上一个view的上面
+    //最后一个不翻转
+    for (NSInteger i = self.itemArrayM.count - 1; i >= 0; i--) {
+        AIFoldRotatedView *lastView   = self.itemArrayM[i];
+        lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame), lastView.layer.position.y - self.itemHeight *.5);
+        lastView.layer.anchorPoint    = CGPointMake(.5, 0);
+        [lastView foldingAnimationTiming:kCAMediaTimingFunctionEaseIn from:0 to:M_PI duration:2. delay:2. * (_itemCount - i) hiden:NO];
+    }
+}
 
 @end
