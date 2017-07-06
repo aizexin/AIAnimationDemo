@@ -33,17 +33,6 @@
  */
 - (instancetype)initWithFrame:(CGRect)frame Image:(UIImage *)image;
 /**
- 折叠动画
- 
- @param timing 节奏
- @param from 开始
- @param to 结束
- @param duration 持续时长
- @param delay 延时
- @param hiden 是否隐藏contentView
- */
-//- (void)foldingAnimationTiming:(NSString *)timing from:(CGFloat)from to:(CGFloat)to duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay hiden:(BOOL)hiden;
-/**
  旋转180度
  
  @param duration 持续时长

@@ -57,15 +57,6 @@
     self.itemHeight = self.ai_height / self.itemCount;
 }
 
-//- (CAShapeLayer *)maskWithRect:(CGRect)rect {
-//    CAShapeLayer *layerMask = [CAShapeLayer layer];
-//    UIRectCorner corners    =  12;
-//    
-//    layerMask.path = [UIBezierPath bezierPathWithRoundedRect:rect
-//                                           byRoundingCorners:corners
-//                                                 cornerRadii:CGSizeMake(5, 5)].CGPath;
-//    return layerMask;
-//}
 - (CATransform3D)transform3d {
     CATransform3D transform     = CATransform3DIdentity;
     transform.m34               = 2.5 / -2000;
@@ -107,14 +98,10 @@
  开始折叠
  */
 - (void)showFold {
-    //背景问题
-    //翻转完成后要加到上一个view的上面
-    //最后一个不翻转
     
     if (self.itemArrayM.count < 2) {//至少两个可折叠视图
         return;
     }
-    
     
     for (NSInteger i = self.itemArrayM.count - 1; i > 0; i--) {
         AIFoldRotatedView *lastView   = self.itemArrayM[i];

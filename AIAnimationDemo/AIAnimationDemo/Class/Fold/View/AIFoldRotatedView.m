@@ -32,7 +32,6 @@
         [self addSubview:backView];
         [self addSubview:faceImageView];
         
-        
     }
     return self;
 }
@@ -45,9 +44,8 @@
  @param to 结束
  @param duration 持续时长
  @param delay 延时
- @param hiden 是否隐藏contentView
  */
-- (CABasicAnimation*)foldingAnimationTiming:(NSString *)timing from:(CGFloat)from to:(CGFloat)to duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay hiden:(BOOL)hiden {
+- (CABasicAnimation*)foldingAnimationTiming:(NSString *)timing from:(CGFloat)from to:(CGFloat)to duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay  {
     CABasicAnimation *rotateAnimation     = [CABasicAnimation animationWithKeyPath:@"transform.rotation.x"];
     rotateAnimation.timingFunction        = [CAMediaTimingFunction functionWithName:timing];
     rotateAnimation.fromValue             = @(from);
@@ -57,7 +55,6 @@
     rotateAnimation.fillMode              = kCAFillModeForwards;
     rotateAnimation.removedOnCompletion   = NO;
     rotateAnimation.beginTime             = CACurrentMediaTime() + delay;
-//    self.backView.hidden                  = hiden ;
     return rotateAnimation;
 }
 
@@ -68,29 +65,19 @@
  @param delay 延时
  */
 - (void)foldingAnimationMI_PWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay {
-//    CAAnimationGroup *group               = [CAAnimationGroup animation];
-//    group.duration                        = duration;
-//    group.beginTime                       = CACurrentMediaTime() + delay;
-//    group.removedOnCompletion             = NO;
-//    group.fillMode                        = kCAFillModeForwards;
-//    group.delegate                        = self;
-    CABasicAnimation *animation1          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseIn from:0 to:M_PI_2 duration:duration * .5 delay:delay hiden:YES];
+
+    CABasicAnimation *animation1          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseIn from:0 to:M_PI_2 duration:duration * .5 delay:delay ];
     [animation1 setValue:@"animation1Layer" forKey:@"name"];
     [self.layer addAnimation:animation1 forKey:@"animation1"];
-    
-  
-   
-//    group.animations                      = @[animation1,animation2];
-//    [self.layer addAnimation:group forKey:@"group"];
 }
 
 #pragma mark -CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSString *name = [anim valueForKey:@"name"];
     if ([name isEqualToString:@"animation1Layer"]) {
-      //todo 让faceview到最前面来
+        // 让faceview到最前面来
         [self bringSubviewToFront:self.backView];
-        CABasicAnimation *animation2          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_2 to:M_PI duration:1. delay:0 hiden:NO];
+        CABasicAnimation *animation2          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_2 to:M_PI duration:1. delay:0 ];
         [self.layer addAnimation:animation2 forKey:nil];
         
     }else {
