@@ -81,6 +81,7 @@
     //配置折叠元素
     [foldContainerView configurationFoldItem];
     
+    //测试按钮的适配
     [testButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(foldContainerView.mas_bottom);
         make.size.mas_equalTo(CGSizeMake(100, 100));
