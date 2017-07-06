@@ -20,17 +20,20 @@
     self = [super initWithFrame:frame];
     if (self) {
         //背景
-        UIImageView *view        = [[UIImageView alloc]initWithFrame:self.bounds];
-        view.image               = [image blurImage];
-        self.backView            = view;
-        [self addSubview:view];
+        UIImageView *backView        = [[UIImageView alloc]initWithFrame:self.bounds];
+        backView.image               = [image blurImage];
+        backView.hidden              = YES;
+        self.backView                = backView;
         //前景
         UIImageView *faceImageView   = [[UIImageView alloc]initWithFrame:self.bounds];
         self.faceView                = faceImageView;
         faceImageView.image          = image;
         faceImageView.contentMode    = UIViewContentModeScaleToFill;
         
-        [self.backView addSubview:faceImageView];
+        [faceImageView addSubview:backView];
+        [self addSubview:faceImageView];
+        
+        
     }
     return self;
 }
@@ -45,7 +48,7 @@
  @param delay 延时
  @param hiden 是否隐藏contentView
  */
-- (void)foldingAnimationTiming:(NSString *)timing from:(CGFloat)from to:(CGFloat)to duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay hiden:(BOOL)hiden {
+- (CABasicAnimation*)foldingAnimationTiming:(NSString *)timing from:(CGFloat)from to:(CGFloat)to duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay hiden:(BOOL)hiden {
     CABasicAnimation *rotateAnimation     = [CABasicAnimation animationWithKeyPath:@"transform.rotation.x"];
     rotateAnimation.timingFunction        = [CAMediaTimingFunction functionWithName:timing];
     rotateAnimation.fromValue             = @(from);
@@ -55,9 +58,42 @@
     rotateAnimation.fillMode              = kCAFillModeForwards;
     rotateAnimation.removedOnCompletion   = NO;
     rotateAnimation.beginTime             = CACurrentMediaTime() + delay;
+//    self.backView.hidden                  = hiden ;
+    return rotateAnimation;
+}
+
+/**
+ 旋转180度
+
+ @param duration 持续时长
+ @param delay 延时
+ */
+- (void)foldingAnimationMI_PWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay {
+//    CAAnimationGroup *group               = [CAAnimationGroup animation];
+//    group.duration                        = duration;
+//    group.beginTime                       = CACurrentMediaTime() + delay;
+//    group.removedOnCompletion             = NO;
+//    group.fillMode                        = kCAFillModeForwards;
+//    group.delegate                        = self;
+    CABasicAnimation *animation1          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseIn from:0 to:M_PI_2 duration:duration * .5 delay:delay hiden:YES];
+    [animation1 setValue:@"animation1Layer" forKey:@"name"];
+    [self.layer addAnimation:animation1 forKey:@"animation1"];
     
-    [self.layer addAnimation:rotateAnimation forKey:@"rotation.x"];
-//    [self.backView.layer addAnimation:rotateAnimation forKey:@"rotation.x"];
+  
+   
+//    group.animations                      = @[animation1,animation2];
+//    [self.layer addAnimation:group forKey:@"group"];
+}
+
+#pragma mark -CAAnimationDelegate
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    NSString *name = [anim valueForKey:@"name"];
+    if ([name isEqualToString:@"animation1Layer"]) {
+        self.backView.hidden                  = NO;
+        CABasicAnimation *animation2          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_2 to:M_PI duration:1. delay:0 hiden:NO];
+        [self.layer addAnimation:animation2 forKey:nil];
+        
+    }
 }
 
 

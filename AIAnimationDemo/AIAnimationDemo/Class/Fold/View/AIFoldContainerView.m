@@ -10,11 +10,13 @@
 #import "UIView+AIExtension.h"
 #import "AIFoldRotatedView.h"
 
-@interface AIFoldContainerView ()
+@interface AIFoldContainerView ()<AIFoldRotatedViewDelegate>
 
 @property(nonatomic,assign)CGFloat itemHeight;
 @property(nonatomic,assign)CGFloat itemWidth;
 
+/** 折叠到的目的view*/
+@property(nonatomic,weak)UIView *descView;
 /**
  折叠元素数组
  */
@@ -70,7 +72,10 @@
     CATransform3D transform3d   = CATransform3DRotate(transform, M_PI_4, 1., 0., 0.);
     return transform3d;
 }
-
+#pragma mark -AIFoldRotatedViewDelegate
+-(void)foldRotatedView:(AIFoldRotatedView *)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    [self.descView addSubview:roatatedView];
+}
 
 
 #pragma mark public
@@ -97,11 +102,17 @@
     //背景问题
     //翻转完成后要加到上一个view的上面
     //最后一个不翻转
-    for (NSInteger i = self.itemArrayM.count - 1; i >= 0; i--) {
+    
+    if (self.itemArrayM.count < 2) {//至少两个可折叠视图
+        return;
+    }
+    
+    
+    for (NSInteger i = self.itemArrayM.count - 1; i > 0; i--) {
         AIFoldRotatedView *lastView   = self.itemArrayM[i];
         lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame), lastView.layer.position.y - self.itemHeight *.5);
         lastView.layer.anchorPoint    = CGPointMake(.5, 0);
-        [lastView foldingAnimationTiming:kCAMediaTimingFunctionEaseIn from:0 to:M_PI duration:2. delay:2. * (_itemCount - i) hiden:NO];
+        [lastView foldingAnimationMI_PWithDuration:2. delay:2. * (_itemCount -i)];
     }
 }
 

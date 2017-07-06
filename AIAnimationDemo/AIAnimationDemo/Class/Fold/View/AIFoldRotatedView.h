@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AIFoldRotatedView;
+@protocol AIFoldRotatedViewDelegate<NSObject>
 
+/**
+ 折叠完成后回调
+
+ @param roatatedView 折叠控件
+ @param anim anim description
+ @param flag flag description
+ */
+- (void)foldRotatedView:(AIFoldRotatedView*)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;
+
+@end
 @interface AIFoldRotatedView : UIView
 
 /**
@@ -28,5 +40,12 @@
  @param delay 延时
  @param hiden 是否隐藏contentView
  */
-- (void)foldingAnimationTiming:(NSString *)timing from:(CGFloat)from to:(CGFloat)to duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay hiden:(BOOL)hiden;
+//- (void)foldingAnimationTiming:(NSString *)timing from:(CGFloat)from to:(CGFloat)to duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay hiden:(BOOL)hiden;
+/**
+ 旋转180度
+ 
+ @param duration 持续时长
+ @param delay 延时
+ */
+- (void)foldingAnimationMI_PWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay;
 @end
