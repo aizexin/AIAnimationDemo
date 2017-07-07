@@ -109,7 +109,7 @@
         
     }else if([name isEqualToString:@"foldendAnimation"]){ //折叠完成
 //        [self.layer removeAllAnimations];
-        [self rotatedXWithAngle:0.];
+        [self rotatedXWithAngle:0];
         if (self.delegate && [self.delegate respondsToSelector:@selector(foldRotatedView:animationDidStop:finished:)]) {
             [self.delegate foldRotatedView:self animationDidStop:anim finished:flag];
         }else {
@@ -122,7 +122,12 @@
         [foldendAnimation setValue:@"unfoldendAnimation" forKey:@"name"];
         [self.layer addAnimation:foldendAnimation forKey:nil];
     }else if ([name isEqualToString:@"unfoldendAnimation"]) { //展开完成
-        [self rotatedXWithAngle:0];
+        for (UIView *view in self.subviews) {
+            if ([view isKindOfClass:[AIFoldRotatedView class]]) {
+               AIFoldRotatedView *rotatedView = (AIFoldRotatedView*)view;
+              rotatedView.layer.transform        = CATransform3DIdentity;
+            }
+        }
         if (self.delegate && [self.delegate respondsToSelector:@selector(unfoldRotatedView:animationDidStop:finished:)]) {
             [self.delegate unfoldRotatedView:self animationDidStop:anim finished:flag];
         }else {

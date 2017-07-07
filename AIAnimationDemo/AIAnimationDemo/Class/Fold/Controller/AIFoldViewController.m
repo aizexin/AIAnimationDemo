@@ -33,7 +33,7 @@
     //容器
     AIFoldContainerView *foldContainerView  = [[AIFoldContainerView alloc]init];
     self.foldContainerView                  = foldContainerView;
-    foldContainerView.itemCount             = 2;
+    foldContainerView.itemCount             = 3;
     foldContainerView.itemWidth             = 100;
     foldContainerView.itemHeight            = 100;
     AIWeakSelf;
@@ -52,7 +52,7 @@
     
     UILabel *lastLabel                      = nil;
     
-    for (int i = 0 ; i < 2; i++) {
+    for (int i = 0 ; i < 3; i++) {
         
         UILabel *label                          = [[UILabel alloc]init];
         label.textAlignment                     = NSTextAlignmentCenter;
