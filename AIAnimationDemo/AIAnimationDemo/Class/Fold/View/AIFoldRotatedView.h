@@ -48,4 +48,11 @@
  @param delay 延时
  */
 - (void)foldingAnimationMI_PWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay;
+/**
+ 展开旋转180度
+ 
+ @param duration 持续时长
+ @param delay 延时
+ */
+- (void)unfoldingAnimationMI_PWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay;
 @end

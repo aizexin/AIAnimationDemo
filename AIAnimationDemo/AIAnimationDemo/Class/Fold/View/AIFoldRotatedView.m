@@ -70,6 +70,18 @@
     [animation1Layer setValue:@"foldstarAnimation" forKey:@"name"];
     [self.layer addAnimation:animation1Layer forKey:@"animation1"];
 }
+/**
+ 展开旋转180度
+ 
+ @param duration 持续时长
+ @param delay 延时
+ */
+- (void)unfoldingAnimationMI_PWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay {
+    
+    CABasicAnimation *animation1Layer          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseIn from:M_PI to:M_PI_2 duration:duration * .5 delay:delay ];
+    [animation1Layer setValue:@"unfoldstarAnimation" forKey:@"name"];
+    [self.layer addAnimation:animation1Layer forKey:@"animation1"];
+}
 
 - (void)rotatedXWithAngle:(CGFloat)angle {
     CATransform3D allTransoform   = CATransform3DIdentity;
@@ -89,7 +101,7 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSString *name = [anim valueForKey:@"name"];
     if ([name isEqualToString:@"foldstarAnimation"]) {
-        // 让faceview到最前面来
+        // 让backView到最前面来
         [self bringSubviewToFront:self.backView];
         CABasicAnimation *foldendAnimation          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_2 to:M_PI duration:anim.duration delay:0 ];
         [foldendAnimation setValue:@"foldendAnimation" forKey:@"name"];
@@ -100,6 +112,19 @@
         [self rotatedXWithAngle:0.];
         if (self.delegate && [self.delegate respondsToSelector:@selector(foldRotatedView:animationDidStop:finished:)]) {
             [self.delegate foldRotatedView:self animationDidStop:anim finished:flag];
+        }else {
+            AILog(@"未设置代理");
+        }
+    }else if ([name isEqualToString:@"unfoldstarAnimation"]) {
+        // 让faceview到最前面来
+        [self bringSubviewToFront:self.faceView];
+        CABasicAnimation *foldendAnimation          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_2 to:0 duration:anim.duration delay:0 ];
+        [foldendAnimation setValue:@"unfoldendAnimation" forKey:@"name"];
+        [self.layer addAnimation:foldendAnimation forKey:nil];
+    }else if ([name isEqualToString:@"unfoldendAnimation"]) { //展开完成
+        [self rotatedXWithAngle:0];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(unfoldRotatedView:animationDidStop:finished:)]) {
+            [self.delegate unfoldRotatedView:self animationDidStop:anim finished:flag];
         }else {
             AILog(@"未设置代理");
         }

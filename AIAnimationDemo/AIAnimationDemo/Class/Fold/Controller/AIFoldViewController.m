@@ -33,23 +33,26 @@
     //容器
     AIFoldContainerView *foldContainerView  = [[AIFoldContainerView alloc]init];
     self.foldContainerView                  = foldContainerView;
-    foldContainerView.itemCount             = 5;
+    foldContainerView.itemCount             = 2;
     foldContainerView.itemWidth             = 100;
     foldContainerView.itemHeight            = 100;
     AIWeakSelf;
-    [foldContainerView setItemfinshBlock:^ (NSInteger index){
+    [foldContainerView setItemfinshBlock:^ (NSInteger index,AIFoldContainerViewState state){
         [UIView animateWithDuration:0.2 animations:^{
             [weakSelf.view layoutIfNeeded];
         }];
-        if (index == 1) {//代表折叠完成了
+        if (state == AIFoldContainerViewState_unFolding ||
+            state == AIFoldContainerViewState_finshFold) {
             testButton.selected = YES;
+        }else {
+            testButton.selected = NO;
         }
     }];
     [self.view addSubview:foldContainerView];
     
     UILabel *lastLabel                      = nil;
     
-    for (int i = 0 ; i < 5; i++) {
+    for (int i = 0 ; i < 2; i++) {
         
         UILabel *label                          = [[UILabel alloc]init];
         label.textAlignment                     = NSTextAlignmentCenter;
@@ -94,6 +97,9 @@
     if (!button.isSelected) {
         //开始折叠
         [self.foldContainerView showFold];
+    } else {
+        
+        [self.foldContainerView showunFold];
     }
 }
 

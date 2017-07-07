@@ -74,13 +74,17 @@ const NSTimeInterval foldDuration = 0.5;
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(roatatedView.mas_bottom);
     }];
+    
+    AIFoldContainerViewState state  = AIFoldContainerViewState_None;
     if (index == 1) {
-        self.fold          = YES;
+        self.fold      = YES;
+        state          = AIFoldContainerViewState_finshFold;
         AILog(@"全部折叠完成");
     }else {
+        state          = AIFoldContainerViewState_folding;
     }
     if (self.itemfinshBlock) {
-        self.itemfinshBlock(index);
+        self.itemfinshBlock(index,state);
     }
     AILog(@"----%ld",index);
 }
@@ -93,7 +97,32 @@ const NSTimeInterval foldDuration = 0.5;
  @param flag flag description
  */
 -(void)unfoldRotatedView:(AIFoldRotatedView *)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    [roatatedView.layer removeAllAnimations];
+//    [roatatedView removeFromSuperview];
+    [self addSubview:roatatedView];
+    roatatedView.ai_y = CGRectGetMaxY(self.descView.frame);
     
+    NSInteger index   = [self.itemArrayM indexOfObject:roatatedView];
+    if (index + 1 >= self.itemArrayM.count) {
+        self.descView     = self.itemArrayM[index];
+    }else {
+        self.descView     = self.itemArrayM[index+1];
+    }
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(roatatedView.mas_bottom);
+    }];
+    AIFoldContainerViewState state  = AIFoldContainerViewState_None;
+    
+    if (index == self.itemArrayM.count-1) {
+        state             = AIFoldContainerViewState_finshUnfold;
+        AILog(@"全部展开完成");
+    }else {
+        state             = AIFoldContainerViewState_unFolding;
+    }
+    if (self.itemfinshBlock) {
+        self.itemfinshBlock(index,state);
+    }
+    AILog(@"====%ld",index);
 }
 
 #pragma mark public
@@ -126,9 +155,25 @@ const NSTimeInterval foldDuration = 0.5;
     for (NSInteger i = self.itemArrayM.count - 1; i > 0; i--) {
         AIFoldRotatedView *lastView   = self.itemArrayM[i];
         
-        lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame), lastView.layer.position.y - self.itemHeight *.5);
+        lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame), lastView.ai_y );
         lastView.layer.anchorPoint    = CGPointMake(.5, 0);
         [lastView foldingAnimationMI_PWithDuration:foldDuration delay:foldDuration * (_itemCount -i)];
+    }
+}
+
+/**
+ 开始展开
+ */
+- (void)showunFold {
+    if (self.itemArrayM.count < 2) {//至少两个可折叠视图
+        return;
+    }
+    
+    for (NSInteger i = 1;i < self.itemArrayM.count ;i++) {
+        AIFoldRotatedView *lastView   = self.itemArrayM[i];
+        lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame), lastView.ai_y + self.itemHeight);
+        lastView.layer.anchorPoint    = CGPointMake(0.5, 0);
+        [lastView unfoldingAnimationMI_PWithDuration:foldDuration delay:foldDuration * (i - 1)];
     }
 }
 
