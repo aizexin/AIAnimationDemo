@@ -26,7 +26,7 @@
  @param anim anim description
  @param flag flag description
  */
-- (void)unfoldRotatedView:(AIFoldRotatedView*)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;
+- (void)willUnfoldRotatedView:(AIFoldRotatedView*)roatatedView;
 
 @end
 @interface AIFoldRotatedView : UIView

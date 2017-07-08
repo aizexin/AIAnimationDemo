@@ -22,6 +22,11 @@
  */
 @property(nonatomic,strong)NSMutableArray *itemArrayM;
 
+/**
+ 展开时候的frame数组
+ */
+@property(nonatomic,strong)NSMutableArray *unfoldArrayM;
+
 @end
 //折叠一个所需时间
 const NSTimeInterval foldDuration = 0.5;
@@ -71,10 +76,12 @@ const NSTimeInterval foldDuration = 0.5;
     self.descView      = self.itemArrayM[index-1];
     roatatedView.frame = self.descView.bounds;
     [self.descView addSubview:roatatedView];
+//    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(roatatedView.mas_bottom);
+//    }];
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(roatatedView.mas_bottom);
+        make.height.mas_equalTo((index) * self.itemHeight);
     }];
-    
     AIFoldContainerViewState state  = AIFoldContainerViewState_None;
     if (index == 1) {
         self.fold      = YES;
@@ -90,26 +97,22 @@ const NSTimeInterval foldDuration = 0.5;
 }
 
 /**
- 一个模块展开后回调
+ 一个模块展开回调
 
  @param roatatedView 折叠模块
- @param anim anim description
- @param flag flag description
+
  */
--(void)unfoldRotatedView:(AIFoldRotatedView *)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+-(void)willUnfoldRotatedView:(AIFoldRotatedView *)roatatedView {
     [roatatedView.layer removeAllAnimations];
-//    [roatatedView removeFromSuperview];
     [self addSubview:roatatedView];
-    roatatedView.ai_y = CGRectGetMaxY(self.descView.frame);
+//    roatatedView.ai_y = CGRectGetMaxY(self.descView.frame);
     
-    NSInteger index   = [self.itemArrayM indexOfObject:roatatedView];
-    if (index + 1 >= self.itemArrayM.count) {
-        self.descView     = self.itemArrayM[index];
-    }else {
-        self.descView     = self.itemArrayM[index+1];
-    }
+    NSInteger index    = [self.itemArrayM indexOfObject:roatatedView];
+    NSValue *value     =  self.unfoldArrayM[index] ;
+    roatatedView.frame = [value CGRectValue];
+
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(roatatedView.mas_bottom);
+        make.height.mas_equalTo((index+1) * self.itemHeight);
     }];
     AIFoldContainerViewState state  = AIFoldContainerViewState_None;
     
@@ -131,6 +134,7 @@ const NSTimeInterval foldDuration = 0.5;
  配置折叠元素
  */
 - (void)configurationFoldItem {
+    self.unfoldArrayM           = [NSMutableArray arrayWithCapacity:self.itemCount];
     for (int  i = 0; i < self.itemCount; i ++ ) {
         CGRect rect             = CGRectMake(0 , i * self.itemHeight, self.itemWidth, self.itemHeight);
         UIImage *image          = [self ai_takeSnapshotWithFrame:rect];
@@ -139,6 +143,8 @@ const NSTimeInterval foldDuration = 0.5;
         [self addSubview:rotatedView];
         //添加到可折叠数组中
         [self.itemArrayM addObject:rotatedView];
+        //保存到展开数组中
+        [self.unfoldArrayM addObject:[NSValue valueWithCGRect:rect]];
     }
     self.contentView.alpha                  = 0.;
 }
