@@ -67,7 +67,7 @@ const NSTimeInterval unfoldDuration = 0.5;
 #pragma mark -AIFoldRotatedViewDelegate
 
 /**
- 一个折叠模块折叠完成后回调
+ 一个叠完成后回调
 
  @param roatatedView 折叠视图
  @param anim anim description
@@ -83,7 +83,7 @@ const NSTimeInterval unfoldDuration = 0.5;
 
 }
 /**
- 一个模块将要展开回调
+ 一个将要展开回调
  
  @param roatatedView 折叠模块
  
@@ -108,25 +108,26 @@ const NSTimeInterval unfoldDuration = 0.5;
 }
 
 /**
- 一个折叠模块展开完成后回调
+ 一个展开完成后回调
  
  @param roatatedView 折叠视图
  @param anim anim description
  @param flag flag description
  */
 - (void)unfoldRotatedView:(AIFoldRotatedView *)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    [roatatedView.layer removeAllAnimations];
-    [self addSubview:roatatedView];
     
     NSInteger index    = [self.itemArrayM indexOfObject:roatatedView];
     
     NSValue *value     =  self.unfoldArrayM[index] ;
     roatatedView.frame = [value CGRectValue];
+    [self addSubview:roatatedView];
+    
+    [roatatedView.layer removeAllAnimations];
 }
 
 
 /**
- 一个模块将要折叠回调
+ 一个将要折叠回调
  
  @param roatatedView 折叠模块
  
@@ -160,6 +161,9 @@ const NSTimeInterval unfoldDuration = 0.5;
         CGRect rect             = CGRectMake(0 , i * self.itemHeight, self.itemWidth, self.itemHeight);
         UIImage *image          = [self ai_takeSnapshotWithFrame:rect];
         AIFoldRotatedView *rotatedView      = [[AIFoldRotatedView alloc]initWithFrame:rect Image:image];
+//        rotatedView.layer.anchorPoint    = CGPointMake(.5, 0);
+        //测试
+        rotatedView.tag         = i+100;
         rotatedView.delegate    = self;
         [self addSubview:rotatedView];
         //添加到可折叠数组中
@@ -207,10 +211,14 @@ const NSTimeInterval unfoldDuration = 0.5;
     }
     
     for (NSInteger i = 1;i < self.itemArrayM.count ;i++) {
+    
         AIFoldRotatedView *lastView   = self.itemArrayM[i];
-        lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame), lastView.ai_y + self.itemHeight);
-        lastView.layer.anchorPoint    = CGPointMake(0.5, 0);
-        [lastView unfoldingAnimationMI_PWithDuration:foldDuration delay:foldDuration * (i - 1)];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(unfoldDuration *(i-1) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame),self.itemHeight +lastView.ai_y );
+            lastView.layer.anchorPoint    = CGPointMake(0.5, 0);
+        });
+        [lastView unfoldingAnimationMI_PWithDuration:foldDuration delay:unfoldDuration * (i - 1)];
     }
 }
 
