@@ -33,12 +33,12 @@
     //容器
     AIFoldContainerView *foldContainerView  = [[AIFoldContainerView alloc]init];
     self.foldContainerView                  = foldContainerView;
-    foldContainerView.itemCount             = 3;
+    foldContainerView.itemCount             = 5;
     foldContainerView.itemWidth             = 100;
     foldContainerView.itemHeight            = 100;
     AIWeakSelf;
     [foldContainerView setItemfinshBlock:^ (NSTimeInterval duration,AIFoldContainerViewState state){
-        [UIView animateWithDuration:.5 animations:^{
+        [UIView animateWithDuration:duration animations:^{
             [weakSelf.view layoutIfNeeded];
         } completion:^(BOOL finished) {
             if (state == AIFoldContainerViewState_unFolding ||
@@ -53,7 +53,7 @@
     
     UILabel *lastLabel                      = nil;
     
-    for (int i = 0 ; i < 3; i++) {
+    for (int i = 0 ; i < foldContainerView.itemCount; i++) {
         
         UILabel *label                          = [[UILabel alloc]init];
         label.textAlignment                     = NSTextAlignmentCenter;
