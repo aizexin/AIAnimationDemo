@@ -12,8 +12,8 @@
 
 @interface AIFoldContainerView ()<AIFoldRotatedViewDelegate>
 
-/** 是否折叠*/
-@property(nonatomic,assign,getter=isFold)BOOL fold;
+///** 是否折叠*/
+//@property(nonatomic,assign,getter=isFold)BOOL fold;
 
 /** 折叠到的目的view*/
 @property(nonatomic,weak)UIView *descView;
@@ -26,6 +26,8 @@
  展开时候的frame数组
  */
 @property(nonatomic,strong)NSMutableArray *unfoldArrayM;
+/** 当前状态*/
+@property(nonatomic,assign)AIFoldContainerViewState currentState;
 
 @end
 //折叠一个所需时间
@@ -94,16 +96,14 @@ const NSTimeInterval unfoldDuration = 0.5;
         make.height.mas_equalTo((index+1) * self.itemHeight);
     }];
     
-    AIFoldContainerViewState state  = AIFoldContainerViewState_None;
-    
     if (index == self.itemArrayM.count-1) {
-        state             = AIFoldContainerViewState_finshUnfold;
+        self.currentState             = AIFoldContainerViewState_finshUnfold;
         AILog(@"全部展开完成");
     }else {
-        state             = AIFoldContainerViewState_unFolding;
+        self.currentState             = AIFoldContainerViewState_unFolding;
     }
     if (self.itemfinshBlock) {
-        self.itemfinshBlock(unfoldDuration,state);
+        self.itemfinshBlock(unfoldDuration,self.currentState);
     }
 }
 
@@ -138,16 +138,14 @@ const NSTimeInterval unfoldDuration = 0.5;
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo((index) * self.itemHeight);
     }];
-    AIFoldContainerViewState state  = AIFoldContainerViewState_None;
     if (index == 1) {
-        self.fold      = YES;
-        state          = AIFoldContainerViewState_finshFold;
+        self.currentState          = AIFoldContainerViewState_finshFold;
         AILog(@"全部折叠完成");
     }else {
-        state          = AIFoldContainerViewState_folding;
+        self.currentState          = AIFoldContainerViewState_folding;
     }
     if (self.itemfinshBlock) {
-        self.itemfinshBlock(foldDuration,state);
+        self.itemfinshBlock(foldDuration,self.currentState);
     }
 }
 
@@ -180,6 +178,11 @@ const NSTimeInterval unfoldDuration = 0.5;
     if (self.itemArrayM.count < 2) {//至少两个可折叠视图
         return;
     }
+    if (self.currentState != AIFoldContainerViewState_finshUnfold &&
+        self.currentState != AIFoldContainerViewState_None) {
+        //只有在折叠完成和无状态的情况下才能折叠
+        return;
+    }
     
     for (NSInteger i = self.itemArrayM.count - 1; i > 0; i--) {
         AIFoldRotatedView *lastView   = self.itemArrayM[i];
@@ -195,6 +198,11 @@ const NSTimeInterval unfoldDuration = 0.5;
  */
 - (void)showunFold {
     if (self.itemArrayM.count < 2) {//至少两个可折叠视图
+        return;
+    }
+    if (self.currentState != AIFoldContainerViewState_finshFold &&
+        self.currentState != AIFoldContainerViewState_None) {
+        //只有在展开完成和无状态的情况下才能折叠
         return;
     }
     
