@@ -30,6 +30,8 @@
 @end
 //折叠一个所需时间
 const NSTimeInterval foldDuration = 0.5;
+//展开一个所需时间
+const NSTimeInterval unfoldDuration = 0.5;
 
 @implementation AIFoldContainerView
 
@@ -63,7 +65,7 @@ const NSTimeInterval foldDuration = 0.5;
 #pragma mark -AIFoldRotatedViewDelegate
 
 /**
- 一个折叠模块完成后回调
+ 一个折叠模块折叠完成后回调
 
  @param roatatedView 折叠视图
  @param anim anim description
@@ -76,9 +78,63 @@ const NSTimeInterval foldDuration = 0.5;
     self.descView      = self.itemArrayM[index-1];
     roatatedView.frame = self.descView.bounds;
     [self.descView addSubview:roatatedView];
-//    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.mas_equalTo(roatatedView.mas_bottom);
-//    }];
+
+}
+/**
+ 一个模块将要展开回调
+ 
+ @param roatatedView 折叠模块
+ 
+ */
+-(void)willUnfoldRotatedView:(AIFoldRotatedView *)roatatedView {
+    
+    NSInteger index    = [self.itemArrayM indexOfObject:roatatedView];
+    
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo((index+1) * self.itemHeight);
+    }];
+    
+    AIFoldContainerViewState state  = AIFoldContainerViewState_None;
+    
+    if (index == self.itemArrayM.count-1) {
+        state             = AIFoldContainerViewState_finshUnfold;
+        AILog(@"全部展开完成");
+    }else {
+        state             = AIFoldContainerViewState_unFolding;
+    }
+    if (self.itemfinshBlock) {
+        self.itemfinshBlock(unfoldDuration,state);
+    }
+}
+
+/**
+ 一个折叠模块展开完成后回调
+ 
+ @param roatatedView 折叠视图
+ @param anim anim description
+ @param flag flag description
+ */
+- (void)unfoldRotatedView:(AIFoldRotatedView *)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    [roatatedView.layer removeAllAnimations];
+    [self addSubview:roatatedView];
+    
+    NSInteger index    = [self.itemArrayM indexOfObject:roatatedView];
+    
+    NSValue *value     =  self.unfoldArrayM[index] ;
+    roatatedView.frame = [value CGRectValue];
+}
+
+
+/**
+ 一个模块将要折叠回调
+ 
+ @param roatatedView 折叠模块
+ 
+ */
+-(void)willfoldRotatedView:(AIFoldRotatedView *)roatatedView {
+    
+    NSInteger index    = [self.itemArrayM indexOfObject:roatatedView];
+    
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo((index) * self.itemHeight);
     }];
@@ -91,41 +147,8 @@ const NSTimeInterval foldDuration = 0.5;
         state          = AIFoldContainerViewState_folding;
     }
     if (self.itemfinshBlock) {
-        self.itemfinshBlock(index,state);
+        self.itemfinshBlock(foldDuration,state);
     }
-    AILog(@"----%ld",index);
-}
-
-/**
- 一个模块展开回调
-
- @param roatatedView 折叠模块
-
- */
--(void)willUnfoldRotatedView:(AIFoldRotatedView *)roatatedView {
-    [roatatedView.layer removeAllAnimations];
-    [self addSubview:roatatedView];
-//    roatatedView.ai_y = CGRectGetMaxY(self.descView.frame);
-    
-    NSInteger index    = [self.itemArrayM indexOfObject:roatatedView];
-    NSValue *value     =  self.unfoldArrayM[index] ;
-    roatatedView.frame = [value CGRectValue];
-
-    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo((index+1) * self.itemHeight);
-    }];
-    AIFoldContainerViewState state  = AIFoldContainerViewState_None;
-    
-    if (index == self.itemArrayM.count-1) {
-        state             = AIFoldContainerViewState_finshUnfold;
-        AILog(@"全部展开完成");
-    }else {
-        state             = AIFoldContainerViewState_unFolding;
-    }
-    if (self.itemfinshBlock) {
-        self.itemfinshBlock(index,state);
-    }
-    AILog(@"====%ld",index);
 }
 
 #pragma mark public

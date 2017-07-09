@@ -16,7 +16,7 @@ typedef enum : NSUInteger {
     AIFoldContainerViewState_finshUnfold //完成展开
 } AIFoldContainerViewState;
 
-typedef void(^ItemFinshBlock)(NSInteger index ,AIFoldContainerViewState state);
+typedef void(^ItemFinshBlock)(NSTimeInterval duration ,AIFoldContainerViewState state);
 
 @interface AIFoldContainerView : UIView
 /** 折叠个数*/

@@ -37,16 +37,17 @@
     foldContainerView.itemWidth             = 100;
     foldContainerView.itemHeight            = 100;
     AIWeakSelf;
-    [foldContainerView setItemfinshBlock:^ (NSInteger index,AIFoldContainerViewState state){
-        [UIView animateWithDuration:0.2 animations:^{
+    [foldContainerView setItemfinshBlock:^ (NSTimeInterval duration,AIFoldContainerViewState state){
+        [UIView animateWithDuration:.5 animations:^{
             [weakSelf.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            if (state == AIFoldContainerViewState_unFolding ||
+                state == AIFoldContainerViewState_finshFold) {
+                testButton.selected = YES;
+            }else {
+                testButton.selected = NO;
+            }
         }];
-        if (state == AIFoldContainerViewState_unFolding ||
-            state == AIFoldContainerViewState_finshFold) {
-            testButton.selected = YES;
-        }else {
-            testButton.selected = NO;
-        }
     }];
     [self.view addSubview:foldContainerView];
     

@@ -18,15 +18,30 @@
  @param flag flag description
  */
 - (void)foldRotatedView:(AIFoldRotatedView*)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;
-
 /**
- 展开动作完成后回调
-
+ 展开完成后回调
+ 
  @param roatatedView 折叠控件
  @param anim anim description
  @param flag flag description
  */
+- (void)unfoldRotatedView:(AIFoldRotatedView*)roatatedView animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;
+
+/**
+ 将要折叠回调
+ 
+ @param roatatedView 折叠控件
+ 
+ */
+- (void)willfoldRotatedView:(AIFoldRotatedView*)roatatedView;
+/**
+ 将要展开回调
+
+ @param roatatedView 折叠控件
+
+ */
 - (void)willUnfoldRotatedView:(AIFoldRotatedView*)roatatedView;
+
 
 @end
 @interface AIFoldRotatedView : UIView

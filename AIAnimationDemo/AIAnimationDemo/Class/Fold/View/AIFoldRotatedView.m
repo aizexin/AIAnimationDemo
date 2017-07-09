@@ -59,13 +59,21 @@
 }
 
 /**
- 旋转180度
+ 折叠旋转180度
 
  @param duration 持续时长
  @param delay 延时
  */
 - (void)foldingAnimationMI_PWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay {
 
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(willfoldRotatedView:)]) {
+            [self.delegate willfoldRotatedView:self ];
+        }else {
+            AILog(@"未设置代理");
+        }
+    });
     CABasicAnimation *animation1Layer          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseIn from:0 to:M_PI_2 duration:duration * .5 delay:delay ];
     [animation1Layer setValue:@"foldstarAnimation" forKey:@"name"];
     [self.layer addAnimation:animation1Layer forKey:@"animation1"];
@@ -134,9 +142,13 @@
     }else if ([name isEqualToString:@"unfoldendAnimation"]) { //展开完成
         for (UIView *view in self.subviews) {
             if ([view isKindOfClass:[AIFoldRotatedView class]]) {
+                //清空transform
                AIFoldRotatedView *rotatedView = (AIFoldRotatedView*)view;
               rotatedView.layer.transform        = CATransform3DIdentity;
             }
+        }
+        if (self.delegate && [self.delegate respondsToSelector:@selector(unfoldRotatedView:animationDidStop:finished:)]) {
+            [self.delegate unfoldRotatedView:self animationDidStop:anim finished:flag];
         }
     }
 }
