@@ -191,8 +191,6 @@ const NSTimeInterval unfoldDuration = 0.5;
     for (NSInteger i = self.itemArrayM.count - 1; i > 0; i--) {
         AIFoldRotatedView *lastView   = self.itemArrayM[i];
         
-        lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame), lastView.ai_y );
-        lastView.layer.anchorPoint    = CGPointMake(.5, 0);
         [lastView foldingAnimationMI_PWithDuration:foldDuration delay:foldDuration * (_itemCount -i)];
     }
 }
@@ -213,11 +211,7 @@ const NSTimeInterval unfoldDuration = 0.5;
     for (NSInteger i = 1;i < self.itemArrayM.count ;i++) {
     
         AIFoldRotatedView *lastView   = self.itemArrayM[i];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(unfoldDuration *(i-1) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            lastView.layer.position       = CGPointMake(CGRectGetMidX(lastView.frame),self.itemHeight +lastView.ai_y );
-            lastView.layer.anchorPoint    = CGPointMake(0.5, 0);
-        });
+
         [lastView unfoldingAnimationMI_PWithDuration:foldDuration delay:unfoldDuration * (i - 1)];
     }
 }

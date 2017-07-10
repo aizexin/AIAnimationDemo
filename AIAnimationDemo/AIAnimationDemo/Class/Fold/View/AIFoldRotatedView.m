@@ -68,7 +68,8 @@
 
     [self clearTransform];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
+        self.layer.position       = CGPointMake(CGRectGetMidX(self.frame), self.ai_y );
+        self.layer.anchorPoint    = CGPointMake(.5, 0);
         if (self.delegate && [self.delegate respondsToSelector:@selector(willfoldRotatedView:)]) {
             [self.delegate willfoldRotatedView:self ];
         }else {
@@ -89,7 +90,8 @@
     
 //    [self clearTransform];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
+        self.layer.position       = CGPointMake(CGRectGetMidX(self.frame),self.ai_height +self.ai_y );
+        self.layer.anchorPoint    = CGPointMake(0.5, 0);
         if (self.delegate && [self.delegate respondsToSelector:@selector(willUnfoldRotatedView:)]) {
             [self.delegate willUnfoldRotatedView:self ];
         }else {
