@@ -1,5 +1,9 @@
 #AIAnimationDemo
 
++ 折叠
+
+![折叠.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/折叠.gif)
+
 + officebuddy
 
 ![downloadButton.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/officebuddy.gif)
