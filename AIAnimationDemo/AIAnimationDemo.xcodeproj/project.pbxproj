@@ -149,6 +149,7 @@
 		45E44A331DE4314A009B50BC /* AILoginAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E44A321DE4314A009B50BC /* AILoginAnimationViewController.m */; };
 		45E700951E86C3DE00065731 /* AILogoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E700941E86C3DE00065731 /* AILogoDetailViewController.m */; };
 		45E7009B1E88113C00065731 /* AIRevealAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E7009A1E88113C00065731 /* AIRevealAnimator.m */; };
+		45E7EB821F17C7BF00C2B38D /* AIImageViewCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E7EB811F17C7BF00C2B38D /* AIImageViewCard.m */; };
 		45E8C4A61EA4FBED00B69852 /* AIDoodleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E8C4A51EA4FBED00B69852 /* AIDoodleViewController.m */; };
 		45EA3F441E0177F500F7B8C2 /* AIMultiplayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F431E0177F500F7B8C2 /* AIMultiplayerViewController.m */; };
 		45EA3F491E01838500F7B8C2 /* AIAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F481E01838500F7B8C2 /* AIAvatarView.m */; };
@@ -473,6 +474,8 @@
 		45E700941E86C3DE00065731 /* AILogoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILogoDetailViewController.m; sourceTree = "<group>"; };
 		45E700991E88113C00065731 /* AIRevealAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRevealAnimator.h; sourceTree = "<group>"; };
 		45E7009A1E88113C00065731 /* AIRevealAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRevealAnimator.m; sourceTree = "<group>"; };
+		45E7EB801F17C7BF00C2B38D /* AIImageViewCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIImageViewCard.h; sourceTree = "<group>"; };
+		45E7EB811F17C7BF00C2B38D /* AIImageViewCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIImageViewCard.m; sourceTree = "<group>"; };
 		45E8C4A41EA4FBED00B69852 /* AIDoodleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDoodleViewController.h; sourceTree = "<group>"; };
 		45E8C4A51EA4FBED00B69852 /* AIDoodleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDoodleViewController.m; sourceTree = "<group>"; };
 		45EA3F421E0177F500F7B8C2 /* AIMultiplayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMultiplayerViewController.h; sourceTree = "<group>"; };
@@ -1884,6 +1887,8 @@
 		45E04FAA1F16682C0060B522 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				45E7EB801F17C7BF00C2B38D /* AIImageViewCard.h */,
+				45E7EB811F17C7BF00C2B38D /* AIImageViewCard.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2323,6 +2328,7 @@
 				451D281F1DBCECB50070BFCA /* AIPictureViewerViewController.m in Sources */,
 				45E700951E86C3DE00065731 /* AILogoDetailViewController.m in Sources */,
 				453DD8481DACA80500D1CDA9 /* GCDTimer.m in Sources */,
+				45E7EB821F17C7BF00C2B38D /* AIImageViewCard.m in Sources */,
 				454B9B811E2A7B8600E7F9CF /* AppleSystemService.m in Sources */,
 				455E28D31D98F80600E3DA4D /* AIListModel.m in Sources */,
 				456CB0A61E34556300764022 /* AIPackingModel.m in Sources */,
