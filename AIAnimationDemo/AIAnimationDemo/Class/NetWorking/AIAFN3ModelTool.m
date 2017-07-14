@@ -21,6 +21,10 @@
     } success:^(id response) {
         if (success) {
             id model = [resultClass mj_objectWithKeyValues:response];
+            if (!model) {
+                //可能是直接装的数组
+                model = [resultClass mj_objectArrayWithKeyValuesArray:response];
+            }
             success(model);
         }
     } failure:^(NSError *error) {
@@ -40,6 +44,10 @@
         if (success) {
             //            NSDictionary *dataDict = response[@"data"];
             id model = [resultClass mj_objectWithKeyValues:response];
+            if (!model) {
+                //可能是直接装的数组
+                model = [resultClass mj_objectArrayWithKeyValuesArray:response];
+            }
             success(model);
         }
     } failure:^(NSError *error) {
