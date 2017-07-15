@@ -155,6 +155,7 @@
 		45EA3F491E01838500F7B8C2 /* AIAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EA3F481E01838500F7B8C2 /* AIAvatarView.m */; };
 		45ED00641E5C84B0005217AF /* AIBeginnerCookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45ED00631E5C84B0005217AF /* AIBeginnerCookViewController.xib */; };
 		45ED00671E606304005217AF /* AIHerbModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ED00661E606304005217AF /* AIHerbModel.m */; };
+		45F1AD4B1F1A027900CCCEF7 /* AIDownLoadTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1AD4A1F1A027900CCCEF7 /* AIDownLoadTaskModel.m */; };
 		45F6DE291DB07EA700DC574A /* CAGradientMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */; };
 		45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE2B1DB09A9200DC574A /* CAGradientView.m */; };
 		45F7E50D1E11526C00721BCB /* AIPlayMusicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E50C1E11526C00721BCB /* AIPlayMusicView.m */; };
@@ -486,6 +487,8 @@
 		45ED00631E5C84B0005217AF /* AIBeginnerCookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIBeginnerCookViewController.xib; sourceTree = "<group>"; };
 		45ED00651E606304005217AF /* AIHerbModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHerbModel.h; sourceTree = "<group>"; };
 		45ED00661E606304005217AF /* AIHerbModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHerbModel.m; sourceTree = "<group>"; };
+		45F1AD491F1A027900CCCEF7 /* AIDownLoadTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDownLoadTaskModel.h; sourceTree = "<group>"; };
+		45F1AD4A1F1A027900CCCEF7 /* AIDownLoadTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDownLoadTaskModel.m; sourceTree = "<group>"; };
 		45F6DE271DB07EA700DC574A /* CAGradientMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientMaskView.h; sourceTree = "<group>"; };
 		45F6DE281DB07EA700DC574A /* CAGradientMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientMaskView.m; sourceTree = "<group>"; };
 		45F6DE2A1DB09A9200DC574A /* CAGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientView.h; sourceTree = "<group>"; };
@@ -1822,6 +1825,7 @@
 		45D5BAEE1EC0188800388B6E /* DownloadButton */ = {
 			isa = PBXGroup;
 			children = (
+				45F1AD481F1A025D00CCCEF7 /* Model */,
 				45D5BAEF1EC0188800388B6E /* Controlller */,
 				45D5BAF01EC0188800388B6E /* View */,
 			);
@@ -1988,6 +1992,15 @@
 				45EA3F481E01838500F7B8C2 /* AIAvatarView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		45F1AD481F1A025D00CCCEF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45F1AD491F1A027900CCCEF7 /* AIDownLoadTaskModel.h */,
+				45F1AD4A1F1A027900CCCEF7 /* AIDownLoadTaskModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		45F7E5081E11522B00721BCB /* PlayMusicView */ = {
@@ -2393,6 +2406,7 @@
 				4537330E1E4C531B0086F391 /* AIDiscretePointModel.m in Sources */,
 				455DF5C41DB46E2000D3E84A /* MoreInfoView.m in Sources */,
 				45048B881EF7AE3100765898 /* AIContainerViewController.m in Sources */,
+				45F1AD4B1F1A027900CCCEF7 /* AIDownLoadTaskModel.m in Sources */,
 				45D43E1B1DACE21B0022F86A /* InfiniteRotationView.m in Sources */,
 				45D43DF41DACC3090022F86A /* AIBaiduLoadHUDViewController.m in Sources */,
 				451DDFB31EC2F9F00073C6AB /* AFNetHelper.m in Sources */,

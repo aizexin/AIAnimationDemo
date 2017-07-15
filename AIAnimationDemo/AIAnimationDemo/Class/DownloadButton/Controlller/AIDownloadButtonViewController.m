@@ -9,6 +9,7 @@
 #import "AIDownloadButtonViewController.h"
 #import "AIDownloadButton.h"
 #import "AFNetHelper.h"
+#import "AIDownLoadTaskModel.h"
 @interface AIDownloadButtonViewController ()
 @property (weak, nonatomic) IBOutlet AIDownloadButton *downLoadButton;
 /** 进程*/
@@ -20,14 +21,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    AIDownLoadTaskModel *downTask           = [[AIDownLoadTaskModel alloc]init];
+    downTask.lastDate                       = [NSDate date];
     [self.downLoadButton setBlock:^{
-        AILog(@"2222");
+        
         AIWeakSelf
        self.task = [AFNetHelper downloadWithURL:@"http://wvideo.spriteapp.cn/video/2016/0116/569a048739c11_wpc.mp4" fileDir:@"xx" progress:^(NSProgress *progress) {
             weakSelf.downLoadButton.progress    = progress.fractionCompleted;
             weakSelf.downLoadButton.text        = [self transitionUnit:progress.completedUnitCount];;
+           //一秒中内的数据
+           downTask.readData                   += (downTask.completedUnitCount - progress.completedUnitCount);
+           downTask.completedUnitCount          = progress.completedUnitCount;
+           //获得当前时间
+           NSDate *nowdate                      = [NSDate date];
+           if ([nowdate timeIntervalSinceDate:downTask.lastDate] >= 1) {
+               //时间差
+               double time = [nowdate timeIntervalSinceDate:downTask.lastDate];
+               //计算速度
+               long long speed = downTask.readData/time;
+               downTask.speed  = speed;
+               //维护变量，将计算过的清零
+               downTask.readData = 0.0;
+               //维护变量，记录这次计算的时间
+               downTask.lastDate = nowdate;
+               AILog(@"下载速度:%@",[self transitionUnit:speed]);
+           }
         } success:^(NSString *filePath) {
             weakSelf.downLoadButton.progress    = 1.;
+            
         } failure:^(NSError *err) {
             
         }];
