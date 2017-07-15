@@ -4,7 +4,9 @@
 //
 //  Created by 艾泽鑫 on 2017/5/8.
 //  Copyright © 2017年 艾泽鑫. All rights reserved.
-//
+//  TODO:
+//  1.计算下载速度
+//  2.有网的情况继续下载
 
 #import "AIDownloadButton.h"
 #import "CALayer+SetRect.h"
