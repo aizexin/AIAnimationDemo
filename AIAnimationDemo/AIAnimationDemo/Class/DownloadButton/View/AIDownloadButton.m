@@ -48,7 +48,7 @@
     progressLabel.textColor             = [UIColor flatWhiteColor];
     progressLabel.font                  = [UIFont systemFontOfSize:13];
     progressLabel.alpha                 = 0.;
-    progressLabel.text                  = @"23131MB";
+//    progressLabel.text                  = @"23131MB";
     self.progressLabel                  = progressLabel;
     [self addSubview:progressLabel];
     //背景

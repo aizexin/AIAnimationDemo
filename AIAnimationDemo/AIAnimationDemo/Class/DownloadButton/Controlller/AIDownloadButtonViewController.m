@@ -42,21 +42,12 @@
 /**
  转换单位
 
- @param b 进来的时候是b
- @return 返回单位 最大T
+ @param size 文件大小
+ @return 返回单位
  */
-- (NSString *)transitionUnit:(NSInteger)b {
-    NSArray *unit       = @[@"b",@"kb",@"mb",@"GB",@"T"];
-    CGFloat remainder   = 0.;
-    NSInteger i         = 0;
-    do {
-        remainder       = b / 1024.;
-        b               = remainder;
-        if (i < 5) {
-            i ++;
-        }
-    } while (remainder >= 1024);
-    return [NSString stringWithFormat:@"%.1lf%@",remainder,unit[i]];
+- (NSString *)transitionUnit:(int64_t)size {
+
+    return [NSByteCountFormatter stringFromByteCount:size countStyle:NSByteCountFormatterCountStyleFile];
 }
 
 
