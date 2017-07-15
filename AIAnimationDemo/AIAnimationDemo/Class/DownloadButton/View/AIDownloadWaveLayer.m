@@ -5,6 +5,13 @@
 //  Created by 艾泽鑫 on 2017/5/9.
 //  Copyright © 2017年 艾泽鑫. All rights reserved.
 //
+//正弦函数: y =Asin（ωx+φ）+C
+//A 表示振幅，也就是使用这个变量来调整波浪的高度
+//ω表示周期，也就是使用这个变量来调整在屏幕内显示的波浪的数量
+//φ表示波浪横向的偏移，也就是使用这个变量来调整波浪的流动
+//C表示波浪纵向的位置，也就是使用这个变量来调整波浪在屏幕中竖直的位置。
+
+
 
 #import "AIDownloadWaveLayer.h"
 #import "CALayer+SetRect.h"
@@ -16,6 +23,13 @@
 @property (strong, nonatomic) UIBezierPath *wavePath4;
 @property (strong, nonatomic) UIBezierPath *wavePathComplete;
 @property(nonatomic,assign)NSTimeInterval allAnimationDuration;
+/** 振幅*/
+@property(nonatomic,assign)CGFloat amplitude_A;
+/** 周期*/
+@property(nonatomic,assign)CGFloat cycle_ω;
+/** 偏移量*/
+@property(nonatomic,assign)CGFloat offset_φ;
+
 @end
 @implementation AIDownloadWaveLayer
 
@@ -28,6 +42,8 @@ static const NSTimeInterval KAnimationDuration = 0.3;
         self.fillColor = [UIColor clearColor].CGColor;
         self.lineCap   = kCALineCapRound;
         self.lineJoin  = kCALineJoinRound;
+        _amplitude_A   = 3.;
+        _cycle_ω       = .3;
     }
     return self;
 }
@@ -38,14 +54,14 @@ static const NSTimeInterval KAnimationDuration = 0.3;
     _wavePathStarting = [UIBezierPath bezierPath];
     [_wavePathStarting moveToPoint:CGPointMake(onView.ai_middleX *.5, onView.ai_middleY)];
     for (float x = 0.0f; x<onView.ai_width *.5; x++) {
-        y        = 3*sin(.3*x);
+        y        = self.amplitude_A * sin(_cycle_ω*x);
         [_wavePathStarting addLineToPoint:CGPointMake(x + onView.ai_middleX *.5, y+onView.ai_middleY )];
     }
     self.path = self.wavePathStarting.CGPath;
     
     _wavePath1 = [UIBezierPath bezierPath];
     for (float x = 0.0f; x<onView.ai_width *.5; x++) {
-        y        = 3*sin(.3*x + M_PI_2*1);
+        y        = self.amplitude_A * sin(_cycle_ω*x + M_PI_2*1);
         if (x == 0) {
             [_wavePath1 moveToPoint:CGPointMake(x + onView.ai_middleX *.5, y+onView.ai_middleY )];
         }else {
@@ -55,7 +71,7 @@ static const NSTimeInterval KAnimationDuration = 0.3;
     
     _wavePath2 = [UIBezierPath bezierPath];
     for (float x = 0.0f; x<onView.ai_width *.5; x++) {
-        y        = 3*sin(.3*x + M_PI_2*2);
+        y        = self.amplitude_A * sin(_cycle_ω*x + M_PI_2*2);
         if (x == 0) {
             [_wavePath2 moveToPoint:CGPointMake(x + onView.ai_middleX *.5, y+onView.ai_middleY )];
         }else {
@@ -64,7 +80,7 @@ static const NSTimeInterval KAnimationDuration = 0.3;
     }
     _wavePath3 = [UIBezierPath bezierPath];
     for (float x = 0.0f; x<onView.ai_width *.5; x++) {
-        y        = 3*sin(.3*x + M_PI_2*3);
+        y        = self.amplitude_A * sin(_cycle_ω*x + M_PI_2*3);
         if (x == 0) {
             [_wavePath3 moveToPoint:CGPointMake(x + onView.ai_middleX *.5, y+onView.ai_middleY )];
         }else {
@@ -75,7 +91,7 @@ static const NSTimeInterval KAnimationDuration = 0.3;
     _wavePath4 = [UIBezierPath bezierPath];
     
     for (float x = 0.0f; x<onView.ai_width *.5; x++) {
-        y        = 3*sin(.3*x + M_PI_2*4);
+        y        = self.amplitude_A * sin(_cycle_ω*x + M_PI_2*4);
         if (x == 0) {
             [_wavePath4 moveToPoint:CGPointMake(x + onView.ai_middleX *.5, y+onView.ai_middleY )];
         }else {
