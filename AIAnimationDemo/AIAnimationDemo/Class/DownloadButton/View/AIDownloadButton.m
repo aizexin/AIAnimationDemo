@@ -216,9 +216,18 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(changeToPoint.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.pointShapeLayer addAnimation:pointSpringAnimation forKey:nil];
     });
-    
-    
 }
+/**
+ 结束
+ */
+- (void)end {
+    self.state                           = AIDownloadButtonEnd;
+    self.waveLayer.stop = YES;
+    [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
+    
+    [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0.];
+}
+
 - (UIBezierPath*)linePath {
     UIBezierPath         *linePath       = [UIBezierPath bezierPath];
     [linePath moveToPoint: CGPointMake(self.ai_middleX * .5, self.ai_height *.5 )];
@@ -356,17 +365,6 @@
     [self opacityAnimationWithLayer:self.arrowShapeLayer fromValue:1. toValue:0.];
     //波浪消失
     [self opacityAnimationWithLayer:self.waveLayer fromValue:0. toValue:1.];
-}
-
-/**
- 结束
- */
-- (void)end {
-    self.state                           = AIDownloadButtonEnd;
-    self.waveLayer.stop = YES;
-    [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
-    
-    [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0.];
 }
 
 -(void)setProgress:(CGFloat)progress {
