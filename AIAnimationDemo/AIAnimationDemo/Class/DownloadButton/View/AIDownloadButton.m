@@ -4,9 +4,7 @@
 //
 //  Created by 艾泽鑫 on 2017/5/8.
 //  Copyright © 2017年 艾泽鑫. All rights reserved.
-//  TODO:
-//  1.计算下载速度
-//  2.有网的情况继续下载
+//
 
 #import "AIDownloadButton.h"
 #import "CALayer+SetRect.h"
@@ -112,12 +110,63 @@
 
 }
 #pragma mark -Action    
+
+/**
+ 按钮被点击了
+
+ @param tap 点击手势
+ */
 - (void)onTap:(UITapGestureRecognizer*)tap {
-    if (self.isSelected) {
-        return;
+    switch (self.state) {
+        case AIDownloadButtonNone:  //无状态
+        {
+            [self beginDownLoading];
+        }
+            break;
+        case AIDownloadButtonLoading: //下载中
+        {
+            [self suspend];
+            if (self.block) {
+                self.block(self);
+            }
+        }
+            break;
+        case AIDownloadButtonSuspend: //暂停
+        {
+            [self resume];
+            if (self.block) {
+                self.block(self);
+            }
+        }
+            break;
+        case AIDownloadButtonResume: //恢复
+        {
+            
+            [self suspend];
+            if (self.block) {
+                self.block(self);
+            }
+        }
+            break;
+        case AIDownloadButtonEnd:     //下载完成
+        {
+            [self reset];
+            if (self.block) {
+                self.block(self);
+            }
+        }
+            break;
+        default:
+            break;
     }
-    self.selected                        = YES;
-    
+   
+}
+
+/**
+ 开始下载
+ */
+- (void)beginDownLoading {
+    self.state  = AIDownloadButtonWillLoad;
     //变为点
     UIBezierPath         *pointPath      = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_middleY + 1) radius:.5 startAngle:0 endAngle:2*M_PI clockwise:NO];
     CABasicAnimation    *changeToPoint   = [CABasicAnimation animationWithKeyPath:@"path"];
@@ -127,7 +176,7 @@
     changeToPoint.duration               = .2;
     [self.pointShapeLayer addAnimation:changeToPoint forKey:nil];
     //箭头变为线
-   
+    
     CABasicAnimation   *lineAniamtion  = [CABasicAnimation animationWithKeyPath:@"position.y"];
     
     lineAniamtion.duration              = .2;
@@ -135,10 +184,7 @@
     lineAniamtion.toValue               = @(self.arrowShapeLayer.y +10);
     lineAniamtion.removedOnCompletion   = NO;
     
-    UIBezierPath         *linePath       = [UIBezierPath bezierPath];
-    [linePath moveToPoint: CGPointMake(self.ai_middleX * .5, self.ai_height *.5 )];
-    [linePath addLineToPoint:CGPointMake(self.ai_middleX, self.ai_height *.5 )];
-    [linePath addLineToPoint: CGPointMake(self.ai_middleX * 1.5, self.ai_height *.5 )];
+    UIBezierPath         *linePath      = [self linePath];
     
     CASpringAnimation   *lineSpringAnimation    = [CASpringAnimation animationWithKeyPath:@"path"];
     lineSpringAnimation.toValue                 = (__bridge id _Nullable)(linePath.CGPath);
@@ -150,7 +196,7 @@
     lineSpringAnimation.fillMode                = kCAFillModeForwards;
     lineSpringAnimation.beginTime               = .2;
     lineSpringAnimation.removedOnCompletion     = NO;
-
+    
     
     CAAnimationGroup    *groupAnimation         = [CAAnimationGroup animation];
     groupAnimation.duration                     = 1;
@@ -171,57 +217,27 @@
         [self.pointShapeLayer addAnimation:pointSpringAnimation forKey:nil];
     });
     
+    
+}
+- (UIBezierPath*)linePath {
+    UIBezierPath         *linePath       = [UIBezierPath bezierPath];
+    [linePath moveToPoint: CGPointMake(self.ai_middleX * .5, self.ai_height *.5 )];
+    [linePath addLineToPoint:CGPointMake(self.ai_middleX, self.ai_height *.5 )];
+    [linePath addLineToPoint: CGPointMake(self.ai_middleX * 1.5, self.ai_height *.5 )];
+    return linePath;
 }
 
-/**
- 恢复原样
- */
--(void)resume {
-    [self.pointShapeLayer removeAllAnimations];
-    [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
-    [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0];
-    self.progressShapeLayer.strokeStart     = 1;
-    self.progress                           = 0.;
-    self.selected                           = NO;
-    //进度消失
-    POPBasicAnimation   *progressAnimation  = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerLineWidth];
-    progressAnimation.toValue               = @0.;
-    progressAnimation.duration              = .3;
-    [self.progressShapeLayer pop_addAnimation:progressAnimation forKey:nil];
-    //点变成竖线
-    UIBezierPath    *pointPath      = [UIBezierPath bezierPath];
-    [pointPath moveToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.25)];
-    [pointPath addLineToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.75 - self.arrowShapeLayer.lineWidth)];
-    CABasicAnimation    *pointToLineAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-    pointToLineAnimation.toValue              = (__bridge id _Nullable)(pointPath.CGPath);
-    pointToLineAnimation.duration             = .3;
-    pointToLineAnimation.removedOnCompletion  = NO;
-    pointToLineAnimation.fillMode             = kCAFillModeForwards;
-    [self.pointShapeLayer addAnimation:pointToLineAnimation forKey:nil];
-    
-    [self.waveLayer removeFromSuperlayer];
-    //箭头
-    self.arrowShapeLayer.opacity    = 1.;
-    UIBezierPath    *arrowPath      = [UIBezierPath bezierPath];
-    [arrowPath moveToPoint: CGPointMake(self.ai_middleX * .75, self.ai_height *(0.25 + .5 * 0.6))];
-    [arrowPath addLineToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.75)];
-    [arrowPath addLineToPoint: CGPointMake(self.ai_middleX * 1.25, self.ai_height *(0.25 + .5 * 0.6))];
-    CABasicAnimation    *arrowAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-    arrowAnimation.toValue              = (__bridge id _Nullable)(arrowPath.CGPath);
-    arrowAnimation.duration             = .3;
-    arrowAnimation.removedOnCompletion  = NO;
-    arrowAnimation.fillMode             = kCAFillModeForwards;
-    [self.arrowShapeLayer addAnimation:arrowAnimation forKey:nil];
-    
-}
+
 #pragma mark -CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSString *name = [anim valueForKey:@"name"];
     if ([name isEqualToString:@"pointLayer"]) { //完成点的动画
         [self.layer addSublayer:self.progressShapeLayer];
 
+        //变更状态
+        self.state = AIDownloadButtonLoading;
         if (self.block) {
-            self.block();
+            self.block(self);
         }
         
         [self opacityAnimationWithLayer:self.arrowShapeLayer fromValue:1. toValue:0.];
@@ -274,14 +290,90 @@
 }
 
 #pragma mark -public
+/**
+ 复位
+ */
+-(void)reset {
+    //变更状态
+    self.state  = AIDownloadButtonNone;
+    
+    [self.pointShapeLayer removeAllAnimations];
+    [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
+    [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0];
+    self.progressShapeLayer.strokeStart     = 1;
+    self.progress                           = 0.;
+    self.state                              = AIDownloadButtonNone;
+    //进度消失
+    POPBasicAnimation   *progressAnimation  = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerLineWidth];
+    progressAnimation.toValue               = @0.;
+    progressAnimation.duration              = .3;
+    [self.progressShapeLayer pop_addAnimation:progressAnimation forKey:nil];
+    //点变成竖线
+    UIBezierPath    *pointPath      = [UIBezierPath bezierPath];
+    [pointPath moveToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.25)];
+    [pointPath addLineToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.75 - self.arrowShapeLayer.lineWidth)];
+    CABasicAnimation    *pointToLineAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    pointToLineAnimation.toValue              = (__bridge id _Nullable)(pointPath.CGPath);
+    pointToLineAnimation.duration             = .3;
+    pointToLineAnimation.removedOnCompletion  = NO;
+    pointToLineAnimation.fillMode             = kCAFillModeForwards;
+    [self.pointShapeLayer addAnimation:pointToLineAnimation forKey:nil];
+    
+    [self.waveLayer removeFromSuperlayer];
+    //箭头
+    self.arrowShapeLayer.opacity    = 1.;
+    UIBezierPath    *arrowPath      = [UIBezierPath bezierPath];
+    [arrowPath moveToPoint: CGPointMake(self.ai_middleX * .75, self.ai_height *(0.25 + .5 * 0.6))];
+    [arrowPath addLineToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.75)];
+    [arrowPath addLineToPoint: CGPointMake(self.ai_middleX * 1.25, self.ai_height *(0.25 + .5 * 0.6))];
+    CABasicAnimation    *arrowAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    arrowAnimation.toValue              = (__bridge id _Nullable)(arrowPath.CGPath);
+    arrowAnimation.duration             = .3;
+    arrowAnimation.removedOnCompletion  = NO;
+    arrowAnimation.fillMode             = kCAFillModeForwards;
+    [self.arrowShapeLayer addAnimation:arrowAnimation forKey:nil];
+    
+}
+/**
+ UI暂停
+ */
+- (void)suspend {
+    //变更状态  恢复-->暂停
+    self.state  = AIDownloadButtonSuspend;
+    //直线
+//    self.arrowShapeLayer.path   = [self linePath].CGPath;
+    [self opacityAnimationWithLayer:self.arrowShapeLayer fromValue:0. toValue:1.];
+    //波浪消失
+    [self opacityAnimationWithLayer:self.waveLayer fromValue:1. toValue:0.];
+}
+
+/**
+ UI从暂停中恢复
+ */
+- (void)resume {
+    //变更状态  暂停-->恢复
+    self.state  = AIDownloadButtonResume;
+    [self opacityAnimationWithLayer:self.arrowShapeLayer fromValue:1. toValue:0.];
+    //波浪消失
+    [self opacityAnimationWithLayer:self.waveLayer fromValue:0. toValue:1.];
+}
+
+/**
+ 结束
+ */
+- (void)end {
+    self.state                           = AIDownloadButtonEnd;
+    self.waveLayer.stop = YES;
+    [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
+    
+    [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0.];
+}
+
 -(void)setProgress:(CGFloat)progress {
     _progress = progress;
     self.progressShapeLayer.strokeStart   = 1-progress;
     if (progress >= 1) {
-        self.waveLayer.stop = YES;
-        [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
-        
-        [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0.];
+        [self end];
     }
 }
 -(void)setText:(NSString *)text {
