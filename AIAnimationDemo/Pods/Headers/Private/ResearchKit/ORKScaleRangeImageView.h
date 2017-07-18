@@ -1,0 +1,1 @@
+../../../ResearchKit/ResearchKit/Common/ORKScaleRangeImageView.h
