@@ -1,1 +1,0 @@
-../../../ChameleonFramework/Pod/Classes/Objective-C/UIAppearance+Swift.h

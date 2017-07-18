@@ -1,1 +1,0 @@
-../../../ResearchKit/ResearchKit/ActiveTasks/ORKTimedWalkStep.h

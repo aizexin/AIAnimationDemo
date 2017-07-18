@@ -1,1 +1,0 @@
-../../../ResearchKit/ResearchKit/ActiveTasks/ORKHolePegTestRemoveContentView.h

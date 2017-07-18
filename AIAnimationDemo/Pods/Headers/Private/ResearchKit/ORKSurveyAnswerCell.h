@@ -1,1 +1,0 @@
-../../../ResearchKit/ResearchKit/Common/ORKSurveyAnswerCell.h
