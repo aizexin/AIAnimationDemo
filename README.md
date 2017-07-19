@@ -82,7 +82,7 @@
 
 + 仿qq图片浏览器(http://www.jianshu.com/p/551ae8b86d27)
 
-![qq相册效果.gif](http://upload-images.jianshu.io/upload_images/1389261-f6d26dc0b440d838.gif?imageMogr2/auto-orient/strip)
+![qq相册效果.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/模仿QQ图片浏览器.gif)
 
 + researchKit的lineChart
 
