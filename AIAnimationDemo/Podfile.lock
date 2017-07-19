@@ -21,6 +21,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - GPUImage (0.1.7)
   - KMCGeigerCounter (0.2.2)
+  - lottie-ios (1.5.2)
   - Masonry (1.0.2)
   - MJExtension (3.0.13)
   - MLTransition (2.1.2)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - ChameleonFramework (~> 2.1.0)
   - GPUImage (~> 0.1.7)
   - KMCGeigerCounter
+  - lottie-ios
   - Masonry
   - MJExtension
   - MLTransition (~> 2.1.2)
@@ -60,6 +62,7 @@ SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   KMCGeigerCounter: f8cc3c4aa19fc6f8cec168fb03b364b84c118a7a
+  lottie-ios: 255a0e95973a5c4424e809d7a5c19f7384c73e84
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MLTransition: 26751adac088c07e4df48c9f605cfdd767bb8afa
@@ -68,6 +71,6 @@ SPEC CHECKSUMS:
   ResearchKit: badba0340dd71d1cbab4789a0bf01b26022b8f94
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 91db5a35a3f758d91df72ff81977d1f2d1bbf9a9
+PODFILE CHECKSUM: 5ae873b9e207fc21bd9853a25c7790e47ba40ce3
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1
