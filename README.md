@@ -6,9 +6,9 @@
 
 + officebuddy
 
-![downloadButton.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/officebuddy.gif)
+![officebuddy.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/officebuddy.gif)
 
-+ downloadButton
++ downloadButton [简书](http://www.jianshu.com/p/6b24c52b24a9)
 
 ![downloadButton.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/downloadButton.gif)
 
