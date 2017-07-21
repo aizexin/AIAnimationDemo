@@ -303,15 +303,19 @@
  复位
  */
 -(void)reset {
+    if (self.state == AIDownloadButtonWillLoad || self.state == AIDownloadButtonNone) {
+        //准备动画未完成不能复位
+        return;
+    }
     //变更状态
     self.state  = AIDownloadButtonNone;
     
     [self.pointShapeLayer removeAllAnimations];
+    //文件大小
     [self scaleAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:.1];
     [self opacityAnimationWithLayer:self.progressLabel.layer fromValue:1. toValue:0];
     self.progressShapeLayer.strokeStart     = 1;
     self.progress                           = 0.;
-    self.state                              = AIDownloadButtonNone;
     //进度消失
     POPBasicAnimation   *progressAnimation  = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerLineWidth];
     progressAnimation.toValue               = @0.;
@@ -330,7 +334,7 @@
     //移除波浪
     [self.waveLayer removeFromSuperlayer];
     //箭头
-    self.arrowShapeLayer.opacity    = 1.;
+    [self opacityAnimationWithLayer:self.arrowShapeLayer fromValue:0. toValue:1.];
     UIBezierPath    *arrowPath      = [UIBezierPath bezierPath];
     [arrowPath moveToPoint: CGPointMake(self.ai_middleX * .75, self.ai_height *(0.25 + .5 * 0.6))];
     [arrowPath addLineToPoint: CGPointMake(self.ai_middleX, self.ai_height *0.75)];
