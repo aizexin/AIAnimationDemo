@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KMCGeigerCounter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,17 +87,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>083F14D068AC16C6108A076AD798D6CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4F69F82C1EEBC0A05686A3B0FECD2FDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>57B65F99FEBEAC0B166CDF95C6D443CF</key>
+		<key>523E4F1FDA88C0B6DF7FF57AFC9CB0A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>5A3DC1C5A6CD24F2A493066CD1BC0D9D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81B53BEAB438C5F20E46FCA33E545453</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>904F4F27FD314010A3812EB2A9306183</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>99AA2E81D3B6258726F153E014D58CD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,27 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA8E2CB6C182C8967BC27A16A234AF06</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C4C2EF86FFE4C75EB3F56DF9BBF415F7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D57F6DD7CBDE11E457971075B0805982</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D707266EE46DCDCE54831609E18A48C2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DD44BB3A6A4D9BFF515538FE50562C34</key>
+		<key>F5ECE149DCFD4D7EFFA3065889B8F367</key>
 		<dict>
 			<key>primary</key>
 			<true/>

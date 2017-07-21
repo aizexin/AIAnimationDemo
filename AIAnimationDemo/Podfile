@@ -14,4 +14,5 @@ target ‘AIAnimationDemo’ do
     pod 'ChameleonFramework', '~> 2.1.0' #变色龙颜色处理
     pod 'YYCache'                 #离线缓存
     pod 'lottie-ios'
+    pod 'IQKeyboardManager'       #键盘自动上移
 end

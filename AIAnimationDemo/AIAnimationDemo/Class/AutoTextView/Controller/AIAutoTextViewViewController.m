@@ -23,7 +23,7 @@
     //    toolbarView.frame     = CGRectMake(0, KHeight - 30, KWidth, 30);
     UIView *toolbarView           = [[UIView alloc]init];
     toolbarView.layer.borderWidth = 1.;
-    toolbarView.layer.borderColor = [UIColor flatBlueColor].CGColor;
+    toolbarView.layer.borderColor = [UIColor flatBlackColor].CGColor;
     [self.view addSubview:toolbarView];
     [toolbarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.mas_equalTo(0);
