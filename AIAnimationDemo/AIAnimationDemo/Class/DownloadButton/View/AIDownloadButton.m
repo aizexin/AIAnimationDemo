@@ -327,7 +327,7 @@
     pointToLineAnimation.removedOnCompletion  = NO;
     pointToLineAnimation.fillMode             = kCAFillModeForwards;
     [self.pointShapeLayer addAnimation:pointToLineAnimation forKey:nil];
-    
+    //移除波浪
     [self.waveLayer removeFromSuperlayer];
     //箭头
     self.arrowShapeLayer.opacity    = 1.;
