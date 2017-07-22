@@ -29,10 +29,10 @@
                 [weakSelf dowload];
                 break;
             case AIDownloadButtonResume:
-                [self.task resume];
+                [weakSelf.task resume];
                 break;
             case AIDownloadButtonSuspend:
-                [self.task suspend];
+                [weakSelf.task suspend];
                 break;
 
             default:
