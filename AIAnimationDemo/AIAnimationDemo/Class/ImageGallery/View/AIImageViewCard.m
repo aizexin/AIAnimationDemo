@@ -9,13 +9,32 @@
 #import "AIImageViewCard.h"
 
 @implementation AIImageViewCard
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithImageNamed:(NSString *)imageNamed title:(NSString*)name;
+{
+    self = [super init];
+    if (self) {
+        self.image         = [UIImage imageNamed:imageNamed];
+        self.contentMode   = UIViewContentModeScaleAspectFill;
+        self.clipsToBounds = YES;
+        _title             = name;
+        
+//        self.autoresizingMask          = @[@(UIViewAutoresizingFlexibleHeight),@(UIViewContentModeScaleAspectFill)];
+        self.layer.shouldRasterize     = YES;
+        self.layer.rasterizationScale  = [UIScreen mainScreen].scale;
+    }
+    return self;
 }
-*/
+
+-(void)didMoveToSuperview {
+    [super didMoveToSuperview];
+    self.userInteractionEnabled = YES;
+    [self addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapHandler:)]]
+    ;
+}
+- (void)didTapHandler:(UITapGestureRecognizer*)tap {
+    if (self.didSelectBlock) {
+        self.didSelectBlock(self);
+    }
+}
 
 @end

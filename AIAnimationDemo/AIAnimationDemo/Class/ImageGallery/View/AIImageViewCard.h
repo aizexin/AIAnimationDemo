@@ -10,4 +10,11 @@
 
 @interface AIImageViewCard : UIImageView
 
+/**title */
+@property(nonatomic,copy)NSString *title;
+
+/**被选中 */
+@property(nonatomic,copy)void (^didSelectBlock)(AIImageViewCard *ImageViewCard);
+- (instancetype)initWithImageNamed:(NSString *)imageNamed title:(NSString*)title;
+
 @end
