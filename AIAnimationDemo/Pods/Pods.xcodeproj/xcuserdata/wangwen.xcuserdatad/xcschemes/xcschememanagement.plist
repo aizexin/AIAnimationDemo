@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 		<key>KMCGeigerCounter.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -82,7 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>083F14D068AC16C6108A076AD798D6CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4F69F82C1EEBC0A05686A3B0FECD2FDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>523E4F1FDA88C0B6DF7FF57AFC9CB0A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -93,6 +108,21 @@
 			<true/>
 		</dict>
 		<key>5A3DC1C5A6CD24F2A493066CD1BC0D9D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81B53BEAB438C5F20E46FCA33E545453</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>904F4F27FD314010A3812EB2A9306183</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>99AA2E81D3B6258726F153E014D58CD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -133,6 +163,11 @@
 			<true/>
 		</dict>
 		<key>DD44BB3A6A4D9BFF515538FE50562C34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5ECE149DCFD4D7EFFA3065889B8F367</key>
 		<dict>
 			<key>primary</key>
 			<true/>
