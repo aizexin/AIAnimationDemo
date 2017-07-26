@@ -1,5 +1,10 @@
 #AIAnimationDemo
 
++ Safari效果
+
+![Safari效果.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/Safari效果.gif)
+
+
 + 折叠
 
 ![折叠.gif](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/折叠.gif)
