@@ -26,9 +26,7 @@
                         [[AIImageViewCard alloc]initWithImageNamed:@"Hurricane_Irene.jpg" title:@"Hurricane Irene"]
                         ];
     self.view.backgroundColor = [UIColor blackColor];
-}
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    
     for (AIImageViewCard *image in self.images) {
         image.layer.anchorPoint  = CGPointMake(image.layer.anchorPoint.x, 0.);
         image.frame              = self.view.bounds;
@@ -64,6 +62,10 @@
     CATransform3D perspective        = CATransform3DIdentity;
     perspective.m34                  = -1./250.;
     self.view.layer.sublayerTransform = perspective;
+}
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+  
 }
 
 #pragma mark -Action
