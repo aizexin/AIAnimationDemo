@@ -17,8 +17,6 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-//    CGContextTranslateCTM(<#CGContextRef  _Nullable c#>, <#CGFloat tx#>, <#CGFloat ty#>)
-
     CGContextTranslateCTM(context, frame.origin.x * -1, frame.origin.y * -1);
     // 2.将控制器view的layer渲染到上下文
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];

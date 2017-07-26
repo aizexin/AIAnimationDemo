@@ -162,8 +162,8 @@ const NSTimeInterval unfoldDuration = 0.5;
         UIImage *image          = [self ai_takeSnapshotWithFrame:rect];
         AIFoldRotatedView *rotatedView      = [[AIFoldRotatedView alloc]initWithFrame:rect Image:image];
 //        rotatedView.layer.anchorPoint    = CGPointMake(.5, 0);
-        //测试
-        rotatedView.tag         = i+100;
+//        //测试
+//        rotatedView.tag         = i+100;
         rotatedView.delegate    = self;
         [self addSubview:rotatedView];
         //添加到可折叠数组中
