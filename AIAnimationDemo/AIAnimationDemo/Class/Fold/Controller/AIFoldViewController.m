@@ -33,7 +33,7 @@
     //容器
     AIFoldContainerView *foldContainerView  = [[AIFoldContainerView alloc]init];
     self.foldContainerView                  = foldContainerView;
-    foldContainerView.itemCount             = 2;
+    foldContainerView.itemCount             = 5;
     foldContainerView.itemWidth             = 100;
     foldContainerView.itemHeight            = 100;
     AIWeakSelf;

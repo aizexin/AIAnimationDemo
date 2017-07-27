@@ -37,7 +37,7 @@
 }
 
 /**
- 折叠动画
+ 旋转动画
  
  @param timing 节奏
  @param from 开始
@@ -45,7 +45,7 @@
  @param duration 持续时长
  @param delay 延时
  */
-- (CABasicAnimation*)foldingAnimationTiming:(NSString *)timing from:(CGFloat)from to:(CGFloat)to duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay  {
+- (CABasicAnimation*)rotationAnimationTiming:(NSString *)timing from:(CGFloat)from to:(CGFloat)to duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay  {
     CABasicAnimation *rotateAnimation     = [CABasicAnimation animationWithKeyPath:@"transform.rotation.x"];
     rotateAnimation.timingFunction        = [CAMediaTimingFunction functionWithName:timing];
     rotateAnimation.fromValue             = @(from);
@@ -76,7 +76,7 @@
             AILog(@"未设置代理");
         }
     });
-    CABasicAnimation *animation1Layer          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseIn from:0 to:M_PI_2 duration:duration * .5 delay:delay ];
+    CABasicAnimation *animation1Layer          = [self rotationAnimationTiming:kCAMediaTimingFunctionEaseIn from:0 to:M_PI_2 duration:duration * .5 delay:delay ];
     [animation1Layer setValue:@"foldstarAnimation" forKey:@"name"];
     [self.layer addAnimation:animation1Layer forKey:@"animation1"];
 }
@@ -98,7 +98,7 @@
             AILog(@"未设置代理");
         }
     });
-    CABasicAnimation *animation1Layer          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseIn from:M_PI_2 to:M_PI_4  duration:duration * .5 delay:delay ];
+    CABasicAnimation *animation1Layer          = [self rotationAnimationTiming:kCAMediaTimingFunctionEaseIn from:M_PI_2 to:M_PI_4  duration:duration * .5 delay:delay ];
     [animation1Layer setValue:@"unfoldstarAnimation" forKey:@"name"];
     [self.layer addAnimation:animation1Layer forKey:@"animation1"];
     
@@ -121,10 +121,10 @@
 #pragma mark -CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSString *name = [anim valueForKey:@"name"];
-    if ([name isEqualToString:@"foldstarAnimation"]) {
+    if ([name isEqualToString:@"foldstarAnimation"]) {//折叠到90°
         // 让backView到最前面来
         [self bringSubviewToFront:self.backView];
-        CABasicAnimation *foldendAnimation          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_2 to:M_PI duration:anim.duration delay:0 ];
+        CABasicAnimation *foldendAnimation          = [self rotationAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_2 to:M_PI duration:anim.duration delay:0 ];
         [foldendAnimation setValue:@"foldendAnimation" forKey:@"name"];
         [self.layer addAnimation:foldendAnimation forKey:nil];
         
@@ -141,7 +141,7 @@
         [self clearTransform];
         // 让faceview到最前面来
         [self bringSubviewToFront:self.faceView];
-        CABasicAnimation *unfoldendAnimation          = [self foldingAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_4 to:0 duration:anim.duration delay:0 ];
+        CABasicAnimation *unfoldendAnimation          = [self rotationAnimationTiming:kCAMediaTimingFunctionEaseOut from:M_PI_4 to:0 duration:anim.duration delay:0 ];
         [unfoldendAnimation setValue:@"unfoldendAnimation" forKey:@"name"];
         [self.layer addAnimation:unfoldendAnimation forKey:nil];
     }else if ([name isEqualToString:@"unfoldendAnimation"]) { //展开完成
