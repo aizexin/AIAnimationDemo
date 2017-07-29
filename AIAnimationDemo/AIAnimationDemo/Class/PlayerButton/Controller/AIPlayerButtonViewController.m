@@ -7,7 +7,7 @@
 //
 
 #import "AIPlayerButtonViewController.h"
-
+#import "AIPlayerButton.h"
 @interface AIPlayerButtonViewController ()
 
 @end
@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    AIPlayerButton *button = [[AIPlayerButton alloc]initWithFrame:CGRectMake(0, 100, 100, 100)];
+    [self.view addSubview:button];
 }
 
 

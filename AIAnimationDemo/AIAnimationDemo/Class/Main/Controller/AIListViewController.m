@@ -48,6 +48,7 @@
 #import "AIContainerViewController.h"       //officebuddy
 #import "AIFoldViewController.h"            //折叠
 #import "AIImageGalleryViewController.h"    //类似Safari效果
+#import "AIPlayerButtonViewController.h"
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;
@@ -95,7 +96,8 @@
                            [AIListModel initWithTitle:@"下载按钮" andTargetVC:[AIDownloadButtonViewController class]],
                            [AIListModel initWithTitle:@"officebuddy" andTargetVC:[AIContainerViewController class]],
                            [AIListModel initWithTitle:@"折叠" andTargetVC:[AIFoldViewController class]],
-                           [AIListModel initWithTitle:@"类似Safari效果" andTargetVC:[AIImageGalleryViewController class]]
+                           [AIListModel initWithTitle:@"类似Safari效果" andTargetVC:[AIImageGalleryViewController class]],
+                           [AIListModel initWithTitle:@"播放按钮（test）" andTargetVC:[AIPlayerButtonViewController class]]
                            ];
         
         _dataSource = [NSMutableArray arrayWithCapacity:array.count];

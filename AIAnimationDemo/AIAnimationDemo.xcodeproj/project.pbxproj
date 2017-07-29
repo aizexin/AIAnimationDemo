@@ -86,6 +86,7 @@
 		455E28D91D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455E28D81D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m */; };
 		4568F23A1EB237DF0065B250 /* AFBrushBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568F2391EB237DF0065B250 /* AFBrushBoard.m */; };
 		456AEAD71F2B865300D44FEB /* AIPlayerButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 456AEAD61F2B865300D44FEB /* AIPlayerButtonViewController.m */; };
+		456AEADA1F2C830700D44FEB /* AIPlayerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 456AEAD91F2C830700D44FEB /* AIPlayerButton.m */; };
 		456BA6611E07B24700805F7C /* AIIrregularityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 456BA6601E07B24700805F7C /* AIIrregularityViewController.m */; };
 		456BA6661E07BDF500805F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456BA6651E07BDF500805F7C /* Assets.xcassets */; };
 		456C42A21E3250E200F36403 /* AIHorizontalItemListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C42A11E3250E200F36403 /* AIHorizontalItemListView.m */; };
@@ -358,6 +359,8 @@
 		4568F2391EB237DF0065B250 /* AFBrushBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFBrushBoard.m; sourceTree = "<group>"; };
 		456AEAD51F2B865300D44FEB /* AIPlayerButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayerButtonViewController.h; sourceTree = "<group>"; };
 		456AEAD61F2B865300D44FEB /* AIPlayerButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayerButtonViewController.m; sourceTree = "<group>"; };
+		456AEAD81F2C830700D44FEB /* AIPlayerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayerButton.h; sourceTree = "<group>"; };
+		456AEAD91F2C830700D44FEB /* AIPlayerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayerButton.m; sourceTree = "<group>"; };
 		456BA65F1E07B24700805F7C /* AIIrregularityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIIrregularityViewController.h; sourceTree = "<group>"; };
 		456BA6601E07B24700805F7C /* AIIrregularityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIIrregularityViewController.m; sourceTree = "<group>"; };
 		456BA6651E07BDF500805F7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1504,6 +1507,8 @@
 		456AEAD41F2B863000D44FEB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				456AEAD81F2C830700D44FEB /* AIPlayerButton.h */,
+				456AEAD91F2C830700D44FEB /* AIPlayerButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2459,6 +2464,7 @@
 				459F82D01E0CFBDB00AD6105 /* UIImage+ImageEffects.m in Sources */,
 				4505FE961DAF2D3B00AE4FED /* AIShimmerViewController.m in Sources */,
 				454516081E0A815900F3BCF9 /* AIAutoTextViewViewController.m in Sources */,
+				456AEADA1F2C830700D44FEB /* AIPlayerButton.m in Sources */,
 				4546AD311DD1B771006F230C /* AITableViewTapAnimationController.m in Sources */,
 				456C42A51E32585700F36403 /* AIPackingCollectionViewCell.m in Sources */,
 				456AEAD71F2B865300D44FEB /* AIPlayerButtonViewController.m in Sources */,
