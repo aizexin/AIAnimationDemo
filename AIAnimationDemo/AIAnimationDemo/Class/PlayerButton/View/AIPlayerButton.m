@@ -21,37 +21,41 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        CAReplicatorLayer *replicatorLayer = [CAReplicatorLayer layer];
-//        replicatorLayer.bounds = self.frame;
-//        replicatorLayer.position = self.center;
-//        [self.layer addSublayer:replicatorLayer];
-//        //
-//        CALayer *layer = [CALayer layer];
-//        layer.backgroundColor = [UIColor redColor].CGColor;
-//        layer.cornerRadius = 20;
-//        layer.bounds = CGRectMake(0, 0, 40, 40);
-//        layer.position = CGPointMake(50, self.center.y);
-//        [replicatorLayer addSublayer:layer];
-//        layer.transform = CATransform3DMakeScale(0.01, 0.01, 0.01);
-//        //
-//        CABasicAnimation *basicAni = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-//        basicAni.fromValue = @(1);
-//        basicAni.toValue = @(0.1);
-//        basicAni.duration = 0.75;
-//        basicAni.repeatCount = NSIntegerMax;
-//        [layer addAnimation:basicAni forKey:@"layerPosition"];
-//        
-//        replicatorLayer.instanceCount = 15;
-//        replicatorLayer.preservesDepth = YES;
-//        CATransform3D transform = CATransform3DIdentity;
-//        transform = CATransform3DRotate(transform, M_PI * 2 / 15.0, 0, 0, 1);
-//        replicatorLayer.instanceTransform = transform;
-//        replicatorLayer.instanceDelay = 0.05;
-//        replicatorLayer.instanceAlphaOffset = -1.0 / 15.0;
+        self.layer1               = [CAShapeLayer layer];
+        self.layer1.strokeColor   = [UIColor blackColor].CGColor;
+        self.layer1.lineCap       = kCALineCapRound;
+        self.layer1.lineWidth     = 4;
         
+        self.layer2               = [CAShapeLayer layer];
+        self.layer2.strokeColor   = [UIColor blackColor].CGColor;
+        self.layer2.lineCap       = kCALineCapRound;
+        self.layer2.lineWidth     = 4;
+        
+        self.layer3               = [CAShapeLayer layer];
+        self.layer3.strokeColor   = [UIColor blackColor].CGColor;
+        self.layer3.lineCap       = kCALineCapRound;
+        self.layer3.lineWidth     = 4;
+        
+        [self.layer addSublayer:self.layer1];
+        [self.layer addSublayer:self.layer2];
+        [self.layer addSublayer:self.layer3];
+  
     }
     return self;
 }
-
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    UIBezierPath* bezierPath1 = [UIBezierPath bezierPath];
+    [bezierPath1 moveToPoint: CGPointMake(self.frame.size.width *0.25, self.frame.size.height *0.2)];
+    [bezierPath1 addLineToPoint: CGPointMake(self.frame.size.width *0.25, self.frame.size.height *0.8)];
+    bezierPath1.lineWidth     = 4;
+    self.layer1.path          = bezierPath1.CGPath;
+    
+    UIBezierPath* bezierPath2 = [UIBezierPath bezierPath];
+    [bezierPath2 moveToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.2)];
+    [bezierPath2 addLineToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.8)];
+    bezierPath2.lineWidth     = 4;
+    self.layer2.path          = bezierPath2.CGPath;
+}
 
 @end
