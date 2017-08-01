@@ -10,4 +10,7 @@
 
 @interface AIPlayerButton : UIView
 
+
+/**被点击回调 */
+@property(nonatomic,copy)void (^onClickblock)(AIPlayerButton *button);
 @end
