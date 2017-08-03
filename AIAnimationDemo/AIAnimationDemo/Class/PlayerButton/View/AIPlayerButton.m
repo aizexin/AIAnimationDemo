@@ -68,34 +68,62 @@
     self.layer3.path          = bezierPath3.CGPath;
 }
 
-#pragma mark -Action 
-- (void)tapClick:(UITapGestureRecognizer*)tap {
-    //animation
+
+/**
+ path动画
+
+ @param path 变为的path
+ @param duration 持续时间
+ @return 返回动画
+ */
+- (CABasicAnimation*)animationToPath:(UIBezierPath* )path duration:(NSTimeInterval)duration {
+    CABasicAnimation    *pathAnimation   = [CABasicAnimation animationWithKeyPath:@"path"];
+    pathAnimation.toValue                = (__bridge id)(path.CGPath);
+    pathAnimation.fillMode               = kCAFillModeForwards;
+    pathAnimation.removedOnCompletion    = NO;
+    pathAnimation.duration               = duration;
+    return pathAnimation;
+}
+/**
+ 不透明度动画
+ 
+ @param layer 要执行动画的layer
+ @param from 从多少开始
+ @param to 到多少
+ */
+- (void)opacityAnimationWithLayer:(CALayer*)layer fromValue:(CGFloat)from toValue:(CGFloat)to {
+    POPBasicAnimation *opacityAnimation          = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
+    opacityAnimation.toValue                     = @(to);
+    opacityAnimation.fromValue                   = @(from);
+    opacityAnimation.duration                    = .2;
+    [layer pop_addAnimation:opacityAnimation forKey:nil];
+}
+- (UIBezierPath *)bezierPath2stop {
     //2
     UIBezierPath* bezierPath2stop = [UIBezierPath bezierPath];
     [bezierPath2stop moveToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.5)];
     [bezierPath2stop addLineToPoint: CGPointMake(self.frame.size.width *0.25, self.frame.size.height *0.8)];
     bezierPath2stop.lineWidth     = 4;
-    
-    CABasicAnimation    *layer2changeToStop   = [CABasicAnimation animationWithKeyPath:@"path"];
-    layer2changeToStop.toValue                = (__bridge id)(bezierPath2stop.CGPath);
-    layer2changeToStop.fillMode               = kCAFillModeForwards;
-    layer2changeToStop.removedOnCompletion    = NO;
-    layer2changeToStop.duration               = .2;
-    [self.layer2 addAnimation:layer2changeToStop forKey:nil];
-    //3
-    self.layer3.opacity           = 1.;
-    
+    return bezierPath2stop;
+}
+- (UIBezierPath *) bezierPath3stop{
     UIBezierPath* bezierPath3stop = [UIBezierPath bezierPath];
     [bezierPath3stop moveToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.5)];
     [bezierPath3stop addLineToPoint: CGPointMake(self.frame.size.width *0.25, self.frame.size.height *0.2)];
     bezierPath3stop.lineWidth     = 4;
-    
-    CABasicAnimation    *layer3changeToStop   = [CABasicAnimation animationWithKeyPath:@"path"];
-    layer3changeToStop.toValue                = (__bridge id)(bezierPath3stop.CGPath);
-    layer3changeToStop.fillMode               = kCAFillModeForwards;
-    layer3changeToStop.removedOnCompletion    = NO;
-    layer3changeToStop.duration               = .2;
+    return bezierPath3stop;
+}
+
+#pragma mark -Action 
+- (void)tapClick:(UITapGestureRecognizer*)tap {
+    //animation
+    //2
+    CABasicAnimation *layer2changeToStop        = [self animationToPath:[self bezierPath2stop] duration:.2];
+    [self.layer2 addAnimation:layer2changeToStop forKey:nil];
+    //3
+    [self opacityAnimationWithLayer:self.layer3 fromValue:0. toValue:1.];
+
+    CABasicAnimation *layer3changeToStop        = [self animationToPath:[self bezierPath3stop] duration:.2];
     [self.layer3 addAnimation:layer3changeToStop forKey:nil];
     //回调
     if (self.onClickblock) {
