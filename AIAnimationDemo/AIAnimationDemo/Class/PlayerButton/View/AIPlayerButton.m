@@ -8,32 +8,16 @@
 
 #import "AIPlayerButton.h"
 
-//@interface UIControl (XY)
-//@property (nonatomic, assign) NSTimeInterval uxy_acceptEventInterval;   // 可以用这个给重复点击加间隔
-//@end
-//@implementation UIControl (XY)
-//+ (void)load
-//{
-//        Method a = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
-//        Method b = class_getInstanceMethod(self, @selector(__uxy_sendAction:to:forEvent:));
-//        method_exchangeImplementations(a, b);
-//}
-//@end
-//static const char *UIControl_acceptEventInterval = "UIControl_acceptEventInterval";
-//- (NSTimeInterval)uxy_acceptEventInterval
-//{
-//        return [objc_getAssociatedObject(self, UIControl_acceptEventInterval) doubleValue];
-//}
-//- (void)setUxy_acceptEventInterval:(NSTimeInterval)uxy_acceptEventInterval
-//{
-//        objc_setAssociatedObject(self, UIControl_acceptEventInterval, @(uxy_acceptEventInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
 @interface AIPlayerButton ()
 
 @property(nonatomic,strong)CAShapeLayer *layer1;
 @property(nonatomic,strong)CAShapeLayer *layer2;
 @property(nonatomic,strong)CAShapeLayer *layer3;
 
+/** 是否忽略*/
+@property(nonatomic,assign,getter=isIgnoreEvent)BOOL ignoreEvent;
+/** 间隔时间*/
+@property(nonatomic,assign)NSTimeInterval acceptEventInterval;
 @end
 
 @implementation AIPlayerButton
@@ -44,20 +28,27 @@
     method_exchangeImplementations(a, b);
 }
 - (void)__ai__sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
-    AILog(@"-----");
-    if (self.isSelected) {
-        [self changeToPlayingAnimation];
-    } else {
-        [self changeToStopAnimation];
+    if (self.ignoreEvent) {
+        return;
     }
-    [self __ai__sendAction:action to:target forEvent:event];
+    if (self.acceptEventInterval > 0) {
+//        AILog(@"-----");
+        self.ignoreEvent  = YES;
+        [self performSelector:@selector(setIgnoreEvent:) withObject:@(NO) afterDelay:self.acceptEventInterval];
+        if (self.isSelected) {
+            [self changeToPlayingAnimation];
+        } else {
+            [self changeToStopAnimation];
+        }
+        [self __ai__sendAction:action to:target forEvent:event];
+    }
 }
-
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _acceptEventInterval      = .5;
         self.layer1               = [CAShapeLayer layer];
         self.layer1.strokeColor   = [UIColor blackColor].CGColor;
         self.layer1.lineCap       = kCALineCapRound;
@@ -89,17 +80,9 @@
     bezierPath1.lineWidth     = 4;
     self.layer1.path          = bezierPath1.CGPath;
     
-    UIBezierPath* bezierPath2 = [UIBezierPath bezierPath];
-    [bezierPath2 moveToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.2)];
-    [bezierPath2 addLineToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.8)];
-    bezierPath2.lineWidth     = 4;
-    self.layer2.path          = bezierPath2.CGPath;
+    self.layer2.path          = [self bezierPath2Playing].CGPath;
     
-    UIBezierPath* bezierPath3 = [UIBezierPath bezierPath];
-    [bezierPath3 moveToPoint: CGPointMake(self.frame.size.width *0.25, self.frame.size.height *0.2)];
-    [bezierPath3 addLineToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.2)];
-    bezierPath3.lineWidth     = 4;
-    self.layer3.path          = bezierPath3.CGPath;
+    self.layer3.path          = [self bezierPath3Playing].CGPath;
 }
 
 
@@ -175,7 +158,12 @@
     
     CABasicAnimation *layer3changeToStop        = [self animationToPath:[self bezierPath3stop] duration:.2];
     [self.layer3 addAnimation:layer3changeToStop forKey:nil];
+   
 }
+
+/**
+ 变为播放
+ */
 - (void)changeToPlayingAnimation {
     //2
     CABasicAnimation *layer2changeToPlaying     = [self animationToPath:[self bezierPath2Playing] duration:.2];
@@ -185,7 +173,6 @@
     
     CABasicAnimation *layer3changeToStop        = [self animationToPath:[self bezierPath3Playing] duration:.2];
     [self.layer3 addAnimation:layer3changeToStop forKey:nil];
-    
 }
 
 
