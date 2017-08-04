@@ -16,11 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    AIPlayerButton *button = [[AIPlayerButton alloc]initWithFrame:CGRectMake(0, 100, 30, 30)];
+    AIPlayerButton *button = [[AIPlayerButton alloc]initWithFrame:CGRectMake(100, 100, 30, 30)];
     button.backgroundColor = [UIColor flatWhiteColorDark];
     [self.view addSubview:button];
+    
+    [button addTarget:self action:@selector(onclickBuutton:) forControlEvents:(UIControlEventTouchUpInside)];
 }
 
-
+- (void)onclickBuutton:(UIButton*)button {
+    AILog(@"222222222222");
+    button.selected        = !button.isSelected;
+}
 
 @end

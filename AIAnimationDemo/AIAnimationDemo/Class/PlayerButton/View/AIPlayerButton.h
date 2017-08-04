@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AIPlayerButton : UIView
+@interface AIPlayerButton : UIButton
 
 
 /**被点击回调 */

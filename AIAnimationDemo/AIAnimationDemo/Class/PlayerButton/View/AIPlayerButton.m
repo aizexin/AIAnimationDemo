@@ -8,6 +8,26 @@
 
 #import "AIPlayerButton.h"
 
+//@interface UIControl (XY)
+//@property (nonatomic, assign) NSTimeInterval uxy_acceptEventInterval;   // 可以用这个给重复点击加间隔
+//@end
+//@implementation UIControl (XY)
+//+ (void)load
+//{
+//        Method a = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
+//        Method b = class_getInstanceMethod(self, @selector(__uxy_sendAction:to:forEvent:));
+//        method_exchangeImplementations(a, b);
+//}
+//@end
+//static const char *UIControl_acceptEventInterval = "UIControl_acceptEventInterval";
+//- (NSTimeInterval)uxy_acceptEventInterval
+//{
+//        return [objc_getAssociatedObject(self, UIControl_acceptEventInterval) doubleValue];
+//}
+//- (void)setUxy_acceptEventInterval:(NSTimeInterval)uxy_acceptEventInterval
+//{
+//        objc_setAssociatedObject(self, UIControl_acceptEventInterval, @(uxy_acceptEventInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
 @interface AIPlayerButton ()
 
 @property(nonatomic,strong)CAShapeLayer *layer1;
@@ -15,7 +35,24 @@
 @property(nonatomic,strong)CAShapeLayer *layer3;
 
 @end
+
 @implementation AIPlayerButton
+
++(void)load {
+    Method a = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
+    Method b = class_getInstanceMethod(self, @selector(__ai__sendAction:to:forEvent:));
+    method_exchangeImplementations(a, b);
+}
+- (void)__ai__sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
+    AILog(@"-----");
+    if (self.isSelected) {
+        [self changeToPlayingAnimation];
+    } else {
+        [self changeToStopAnimation];
+    }
+    [self __ai__sendAction:action to:target forEvent:event];
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -40,10 +77,7 @@
         [self.layer addSublayer:self.layer1];
         [self.layer addSublayer:self.layer2];
         [self.layer addSublayer:self.layer3];
-        
-        //手势
-        UITapGestureRecognizer *tap   = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapClick:)];
-        [self addGestureRecognizer:tap];
+
     }
     return self;
 }
@@ -106,6 +140,14 @@
     bezierPath2stop.lineWidth     = 4;
     return bezierPath2stop;
 }
+- (UIBezierPath *)bezierPath2Playing {
+    //2
+    UIBezierPath* bezierPath2 = [UIBezierPath bezierPath];
+    [bezierPath2 moveToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.2)];
+    [bezierPath2 addLineToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.8)];
+    bezierPath2.lineWidth     = 4;
+    return bezierPath2;
+}
 - (UIBezierPath *) bezierPath3stop{
     UIBezierPath* bezierPath3stop = [UIBezierPath bezierPath];
     [bezierPath3stop moveToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.5)];
@@ -113,22 +155,38 @@
     bezierPath3stop.lineWidth     = 4;
     return bezierPath3stop;
 }
+- (UIBezierPath *) bezierPath3Playing{
+    UIBezierPath* bezierPath3 = [UIBezierPath bezierPath];
+    [bezierPath3 moveToPoint: CGPointMake(self.frame.size.width *0.25, self.frame.size.height *0.2)];
+    [bezierPath3 addLineToPoint: CGPointMake(self.frame.size.width *0.75, self.frame.size.height *0.2)];
+    bezierPath3.lineWidth     = 4;
+    return bezierPath3;
+}
 
-#pragma mark -Action 
-- (void)tapClick:(UITapGestureRecognizer*)tap {
-    //animation
+/**
+ 变为暂停
+ */
+- (void)changeToStopAnimation {
     //2
     CABasicAnimation *layer2changeToStop        = [self animationToPath:[self bezierPath2stop] duration:.2];
     [self.layer2 addAnimation:layer2changeToStop forKey:nil];
     //3
     [self opacityAnimationWithLayer:self.layer3 fromValue:0. toValue:1.];
-
+    
     CABasicAnimation *layer3changeToStop        = [self animationToPath:[self bezierPath3stop] duration:.2];
     [self.layer3 addAnimation:layer3changeToStop forKey:nil];
-    //回调
-    if (self.onClickblock) {
-        self.onClickblock(self);
-    }
 }
+- (void)changeToPlayingAnimation {
+    //2
+    CABasicAnimation *layer2changeToPlaying     = [self animationToPath:[self bezierPath2Playing] duration:.2];
+    [self.layer2 addAnimation:layer2changeToPlaying forKey:nil];
+    //3
+    [self opacityAnimationWithLayer:self.layer3 fromValue:1. toValue:0.];
+    
+    CABasicAnimation *layer3changeToStop        = [self animationToPath:[self bezierPath3Playing] duration:.2];
+    [self.layer3 addAnimation:layer3changeToStop forKey:nil];
+    
+}
+
 
 @end
