@@ -23,9 +23,20 @@
 @implementation AIPlayerButton
 
 +(void)load {
-    Method a = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
-    Method b = class_getInstanceMethod(self, @selector(__ai__sendAction:to:forEvent:));
-    method_exchangeImplementations(a, b);
+
+    SEL actionA   = @selector(sendAction:to:forEvent:);
+    SEL actionB   = @selector(__ai__sendAction:to:forEvent:);
+    //原有的方法
+    Method aMetod =   class_getInstanceMethod([AIPlayerButton class],actionA);
+    //自定义的方法
+    Method bMetod = class_getInstanceMethod([AIPlayerButton class], actionB);
+    //这句是为了保护系统的方法
+    BOOL isAdd = class_addMethod([AIPlayerButton class], actionA, method_getImplementation(bMetod), method_getTypeEncoding(bMetod));
+    if (isAdd) {
+        class_replaceMethod([AIPlayerButton class], actionB, method_getImplementation(aMetod), method_getTypeEncoding(aMetod));
+    }else{
+        method_exchangeImplementations(aMetod, bMetod);
+    }
 }
 - (void)__ai__sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
     if (self.ignoreEvent) {
