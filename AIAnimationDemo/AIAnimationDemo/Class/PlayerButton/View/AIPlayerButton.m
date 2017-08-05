@@ -186,5 +186,12 @@
     [self.layer3 addAnimation:layer3changeToStop forKey:nil];
 }
 
+#pragma mark -public 
+- (void)setStrokeColor:(UIColor *)strokeColor {
+    _strokeColor              = strokeColor;
+    self.layer1.strokeColor  = strokeColor.CGColor;
+    self.layer2.strokeColor  = strokeColor.CGColor;
+    self.layer3.strokeColor  = strokeColor.CGColor;
+}
 
 @end

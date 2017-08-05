@@ -18,6 +18,7 @@
     [super viewDidLoad];
     AIPlayerButton *button = [[AIPlayerButton alloc]initWithFrame:CGRectMake(100, 100, 30, 30)];
     button.backgroundColor = [UIColor flatWhiteColorDark];
+    button.strokeColor     = [UIColor flatBlueColor];
     [self.view addSubview:button];
     
     [button addTarget:self action:@selector(onclickBuutton:) forControlEvents:(UIControlEventTouchUpInside)];

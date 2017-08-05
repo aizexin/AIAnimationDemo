@@ -10,4 +10,6 @@
 
 @interface AIPlayerButton : UIButton
 
+/** 线条颜色*/
+@property (nonatomic, strong) UIColor *strokeColor;
 @end
