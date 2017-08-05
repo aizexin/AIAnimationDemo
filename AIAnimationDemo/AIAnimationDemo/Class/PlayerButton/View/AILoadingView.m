@@ -28,12 +28,33 @@
     self.loadingLayer.path  = path.CGPath;
 }
 - (void)createUI {
-    self.loadingLayer   = [CAShapeLayer layer];
-    self.loadingLayer.lineWidth = 3.;
-    self.loadingLayer.fillColor = [UIColor clearColor].CGColor;
+    self.loadingLayer             = [CAShapeLayer layer];
+    self.loadingLayer.lineWidth   = 3.;
+    self.loadingLayer.fillColor   = [UIColor clearColor].CGColor;
     self.loadingLayer.strokeColor = [UIColor flatBlueColor].CGColor;
     [self.layer addSublayer:self.loadingLayer];
-//    self.loadingLayer.lineCap = kCGLineCapRound;
+    self.loadingLayer.lineCap     = kCALineCapRound;
+    
+    [self loadingAnimation];
+}
+- (void)loadingAnimation {
+//    NSArray *arrayTo  = @[@0,@.3,@.6];
+    CAAnimationGroup *strokeAniamtionGroup = [CAAnimationGroup animation];
+    CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+    strokeStartAnimation.fromValue         = @0;
+    strokeStartAnimation.toValue           = @1.;
+    strokeStartAnimation.timingFunction    = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    CABasicAnimation *strokeEndAnimation   = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    strokeEndAnimation.fromValue           = @.0;
+    strokeEndAnimation.toValue             = @1.;
+    strokeEndAnimation.duration            = 1.;
+    
+    strokeAniamtionGroup.duration          = 2.;
+//    strokeAniamtionGroup.repeatDuration    = 5.;
+    strokeAniamtionGroup.repeatCount       = MAXFLOAT;
+    strokeAniamtionGroup.animations        = @[strokeEndAnimation,strokeStartAnimation];
+    [self.loadingLayer addAnimation:strokeAniamtionGroup forKey:nil];
 }
 
 @end
