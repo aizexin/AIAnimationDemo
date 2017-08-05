@@ -8,6 +8,7 @@
 
 #import "AIPlayerButtonViewController.h"
 #import "AIPlayerButton.h"
+#import "AILoadingView.h"
 @interface AIPlayerButtonViewController ()
 
 @end
@@ -22,6 +23,11 @@
     [self.view addSubview:button];
     
     [button addTarget:self action:@selector(onclickBuutton:) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    AILoadingView *loadingView  = [[AILoadingView alloc]initWithFrame:CGRectMake(100, 200, 30, 30)];
+    loadingView.backgroundColor = [UIColor flatWhiteColor];
+    [self.view addSubview:loadingView];
+    
 }
 
 - (void)onclickBuutton:(UIButton*)button {

@@ -123,6 +123,7 @@
 		45D1103E1E45C13700BB1CEB /* AIAnimationMaskLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 454DBC341E3653590025ACAE /* AIAnimationMaskLabel.m */; };
 		45D110541E48C85700BB1CEB /* AIRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D110531E48C85700BB1CEB /* AIRefreshView.m */; };
 		45D110571E49C93D00BB1CEB /* AILineGraphChartRefreshDateSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D110561E49C93D00BB1CEB /* AILineGraphChartRefreshDateSource.m */; };
+		45D28A9B1F35FE2000F11E12 /* AILoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D28A9A1F35FE2000F11E12 /* AILoadingView.m */; };
 		45D43DE71DACB7170022F86A /* AISpringScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */; };
 		45D43DF01DACC2570022F86A /* easing.c in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DEC1DACC2570022F86A /* easing.c */; };
 		45D43DF11DACC2570022F86A /* YXEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D43DEF1DACC2570022F86A /* YXEasing.m */; };
@@ -427,6 +428,8 @@
 		45D110531E48C85700BB1CEB /* AIRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRefreshView.m; sourceTree = "<group>"; };
 		45D110551E49C93D00BB1CEB /* AILineGraphChartRefreshDateSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILineGraphChartRefreshDateSource.h; sourceTree = "<group>"; };
 		45D110561E49C93D00BB1CEB /* AILineGraphChartRefreshDateSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILineGraphChartRefreshDateSource.m; sourceTree = "<group>"; };
+		45D28A991F35FE2000F11E12 /* AILoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILoadingView.h; sourceTree = "<group>"; };
+		45D28A9A1F35FE2000F11E12 /* AILoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILoadingView.m; sourceTree = "<group>"; };
 		45D43DE51DACB7170022F86A /* AISpringScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISpringScaleViewController.h; sourceTree = "<group>"; };
 		45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISpringScaleViewController.m; sourceTree = "<group>"; };
 		45D43DEC1DACC2570022F86A /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
@@ -1509,6 +1512,8 @@
 			children = (
 				456AEAD81F2C830700D44FEB /* AIPlayerButton.h */,
 				456AEAD91F2C830700D44FEB /* AIPlayerButton.m */,
+				45D28A991F35FE2000F11E12 /* AILoadingView.h */,
+				45D28A9A1F35FE2000F11E12 /* AILoadingView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2481,6 +2486,7 @@
 				4515885A1E12A84A00610F6D /* AIFlightInfoViewController.m in Sources */,
 				453665B51DE6CCEE00875A2C /* AITextFiled.m in Sources */,
 				45DB058D1E6C1BB000346DDD /* AIHerbDetailViewController.m in Sources */,
+				45D28A9B1F35FE2000F11E12 /* AILoadingView.m in Sources */,
 				4546AD381DD1B8C2006F230C /* AITapModel.m in Sources */,
 				4546AD341DD1B89A006F230C /* AITapTableViewCell.m in Sources */,
 				45D43DF01DACC2570022F86A /* easing.c in Sources */,
