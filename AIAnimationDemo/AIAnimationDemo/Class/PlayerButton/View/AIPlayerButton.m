@@ -43,7 +43,6 @@
         return;
     }
     if (self.acceptEventInterval > 0) {
-//        AILog(@"-----");
         self.ignoreEvent  = YES;
         [self performSelector:@selector(setIgnoreEvent:) withObject:@(NO) afterDelay:self.acceptEventInterval];
         if (self.isSelected) {
@@ -120,11 +119,13 @@
  @param to 到多少
  */
 - (void)opacityAnimationWithLayer:(CALayer*)layer fromValue:(CGFloat)from toValue:(CGFloat)to {
-    POPBasicAnimation *opacityAnimation          = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
+    CABasicAnimation *opacityAnimation           = [CABasicAnimation animationWithKeyPath:@"opacity"];
     opacityAnimation.toValue                     = @(to);
     opacityAnimation.fromValue                   = @(from);
     opacityAnimation.duration                    = .2;
-    [layer pop_addAnimation:opacityAnimation forKey:nil];
+    opacityAnimation.fillMode                    = kCAFillModeForwards;
+    opacityAnimation.removedOnCompletion         = NO;
+    [layer addAnimation:opacityAnimation forKey:nil];
 }
 - (UIBezierPath *)bezierPath2stop {
     //2
