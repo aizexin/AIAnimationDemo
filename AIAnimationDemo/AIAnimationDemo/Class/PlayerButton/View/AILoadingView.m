@@ -43,7 +43,7 @@
     self.loadingLayer             = [CAShapeLayer layer];
     self.loadingLayer.lineWidth   = 3.;
     self.loadingLayer.fillColor   = [UIColor clearColor].CGColor;
-    self.loadingLayer.strokeColor = [UIColor flatBlueColor].CGColor;
+    self.loadingLayer.strokeColor = [UIColor blackColor].CGColor;
     [self.layer addSublayer:self.loadingLayer];
     self.loadingLayer.lineCap     = kCALineCapRound;
 }
@@ -84,6 +84,10 @@
 - (void)stopAnimation {
     [self.loadingLayer removeAllAnimations];
     self.enable = NO;
+}
+- (void)setStrokeColor:(UIColor *)strokeColor {
+    _strokeColor                   = strokeColor;
+    self.loadingLayer.strokeColor  = strokeColor.CGColor;
 }
 
 
