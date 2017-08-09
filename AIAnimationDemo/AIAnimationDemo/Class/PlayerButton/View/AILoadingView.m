@@ -8,9 +8,11 @@
 
 #import "AILoadingView.h"
 
-@interface AILoadingView ()
+@interface AILoadingView ()<CAAnimationDelegate>
 
 @property(nonatomic,strong)CAShapeLayer *loadingLayer;
+/** 当前的index*/
+@property(nonatomic,assign)NSInteger index;
 @end
 @implementation AILoadingView
 
@@ -18,14 +20,21 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _index  = 0;
+        _enable = YES;
         [self createUI];
     }
     return self;
 }
 -(void)layoutSubviews {
     [super layoutSubviews];
-    UIBezierPath *path      = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+    UIBezierPath *path      = [self cycleBezierPathIndex:_index];
     self.loadingLayer.path  = path.CGPath;
+}
+
+- (UIBezierPath*)cycleBezierPathIndex:(NSInteger)index {
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width * 0.5, self.bounds.size.height *0.5) radius:self.ai_width * 0.5 startAngle:index * (M_PI* 2)/3  endAngle:index * (M_PI* 2)/3 + 2*M_PI * 4/3 clockwise:YES];
+    return path;
 }
 - (void)createUI {
     self.loadingLayer             = [CAShapeLayer layer];
@@ -38,8 +47,6 @@
     [self loadingAnimation];
 }
 - (void)loadingAnimation {
-//    NSArray *arrayTo  = @[@0,@.3,@.6];
-    CAAnimationGroup *strokeAniamtionGroup = [CAAnimationGroup animation];
     CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
     strokeStartAnimation.fromValue         = @0;
     strokeStartAnimation.toValue           = @1.;
@@ -50,11 +57,29 @@
     strokeEndAnimation.toValue             = @1.;
     strokeEndAnimation.duration            = 1.;
     
+    CAAnimationGroup *strokeAniamtionGroup = [CAAnimationGroup animation];
     strokeAniamtionGroup.duration          = 2.;
-//    strokeAniamtionGroup.repeatDuration    = 5.;
-    strokeAniamtionGroup.repeatCount       = MAXFLOAT;
+    
+    strokeAniamtionGroup.delegate          = self;
     strokeAniamtionGroup.animations        = @[strokeEndAnimation,strokeStartAnimation];
     [self.loadingLayer addAnimation:strokeAniamtionGroup forKey:nil];
 }
+#pragma mark -CAAnimationDelegate
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    if (!self.isEnable) {
+        return;
+    }
+    _index++;
+//    AILog(@"-----");
+    self.loadingLayer.path                 = [self cycleBezierPathIndex:_index %3].CGPath;
+    [self loadingAnimation];
+}
+-(void)setEnable:(BOOL)enable {
+    _enable = enable;
+    if (enable) {
+        [self loadingAnimation];
+    }
+}
+
 
 @end

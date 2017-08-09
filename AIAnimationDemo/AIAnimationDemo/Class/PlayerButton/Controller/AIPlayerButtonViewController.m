@@ -10,7 +10,7 @@
 #import "AIPlayerButton.h"
 #import "AILoadingView.h"
 @interface AIPlayerButtonViewController ()
-
+@property(nonatomic,weak)AILoadingView *loadingView;
 @end
 
 @implementation AIPlayerButtonViewController
@@ -25,9 +25,13 @@
     [button addTarget:self action:@selector(onclickBuutton:) forControlEvents:(UIControlEventTouchUpInside)];
     
     AILoadingView *loadingView  = [[AILoadingView alloc]initWithFrame:CGRectMake(100, 200, 30, 30)];
+    self.loadingView            = loadingView;
     loadingView.backgroundColor = [UIColor flatWhiteColor];
     [self.view addSubview:loadingView];
     
+}
+-(void)dealloc {
+    self.loadingView.enable     = NO;
 }
 
 - (void)onclickBuutton:(UIButton*)button {

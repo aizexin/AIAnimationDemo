@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AILoadingView : UIView
-
+/** 是否能用*/
+@property(nonatomic,assign,getter=isEnable)BOOL enable;
 @end
