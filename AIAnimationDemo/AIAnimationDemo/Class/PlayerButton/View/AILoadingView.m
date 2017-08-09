@@ -22,8 +22,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _index  = 0;
-        _enable = YES;
+        _index    = 0;
+        _enable   = YES;
+        _duration = 2.;
         [self createUI];
     }
     return self;
@@ -45,8 +46,6 @@
     self.loadingLayer.strokeColor = [UIColor flatBlueColor].CGColor;
     [self.layer addSublayer:self.loadingLayer];
     self.loadingLayer.lineCap     = kCALineCapRound;
-    
-    [self loadingAnimation];
 }
 - (void)loadingAnimation {
     CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
@@ -57,10 +56,10 @@
     CABasicAnimation *strokeEndAnimation   = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     strokeEndAnimation.fromValue           = @.0;
     strokeEndAnimation.toValue             = @1.;
-    strokeEndAnimation.duration            = 1.;
+    strokeEndAnimation.duration            = self.duration * 0.5;
     
     CAAnimationGroup *strokeAniamtionGroup = [CAAnimationGroup animation];
-    strokeAniamtionGroup.duration          = 2.;
+    strokeAniamtionGroup.duration          = self.duration;
     
     strokeAniamtionGroup.delegate          = self;
     strokeAniamtionGroup.animations        = @[strokeEndAnimation,strokeStartAnimation];

@@ -26,7 +26,8 @@
     
     AILoadingView *loadingView  = [[AILoadingView alloc]initWithFrame:CGRectMake(100, 200, 30, 30)];
     self.loadingView            = loadingView;
-    loadingView.backgroundColor = [UIColor flatWhiteColor];
+//    loadingView.duration        = 1.;
+    [loadingView starAnimation];
     [self.view addSubview:loadingView];
     
 }
