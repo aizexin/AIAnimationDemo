@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface AILoadingView : UIView
-/** 是否能用*/
-@property(nonatomic,assign,getter=isEnable)BOOL enable;
+
+/**
+ 开始动画
+ */
+- (void)starAnimation;
+
+/**
+ 停止动画
+ */
+- (void)stopAnimation;
 @end

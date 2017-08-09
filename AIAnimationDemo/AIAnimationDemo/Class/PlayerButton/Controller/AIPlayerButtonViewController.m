@@ -31,7 +31,7 @@
     
 }
 -(void)dealloc {
-    self.loadingView.enable     = NO;
+    [self.loadingView stopAnimation];
 }
 
 - (void)onclickBuutton:(UIButton*)button {

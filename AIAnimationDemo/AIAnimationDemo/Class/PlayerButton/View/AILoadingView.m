@@ -13,6 +13,8 @@
 @property(nonatomic,strong)CAShapeLayer *loadingLayer;
 /** 当前的index*/
 @property(nonatomic,assign)NSInteger index;
+/** 是否能用*/
+@property(nonatomic,assign,getter=isEnable)BOOL enable;
 @end
 @implementation AILoadingView
 
@@ -70,15 +72,19 @@
         return;
     }
     _index++;
-//    AILog(@"-----");
+//    AILog(@"---用于测试是否循环调用----");
     self.loadingLayer.path                 = [self cycleBezierPathIndex:_index %3].CGPath;
     [self loadingAnimation];
 }
--(void)setEnable:(BOOL)enable {
-    _enable = enable;
-    if (enable) {
-        [self loadingAnimation];
-    }
+
+#pragma mark -public
+- (void)starAnimation {
+    self.enable = YES;
+    [self loadingAnimation];
+}
+- (void)stopAnimation {
+    [self.loadingLayer removeAllAnimations];
+    self.enable = NO;
 }
 
 
