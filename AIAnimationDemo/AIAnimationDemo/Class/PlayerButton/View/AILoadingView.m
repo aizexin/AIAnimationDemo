@@ -63,8 +63,9 @@
     
     strokeAniamtionGroup.delegate          = self;
     strokeAniamtionGroup.animations        = @[strokeEndAnimation,strokeStartAnimation];
-    [self.loadingLayer addAnimation:strokeAniamtionGroup forKey:nil];
+    [self.loadingLayer addAnimation:strokeAniamtionGroup forKey:@"strokeAniamtionGroup"];
 }
+
 #pragma mark -CAAnimationDelegate
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if (!self.isEnable) {
@@ -78,6 +79,9 @@
 
 #pragma mark -public
 - (void)starAnimation {
+    if (self.loadingLayer.animationKeys.count > 0) {
+        return;
+    }
     self.enable = YES;
     [self loadingAnimation];
 }
