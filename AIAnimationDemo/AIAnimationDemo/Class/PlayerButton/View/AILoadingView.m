@@ -56,6 +56,7 @@
     CABasicAnimation *strokeEndAnimation   = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     strokeEndAnimation.fromValue           = @.0;
     strokeEndAnimation.toValue             = @1.;
+    strokeEndAnimation.timingFunction      = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     strokeEndAnimation.duration            = self.duration * 0.5;
     
     CAAnimationGroup *strokeAniamtionGroup = [CAAnimationGroup animation];
