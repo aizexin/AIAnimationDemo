@@ -119,23 +119,34 @@
     self.title                 = @"😎";
     
     self.navigationController.navigationBar.barTintColor   = [UIColor flatRedColor];
-//    self.navigationController.t
     // LaunchImage
     UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     iconImageView.image        = [AppleSystemService launchImage];
     [self.view addSubview:iconImageView];
-    
-    // Do animation
-    [UIView animateKeyframesWithDuration:1.f delay:1.f options:0 animations:^{
-        
-        iconImageView.scale = 1.2f;
-        iconImageView.alpha = 0.f;
-        
-    } completion:^(BOOL finished) {
-        
-        [iconImageView removeFromSuperview];
-        [self setUI];
-    }];
+
+    {
+        // Do animation
+        [UIView animateKeyframesWithDuration:1.f delay:1.f options:0 animations:^{
+            NSInteger index = arc4random();
+            switch (index % 2) {
+                case 0:
+                    iconImageView.ai_y  = KHeight;
+                    break;
+                case 1:
+                    iconImageView.scale = 1.2f;
+                    break;
+                default:
+                    break;
+            }
+            
+            iconImageView.alpha = 0.f;
+            
+        } completion:^(BOOL finished) {
+            
+            [iconImageView removeFromSuperview];
+            [self setUI];
+        }];
+    }
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
