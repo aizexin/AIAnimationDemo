@@ -1,6 +1,10 @@
 #AIAnimationDemo
 
 
++ 模仿内涵段子loading
+
+![loading](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/loading.gif)
+
 + 播放暂停按钮效果[简书地址](http://www.jianshu.com/p/ae674abf51aa)
 
 ![playbutton](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/playbutton.gif)
