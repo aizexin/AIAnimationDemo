@@ -110,6 +110,7 @@
 		45ACB69B1DB7087F001C48B2 /* AITriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ACB69A1DB7087F001C48B2 /* AITriangleLayer.m */; };
 		45B3A00F1E1A91F000E9C37D /* AISnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B3A00E1E1A91F000E9C37D /* AISnowView.m */; };
 		45B6D4C01E841C80008CFC4B /* AILogoRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6D4BF1E841C80008CFC4B /* AILogoRevealViewController.m */; };
+		45C0A6291F4465B90080BCB6 /* AIWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C0A6281F4465B90080BCB6 /* AIWaveView.swift */; };
 		45C15B111E2D12F70021E9D3 /* AIPackingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C15B0F1E2D12F70021E9D3 /* AIPackingListViewController.m */; };
 		45C15B121E2D12F70021E9D3 /* AIPackingListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C15B101E2D12F70021E9D3 /* AIPackingListViewController.xib */; };
 		45C9EAB01DD4494F007B6418 /* AIBaseSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C9EAAF1DD4494F007B6418 /* AIBaseSettingViewController.m */; };
@@ -404,6 +405,8 @@
 		45B3A00E1E1A91F000E9C37D /* AISnowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISnowView.m; sourceTree = "<group>"; };
 		45B6D4BE1E841C80008CFC4B /* AILogoRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILogoRevealViewController.h; sourceTree = "<group>"; };
 		45B6D4BF1E841C80008CFC4B /* AILogoRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILogoRevealViewController.m; sourceTree = "<group>"; };
+		45C0A6271F4465B90080BCB6 /* AIAnimationDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIAnimationDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		45C0A6281F4465B90080BCB6 /* AIWaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWaveView.swift; sourceTree = "<group>"; };
 		45C15B0E1E2D12F70021E9D3 /* AIPackingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPackingListViewController.h; sourceTree = "<group>"; };
 		45C15B0F1E2D12F70021E9D3 /* AIPackingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPackingListViewController.m; sourceTree = "<group>"; };
 		45C15B101E2D12F70021E9D3 /* AIPackingListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIPackingListViewController.xib; sourceTree = "<group>"; };
@@ -1514,6 +1517,8 @@
 				456AEAD91F2C830700D44FEB /* AIPlayerButton.m */,
 				45D28A991F35FE2000F11E12 /* AILoadingView.h */,
 				45D28A9A1F35FE2000F11E12 /* AILoadingView.m */,
+				45C0A6281F4465B90080BCB6 /* AIWaveView.swift */,
+				45C0A6271F4465B90080BCB6 /* AIAnimationDemo-Bridging-Header.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2214,6 +2219,7 @@
 				TargetAttributes = {
 					455E28881D98C0D300E3DA4D = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 					};
 					455E28A11D98C0D300E3DA4D = {
@@ -2418,6 +2424,7 @@
 				45D5BAFB1EC0192A00388B6E /* AIDownloadButton.m in Sources */,
 				45427DE71DE6949500472959 /* UIView+AISetRect.m in Sources */,
 				454DBC301E3650680025ACAE /* AISlideToRevealViewController.m in Sources */,
+				45C0A6291F4465B90080BCB6 /* AIWaveView.swift in Sources */,
 				451DDFB21EC2F9F00073C6AB /* PPNetworkHelper.m in Sources */,
 				45C9EAB51DD44EAA007B6418 /* AISettingTableViewCell.m in Sources */,
 				45ED00671E606304005217AF /* AIHerbModel.m in Sources */,
@@ -2646,6 +2653,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AIAnimationDemo/Header.h";
 				INFOPLIST_FILE = AIAnimationDemo/Info.plist;
@@ -2653,6 +2661,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = aizexin.AIAnimationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AIAnimationDemo/Class/PlayerButton/View/AIAnimationDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2662,6 +2673,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AIAnimationDemo/Header.h";
 				INFOPLIST_FILE = AIAnimationDemo/Info.plist;
@@ -2669,12 +2681,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = aizexin.AIAnimationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AIAnimationDemo/Class/PlayerButton/View/AIAnimationDemo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		455E28BA1D98C0D300E3DA4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AIAnimationDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2687,6 +2702,7 @@
 		455E28BB1D98C0D300E3DA4D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AIAnimationDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2699,6 +2715,7 @@
 		455E28BD1D98C0D300E3DA4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = AIAnimationDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aizexin.AIAnimationDemoUITests;
@@ -2710,6 +2727,7 @@
 		455E28BE1D98C0D300E3DA4D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = AIAnimationDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aizexin.AIAnimationDemoUITests;
