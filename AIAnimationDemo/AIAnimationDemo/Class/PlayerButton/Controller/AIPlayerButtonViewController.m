@@ -9,6 +9,7 @@
 #import "AIPlayerButtonViewController.h"
 #import "AIPlayerButton.h"
 #import "AILoadingView.h"
+
 @interface AIPlayerButtonViewController ()
 @property(nonatomic,weak)AILoadingView *loadingView;
 @end
@@ -29,6 +30,7 @@
 
     [loadingView starAnimation];
     [self.view addSubview:loadingView];
+    AI
     
 }
 -(void)dealloc {
