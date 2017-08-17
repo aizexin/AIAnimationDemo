@@ -30,7 +30,6 @@
 
     [loadingView starAnimation];
     [self.view addSubview:loadingView];
-    AI
     
 }
 -(void)dealloc {
