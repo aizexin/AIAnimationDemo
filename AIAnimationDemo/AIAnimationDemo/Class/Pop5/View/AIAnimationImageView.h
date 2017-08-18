@@ -9,8 +9,10 @@
 #import <Canvas/Canvas.h>
 
 @interface AIAnimationImageView : CSAnimationView
+
 /** 从大到小*/
 -(void)zoomOut;
 /**从小到大*/
 -(void)zoomIn;
+
 @end

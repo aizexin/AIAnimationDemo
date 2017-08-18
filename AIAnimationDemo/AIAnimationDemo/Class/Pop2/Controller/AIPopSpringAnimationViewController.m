@@ -38,13 +38,6 @@
                                            //CGRectMake(0, 0, 150, 150)];
     [self.showBtn.layer pop_addAnimation:springAnimation forKey:nil];
     
-//    POPSpringAnimation *reduceAnimation = \
-//    [POPSpringAnimation animationWithPropertyNamed:kPOPLayerBounds];
-//    reduceAnimation.springSpeed         = 0.f;
-//    reduceAnimation.toValue             = [NSValue valueWithCGRect:
-//                                           CGRectMake(0, 0, 100, 100)];
-//    [self.showBtn pop_addAnimation:reduceAnimation forKey:nil];
-    
 }
 
 

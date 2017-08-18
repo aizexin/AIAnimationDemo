@@ -34,10 +34,4 @@
     
 }
 
-//- (void)drawMarqueeView:(DrawMarqueeView *)drawMarqueeView animationDidStopFinished:(BOOL)finished {
-//    
-//    [drawMarqueeView stopAnimation];
-//}
-
-
 @end

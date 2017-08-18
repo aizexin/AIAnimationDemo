@@ -17,5 +17,4 @@ typedef enum : NSUInteger {
 
 @property(nonatomic,assign)AILayerButtonStatus statu;
 
-
 @end

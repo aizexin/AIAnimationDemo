@@ -771,7 +771,6 @@
 			isa = PBXGroup;
 			children = (
 				4515A1BB1D9CFED8000F4E24 /* Controller */,
-				4515A1BC1D9CFED8000F4E24 /* View */,
 			);
 			path = Pop4;
 			sourceTree = "<group>";
@@ -783,13 +782,6 @@
 				45D43DE61DACB7170022F86A /* AISpringScaleViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		4515A1BC1D9CFED8000F4E24 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		4515A1C01D9D0235000F4E24 /* Libs */ = {
@@ -1411,7 +1403,6 @@
 			isa = PBXGroup;
 			children = (
 				455E28C71D98F51F00E3DA4D /* Controller */,
-				455E28C81D98F51F00E3DA4D /* View */,
 			);
 			path = Pop1;
 			sourceTree = "<group>";
@@ -1425,18 +1416,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		455E28C81D98F51F00E3DA4D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		455E28C91D98F53A00E3DA4D /* Pop2 */ = {
 			isa = PBXGroup;
 			children = (
 				455E28CA1D98F53A00E3DA4D /* Controller */,
-				455E28CB1D98F53A00E3DA4D /* View */,
 			);
 			path = Pop2;
 			sourceTree = "<group>";
@@ -1448,13 +1431,6 @@
 				455E28D81D990C6C00E3DA4D /* AIPopSpringAnimationViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		455E28CB1D98F53A00E3DA4D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		455E28CF1D98F74600E3DA4D /* Model */ = {
