@@ -28,7 +28,7 @@
     
     //create a shape layer
     layer.path              = bezier.CGPath;
-    layer.bounds            = CGRectMake(0, 0, 70, 70);//[UIScreen mainScreen].bounds;
+    layer.bounds            = CGRectMake(0, 0, 70, 70);
     return layer;
 }
 @end

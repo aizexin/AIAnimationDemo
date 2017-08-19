@@ -8,6 +8,7 @@
 
 #import "AITmallLoadingViewController.h"
 #import "AITmallLoadingView.h"
+
 @interface AITmallLoadingViewController ()
 
 @end
@@ -17,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     AITmallLoadingView *loadingView = [[AITmallLoadingView alloc]init];
-//    loadingView.type                = AITmallTypeLight;
     [self.view addSubview:loadingView];
     loadingView.ai_viewSize         = CGSizeMake(54, 27);
     loadingView.center              = self.view.center;

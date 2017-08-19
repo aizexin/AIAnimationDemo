@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AIDiscreteGraphChartCell.h"
+
 @class AIDiscreteGraphChartView;
 @protocol AIDiscreteGraphChartDataSource <NSObject>
 

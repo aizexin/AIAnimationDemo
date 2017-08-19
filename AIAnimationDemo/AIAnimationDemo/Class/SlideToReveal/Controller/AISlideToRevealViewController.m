@@ -9,6 +9,7 @@
 #import "AISlideToRevealViewController.h"
 #import "AIAnimationMaskLabel.h"
 #import <MLTransition.h>
+
 @interface AISlideToRevealViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
@@ -63,7 +64,5 @@
         
     }];
 }
-
-
 
 @end

@@ -75,30 +75,6 @@ static const NSTimeInterval KAnimationDuration = 0.5;
     }
     return _circleHorizontalSquishPath;
 }
-//-(UIBezierPath *)circleSmallPath{
-//    if (!_circleSmallPath) {
-//        _circleSmallPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(50, 50, 20, 20)];
-//    }
-//    return _circleSmallPath;
-//}
-//-(UIBezierPath *)circleBigPath{
-//    if (!_circleBigPath) {
-//        _circleBigPath   = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(2.5, 2.5, 95, 95)];
-//    }
-//    return _circleBigPath;
-//}
-//- (UIBezierPath *)circleVerticalSquishPath {
-//    if (!_circleVerticalSquishPath) {
-//        _circleVerticalSquishPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(2.5, 5.0, 95.0, 90.0)];
-//    }
-//    return _circleVerticalSquishPath;
-//}
-//- (UIBezierPath *)circleHorizontalSquishPath {
-//    if (!_circleHorizontalSquishPath) {
-//        _circleHorizontalSquishPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(5.0, 5.0, 90.0, 90.0)];
-//    }
-//    return _circleHorizontalSquishPath;
-//}
 
 #pragma mark  ----public
 - (void)wobbleAnimation {
@@ -134,7 +110,6 @@ static const NSTimeInterval KAnimationDuration = 0.5;
     [self addAnimation:animationGroup forKey:nil];
     
 }
-
 
 -(void)changeBig{
   

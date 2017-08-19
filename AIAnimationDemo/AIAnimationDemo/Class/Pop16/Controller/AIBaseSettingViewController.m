@@ -56,6 +56,7 @@
 }
 
 #pragma mark -UITableViewDataSource
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataSource.count;
 }
@@ -77,6 +78,7 @@
 }
 
 #pragma mark --UITableViewDelegate
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     AISettingCellAdapter *cellAdapter = self.dataSource[indexPath.section][indexPath.row];
     if (cellAdapter.destVC) {//如果有目标控制器
@@ -87,6 +89,7 @@
 }
 
 #pragma mark --Action
+
 -(void)onClickSwitch{
     AILog(@"点击switch");
 }

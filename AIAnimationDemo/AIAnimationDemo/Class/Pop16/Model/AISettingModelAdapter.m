@@ -8,6 +8,7 @@
 
 #import "AISettingModelAdapter.h"
 #import "AISettingModel.h"
+
 @implementation AISettingModelAdapter
 
 - (instancetype)initWithData:(id)data {
@@ -22,6 +23,7 @@
 }
 
 #pragma mark --AISettingCellAdapterProtocol
+
 - (NSString*)iconNameString{
     AISettingModel *model = self.data;
     return model.icon;

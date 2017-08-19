@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AIPackingModel.h"
+
 @class AIHorizontalItemListView;
 @protocol AIHorizontalItemListViewDelegate <NSObject>
 

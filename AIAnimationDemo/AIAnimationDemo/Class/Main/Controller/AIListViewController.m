@@ -49,6 +49,7 @@
 #import "AIFoldViewController.h"            //折叠
 #import "AIImageGalleryViewController.h"    //类似Safari效果
 #import "AIPlayerButtonViewController.h"    //播放按钮和loading
+
 @interface AIListViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** 主要的tableView*/
 @property(nonatomic,strong)UITableView *tableView;

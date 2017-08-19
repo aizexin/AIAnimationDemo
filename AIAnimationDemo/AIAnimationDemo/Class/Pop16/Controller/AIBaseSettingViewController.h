@@ -8,8 +8,8 @@
 
 #import "AIBaseViewController.h"
 #import "AISettingCellAdapter.h"
-@interface AIBaseSettingViewController : AIBaseViewController
 
+@interface AIBaseSettingViewController : AIBaseViewController
 
 -(NSMutableArray <NSMutableArray<AISettingCellAdapter*> *>*)getDataSource;
 @end

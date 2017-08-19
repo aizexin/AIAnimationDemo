@@ -9,6 +9,7 @@
 #import "AIPackingListViewController.h"
 #import "AIHorizontalItemListView.h"
 #import "AIRefreshView.h"
+
 @interface AIPackingListViewController ()<UITableViewDelegate,UITableViewDataSource,AIHorizontalItemListViewDelegate,UIScrollViewDelegate,AIRefreshViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -71,6 +72,7 @@ static const CGFloat kRefreshViewHeight = 110.;
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
 }
+
 #pragma mark -Action
 - (IBAction)onClickBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -114,7 +116,6 @@ static const CGFloat kRefreshViewHeight = 110.;
             make.bottom.mas_equalTo(0);
             make.height.mas_equalTo(0);
         }];
-//        [self.horizontalItemListView removeFromSuperview];
     }
     //按钮
     CGFloat angle = self.isMenuOpen ? M_PI_4:0;
@@ -134,7 +135,9 @@ static const CGFloat kRefreshViewHeight = 110.;
     }];
     
 }
+
 #pragma mark -UITableViewDataSource
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataSource.count;
 }
@@ -148,19 +151,25 @@ static const CGFloat kRefreshViewHeight = 110.;
     cell.textLabel.text   = model.title;
     return cell;
 }
+
 #pragma mark -AIHorizontalItemListViewDelegat
+
 -(void)horizontalItemListView:(AIHorizontalItemListView *)listView didSelectedModel:(AIPackingModel *)model {
     [self.dataSource addObject:model];
     [self.tableView reloadData];
 }
+
 #pragma mark -UIScrollViewDelegate
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.refreshView scrollViewDidScroll:scrollView];
 }
 -(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     [self.refreshView scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
 }
+
 #pragma mark -AIRefreshViewDelegate
+
 -(void)refreshViewDidRefresh:(AIRefreshView *)refreshView {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.refreshView endRefreshing];

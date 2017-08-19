@@ -8,6 +8,7 @@
 
 #import "AITextView.h"
 #import "NSString+Extension.h"
+
 @interface AITextView ()
 /**
  *  占位文字View: 为什么使用UITextView，这样直接让占位文字View = 当前textView,文字就会重叠显示

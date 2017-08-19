@@ -8,6 +8,7 @@
 
 #import "AIHorizontalItemListView.h"
 #import "AIPackingCollectionViewCell.h"
+
 @interface AIHorizontalItemListView ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property(nonatomic,weak)UICollectionView *collectionView;
 /** 数据源*/

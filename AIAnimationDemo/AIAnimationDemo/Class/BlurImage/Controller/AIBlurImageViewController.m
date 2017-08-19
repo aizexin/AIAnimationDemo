@@ -9,6 +9,7 @@
 #import "AIBlurImageViewController.h"
 #import "UIImage+ImageEffects.h"
 #import "UIImage+AIExtension.h"
+
 @interface AIBlurImageViewController ()
 
 @end
@@ -18,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIImageView *bgImageView            = [[UIImageView alloc]init];
-    bgImageView.frame                   = CGRectMake(0, 0, KWidth, 400);//self.view.bounds;
+    bgImageView.frame                   = CGRectMake(0, 0, KWidth, 400);
     bgImageView.center                  = self.view.center;
     bgImageView.image                   = [[UIImage imageNamed:@"default"]blurImage];
     [self.view addSubview:bgImageView];

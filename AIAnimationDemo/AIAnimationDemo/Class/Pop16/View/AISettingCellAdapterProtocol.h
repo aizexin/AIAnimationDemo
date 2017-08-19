@@ -7,6 +7,7 @@
 //  cell的适配协议
 
 #import <Foundation/Foundation.h>
+
 typedef void(^optionBlock)(void);
 @protocol AISettingCellAdapterProtocol <NSObject>
 

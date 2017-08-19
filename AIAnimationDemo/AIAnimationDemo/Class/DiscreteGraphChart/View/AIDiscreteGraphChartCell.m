@@ -8,6 +8,7 @@
 
 #import "AIDiscreteGraphChartCell.h"
 #import "AIGraphChartPointView.h"
+
 @interface AIDiscreteGraphChartCell ()
 
 @end

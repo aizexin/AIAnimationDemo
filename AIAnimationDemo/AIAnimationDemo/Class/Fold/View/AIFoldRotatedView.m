@@ -8,6 +8,7 @@
 
 #import "AIFoldRotatedView.h"
 #import "UIImage+ImageEffects.h"
+
 @interface AIFoldRotatedView ()<CAAnimationDelegate>
 
 @property(nonatomic,weak)UIImageView *backView;

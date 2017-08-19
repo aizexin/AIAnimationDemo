@@ -9,6 +9,7 @@
 #import "AIImageGalleryViewController.h"
 #import "AIImageViewCard.h"
 #import "CALayer+SetRect.h"
+
 @interface AIImageGalleryViewController ()
 @property(nonatomic,strong)NSArray *images;
 @end

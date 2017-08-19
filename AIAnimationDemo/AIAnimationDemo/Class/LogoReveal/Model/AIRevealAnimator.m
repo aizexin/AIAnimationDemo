@@ -9,6 +9,7 @@
 #import "AIRevealAnimator.h"
 #import "AIRWLogoLayer.h"
 #import "AILogoRevealViewController.h"
+
 @implementation AIRevealAnimator
 
 - (instancetype)init

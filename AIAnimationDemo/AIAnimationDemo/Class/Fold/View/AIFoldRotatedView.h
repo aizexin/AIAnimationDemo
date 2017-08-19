@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class AIFoldRotatedView;
 @protocol AIFoldRotatedViewDelegate<NSObject>
 

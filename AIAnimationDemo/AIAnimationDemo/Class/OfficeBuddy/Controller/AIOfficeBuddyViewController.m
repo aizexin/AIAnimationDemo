@@ -7,24 +7,14 @@
 //
 
 #import "AIOfficeBuddyViewController.h"
-
 #import "AIContainerViewController.h"
+
 @interface AIOfficeBuddyViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *symbol;
-
-
 
 @end
 
 @implementation AIOfficeBuddyViewController
-
-//-(AIMenuItem *)menuItem {
-//    if (!_menuItem) {
-//        _menuItem   =   [[AIMenuItem alloc]init];
-//        self.title  =   _menuItem.title;
-//    }
-//    return _menuItem;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

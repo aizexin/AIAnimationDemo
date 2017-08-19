@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
 @interface AIRectangleLayer : CAShapeLayer
+
 - (void)strokeChangeWithColor:(UIColor *)color ;
 @property(nonatomic,assign,readonly)NSTimeInterval allAnimationDuration;
+
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetHelper.h"
+
 @interface AIAFN3ModelTool : AFNetHelper
 +(void)postWithUrl:(NSString *)url progress:(void (^)(NSProgress * progress))progressBlock params:(id)param resultClass:(Class)resultClass success:(void(^)(id))success failure:(void (^)(NSError* error))failure;
 +(void)getWithUrl:(NSString *)url progress:(void (^)(NSProgress * progress))progressBlock params:(id)param resultClass:(Class)resultClass success:(void(^)(id))success failure:(void (^)(NSError* error))failure;

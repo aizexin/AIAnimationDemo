@@ -8,10 +8,7 @@
 
 #import "AIMenuButton.h"
 
-
 @interface AIMenuButton ()
-
-
 
 @end
 @implementation AIMenuButton

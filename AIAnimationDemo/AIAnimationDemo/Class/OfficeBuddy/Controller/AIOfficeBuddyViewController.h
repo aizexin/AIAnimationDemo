@@ -9,6 +9,7 @@
 #import "AIBaseViewController.h"
 #import "AIMenuItem.h"
 #import "AIMenuButton.h"
+
 @interface AIOfficeBuddyViewController : AIBaseViewController
 @property(nonatomic,strong)AIMenuButton *menuButton;
 /** */

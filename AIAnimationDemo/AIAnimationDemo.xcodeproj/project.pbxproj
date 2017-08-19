@@ -687,7 +687,6 @@
 			children = (
 				4515887A1E155C9200610F6D /* Model */,
 				451588561E12A82400610F6D /* Controller */,
-				451588571E12A82400610F6D /* View */,
 			);
 			path = FlightInfo;
 			sourceTree = "<group>";
@@ -700,13 +699,6 @@
 				4515885B1E12AA4300610F6D /* AIFlightInfoViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		451588571E12A82400610F6D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		4515887A1E155C9200610F6D /* Model */ = {
@@ -863,7 +855,6 @@
 			children = (
 				452037EF1E58763E007FA354 /* Controller */,
 				452037F01E58763E007FA354 /* Model */,
-				452037F11E58763E007FA354 /* View */,
 			);
 			path = BeginnerCook;
 			sourceTree = "<group>";
@@ -892,18 +883,10 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		452037F11E58763E007FA354 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		452445DE1DBE517D00A9D2B9 /* Pop12 */ = {
 			isa = PBXGroup;
 			children = (
 				452445DF1DBE517D00A9D2B9 /* Controller */,
-				452445E01DBE517D00A9D2B9 /* View */,
 			);
 			path = Pop12;
 			sourceTree = "<group>";
@@ -921,13 +904,6 @@
 				45D110561E49C93D00BB1CEB /* AILineGraphChartRefreshDateSource.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		452445E01DBE517D00A9D2B9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		453733021E4C52950086F391 /* DiscreteGraphChart */ = {
@@ -1003,7 +979,6 @@
 			isa = PBXGroup;
 			children = (
 				4541BC6A1DD021AA00907182 /* Controller */,
-				4541BC6B1DD021AA00907182 /* View */,
 			);
 			path = Pop14;
 			sourceTree = "<group>";
@@ -1017,18 +992,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		4541BC6B1DD021AA00907182 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		454212691F0935E700663BC9 /* Fold */ = {
 			isa = PBXGroup;
 			children = (
 				4542126A1F0935E700663BC9 /* Controller */,
-				4542126B1F0935E700663BC9 /* Model */,
 				4542126C1F0935E700663BC9 /* View */,
 			);
 			path = Fold;
@@ -1041,13 +1008,6 @@
 				4542126E1F0935FE00663BC9 /* AIFoldViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		4542126B1F0935E700663BC9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		4542126C1F0935E700663BC9 /* View */ = {
@@ -1065,7 +1025,6 @@
 			isa = PBXGroup;
 			children = (
 				454516031E0A813100F3BCF9 /* Controller */,
-				454516041E0A813100F3BCF9 /* Model */,
 				454516051E0A813100F3BCF9 /* View */,
 			);
 			path = AutoTextView;
@@ -1078,13 +1037,6 @@
 				454516071E0A815900F3BCF9 /* AIAutoTextViewViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		454516041E0A813100F3BCF9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		454516051E0A813100F3BCF9 /* View */ = {
@@ -1163,7 +1115,6 @@
 			isa = PBXGroup;
 			children = (
 				454DBC2B1E364FE10025ACAE /* Controller */,
-				454DBC2C1E364FE10025ACAE /* Model */,
 				454DBC2D1E364FE10025ACAE /* View */,
 			);
 			path = SlideToReveal;
@@ -1177,13 +1128,6 @@
 				454DBC311E3651180025ACAE /* AISlideToRevealViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		454DBC2C1E364FE10025ACAE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		454DBC2D1E364FE10025ACAE /* View */ = {
@@ -1464,7 +1408,6 @@
 			isa = PBXGroup;
 			children = (
 				456AEAD21F2B863000D44FEB /* Controller */,
-				456AEAD31F2B863000D44FEB /* Model */,
 				456AEAD41F2B863000D44FEB /* View */,
 			);
 			path = PlayerButton;
@@ -1477,13 +1420,6 @@
 				456AEAD61F2B865300D44FEB /* AIPlayerButtonViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		456AEAD31F2B863000D44FEB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		456AEAD41F2B863000D44FEB /* View */ = {
@@ -1503,7 +1439,6 @@
 			isa = PBXGroup;
 			children = (
 				456BA65C1E07B22A00805F7C /* Controller */,
-				456BA65D1E07B22A00805F7C /* Model */,
 				456BA65E1E07B22A00805F7C /* View */,
 			);
 			path = IrregularityButton;
@@ -1516,13 +1451,6 @@
 				456BA6601E07B24700805F7C /* AIIrregularityViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		456BA65D1E07B22A00805F7C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		456BA65E1E07B22A00805F7C /* View */ = {
@@ -1894,7 +1822,6 @@
 			isa = PBXGroup;
 			children = (
 				45E04FA81F16682C0060B522 /* Controller */,
-				45E04FA91F16682C0060B522 /* Model */,
 				45E04FAA1F16682C0060B522 /* View */,
 			);
 			path = ImageGallery;
@@ -1907,13 +1834,6 @@
 				45E04FAC1F166C860060B522 /* AIImageGalleryViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		45E04FA91F16682C0060B522 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		45E04FAA1F16682C0060B522 /* View */ = {
@@ -1965,7 +1885,6 @@
 			isa = PBXGroup;
 			children = (
 				45E8C4A11EA4FBC700B69852 /* Controller */,
-				45E8C4A21EA4FBC700B69852 /* Model */,
 				45E8C4A31EA4FBC700B69852 /* View */,
 			);
 			path = Doodle;
@@ -1978,13 +1897,6 @@
 				45E8C4A51EA4FBED00B69852 /* AIDoodleViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		45E8C4A21EA4FBC700B69852 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		45E8C4A31EA4FBC700B69852 /* View */ = {

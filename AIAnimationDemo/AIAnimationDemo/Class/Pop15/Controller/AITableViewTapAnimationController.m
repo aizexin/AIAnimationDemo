@@ -8,6 +8,7 @@
 
 #import "AITableViewTapAnimationController.h"
 #import "AITapTableViewCell.h"
+
 @interface AITableViewTapAnimationController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView                        *tableView;
 /** 数据源*/

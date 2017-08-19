@@ -8,6 +8,7 @@
 
 #import "AIPlayMusicView.h"
 #import "InfiniteRotationView.h"
+
 @interface AIPlayMusicView ()
 /**
  背景图

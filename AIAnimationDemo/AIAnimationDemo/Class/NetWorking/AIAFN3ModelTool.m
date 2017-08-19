@@ -8,8 +8,8 @@
 
 #import "AIAFN3ModelTool.h"
 #import <MJExtension.h>
-@implementation AIAFN3ModelTool
 
+@implementation AIAFN3ModelTool
 
 +(void)postWithUrl:(NSString *)url progress:(void (^)(NSProgress * progress))progressBlock params:(id)param resultClass:(Class)resultClass success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     //模型转换为字典

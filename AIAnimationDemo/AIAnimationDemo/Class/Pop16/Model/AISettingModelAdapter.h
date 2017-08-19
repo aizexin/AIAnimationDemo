@@ -8,7 +8,6 @@
 
 #import "AISettingCellAdapter.h"
 
-
 /**
  装载AISettingModel的适配器
  */

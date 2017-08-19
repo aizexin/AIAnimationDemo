@@ -9,6 +9,7 @@
 #import "AILoginAnimationViewController.h"
 #import "UIView+AISetRect.h"
 #import "AITextFiled.h"
+
 @interface AILoginAnimationViewController ()<CAAnimationDelegate,UITextFieldDelegate>
 
 /**

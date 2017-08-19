@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AITapModel.h"
+
 @interface AITapTableViewCell : UITableViewCell
 
 /** 接收数据*/

@@ -26,7 +26,6 @@
     headlinelabel.textColor     = [UIColor flatWhiteColor];
     headlinelabel.text          = @"辉光效果";
     [headlinelabel sizeToFit];
-//    headlinelabel.center        = self.view.center;
     [self.view addSubview:headlinelabel];
     
     FBShimmeringView *shimmeringView           = [[FBShimmeringView alloc] initWithFrame:headlinelabel.bounds];

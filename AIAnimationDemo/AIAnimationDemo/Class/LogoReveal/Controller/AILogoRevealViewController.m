@@ -11,8 +11,8 @@
 #import "AIRWLogoLayer.h"
 #import "AIRevealAnimator.h"
 #import "AILogoDetailViewController.h"
-@interface AILogoRevealViewController ()<UINavigationControllerDelegate>
 
+@interface AILogoRevealViewController ()<UINavigationControllerDelegate>
 
 /** 动画*/
 @property(nonatomic,strong)AIRevealAnimator *transition;

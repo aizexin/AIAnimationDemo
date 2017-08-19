@@ -18,7 +18,6 @@
         self.clipsToBounds = YES;
         _title             = name;
         
-//        self.autoresizingMask          = @[@(UIViewAutoresizingFlexibleHeight),@(UIViewContentModeScaleAspectFill)];
         self.layer.shouldRasterize     = YES;
         self.layer.rasterizationScale  = [UIScreen mainScreen].scale;
     }

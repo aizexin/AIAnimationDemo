@@ -11,6 +11,7 @@
 #import "AIPopAnimator.h"
 #import "AIGradientLayerNavgationDelegate.h"
 #import "AIHerbDetailViewController.h"
+
 @interface AIBeginnerCookViewController ()<UIViewControllerTransitioningDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *listView;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;

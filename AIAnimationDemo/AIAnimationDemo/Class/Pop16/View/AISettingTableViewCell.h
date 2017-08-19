@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AISettingCellAdapterProtocol.h"
+
 @interface AISettingTableViewCell : UITableViewCell
 
 /** 实现了AISettingCellAdapterProtocol 协议的数据*/

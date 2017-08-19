@@ -12,9 +12,6 @@
 
 @interface AIFoldContainerView ()<AIFoldRotatedViewDelegate>
 
-///** 是否折叠*/
-//@property(nonatomic,assign,getter=isFold)BOOL fold;
-
 /** 折叠到的目的view*/
 @property(nonatomic,weak)UIView *descView;
 /**

@@ -9,6 +9,7 @@
 #import "AISettingTableViewCell.h"
 #import "UIColor+AIExtension.h"
 #import "UIView+SetRect.h"
+
 @interface AISettingTableViewCell ()
 /** 图标 */
 @property (weak,nonatomic)UIImageView *iconImageView;

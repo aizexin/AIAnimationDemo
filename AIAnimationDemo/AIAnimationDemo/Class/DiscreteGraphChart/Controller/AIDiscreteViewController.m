@@ -8,6 +8,7 @@
 
 #import "AIDiscreteViewController.h"
 #import "AIDiscreteGraphChartView.h"
+
 @interface AIDiscreteViewController ()<AIDiscreteGraphChartDataSource>
 
 /** 点数据源*/
@@ -102,6 +103,7 @@
 }
 
 #pragma mark -AIDiscreteGraphChartDataSource 
+
 -(AIDiscreteGraphChartCell *)discreteGraphChartView:(AIDiscreteGraphChartView *)chartView indexCell:(NSInteger)indexCell {
     AIDiscreteGraphChartCell *cell = [[AIDiscreteGraphChartCell alloc]init];
     cell.maxValue                  = 100;

@@ -10,6 +10,7 @@
 #import "AIDownloadButton.h"
 #import "AFNetHelper.h"
 #import "AIDownLoadTaskModel.h"
+
 @interface AIDownloadButtonViewController ()
 @property (weak, nonatomic) IBOutlet AIDownloadButton *downLoadButton;
 /** 进程*/

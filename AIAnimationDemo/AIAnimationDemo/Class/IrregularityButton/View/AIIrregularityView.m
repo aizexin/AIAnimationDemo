@@ -41,15 +41,12 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     self.imageLayer.frame = self.bounds;
-//    self.maskLayer.path   = [UIBezierPath bezierPathWithOvalInRect:self.bounds].CGPath;
 }
 
 -(void)didMoveToWindow {
     [super didMoveToWindow];
     [self.layer addSublayer:self.imageLayer];
-//    self.imageLayer.mask = self.maskLayer;
     self.layer.mask      = self.maskLayer;
-//    [self.layer addSublayer:self.shapeLayer];
 }
 
 //判断点是否在响应范围

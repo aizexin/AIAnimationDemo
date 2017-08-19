@@ -8,6 +8,7 @@
 
 #import "AIAutoTextViewViewController.h"
 #import "AITextView.h"
+
 @interface AIAutoTextViewViewController ()
 @property(nonatomic,weak)AITextView *textView;
 @end

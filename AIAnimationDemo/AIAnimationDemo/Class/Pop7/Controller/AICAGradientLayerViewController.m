@@ -10,24 +10,18 @@
 #import "CAGradientMaskView.h"
 #import "AIGradientLayerNavgationDelegate.h"
 #import "AIPush2ViewController.h"
+
 @interface AICAGradientLayerViewController ()
-//@property (nonatomic, strong) NSArray   *images;
-//@property (nonatomic)         NSInteger  count;
 
 @property (nonatomic, strong) CAGradientMaskView *tranformFadeViewOne;
-//@property (nonatomic, strong) CAGradientMaskView *tranformFadeViewTwo;
+
 @end
 
 @implementation AICAGradientLayerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.tranformFadeViewOne               = [[CAGradientMaskView alloc] initWithFrame:self.view.bounds];
-//    self.tranformFadeViewOne.contentMode   = UIViewContentModeScaleAspectFill;
-//    self.tranformFadeViewOne.fadeDuradtion = 4.f;
-//    self.tranformFadeViewOne.image         = [UIImage imageNamed:@"1"];//[self currentImage];
-//    [self.view addSubview:self.tranformFadeViewOne];
-//    [self.tranformFadeViewOne fadeAnimated:YES];
+
     self.view.backgroundColor = [UIColor whiteColor];
     
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
@@ -43,9 +37,6 @@
     imageView.image        = [UIImage imageNamed:@"1"];
     [self.view addSubview:imageView];
 }
-
-
-
 
 /**
  点击事件

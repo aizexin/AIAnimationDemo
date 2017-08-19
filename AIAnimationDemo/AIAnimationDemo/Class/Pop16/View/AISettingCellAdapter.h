@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AISettingCellAdapterProtocol.h"
+
 @interface AISettingCellAdapter : NSObject<AISettingCellAdapterProtocol>
 
 /**

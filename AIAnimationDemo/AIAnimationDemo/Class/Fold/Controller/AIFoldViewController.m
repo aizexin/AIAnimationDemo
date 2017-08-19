@@ -8,6 +8,7 @@
 
 #import "AIFoldViewController.h"
 #import "AIFoldContainerView.h"
+
 @interface AIFoldViewController ()
 
 @property(nonatomic,weak)AIFoldContainerView *foldContainerView;

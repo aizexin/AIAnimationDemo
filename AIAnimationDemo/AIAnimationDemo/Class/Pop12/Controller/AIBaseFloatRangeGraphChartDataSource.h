@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <ResearchKit.h>
+
 @interface AIBaseFloatRangeGraphChartDataSource : NSObject<ORKGraphChartViewDataSource>
 /** shujuaun*/
 @property(nonatomic,strong)NSArray<NSArray<ORKRangedPoint*>*> *plotPoints;

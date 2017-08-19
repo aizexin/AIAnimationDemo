@@ -9,6 +9,7 @@
 #import "AIDoodleViewController.h"
 #import "AFBrushBoard.h"
 #import <MLTransition.h>
+
 @interface AIDoodleViewController ()<UIGestureRecognizerDelegate>
 
 @end
