@@ -9,6 +9,7 @@
 #import "AIPlayerButtonViewController.h"
 #import "AIPlayerButton.h"
 #import "AILoadingView.h"
+#import "AIAnimationDemo-Swift.h"
 
 @interface AIPlayerButtonViewController ()
 @property(nonatomic,weak)AILoadingView *loadingView;
@@ -30,6 +31,9 @@
 
     [loadingView starAnimation];
     [self.view addSubview:loadingView];
+    
+    AIWaveView *waveView   = [[AIWaveView alloc]initWithFrame:CGRectMake(100, 300, 30, 30)];
+    [self.view addSubview:waveView];
     
 }
 -(void)dealloc {

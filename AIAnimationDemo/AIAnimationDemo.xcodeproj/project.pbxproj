@@ -405,7 +405,6 @@
 		45B3A00E1E1A91F000E9C37D /* AISnowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISnowView.m; sourceTree = "<group>"; };
 		45B6D4BE1E841C80008CFC4B /* AILogoRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILogoRevealViewController.h; sourceTree = "<group>"; };
 		45B6D4BF1E841C80008CFC4B /* AILogoRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILogoRevealViewController.m; sourceTree = "<group>"; };
-		45C0A6271F4465B90080BCB6 /* AIAnimationDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIAnimationDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		45C0A6281F4465B90080BCB6 /* AIWaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWaveView.swift; sourceTree = "<group>"; };
 		45C15B0E1E2D12F70021E9D3 /* AIPackingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPackingListViewController.h; sourceTree = "<group>"; };
 		45C15B0F1E2D12F70021E9D3 /* AIPackingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPackingListViewController.m; sourceTree = "<group>"; };
@@ -509,6 +508,7 @@
 		45F7E50C1E11526C00721BCB /* AIPlayMusicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayMusicView.m; sourceTree = "<group>"; };
 		45F7E50E1E11528800721BCB /* AIPlayMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayMusicViewController.h; sourceTree = "<group>"; };
 		45F7E50F1E11528800721BCB /* AIPlayMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayMusicViewController.m; sourceTree = "<group>"; };
+		45FB98F91F4EC61E003A3E6D /* AIAnimationDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIAnimationDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		45FF8FC41DDDED0C00FC7584 /* AIPresentCustomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPresentCustomTransition.h; sourceTree = "<group>"; };
 		45FF8FC51DDDED0C00FC7584 /* AIPresentCustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPresentCustomTransition.m; sourceTree = "<group>"; };
 		45FF8FC71DDDEE8500FC7584 /* AIPresentDestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPresentDestViewController.h; sourceTree = "<group>"; };
@@ -1238,6 +1238,7 @@
 				455E28BF1D98C58100E3DA4D /* Class */,
 				455E288F1D98C0D300E3DA4D /* AppDelegate.h */,
 				455E28901D98C0D300E3DA4D /* AppDelegate.m */,
+				45FB98F91F4EC61E003A3E6D /* AIAnimationDemo-Bridging-Header.h */,
 				455E28C11D98C5C800E3DA4D /* Header.h */,
 				455E288C1D98C0D300E3DA4D /* Supporting Files */,
 			);
@@ -1430,7 +1431,6 @@
 				45D28A991F35FE2000F11E12 /* AILoadingView.h */,
 				45D28A9A1F35FE2000F11E12 /* AILoadingView.m */,
 				45C0A6281F4465B90080BCB6 /* AIWaveView.swift */,
-				45C0A6271F4465B90080BCB6 /* AIAnimationDemo-Bridging-Header.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2542,6 +2542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AIAnimationDemo/Header.h";
 				INFOPLIST_FILE = AIAnimationDemo/Info.plist;
@@ -2549,7 +2550,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = aizexin.AIAnimationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "AIAnimationDemo/Class/PlayerButton/View/AIAnimationDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AIAnimationDemo/AIAnimationDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -2562,6 +2563,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AIAnimationDemo/Header.h";
 				INFOPLIST_FILE = AIAnimationDemo/Info.plist;
@@ -2569,7 +2571,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = aizexin.AIAnimationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "AIAnimationDemo/Class/PlayerButton/View/AIAnimationDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AIAnimationDemo/AIAnimationDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
