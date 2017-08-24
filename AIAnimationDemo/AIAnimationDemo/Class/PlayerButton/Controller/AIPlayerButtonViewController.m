@@ -35,6 +35,9 @@
     AIWaveView *waveView   = [[AIWaveView alloc]initWithFrame:CGRectMake(100, 300, 30, 30)];
     [self.view addSubview:waveView];
     
+    AILoadingPointView *loadingPointView  = [[AILoadingPointView alloc]initWithFrame:CGRectMake(100, 400, 200, 60)];
+    [self.view addSubview:loadingPointView];
+    
 }
 -(void)dealloc {
     [self.loadingView stopAnimation];

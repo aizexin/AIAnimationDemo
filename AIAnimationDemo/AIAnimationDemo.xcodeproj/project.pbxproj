@@ -164,6 +164,7 @@
 		45F6DE2C1DB09A9200DC574A /* CAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6DE2B1DB09A9200DC574A /* CAGradientView.m */; };
 		45F7E50D1E11526C00721BCB /* AIPlayMusicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E50C1E11526C00721BCB /* AIPlayMusicView.m */; };
 		45F7E5101E11528800721BCB /* AIPlayMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F7E50F1E11528800721BCB /* AIPlayMusicViewController.m */; };
+		45FB98FB1F4EE48B003A3E6D /* AILoadingPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB98FA1F4EE48B003A3E6D /* AILoadingPointView.swift */; };
 		45FF8FC61DDDED0C00FC7584 /* AIPresentCustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FC51DDDED0C00FC7584 /* AIPresentCustomTransition.m */; };
 		45FF8FC91DDDEE8500FC7584 /* AIPresentDestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FC81DDDEE8500FC7584 /* AIPresentDestViewController.m */; };
 		45FF8FCC1DDEAD0000FC7584 /* AIPresentAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF8FCB1DDEAD0000FC7584 /* AIPresentAnimation.m */; };
@@ -509,6 +510,7 @@
 		45F7E50E1E11528800721BCB /* AIPlayMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayMusicViewController.h; sourceTree = "<group>"; };
 		45F7E50F1E11528800721BCB /* AIPlayMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayMusicViewController.m; sourceTree = "<group>"; };
 		45FB98F91F4EC61E003A3E6D /* AIAnimationDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIAnimationDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		45FB98FA1F4EE48B003A3E6D /* AILoadingPointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoadingPointView.swift; sourceTree = "<group>"; };
 		45FF8FC41DDDED0C00FC7584 /* AIPresentCustomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPresentCustomTransition.h; sourceTree = "<group>"; };
 		45FF8FC51DDDED0C00FC7584 /* AIPresentCustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPresentCustomTransition.m; sourceTree = "<group>"; };
 		45FF8FC71DDDEE8500FC7584 /* AIPresentDestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPresentDestViewController.h; sourceTree = "<group>"; };
@@ -1431,6 +1433,7 @@
 				45D28A991F35FE2000F11E12 /* AILoadingView.h */,
 				45D28A9A1F35FE2000F11E12 /* AILoadingView.m */,
 				45C0A6281F4465B90080BCB6 /* AIWaveView.swift */,
+				45FB98FA1F4EE48B003A3E6D /* AILoadingPointView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2391,6 +2394,7 @@
 				45D1103E1E45C13700BB1CEB /* AIAnimationMaskLabel.m in Sources */,
 				45E44A331DE4314A009B50BC /* AILoginAnimationViewController.m in Sources */,
 				45D43E111DACDD120022F86A /* UIView+AnimationProperty.m in Sources */,
+				45FB98FB1F4EE48B003A3E6D /* AILoadingPointView.swift in Sources */,
 				455DF5CE1DB4940C00D3E84A /* AIWellComeLoadViewController.m in Sources */,
 				456DFD651DCB066400011AD7 /* AIGradientTransitionAnimation.m in Sources */,
 				45EA3F491E01838500F7B8C2 /* AIAvatarView.m in Sources */,
