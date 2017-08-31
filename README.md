@@ -1,7 +1,7 @@
 #AIAnimationDemo
 
 
-+ 模仿内涵段子loading
++ 模仿内涵段子loading[简书](http://www.jianshu.com/p/030e9a233eed)
 
 ![loading](https://github.com/aizexin/AIAnimationDemo/blob/master/AIAnimationDemo/GIF/loading.gif)
 
