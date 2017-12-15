@@ -57,6 +57,7 @@
  */
 #define  iPhone6_6sPlus (Width == 414.f && Height == 736.f ? YES : NO)
 
+#define KStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
 @interface UIView(AISetRect)
 
 
