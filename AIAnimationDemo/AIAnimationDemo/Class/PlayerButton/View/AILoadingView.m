@@ -61,6 +61,8 @@
     
     CAAnimationGroup *strokeAniamtionGroup = [CAAnimationGroup animation];
     strokeAniamtionGroup.duration          = self.duration;
+    strokeAniamtionGroup.fillMode          = kCAFillModeForwards;
+    strokeAniamtionGroup.removedOnCompletion = NO;
     
     strokeAniamtionGroup.delegate          = self;
     strokeAniamtionGroup.animations        = @[strokeEndAnimation,strokeStartAnimation];
