@@ -29,20 +29,21 @@
         [self.layer addSublayer:self.progressLayer];
         
         self.emitter        = [CAEmitterLayer layer];
-        self.emitter.emitterSize = CGSizeMake(2, 2);
+        self.emitter.emitterSize = CGSizeMake(4, 4);
+        self.emitter.frame  = CGRectMake(0, 0, 4, 4);
 //        self.emitter.preservesDepth = YES;
         
         self.cell           = [[CAEmitterCell alloc]init];
         _cell.contents      = (__bridge id _Nullable)([UIImage imageNamed:@"flake.png"].CGImage);
-        _cell.birthRate     = 10;
-        _cell.scale         = 0.3;
-        _cell.lifetime      = 3;
+        _cell.birthRate     = 60;
+        _cell.scale         = 0.15;
+        _cell.lifetime      = .5;
         _cell.color         = [UIColor blackColor].CGColor;
         _cell.alphaSpeed    = -0.3;
-        _cell.velocity      = -10;
-        _cell.velocityRange = -10;
+        _cell.velocity      = -40;
+        _cell.velocityRange = -15;
         _cell.xAcceleration = -M_PI;
-        _cell.emissionRange = 2.0 / (2*M_PI);
+        _cell.emissionRange = 6.0 / (2*M_PI);
         
         _emitter.emitterCells = @[_cell];
         
@@ -80,8 +81,8 @@
     
     CAAnimationGroup *emitterAnimationGroup = [CAAnimationGroup animation];
     emitterAnimationGroup.duration          = duration;
-//    emitterAnimation.repeatDuration         = 5.;
     emitterAnimationGroup.animations        = @[emitterAnimation,emitterOrientationAnimation];
     [self.emitter addAnimation:emitterAnimationGroup forKey:nil];
 }
+
 @end
