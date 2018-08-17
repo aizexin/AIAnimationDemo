@@ -24,21 +24,24 @@
     if (self) {
         self.progressLayer = [CAShapeLayer layer];
         self.progressLayer.lineWidth = 4;
-        self.progressLayer.strokeColor = [UIColor redColor].CGColor;
+        self.progressLayer.strokeColor = [UIColor blackColor].CGColor;
         self.progressLayer.fillColor   = [UIColor clearColor].CGColor;
         [self.layer addSublayer:self.progressLayer];
         
         self.emitter        = [CAEmitterLayer layer];
+        self.emitter.emitterSize = CGSizeMake(2, 2);
+//        self.emitter.preservesDepth = YES;
         
         self.cell           = [[CAEmitterCell alloc]init];
         _cell.contents      = (__bridge id _Nullable)([UIImage imageNamed:@"flake.png"].CGImage);
-        _cell.birthRate     = 100;
-        _cell.scale         = 0.1;
+        _cell.birthRate     = 10;
+        _cell.scale         = 0.3;
         _cell.lifetime      = 3;
         _cell.color         = [UIColor blackColor].CGColor;
         _cell.alphaSpeed    = -0.3;
-        _cell.velocity      = 5;
-        _cell.velocityRange = 5;
+        _cell.velocity      = -10;
+        _cell.velocityRange = -10;
+        _cell.xAcceleration = -M_PI;
         _cell.emissionRange = 2.0 / (2*M_PI);
         
         _emitter.emitterCells = @[_cell];
@@ -54,11 +57,11 @@
     _emitter.emitterPosition = CGPointMake(_emitter.frame.size.width * 0.5, _emitter.frame.size.height * 0.5);
 }
 
-- (void)beginAnimation {
+- (void)beginAnimationWithDuration:(CGFloat)duration {
     CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
     strokeStartAnimation.fromValue         = @0.;
     strokeStartAnimation.toValue           = @1.;
-    strokeStartAnimation.duration          = 1.5;
+    strokeStartAnimation.duration          = duration;
     [self.progressLayer addAnimation:strokeStartAnimation forKey:@"strokeStartAnimation"];
     
     //发射器动画
@@ -76,8 +79,8 @@
     emitterOrientationAnimation.toValue    = @(M_PI *2);
     
     CAAnimationGroup *emitterAnimationGroup = [CAAnimationGroup animation];
-    emitterAnimationGroup.duration          = 1.5;
-    emitterAnimation.repeatDuration         = 5.;
+    emitterAnimationGroup.duration          = duration;
+//    emitterAnimation.repeatDuration         = 5.;
     emitterAnimationGroup.animations        = @[emitterAnimation,emitterOrientationAnimation];
     [self.emitter addAnimation:emitterAnimationGroup forKey:nil];
 }

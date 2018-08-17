@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AISparkView : UIView
-- (void)beginAnimation;
+- (void)beginAnimationWithDuration:(CGFloat)duration;
 @end

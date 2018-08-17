@@ -40,7 +40,7 @@
     [self.view addSubview:loadingPointView];
     
     AISparkView *sparkView  = [[AISparkView alloc]initWithFrame:CGRectMake(100, 500, 60, 60)];
-    [sparkView beginAnimation];
+    [sparkView beginAnimationWithDuration:6];
     [self.view addSubview:sparkView];
     
 }
