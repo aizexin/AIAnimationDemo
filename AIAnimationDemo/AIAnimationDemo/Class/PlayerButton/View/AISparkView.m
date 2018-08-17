@@ -55,6 +55,30 @@
 }
 
 - (void)beginAnimation {
+    CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+    strokeStartAnimation.fromValue         = @0.;
+    strokeStartAnimation.toValue           = @1.;
+    strokeStartAnimation.duration          = 1.5;
+    [self.progressLayer addAnimation:strokeStartAnimation forKey:@"strokeStartAnimation"];
     
+    //发射器动画
+    CAKeyframeAnimation *emitterAnimation   = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    emitterAnimation.path                   = [UIBezierPath
+                                               bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_middleY)
+                                                                radius:self.ai_width *.5
+                                                            startAngle:-M_PI_2
+                                                              endAngle:2 * M_PI -M_PI_2
+                                                             clockwise:YES].CGPath;
+    emitterAnimation.calculationMode        = kCAAnimationPaced;
+    //旋转
+    CABasicAnimation    *emitterOrientationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    emitterOrientationAnimation.fromValue  = @0.;
+    emitterOrientationAnimation.toValue    = @(M_PI *2);
+    
+    CAAnimationGroup *emitterAnimationGroup = [CAAnimationGroup animation];
+    emitterAnimationGroup.duration          = 1.5;
+    emitterAnimation.repeatDuration         = 5.;
+    emitterAnimationGroup.animations        = @[emitterAnimation,emitterOrientationAnimation];
+    [self.emitter addAnimation:emitterAnimationGroup forKey:nil];
 }
 @end
