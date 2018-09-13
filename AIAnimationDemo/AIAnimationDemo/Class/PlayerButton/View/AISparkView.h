@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AISparkView : UIView
+- (instancetype)initWithLineWidth:(CGFloat)linewidth;
 - (void)beginAnimationWithDuration:(CGFloat)duration;
 @end

@@ -39,7 +39,8 @@
     AILoadingPointView *loadingPointView  = [[AILoadingPointView alloc]initWithFrame:CGRectMake(100, 400, 200, 60)];
     [self.view addSubview:loadingPointView];
     
-    AISparkView *sparkView  = [[AISparkView alloc]initWithFrame:CGRectMake(100, 500, 60, 60)];
+    AISparkView *sparkView  = [[AISparkView alloc]initWithLineWidth:4];
+    sparkView.frame         = CGRectMake(100, 500, 60, 60);
     [sparkView beginAnimationWithDuration:6];
     [self.view addSubview:sparkView];
     

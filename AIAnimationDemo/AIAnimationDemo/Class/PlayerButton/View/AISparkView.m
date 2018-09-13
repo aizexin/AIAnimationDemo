@@ -12,26 +12,27 @@
 @property(nonatomic, strong)CAShapeLayer *progressLayer;
 @property(nonatomic, strong)CAEmitterLayer *emitter;
 @property(nonatomic, strong)CAEmitterCell *cell;
-/** 半径*/
-@property(nonatomic,assign)CGFloat radius;
+/** 宽*/
+@property(nonatomic,assign)CGFloat lineWidth;
 @end
 
 @implementation AISparkView
 
-- (instancetype)initWithFrame:(CGRect)frame
+-(instancetype)initWithLineWidth:(CGFloat)linewidth
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
+        _lineWidth         = linewidth;
         self.progressLayer = [CAShapeLayer layer];
-        self.progressLayer.lineWidth = 4;
+        self.progressLayer.lineWidth = _lineWidth;
         self.progressLayer.strokeColor = [UIColor blackColor].CGColor;
         self.progressLayer.fillColor   = [UIColor clearColor].CGColor;
         [self.layer addSublayer:self.progressLayer];
         
         self.emitter        = [CAEmitterLayer layer];
-        self.emitter.emitterSize = CGSizeMake(4, 4);
-        self.emitter.frame  = CGRectMake(0, 0, 4, 4);
-//        self.emitter.preservesDepth = YES;
+        self.emitter.emitterSize = CGSizeMake(_lineWidth, _lineWidth);
+        self.emitter.frame  = CGRectMake(0, 0, _lineWidth, _lineWidth);
+        self.emitter.hidden = YES;
         
         self.cell           = [[CAEmitterCell alloc]init];
         _cell.contents      = (__bridge id _Nullable)([UIImage imageNamed:@"flake.png"].CGImage);
@@ -43,7 +44,7 @@
         _cell.velocity      = -35;
         _cell.velocityRange = -15;
         _cell.xAcceleration = -M_PI;
-        _cell.emissionRange = 4.0 / (2*M_PI);
+        _cell.emissionRange = _lineWidth / (2*M_PI);
         
         _emitter.emitterCells = @[_cell];
         
@@ -54,11 +55,21 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.progressLayer.path  = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_middleY) radius:self.ai_width *.5  startAngle:-M_PI_2 endAngle:2 * M_PI -M_PI_2 clockwise:YES].CGPath;
+    CGFloat radius           = MIN(self.ai_width, self.ai_height) * 0.5;
+    self.progressLayer.path  = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.ai_middleX, self.ai_middleY) radius:radius  startAngle:-M_PI_2 endAngle:2 * M_PI -M_PI_2 clockwise:YES].CGPath;
     _emitter.emitterPosition = CGPointMake(_emitter.frame.size.width * 0.5, _emitter.frame.size.height * 0.5);
 }
 
+//MARK: <CAAnimationDelegate>
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    NSString *name = [anim valueForKey:@"strokeStartAnimation_key"];
+    if ([name isEqualToString:@"strokeStartAnimation"]) {
+        self.emitter.hidden  = YES;
+    }
+}
+
 - (void)beginAnimationWithDuration:(CGFloat)duration {
+    self.emitter.hidden                    = NO;
     CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
     strokeStartAnimation.fromValue         = @0.;
     strokeStartAnimation.toValue           = @1.;
@@ -90,11 +101,5 @@
     [self.emitter addAnimation:emitterAnimationGroup forKey:nil];
 }
 
-//MARK: <CAAnimationDelegate>
--(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    NSString *name = [anim valueForKey:@"strokeStartAnimation_key"];
-    if ([name isEqualToString:@"strokeStartAnimation"]) {
-        self.emitter.hidden  = YES;
-    }
-}
+
 @end
