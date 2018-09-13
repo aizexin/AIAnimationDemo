@@ -86,6 +86,7 @@
     CAAnimationGroup *emitterAnimationGroup = [CAAnimationGroup animation];
     emitterAnimationGroup.duration          = duration;
     emitterAnimationGroup.animations        = @[emitterAnimation,emitterOrientationAnimation];
+    emitterAnimationGroup.fillMode          = kCAFillModeForwards;
     [self.emitter addAnimation:emitterAnimationGroup forKey:nil];
 }
 
