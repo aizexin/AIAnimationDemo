@@ -17,7 +17,7 @@ class AILoadingPointView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         textLayer                 = CATextLayer()
-        textLayer.alignmentMode   = kCAAlignmentLeft
+        textLayer.alignmentMode   = CATextLayerAlignmentMode.left
         textLayer.foregroundColor = UIColor.black.cgColor
         textLayer.isWrapped       = true
         textLayer.string          = "loading..."
